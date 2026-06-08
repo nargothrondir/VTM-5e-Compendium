@@ -1,0 +1,38 @@
+{
+  "folder": "DCRmwL9yjifodIBD",
+  "name": "Вада: (•) Підозрюваний",
+  "type": "feature",
+  "_id": "v00PH927qk3O76fW",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>У вас зовсім не ладиться з цією сектою. Ви ухилилися від послуги, порушили клятву або зробили щось подібне. Ви можете намагатися залишатися поза увагою, але якщо ви якимось чином не виправите ситуацію, ви отримаєте штраф у два кубики до всіх соціальних перевірок, що стосуються ображеної фракції.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913178376,
+    "modifiedTime": 1753913207712,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!v00PH927qk3O76fW"
+}

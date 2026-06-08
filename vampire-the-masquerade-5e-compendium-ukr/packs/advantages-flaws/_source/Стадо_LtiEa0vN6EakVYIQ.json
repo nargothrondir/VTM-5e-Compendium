@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "name": "Стадо",
+  "color": "#ab1212",
+  "sorting": "a",
+  "_id": "LtiEa0vN6EakVYIQ",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913291654
+  },
+  "_key": "!folders!LtiEa0vN6EakVYIQ"
+}

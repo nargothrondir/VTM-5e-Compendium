@@ -1,0 +1,38 @@
+{
+  "folder": "84wmdbMKxE6cGQFj",
+  "name": "Союзники (Надійність)",
+  "type": "feature",
+  "_id": "1WIRwkPAGv8WyEI8",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Без крапок: Союзника не можна викликати за бажанням, але він допоможе вам, коли буде поблизу.</p><p>• Коли ви їх кличете, вони з'являються в половині випадків.</p><p>•• Коли ви їх кличете, вони з'являються протягом 1–10 годин (киньте кубик).</p><p>••• Коли ви їх кличете, вони з'являються якомога швидше.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 0,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1753832271242,
+    "modifiedTime": 1753837261668,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!1WIRwkPAGv8WyEI8"
+}

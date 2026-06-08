@@ -1,0 +1,38 @@
+{
+  "folder": "QuR4Wj0esibid3Qo",
+  "name": "• Швець",
+  "type": "feature",
+  "_id": "miFPZD1A0aJhQ4UM",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви можете створювати або знаходити Маски. Створення Маски займає три дні за крапку і, можливо, викриває вас в Інтернеті; знаходження Масок займає один день за крапку, але вимагає чогось натомість. Скільки саме, залежить від вашого впливу, результату соціальної перевірки або чогось іншого, що вирішить Оповідач</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1753832271242,
+    "modifiedTime": 1753832271242,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!miFPZD1A0aJhQ4UM"
+}

@@ -1,0 +1,41 @@
+{
+  "folder": "018Mfr6auKKYLXyI",
+  "name": "Зірковий магнетизм",
+  "type": "power",
+  "_id": "cdeuhdY4ngD6cYKq",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Presence_symbol.png",
+  "system": {
+    "description": "<p>Здібності Присутності користувача тепер впливають на людей, які бачать його в прямому ефірі або чують по телефону. Однак записані зображення або повідомлення не зберігають ефекту. </p><p>■ Вартість: Одна додаткова Перевірка Збудження </p><p>■ Система: Благоговіння, Залякування та Зачарування можуть передаватися через прямі трансляції на екранах або по телефонах. Якщо використовується Зачарування, ім'я жертви повинно бути чітко вимовлене, оскільки ця здатність впливає лише на одну людину за раз. Будь-хто інший, хто дивиться ту саму трансляцію, вважатиме користувача лише чарівним, але не надприродно. </p><p>■ Тривалість: Як у використаної здатності</p>",
+    "bonuses": [],
+    "discipline": "presence",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {
+    "vtm5e": {
+      "dataItemId": "power-star-magnetism"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735186900,
+    "modifiedTime": 1753740850869,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!cdeuhdY4ngD6cYKq"
+}

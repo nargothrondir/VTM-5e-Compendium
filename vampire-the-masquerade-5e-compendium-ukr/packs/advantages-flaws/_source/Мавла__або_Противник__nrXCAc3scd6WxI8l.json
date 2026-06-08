@@ -1,0 +1,22 @@
+{
+  "name": "Мавла (або Противник)",
+  "sorting": "a",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "type": "Item",
+  "_id": "nrXCAc3scd6WxI8l",
+  "description": "",
+  "sort": 0,
+  "color": "#890b0b",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913334123
+  },
+  "_key": "!folders!nrXCAc3scd6WxI8l"
+}

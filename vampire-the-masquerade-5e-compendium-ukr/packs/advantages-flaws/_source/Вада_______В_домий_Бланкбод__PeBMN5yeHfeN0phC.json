@@ -1,0 +1,38 @@
+{
+  "folder": "ssc0xboCLq8X00rA",
+  "name": "Вада: (••) Відомий Бланкбоді",
+  "type": "feature",
+  "_id": "PeBMN5yeHfeN0phC",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ваші біометричні дані, ім'я, історія, відомі соратники та псевдоніми з'являються в кількох базах даних розвідувальних служб, позначені як потенційний терорист. Будь-який інквізитор може прочитати між рядків і впізнати в вас вампіра.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753832271242,
+    "modifiedTime": 1753837714396,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!PeBMN5yeHfeN0phC"
+}

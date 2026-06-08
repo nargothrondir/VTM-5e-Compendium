@@ -1,0 +1,38 @@
+{
+  "folder": "ssc0xboCLq8X00rA",
+  "name": "Вада: (•) Відомий труп",
+  "type": "feature",
+  "_id": "1AiiwBZyHa0Sqnoc",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Люди знають, що ви нещодавно померли, і реагують шоком і жахом, якщо ви з'являєтеся серед них. Ця Вада також застосовується до будь-яких перевірок вашої особистості в базах даних.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753832271242,
+    "modifiedTime": 1753837671212,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!1AiiwBZyHa0Sqnoc"
+}

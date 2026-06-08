@@ -1,0 +1,38 @@
+{
+  "folder": "nrXCAc3scd6WxI8l",
+  "name": "Мавла",
+  "type": "feature",
+  "_id": "0SdeMFOM2s7NULfM",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Загалом, Мавла надають корисне слово та час від часу політичну підтримку або прикриття, але вони не ведуть ваші битви і не використовують цінні послуги. Якщо вони змушені це зробити заради себе, щоб допомогти вам, ви, ймовірно, втратите крапку або більше цієї Передумови, викликавши їхній гнів. Персонажі також можуть отримати одноразові Малі Послуги (с. 315) від інших Кревних, лише під час створення персонажа. Ці послуги коштують половину балів (округлюючи вгору) від еквівалентного Мавли.</p><p>• Неонат</p><p>•• Ансілла</p><p>••• Старійшина</p><p>•••• Член Ради Примогенів або Революційної Ради Анархів</p><p>••••• Принц або Барон</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 0,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753832271242,
+    "modifiedTime": 1753837928157,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!0SdeMFOM2s7NULfM"
+}

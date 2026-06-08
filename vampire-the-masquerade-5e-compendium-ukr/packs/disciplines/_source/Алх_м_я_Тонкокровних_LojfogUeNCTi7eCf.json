@@ -1,0 +1,22 @@
+{
+  "name": "Алхімія Тонкокровних",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "LojfogUeNCTi7eCf",
+  "description": "",
+  "sort": 100000,
+  "color": "#27052e",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735190422,
+    "modifiedTime": 1745735190422,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!LojfogUeNCTi7eCf"
+}

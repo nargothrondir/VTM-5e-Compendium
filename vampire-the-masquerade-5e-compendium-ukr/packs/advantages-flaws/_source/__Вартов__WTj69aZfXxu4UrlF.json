@@ -1,0 +1,38 @@
+{
+  "folder": "MYHjid6HhGRlM2jg",
+  "name": "• Вартові",
+  "type": "feature",
+  "_id": "WTj69aZfXxu4UrlF",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>У вас є або приватна охорона, або злочинні головорізи, що охороняють ваш притулок. Кожна крапка цієї Переваги забезпечує чотирьох Середньостатистичних охоронців і одного Обдарованого боса (див. Шаблони смертних, с. 185). Якщо охоронці будуть тут помітними, купуйте цю Перевагу обережно.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753911965519,
+    "modifiedTime": 1753911985948,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!WTj69aZfXxu4UrlF"
+}

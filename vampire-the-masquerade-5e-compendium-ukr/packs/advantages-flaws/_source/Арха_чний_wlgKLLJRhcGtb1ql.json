@@ -1,0 +1,22 @@
+{
+  "name": "Архаїчний",
+  "sorting": "a",
+  "folder": "EjrgIip5FxV2L0vL",
+  "type": "Item",
+  "_id": "wlgKLLJRhcGtb1ql",
+  "description": "",
+  "sort": 800000,
+  "color": "#b86161",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753833995004
+  },
+  "_key": "!folders!wlgKLLJRhcGtb1ql"
+}

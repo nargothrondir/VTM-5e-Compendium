@@ -1,0 +1,22 @@
+{
+  "name": "Ритуали",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "kbzESDkH1DRXIEwH",
+  "description": "",
+  "sort": 100000,
+  "color": "#430e4e",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735189745,
+    "modifiedTime": 1745735189798,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!kbzESDkH1DRXIEwH"
+}

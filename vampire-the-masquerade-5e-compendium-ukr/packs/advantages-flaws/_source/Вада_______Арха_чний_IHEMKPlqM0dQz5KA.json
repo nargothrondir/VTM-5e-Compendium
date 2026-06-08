@@ -1,0 +1,38 @@
+{
+  "folder": "wlgKLLJRhcGtb1ql",
+  "name": "Вада: (••) Архаїчний",
+  "type": "feature",
+  "_id": "IHEMKPlqM0dQz5KA",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Лише ансілли або старші вампіри можуть брати будь-яку з цих Вад</p><p></p><p>Ви не змогли адаптуватися до сьогодення, або довго перебували в торпорі. Ви не можете користуватися комп'ютерами або мобільними телефонами, і ваш рейтинг Технології постійно дорівнює 0. Оповідач може накладати штраф в один кубик на інші пули кубиків, що стосуються дуже сучасної технології.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753834016845,
+    "modifiedTime": 1753834145693,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!IHEMKPlqM0dQz5KA"
+}

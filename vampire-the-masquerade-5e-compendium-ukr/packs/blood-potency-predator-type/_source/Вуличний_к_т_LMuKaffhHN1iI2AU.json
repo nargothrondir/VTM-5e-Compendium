@@ -1,0 +1,31 @@
+{
+  "folder": "r1wjwrIVzALpkFpo",
+  "name": "Вуличний кіт",
+  "type": "predatorType",
+  "_id": "LMuKaffhHN1iI2AU",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Агресивний хижак, ви вистежуєте, долаєте й п'єте кров у будь-кого, коли тільки можете. Ви можете погрожувати або Домінувати над жертвами, щоб змусити їх мовчати, або маскувати харчування під пограбування. Подумайте, як ви прийшли до такого прямого підходу до харчування і що змушує вас почуватися комфортно в не-житті, сповненому переслідувань, нападів, харчування та втеч. Ви могли бути безхатьком, солдатом SAS, найманим убивцею картелю або мисливцем на велику дичину.</p><p>■ Додайте спеціалізацію: Залякування (Напади) або Бійка (Захвати)</p><p>■ Отримайте одну цятку Стрімкості або Могутності</p><p>■ Втратьте одну цятку Людяності</p><p>■ Отримайте три цятки кримінальних Контактів</p>",
+    "bonuses": [],
+    "gamesystem": "vampire"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913528064,
+    "modifiedTime": 1753913750202,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!LMuKaffhHN1iI2AU"
+}

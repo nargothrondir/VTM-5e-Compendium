@@ -1,0 +1,38 @@
+{
+  "folder": "MYHjid6HhGRlM2jg",
+  "name": "• Охорона",
+  "type": "feature",
+  "_id": "5E4EKkMPx9nPohhq",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ваш притулок має якийсь магічний захист, що блокує надприродні сили. Можливо, ви не зможете його деактивувати, але він дозволяє вам проходити. Обговоріть обмеження вашого захисту з Оповідачем. Кожна крапка цієї Переваги додає один кубик до пулу для опору надприродному спостереженню, а також будь-якому іншому проникненню, яке Оповідач дозволить йому запобігти. Оповідач може вимагати, щоб ви мали Окультизм 3 або вище, або Криваву Магію, щоб придбати цю Перевагу.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753912409852,
+    "modifiedTime": 1753912445035,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!5E4EKkMPx9nPohhq"
+}

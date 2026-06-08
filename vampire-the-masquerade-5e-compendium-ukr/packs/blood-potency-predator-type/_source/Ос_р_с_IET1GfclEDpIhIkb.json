@@ -1,0 +1,31 @@
+{
+  "folder": "r1wjwrIVzALpkFpo",
+  "name": "Осіріс",
+  "type": "predatorType",
+  "_id": "IET1GfclEDpIhIkb",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви — знаменитість серед смертних, або ж ви керуєте культом, церквою чи чимось подібним. Ви харчуєтеся від своїх шанувальників або послідовників, які ставляться до вас як до божества. У вас завжди є доступ до легкої крові, але послідовники створюють проблеми з владою, організованою релігією та, власне, Камарильєю. У житті ви могли бути діджеєм, письменником, культистом, проповідником або організатором LARP.</p><p>■ Додайте спеціалізацію: Окультизм (конкретна традиція) або Виступ (конкретна сфера розваг)</p><p>■ Отримайте одну цятку Кривавого чаклунства (лише Тремер) або Присутності</p><p>■ Розподіліть три цятки між Передісторіями Слава та Стадо</p><p>■ Розподіліть дві цятки між Вадами Вороги та Міфічний</p>",
+    "bonuses": [],
+    "gamesystem": "vampire"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913646195,
+    "modifiedTime": 1753914209154,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!IET1GfclEDpIhIkb"
+}

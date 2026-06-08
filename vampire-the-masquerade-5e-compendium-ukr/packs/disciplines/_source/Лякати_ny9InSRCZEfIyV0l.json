@@ -1,0 +1,41 @@
+{
+  "folder": "DYv3jUMy9nMTEVmo",
+  "name": "Лякати",
+  "type": "power",
+  "_id": "ny9InSRCZEfIyV0l",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Presence_symbol.png",
+  "system": {
+    "description": "<p>Замість того, щоб приваблювати людей, вампір використовує Присутність, щоб відштовхувати. З цією силою користувач виглядає загрозливо і випромінює ауру небезпеки, достатньо потужну, щоб змусити більшість смертних уникати його уваги, а навіть вампірів двічі подумати, перш ніж діяти проти нього.</p><p>■ Вартість: Безкоштовно</p><p>■ Система: Додайте рейтинг Присутності користувача до будь-яких кидків Залякування. Атака на користувача вимагає кидка  Рішучість+Стриманість зі Складністю 2. Вампіри не можуть використовувати Благоговіння та Лякати одночасно.</p><p>■ Тривалість: Одна сцена або до свідомого припинення</p>",
+    "bonuses": [],
+    "discipline": "presence",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {
+    "vtm5e": {
+      "dataItemId": "power-daunt"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735186900,
+    "modifiedTime": 1753740824190,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!ny9InSRCZEfIyV0l"
+}

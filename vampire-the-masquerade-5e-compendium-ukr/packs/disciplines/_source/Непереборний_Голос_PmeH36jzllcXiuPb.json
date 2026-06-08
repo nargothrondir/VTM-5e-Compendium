@@ -1,0 +1,41 @@
+{
+  "folder": "g65Ijq0bqhBxiY6K",
+  "name": "Непереборний Голос",
+  "type": "power",
+  "_id": "PmeH36jzllcXiuPb",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Presence_symbol.png",
+  "system": {
+    "description": "<p>■ Амальгама: Домінування 1 </p><p>Присутність користувача стає каналом для Домінування. Вампіру тепер достатньо, щоб його голос був почутий, щоб застосовувати сили Домінування. </p><p>■ Вартість: Без додаткових витрат </p><p>■ Система: Голосу користувача тепер достатньо, щоб Домінувати ціль. Це не стосується голосів, переданих через електронні медіа, такі як телефони, телебачення або домофони. </p><p>■ Тривалість: Пасивна</p>",
+    "bonuses": [],
+    "discipline": "presence",
+    "duration": "",
+    "level": 4,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {
+    "vtm5e": {
+      "dataItemId": "power-discipline"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735186900,
+    "modifiedTime": 1753740838998,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!PmeH36jzllcXiuPb"
+}

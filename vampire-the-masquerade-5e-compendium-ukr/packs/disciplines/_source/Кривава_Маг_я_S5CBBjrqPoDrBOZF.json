@@ -1,0 +1,22 @@
+{
+  "name": "Кривава Магія",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "S5CBBjrqPoDrBOZF",
+  "description": "",
+  "sort": 100000,
+  "color": "#9b83a0",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735180944,
+    "modifiedTime": 1745735180968,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!S5CBBjrqPoDrBOZF"
+}

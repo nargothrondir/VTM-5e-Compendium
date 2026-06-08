@@ -1,0 +1,22 @@
+{
+  "name": "Криваві узи",
+  "sorting": "a",
+  "folder": "EjrgIip5FxV2L0vL",
+  "type": "Item",
+  "_id": "8nIbXfSlBnoD3RZ0",
+  "description": "",
+  "sort": 200000,
+  "color": "#b94b4b",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "fFnQnXT35gLXdlH1",
+    "modifiedTime": 1755634091730
+  },
+  "_key": "!folders!8nIbXfSlBnoD3RZ0"
+}

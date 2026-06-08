@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "name": "Слуги",
+  "color": "#6e0707",
+  "sorting": "a",
+  "_id": "4xmrseXHekiLDZU0",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913359896
+  },
+  "_key": "!folders!4xmrseXHekiLDZU0"
+}

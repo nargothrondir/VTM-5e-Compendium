@@ -1,0 +1,38 @@
+{
+  "folder": "DCRmwL9yjifodIBD",
+  "name": "Вада: (••) Вигнаний",
+  "type": "feature",
+  "_id": "2DSkpd7wqzAPpVEq",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ця секта вас абсолютно ненавидить. Ви зрадили їх, перейшли дорогу місцевому лідеру або воювали з ними в минулому. Члени цієї групи будуть активно діяти проти вас, якщо зможуть.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913144919,
+    "modifiedTime": 1753913170045,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!2DSkpd7wqzAPpVEq"
+}

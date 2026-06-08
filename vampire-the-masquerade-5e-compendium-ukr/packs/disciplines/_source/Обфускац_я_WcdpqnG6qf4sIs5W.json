@@ -1,0 +1,22 @@
+{
+  "name": "Обфускація",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "WcdpqnG6qf4sIs5W",
+  "description": "",
+  "sort": 100000,
+  "color": "#904d9d",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735184846,
+    "modifiedTime": 1745735184879,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!WcdpqnG6qf4sIs5W"
+}

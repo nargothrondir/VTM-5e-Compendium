@@ -1,0 +1,32 @@
+{
+  "name": "Бруха",
+  "type": "clan",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/SymbolClanBrujahV5.webp",
+  "system": {
+    "description": "<h5>Дисциплины: Величие, Мощь, Стремительность</h5><h5>Бруха всегда предпочитали тех, кому близки революционные взгляды как в политике, так и в культуре. Они даруют Становление людям, способным подвергать сомнению общепринятые нормы, и часто ищут союзников среди угнетённых и отверженных, признавая за ними недюжинную силу духа.</h5>",
+    "bonuses": [],
+    "gamesystem": "vampire",
+    "bane": "<p>Кровь клана Бруха — это бурлящий котёл. Им едва удаётся сдерживать свою ярость. При  малейшей провокации они могут сорваться. Пул воли при  попытках сдержать приступ бешеной ярости уменьшается на  количество  d10, равное тяжести изъяна вампира (при этом пул не может стать меньше 1d10).</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735152723,
+    "modifiedTime": 1753740218942,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_id": "XaH51H131W2MaRmq",
+  "sort": 700000,
+  "_key": "!items!XaH51H131W2MaRmq"
+}

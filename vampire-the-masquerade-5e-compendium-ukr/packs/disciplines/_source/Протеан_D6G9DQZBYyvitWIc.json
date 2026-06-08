@@ -1,0 +1,22 @@
+{
+  "name": "Протеан",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "D6G9DQZBYyvitWIc",
+  "description": "",
+  "sort": 100000,
+  "color": "#591a66",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735188114,
+    "modifiedTime": 1745735188146,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!D6G9DQZBYyvitWIc"
+}

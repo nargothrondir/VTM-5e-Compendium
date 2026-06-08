@@ -1,0 +1,22 @@
+{
+  "name": "Анімалізм",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "M6xo585GjuC9ambl",
+  "description": "",
+  "sort": 100000,
+  "color": "#a29ea3",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735176328,
+    "modifiedTime": 1745735176361,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!M6xo585GjuC9ambl"
+}

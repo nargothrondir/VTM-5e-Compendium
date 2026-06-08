@@ -1,0 +1,31 @@
+{
+  "folder": "r1wjwrIVzALpkFpo",
+  "name": "Пісочна людина",
+  "type": "predatorType",
+  "_id": "Kihkcn3qaxJlE3tT",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви покладаєтеся на свою скритність або Дисципліни, щоб харчуватися від сплячих жертв. Якщо вони не прокинуться під час харчування, вони не знатимуть про ваше існування. Можливо, у житті ви були дуже антисоціальними; ви не відчуваєте себе створеним для інтенсивного міжособистісного нічного життя або фізичного насильства більш екстравертних мисливців.</p><p>■ Додайте спеціалізацію: Медицина (Анестетики) або Скритність (Проникнення)</p><p>■ Отримайте одну цятку Прозріння або Затемнення</p><p>■ Отримайте одну цятку Ресурсів</p>",
+    "bonuses": [],
+    "gamesystem": "vampire"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913660459,
+    "modifiedTime": 1753914250162,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!Kihkcn3qaxJlE3tT"
+}

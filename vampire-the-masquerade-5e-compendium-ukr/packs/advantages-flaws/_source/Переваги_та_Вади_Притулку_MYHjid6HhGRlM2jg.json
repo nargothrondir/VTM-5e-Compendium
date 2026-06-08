@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "vB6siaIDTHBZXglQ",
+  "name": "Переваги та Вади Притулку",
+  "color": "#a29ea3",
+  "sorting": "a",
+  "_id": "MYHjid6HhGRlM2jg",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!MYHjid6HhGRlM2jg"
+}

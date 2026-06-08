@@ -1,0 +1,38 @@
+{
+  "folder": "eLvkdKDZQoLeUKTM",
+  "name": "Вада: (•) Фольклорний Блок",
+  "type": "feature",
+  "_id": "YqarO6YW6NlsQgDK",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Зіткнувшись з фольклорним блоком, ви повинні відступити від нього або витратити одиницю Сили Волі, щоб пройти крізь нього. Кожен фольклорний блок, який ви берете, рахується як окрема вада в один пункт. Фольклорні блоки включають:</p><p>◻ Святі символи, представлені будь-яким віруючим (навіть без Справжньої Віри)</p><p>◻ Перетин видимої проточної води (не рекомендується в деяких містах, таких як Амстердам, Стокгольм або Венеція)</p><p>◻ Перетин порогу дому без запрошення власника</p><p>◻ Біла тварина</p><p>◻ Часник</p><p>◻ Дикі троянди</p><p>◻ Розсипане насіння, яке ви не порахували</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753835148726,
+    "modifiedTime": 1753835837236,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!YqarO6YW6NlsQgDK"
+}

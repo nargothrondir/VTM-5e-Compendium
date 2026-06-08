@@ -1,0 +1,22 @@
+{
+  "name": "Контакти",
+  "sorting": "a",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "type": "Item",
+  "_id": "aRfUizKO5DlQORVk",
+  "description": "",
+  "sort": 0,
+  "color": "#b94b4b",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913274683
+  },
+  "_key": "!folders!aRfUizKO5DlQORVk"
+}

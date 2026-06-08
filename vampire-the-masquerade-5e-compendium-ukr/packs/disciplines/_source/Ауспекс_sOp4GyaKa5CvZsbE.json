@@ -1,0 +1,22 @@
+{
+  "name": "Ауспекс",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "sOp4GyaKa5CvZsbE",
+  "description": "",
+  "sort": 100000,
+  "color": "#9f90a2",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735179689,
+    "modifiedTime": 1745735179714,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!sOp4GyaKa5CvZsbE"
+}

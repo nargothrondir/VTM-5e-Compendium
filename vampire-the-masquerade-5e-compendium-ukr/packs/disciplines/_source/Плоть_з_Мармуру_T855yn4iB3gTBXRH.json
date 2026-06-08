@@ -1,0 +1,37 @@
+{
+  "folder": "QCsYSQBZ5DjPvfvg",
+  "name": "Плоть з Мармуру",
+  "type": "power",
+  "_id": "T855yn4iB3gTBXRH",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Fortitude_symbol.png",
+  "system": {
+    "description": "",
+    "bonuses": [],
+    "discipline": "fortitude",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": 2,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735183811,
+    "modifiedTime": 1753740660055,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!T855yn4iB3gTBXRH"
+}

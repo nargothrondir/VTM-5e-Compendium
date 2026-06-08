@@ -1,0 +1,37 @@
+{
+  "folder": "QCsYSQBZ5DjPvfvg",
+  "name": "Майстерність від болю",
+  "type": "power",
+  "_id": "5zbGyuRsnGOCbm29",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Fortitude_symbol.png",
+  "system": {
+    "description": "<p>Травми та каліцтва тепер лише підживлюють сили вампіра, який стає сильнішим і швидшим від кожного отриманого удару, розриву чи рани. Лише повне знищення може зупинити того, хто викликає цю силу Стійкості. </p><p>■ Вартість: Одна Перевірка Збудження </p><p>■ Система: Після активації здатності вампір більше не зазнає жодних штрафів до кубиків від отриманого ушкодження Здоров'я, наприклад, фізичного Погіршення. Крім того, він може збільшити один Фізичний Атрибут на одну крапку (похідні характеристики не змінюються) за кожен рівень ушкодження на його шкалі Здоров'я, агравованого чи поверхневого. Атрибути користувача не можуть перевищувати значення, що дорівнює його Сплеску Крові + 6 за допомогою цієї здатності.</p><p>■ Тривалість: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "fortitude",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735183811,
+    "modifiedTime": 1753740665235,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!5zbGyuRsnGOCbm29"
+}

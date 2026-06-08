@@ -1,0 +1,38 @@
+{
+  "folder": "MYHjid6HhGRlM2jg",
+  "name": "• Місцезнаходження",
+  "type": "feature",
+  "_id": "prh1FitBX1HqQPYa",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ваш притулок розташований в одному з наймодніших або іншим чином ексклюзивних районів міста, в Раку, на невеликому острові або в іншому престижному місці. Додайте два кубики (або +2 до Складності ворогів) до бонусів на відповідні кидки кубиків від Шассе (с. 195) або від базового рейтингу вашого Притулку (оберіть одне). Якщо жоден з модифікаторів точно не відповідає вашому задуму, обговоріть з Оповідачем, коли ви можете очікувати бонус у два кубики. Наприклад, Притулок поблизу Елізіуму може дати бонус у два кубики до перевірок Етикету в Елізіумі та на перевірки для збору придворних пліток.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753912091805,
+    "modifiedTime": 1753912133274,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!prh1FitBX1HqQPYa"
+}

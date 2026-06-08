@@ -1,0 +1,32 @@
+{
+  "folder": "wr5SIxwezXzT8NGk",
+  "name": "Сила Крові 1",
+  "type": "resonance",
+  "_id": "7XWp1JxbGtnuyiHP",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви справжній вампір, хоча, на думку деяких старійшин, ледь-ледь. Проте ваша вампірська Кров здатна на вражаючі речі, коли пробуджується.</p><p>■ Додайте один кубик Атрибута до вашого запасу кубиків під час виконання Сплеску Крові (с. 218).</p><p>■ Під час Відновлення ушкоджень ви можете усунути 1 одиницю Поверхневого ушкодження за одну Перевірку Пробудження.</p><p>■ Киньте два кубики й оберіть найбільше значення під час Перевірки Пробудження для сил дисциплін 1-го рівня. (Або перекиньте Перевірку Пробудження)</p><p>■ Ваша Тяжкість Прокляття дорівнює 1.</p>",
+    "bonuses": [],
+    "gamesystem": "vampire",
+    "dyscrasia": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753914964477,
+    "modifiedTime": 1753915210230,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!7XWp1JxbGtnuyiHP"
+}

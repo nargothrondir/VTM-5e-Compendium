@@ -1,0 +1,22 @@
+{
+  "name": "Рівень 2",
+  "sorting": "a",
+  "folder": "kbzESDkH1DRXIEwH",
+  "type": "Item",
+  "_id": "Fmqyc3dTORcdXdkk",
+  "description": "",
+  "sort": 0,
+  "color": "#b94b4b",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!Fmqyc3dTORcdXdkk"
+}

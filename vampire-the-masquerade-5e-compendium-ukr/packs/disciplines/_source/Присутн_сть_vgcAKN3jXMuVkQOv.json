@@ -1,0 +1,22 @@
+{
+  "name": "Присутність",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "vgcAKN3jXMuVkQOv",
+  "description": "",
+  "sort": 100000,
+  "color": "#71297f",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735186880,
+    "modifiedTime": 1745735186918,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!vgcAKN3jXMuVkQOv"
+}

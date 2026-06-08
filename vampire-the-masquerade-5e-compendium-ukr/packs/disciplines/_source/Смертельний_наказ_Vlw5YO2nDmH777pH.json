@@ -1,0 +1,37 @@
+{
+  "folder": "wOjbxqHPqPikcADT",
+  "name": "Смертельний наказ",
+  "type": "power",
+  "_id": "Vlw5YO2nDmH777pH",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Dominate_symbol.png",
+  "system": {
+    "description": "<p>Більше не обмежуючись інстинктами самозбереження своїх жертв, вампір тепер може віддавати накази, які безпосередньо ведуть до шкоди або смерті жертви. Смертних можна змусити вистрілити собі в голову, стрибнути з даху або проковтнути отруту. Вампірів, з деякими зусиллями, можна змусити увійти у вогонь або на сонячне світло. </p><p>■ Вартість: Без додаткових витрат Голоду, але вартість Гуманності може бути значною </p><p>■ Система: Смертельним наказам тепер потрібно чинити опір (див. окремі здібності щодо відповідних кидків), а не автоматично провалюватися. </p><p>■ Тривалість: Пасивно</p>",
+    "bonuses": [],
+    "discipline": "dominate",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182706,
+    "modifiedTime": 1753740616079,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!Vlw5YO2nDmH777pH"
+}

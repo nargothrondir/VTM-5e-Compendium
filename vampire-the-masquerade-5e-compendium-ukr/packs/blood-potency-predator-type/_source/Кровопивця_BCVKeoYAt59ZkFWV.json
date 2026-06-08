@@ -1,0 +1,31 @@
+{
+  "folder": "r1wjwrIVzALpkFpo",
+  "name": "Кровопивця",
+  "type": "predatorType",
+  "_id": "BCVKeoYAt59ZkFWV",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви п'єте кров інших вампірів, полюючи на них, примушуючи або беручи Кров як плату — єдиний справді моральний спосіб харчування, який ви можете собі уявити. На жаль, ця практика зазвичай заборонена в суспільстві Сородичів. Це або до біса ризиковано, або вимагає заздрісної влади.</p><p>■ Додайте спеціалізацію: Бійка (Сородичі) або Скритність (проти Сородичів)</p><p>■ Отримайте одну цятку Стрімкості або Перевертання</p><p>■ Втратьте одну цятку Людяності</p><p>■ Збільште Силу Крові на одиницю</p><p>■ Отримайте Ваду Темна таємниця: (••) Діаблерист, або Ваду Вигнанець: (••)</p><p>■ Отримайте Ваду Харчування: (••) Виключення здобичі (смертні)</p>",
+    "bonuses": [],
+    "gamesystem": "vampire"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913588324,
+    "modifiedTime": 1753913876939,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!BCVKeoYAt59ZkFWV"
+}

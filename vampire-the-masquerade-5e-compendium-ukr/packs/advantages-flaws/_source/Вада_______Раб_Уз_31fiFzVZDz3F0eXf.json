@@ -1,0 +1,38 @@
+{
+  "folder": "8nIbXfSlBnoD3RZ0",
+  "name": "Вада: (••) Раб Уз",
+  "type": "feature",
+  "_id": "31fiFzVZDz3F0eXf",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви миттєво зв'язуєтеся зі смаком чужого віта; лише один ковток крові зв'язує вас, а не три. Ви або починаєте як раб вашого сіра, або проконсультуйтеся з Оповідачем, щоб придумати причину, чому цей перший зв'язок розірвався. Можливо, ваш сір був пробитий кілком або перебував в іншому місті більше шести місяців?</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753834265305,
+    "modifiedTime": 1755634218993,
+    "lastModifiedBy": "fFnQnXT35gLXdlH1"
+  },
+  "_key": "!items!31fiFzVZDz3F0eXf"
+}

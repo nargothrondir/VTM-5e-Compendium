@@ -1,0 +1,37 @@
+{
+  "folder": "moWQIWnCD4092KTF",
+  "name": "Раціоналізація",
+  "type": "power",
+  "_id": "HiBUwxtK2zKRkBuX",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Dominate_symbol.png",
+  "system": {
+    "description": "<p>Жертви вампіра тепер вірять, що все, що вони роблять під впливом Домінування, було результатом їхньої власної волі, і захищають свої дії, якими б абсурдними вони не були. Тривалий вплив цієї здатності може призвести до серйозної психічної травми у жертви. </p><p>■ Вартість: Без додаткових витрат </p><p>■ Система: Якщо жертву змушують пояснити свої переконання, вона може зробити перевірку Кмітливість+Уважність (Складність 5). Перемога змушує її засумніватися у власних словах, а можливо, і у своєму здоровому глузді. </p><p>■ Тривалість: Невизначено</p>",
+    "bonuses": [],
+    "discipline": "dominate",
+    "duration": "",
+    "level": 4,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182706,
+    "modifiedTime": 1753740608092,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!HiBUwxtK2zKRkBuX"
+}

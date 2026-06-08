@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "EjrgIip5FxV2L0vL",
+  "name": "Міфічні Переваги та Вади",
+  "color": "#ac1111",
+  "sorting": "a",
+  "_id": "eLvkdKDZQoLeUKTM",
+  "description": "",
+  "sort": 100000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753833995004
+  },
+  "_key": "!folders!eLvkdKDZQoLeUKTM"
+}

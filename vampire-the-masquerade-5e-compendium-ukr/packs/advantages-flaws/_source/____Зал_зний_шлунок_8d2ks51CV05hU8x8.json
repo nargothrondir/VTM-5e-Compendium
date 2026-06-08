@@ -1,0 +1,38 @@
+{
+  "folder": "ZNc3COt4DlBceW7m",
+  "name": "••• Залізний шлунок",
+  "type": "feature",
+  "_id": "8d2ks51CV05hU8x8",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви можете харчуватися холодною кров'ю, прогірклою кров'ю та фракціонованою плазмою. Жодна з них не дає Резонансів. Вентру не можуть брати цю Перевагу</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 3,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753834970853,
+    "modifiedTime": 1753834998884,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!8d2ks51CV05hU8x8"
+}

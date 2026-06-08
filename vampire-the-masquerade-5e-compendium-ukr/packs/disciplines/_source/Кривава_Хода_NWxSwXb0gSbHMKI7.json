@@ -1,0 +1,37 @@
+{
+  "folder": "C4M7AzXjgkD9PLDN",
+  "name": "Кривава Хода",
+  "type": "power",
+  "_id": "NWxSwXb0gSbHMKI7",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Blood_Sorcery_symbol.png",
+  "system": {
+    "description": "<p>Цей Ритуал розширює силу Смак Крові, дозволяючи користувачеві дізнатися більше деталей про досліджуваний об'єкт, за умови, що об'єкт є вампіром.</p><p>■ Інгредієнти: Срібна чаша, наповнена Кров'ю суб'єкта. (Вартістю в одну Перевірку Збудження)</p><p>■ Процес: Користувач змішує свою Кров з кров'ю суб'єкта і повторює заклинання над чашею, витрачаючи приблизно годину.</p><p>■ Система: Перемога на кидку Ритуалу (див. Загальні Системи) дозволяє користувачеві дізнатися покоління та ім'я суб'єкта, а також сіра суб'єкта. Критична Перемога також повідомляє користувачеві про будь-які Кровні Зв'язки, активні на суб'єкті, як регнанта або раба.</p>",
+    "bonuses": [],
+    "discipline": "rituals",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735189773,
+    "modifiedTime": 1753740937277,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!NWxSwXb0gSbHMKI7"
+}

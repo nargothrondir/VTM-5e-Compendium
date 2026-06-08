@@ -1,0 +1,22 @@
+{
+  "name": "Маска",
+  "sorting": "a",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "type": "Item",
+  "_id": "ssc0xboCLq8X00rA",
+  "description": "",
+  "sort": 0,
+  "color": "#920c0c",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913311430
+  },
+  "_key": "!folders!ssc0xboCLq8X00rA"
+}

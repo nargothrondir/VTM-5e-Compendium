@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "name": "Притулок",
+  "color": "#bc1a1a",
+  "sorting": "a",
+  "_id": "vB6siaIDTHBZXglQ",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913286243
+  },
+  "_key": "!folders!vB6siaIDTHBZXglQ"
+}

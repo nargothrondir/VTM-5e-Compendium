@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "name": "Вплив",
+  "color": "#ac1111",
+  "sorting": "a",
+  "_id": "wh1ckyk2iogYWy3v",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913300952
+  },
+  "_key": "!folders!wh1ckyk2iogYWy3v"
+}

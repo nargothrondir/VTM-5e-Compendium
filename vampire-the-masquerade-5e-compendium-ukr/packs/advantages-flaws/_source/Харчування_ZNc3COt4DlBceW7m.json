@@ -1,0 +1,22 @@
+{
+  "name": "Харчування",
+  "sorting": "a",
+  "folder": "EjrgIip5FxV2L0vL",
+  "type": "Item",
+  "_id": "ZNc3COt4DlBceW7m",
+  "description": "",
+  "sort": 400000,
+  "color": "#bb3030",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753833995004
+  },
+  "_key": "!folders!ZNc3COt4DlBceW7m"
+}

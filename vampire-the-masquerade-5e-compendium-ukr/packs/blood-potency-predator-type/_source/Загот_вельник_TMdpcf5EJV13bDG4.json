@@ -1,0 +1,31 @@
+{
+  "folder": "r1wjwrIVzALpkFpo",
+  "name": "Заготівельник",
+  "type": "predatorType",
+  "_id": "TMdpcf5EJV13bDG4",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви крадете, купуєте або іншим чином добуваєте холодну кров, а не полюєте, покладаючись на чорний ринок або свої навички злодія чи мисливця за нещасними випадками. Можливо, ви все ще працюєте в нічну зміну в лікарні. Вентру не можуть обрати цей тип Хижака.</p><p>■ Додайте спеціалізацію: Злодійство (Злом замків) або Вулична кмітливість (Чорний ринок)</p><p>■ Отримайте одну цятку Кривавого чаклунства (лише Тремер) або Затемнення</p><p>■ Отримайте Перевагу Харчування: Залізний шлунок (•••)</p><p>■ Отримайте Ваду Ворог: (••) Або хтось вважає, що ви йому винні, або є інша причина, чому ви тримаєтеся подалі від вулиць.</p>",
+    "bonuses": [],
+    "gamesystem": "vampire"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753913571824,
+    "modifiedTime": 1753913812569,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!TMdpcf5EJV13bDG4"
+}

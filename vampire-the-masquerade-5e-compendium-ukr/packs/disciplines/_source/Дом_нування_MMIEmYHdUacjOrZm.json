@@ -1,0 +1,22 @@
+{
+  "name": "Домінування",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "MMIEmYHdUacjOrZm",
+  "description": "",
+  "sort": 100000,
+  "color": "#94689c",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182694,
+    "modifiedTime": 1745735182718,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!MMIEmYHdUacjOrZm"
+}

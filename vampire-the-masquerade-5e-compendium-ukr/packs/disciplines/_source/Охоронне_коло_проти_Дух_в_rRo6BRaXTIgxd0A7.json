@@ -1,0 +1,37 @@
+{
+  "folder": "mwCJW1gqa3zwTmF5",
+  "name": "Охоронне коло проти Духів",
+  "type": "power",
+  "_id": "rRo6BRaXTIgxd0A7",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Blood_Sorcery_symbol.png",
+  "system": {
+    "description": "<p>Цей Ритуал створює круговий Оберіг на підлозі або землі, призначений для запобігання проходженню духів. Хоча він складніший за деякі Охоронні кола, він є одним з найпоширеніших у гримуарах та інших джерелах. Людський окультист потенційно може відтворити робочу версію цього Ритуалу за допомогою перевірки Інтелект + Окультизм (Складність 6), хоча він не зможе його виконати без віти або якоїсь іншої надприродної допомоги чи елемента. Цей оберіг використовує стандартні правила для Охоронних кіл (с. 275). </p><p>■ Інгредієнти: Заклинатель малює Охоронне коло залізним ножем, змоченим у солі та Крові.</p>",
+    "bonuses": [],
+    "discipline": "rituals",
+    "duration": "",
+    "level": 3,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735189773,
+    "modifiedTime": 1753740993345,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!rRo6BRaXTIgxd0A7"
+}

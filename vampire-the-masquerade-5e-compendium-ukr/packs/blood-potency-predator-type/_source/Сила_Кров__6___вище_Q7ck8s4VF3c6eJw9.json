@@ -1,0 +1,32 @@
+{
+  "folder": "wr5SIxwezXzT8NGk",
+  "name": "Сила Крові 6 і вище",
+  "type": "resonance",
+  "_id": "Q7ck8s4VF3c6eJw9",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Оскільки Поклик забирає зі світу старійшин, ці рівні Сили Крові стають все рідшими. Ті, що залишилися, відлюдькуваті й напружені, оточують себе міфами та легендами, а також могутнішими охоронцями. З Кров'ю, могутнішою за людську, ці вампіри стають досить чужими, як розумом, так і тілом. Вампіри на цьому рівні не призначені для персонажів гравців, і вони включені до таблиці Сили Крові лише для цілей Оповідача.</p>",
+    "bonuses": [],
+    "gamesystem": "vampire",
+    "dyscrasia": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753915071645,
+    "modifiedTime": 1753915449218,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!Q7ck8s4VF3c6eJw9"
+}

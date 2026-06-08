@@ -1,0 +1,38 @@
+{
+  "folder": "MYHjid6HhGRlM2jg",
+  "name": "• Таємний хід",
+  "type": "feature",
+  "_id": "tpAVUW7iEXud4doi",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ваш Притулок має задній вихід, таємний тунель, решітку в підвалі, що веде до каналізації, або інший непомітний вихід. За кожну крапку цієї Переваги додайте один кубик до ваших пулів кубиків для ухилення або втечі від спостереження біля вашого притулку.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753912195867,
+    "modifiedTime": 1753912216977,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!tpAVUW7iEXud4doi"
+}

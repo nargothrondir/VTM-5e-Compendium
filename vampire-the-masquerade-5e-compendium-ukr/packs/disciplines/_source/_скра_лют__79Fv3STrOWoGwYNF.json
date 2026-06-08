@@ -1,0 +1,44 @@
+{
+  "folder": "xDhCZkrLPWWHDdEg",
+  "name": "Іскра люті",
+  "type": "power",
+  "_id": "79Fv3STrOWoGwYNF",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Potence_symbol.png",
+  "system": {
+    "description": "<p>■ Амальгама: Присутність 3 </p><p>Поєднуючи Могутність і Присутність, вампір може викликати гнів і навіть шаленство у спостерігачів так само легко, як благоговіння чи страх. Користувач повинен бути обережним, щоб не розлютити натовп, який може обернутися проти нього, а не проти цілі чи один одного. </p><p>■ Вартість: Одна Перевірка Збудження </p><p>■ Пули кубиків: Маніпулвання + Могутність </p><p>■ Система: Коли активовано, користувач може додати свій рейтинг Могутності до будь-якої спроби розлютити або підбурити людину чи натовп до насильства. Крім того, користувач може активувати цю здатність і зробити змагання Маніпулвання + Могутність проти Стриманість + Інтелект іншого вампіра. Якщо він переможе, вампір-супротивник повинен зробити перевірку на шаленство люті зі Складністю 3. </p><p>■ Тривалість: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "potence",
+    "duration": "",
+    "level": 3,
+    "dicepool": {
+      "nh11uWFm": {
+        "path": "attributes.manipulation"
+      },
+      "QCBtRUjL": {
+        "path": "disciplines.potence"
+      }
+    },
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735185972,
+    "modifiedTime": 1753740782857,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!79Fv3STrOWoGwYNF"
+}

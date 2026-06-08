@@ -1,0 +1,22 @@
+{
+  "name": "Статус",
+  "sorting": "a",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "type": "Item",
+  "_id": "DCRmwL9yjifodIBD",
+  "description": "",
+  "sort": 0,
+  "color": "#570505",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753913368803
+  },
+  "_key": "!folders!DCRmwL9yjifodIBD"
+}

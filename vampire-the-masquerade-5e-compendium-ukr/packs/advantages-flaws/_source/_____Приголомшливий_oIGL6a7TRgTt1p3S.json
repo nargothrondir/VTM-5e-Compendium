@@ -1,0 +1,42 @@
+{
+  "folder": "QKuRWbIrsNvscPEl",
+  "name": "•••• Приголомшливий",
+  "type": "feature",
+  "_id": "oIGL6a7TRgTt1p3S",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви додаєте два додаткові кубики до всіх відповідних соціальних пулів кубиків, як зазначено вище.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 4,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {
+    "vtm5e": {
+      "dataItemId": "feature-••••-stunning"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1753832265911,
+    "modifiedTime": 1753834072854,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!oIGL6a7TRgTt1p3S"
+}

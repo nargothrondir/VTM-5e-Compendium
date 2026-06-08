@@ -1,0 +1,42 @@
+{
+  "folder": "lKPlVRC8wY6jYYMG",
+  "name": "• Високофункціональний залежний",
+  "type": "feature",
+  "_id": "4ad4CNZHB81JLZ3p",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Ви додаєте один кубик до будь-якої однієї категорії пулу (вкажіть, яку речовину ви вживаєте, коли обираєте), коли остання людина, з якої ви харчувалися, була під дією вашого наркотику.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {
+    "vtm5e": {
+      "dataItemId": "feature-high-functioning-addict"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753833381506,
+    "modifiedTime": 1753834094678,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!4ad4CNZHB81JLZ3p"
+}

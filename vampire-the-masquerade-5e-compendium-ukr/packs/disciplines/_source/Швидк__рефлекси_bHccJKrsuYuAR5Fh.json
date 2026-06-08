@@ -1,0 +1,37 @@
+{
+  "folder": "LXQ64bZ4gUJx8oZq",
+  "name": "Швидкі рефлекси",
+  "type": "power",
+  "_id": "bHccJKrsuYuAR5Fh",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ukr/packs/assets/330px-Aclarity_symbol.png",
+  "system": {
+    "description": "<p>Хоча їхні тіла все ще не можуть кинути виклик законам природи, вампіри з цією здатністю миттєво сприймають події і можуть реагувати на них з надлюдською швидкістю. Вони можуть спостерігати за снарядами, що наближаються, настільки, що можуть спробувати ухилитися від стріл і навіть куль без наявного укриття. </p><p>■ Вартість: Безкоштовно </p><p>■ Система: З цією здатністю вампіри не отримують штрафу до своїх пулів захисту за відсутність укриття від атак вогнепальною зброєю. Вони також можуть безкоштовно виконувати незначну дію (див. с. 298) вартістю до двох кубиків за хід, наприклад, підготувати або перезарядити зброю. </p><p>■ Тривалість: Пасивно</p>",
+    "bonuses": [],
+    "discipline": "celerity",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182035,
+    "modifiedTime": 1753740534506,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!bHccJKrsuYuAR5Fh"
+}

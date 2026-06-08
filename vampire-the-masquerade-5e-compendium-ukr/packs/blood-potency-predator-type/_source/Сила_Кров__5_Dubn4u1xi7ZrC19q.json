@@ -1,0 +1,32 @@
+{
+  "folder": "wr5SIxwezXzT8NGk",
+  "name": "Сила Крові 5",
+  "type": "resonance",
+  "_id": "Dubn4u1xi7ZrC19q",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>На порозі старійшинства ви залишаєтеся лише за один спокусливий крок від того, що багато хто вважав би божественністю.</p><p>■ Додайте три кубики Атрибута до вашого запасу кубиків під час виконання Сплеску Крові.</p><p>■ Киньте два кубики й оберіть найбільше значення під час Перевірки Пробудження для сил дисциплін 3-го рівня та нижче.</p><p>■ Лише висушивши й убивши смертного, ви можете знизити свій Голод нижче 2.</p><p>■ Ваша Тяжкість Прокляття дорівнює 3.</p>",
+    "bonuses": [],
+    "gamesystem": "vampire",
+    "dyscrasia": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753915015679,
+    "modifiedTime": 1753915399168,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!Dubn4u1xi7ZrC19q"
+}

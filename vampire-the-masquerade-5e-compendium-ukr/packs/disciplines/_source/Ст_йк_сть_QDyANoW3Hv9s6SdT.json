@@ -1,0 +1,22 @@
+{
+  "name": "Стійкість",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "QDyANoW3Hv9s6SdT",
+  "description": "",
+  "sort": 100000,
+  "color": "#905b9a",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735183797,
+    "modifiedTime": 1745735183824,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!QDyANoW3Hv9s6SdT"
+}

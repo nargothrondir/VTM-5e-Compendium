@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "EjrgIip5FxV2L0vL",
+  "name": "Переваги Тонкокровних",
+  "color": "#890b0b",
+  "sorting": "a",
+  "_id": "jCXLup54jpPLnL7E",
+  "description": "",
+  "sort": 700000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "modifiedTime": 1753833912104
+  },
+  "_key": "!folders!jCXLup54jpPLnL7E"
+}

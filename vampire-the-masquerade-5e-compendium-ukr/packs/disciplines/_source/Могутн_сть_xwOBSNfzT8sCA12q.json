@@ -1,0 +1,22 @@
+{
+  "name": "Могутність",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "xwOBSNfzT8sCA12q",
+  "description": "",
+  "sort": 100000,
+  "color": "#7f3a8d",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "12.331",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735185957,
+    "modifiedTime": 1745735185985,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!folders!xwOBSNfzT8sCA12q"
+}

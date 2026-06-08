@@ -1,0 +1,38 @@
+{
+  "folder": "wh1ckyk2iogYWy3v",
+  "name": "Вада: (••) Зневажений",
+  "type": "feature",
+  "_id": "dXzKl6ZHGPu3FEVu",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p>Одна група або район міста живе лише для того, щоб перешкоджати вам і вашій фракції. Відніміть два кубики з пулів кубиків, намагаючись переконати нейтрального актора підтримати вас політично або зробити вам послугу. Оповідач повинен використовувати будь-яку можливість, щоб залучити ваших ненависників до історії.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "background",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 1753911472730,
+    "modifiedTime": 1753911519780,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe"
+  },
+  "_key": "!items!dXzKl6ZHGPu3FEVu"
+}
