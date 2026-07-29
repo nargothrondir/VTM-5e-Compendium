@@ -1,0 +1,614 @@
+# Сопоставление записей компендиума с разделами русских книг правил.
+#
+# Ключ — _id записи: он неизменен и переживает перевод названия.
+# Файл собирается tools/make_mapping.py и правится руками — это точка
+# ручного контроля перед тем, как tools/apply.py перенесёт текст.
+#
+# записей: 121
+
+disciplines:
+  jKi5asy0Vad7t2X7:
+    ua: "Зв'язати Фамулуса"
+    ru: "ФАМУЛУС"
+    page: 247
+    book: "STV501 Книга правил.pdf"
+  ve12964atPPHF3QD:
+    ua: "Відчути Звіра"
+    ru: "ЧУТЬЁ НА ЗВЕРЯ"
+    page: 247
+    book: "STV501 Книга правил.pdf"
+  q8hCTvKqgER4a7l5:
+    ua: "Тваринна Соковитість"
+    ru: "ЗВЕРСКИЙ АППЕТИТ"
+    page: 248
+    book: "STV501 Книга правил.pdf"
+  c9y70r68bsjBwDNs:
+    ua: "Неживий вулик"
+    ru: "ТРУПНЫЙ УЛЕЙ"
+    page: 248
+    book: "STV501 Книга правил.pdf"
+  4LY8gOGIhb2viROk:
+    ua: "Дикий Шепіт"
+    ru: "ЯЗЫК ЖИВОТНЫХ"
+    page: 248
+    book: "STV501 Книга правил.pdf"
+  r3Y2aoiqYzCvNKZj:
+    ua: "Витягування Звіра"
+    ru: "ОТЧУЖДЕНИЕ ЗВЕРЯ"
+    page: 249
+    book: "STV501 Книга правил.pdf"
+  Lsb2jp7KrSrSfN1F:
+    ua: "Поглинути дух"
+    ru: "ПОГЛОЩЕНИЕ ДУХА"
+    page: 249
+    book: "STV501 Книга правил.pdf"
+  4001N574ixF79TIb:
+    ua: "Приборкати Звіра"
+    ru: "УСМИРЕНИЕ ЗВЕРЯ"
+    page: 249
+    book: "STV501 Книга правил.pdf"
+  Xv1xV6OZ4XrsAvV2:
+    ua: "Домінування над Тваринами"
+    ru: "ЦАРЬ ЗВЕРЕЙ"
+    page: 249
+    book: "STV501 Книга правил.pdf"
+  5P6YvhZZlastLrZo:
+    ua: "Благоговіння"
+    ru: "БЛАГОГОВЕНИЕ"
+    page: 251
+    book: "STV501 Книга правил.pdf"
+  Cp1arvoKbkcONGwU:
+    ua: "Тривалий поцілунок"
+    ru: "НЕЗАБЫВАЕМЫЙ ПОЦЕЛУЙ"
+    page: 251
+    book: "STV501 Книга правил.pdf"
+  J5RUvwLgB5VmdPZM:
+    ua: "Зачарування"
+    ru: "ОЧАРОВАНИЕ"
+    page: 251
+    book: "STV501 Книга правил.pdf"
+  ny9InSRCZEfIyV0l:
+    ua: "Лякати"
+    ru: "УГРОЗА"
+    page: 251
+    book: "STV501 Книга правил.pdf"
+  cdeuhdY4ngD6cYKq:
+    ua: "Зірковий магнетизм"
+    ru: "ЗВЕЗДА ЭФИРА"
+    page: 252
+    book: "STV501 Книга правил.pdf"
+  rD3mOz4YN5LKLh2h:
+    ua: "Виклик"
+    ru: "ПРИЗЫВ"
+    page: 252
+    book: "STV501 Книга правил.pdf"
+  PmeH36jzllcXiuPb:
+    ua: "Непереборний Голос"
+    ru: "ПРИТЯГАТЕЛЬНЫЙ ГОЛОС"
+    page: 252
+    book: "STV501 Книга правил.pdf"
+  ZtREmkrSoZZqmZkq:
+    ua: "Жахливий Погляд"
+    ru: "УСТРАШАЮЩИЙ ВЗОР"
+    page: 252
+    book: "STV501 Книга правил.pdf"
+  Qi20ayGyhBONe5n7:
+    ua: "Велич"
+    ru: "ПРЕКЛОНЕНИЕ"
+    page: 253
+    book: "STV501 Книга правил.pdf"
+  gyhnOSNiYqmWRLHT:
+    ua: "Примусити"
+    ru: "ПРИНУЖДЕНИЕ"
+    page: 254
+    book: "STV501 Книга правил.pdf"
+  xCCtEroRVLAw314V:
+    ua: "Затуманити Пам'ять"
+    ru: "ПРОВАЛ В ПАМЯТИ"
+    page: 254
+    book: "STV501 Книга правил.pdf"
+  l59qhQZHR8tynmEo:
+    ua: "Прихована директива"
+    ru: "ВНЕДРЁННАЯ ДИРЕКТИВА"
+    page: 255
+    book: "STV501 Книга правил.pdf"
+  VrxvOv0sLz2ZhXCm:
+    ua: "Гіпноз"
+    ru: "ВНУШЕНИЕ"
+    page: 255
+    book: "STV501 Книга правил.pdf"
+  KmzCcdtTKJKLoFwi:
+    ua: "Забудькуватий розум"
+    ru: "ЗАБВЕНИЕ"
+    page: 255
+    book: "STV501 Книга правил.pdf"
+  HiBUwxtK2zKRkBuX:
+    ua: "Раціоналізація"
+    ru: "ОПРАВДАНИЕ"
+    page: 255
+    book: "STV501 Книга правил.pdf"
+  yqx27v2VCeBK3zYp:
+    ua: "Дерзання"
+    ru: "ПОМЕШАТЕЛЬСТВО"
+    page: 255
+    book: "STV501 Книга правил.pdf"
+  Vlw5YO2nDmH777pH:
+    ua: "Смертельний наказ"
+    ru: "ПРИКАЗ НА САМОУНИЧТОЖЕНИЕ"
+    page: 256
+    book: "STV501 Книга правил.pdf"
+  zR6f82C2yx1VwrvB:
+    ua: "Масова Маніпуляція"
+    ru: "СТАДНЫЙ ИНСТИНКТ"
+    page: 256
+    book: "STV501 Книга правил.pdf"
+  BIHT7ZDD6sNZXKn8:
+    ua: "Очі Звіра"
+    ru: "ГЛАЗА ЗВЕРЯ"
+    page: 257
+    book: "STV501 Книга правил.pdf"
+  I9lUpZ6Yb6LTVhOJ:
+    ua: "Вага пера"
+    ru: "ЛЁГКОСТЬ ПЁРЫШКА"
+    page: 257
+    book: "STV501 Книга правил.pdf"
+  m1YK7ZXtZ9ieusW8:
+    ua: "Дика Зброя"
+    ru: "ОРУЖИЕ ЗВЕРЯ"
+    page: 257
+    book: "STV501 Книга правил.pdf"
+  pmMRZAmWCDB3GngE:
+    ua: "Злиття з Землею"
+    ru: "СЛИЯНИЕ С ЗЕМЛЁЙ"
+    page: 257
+    book: "STV501 Книга правил.pdf"
+  L0rzl2WvqmiiQRZf:
+    ua: "Метаморфоза"
+    ru: "ПЕРЕВОПЛОЩЕНИЕ"
+    page: 258
+    book: "STV501 Книга правил.pdf"
+  vphRUkShpusPJIdl:
+    ua: "Форма туману"
+    ru: "ПРЕВРАЩЕНИЕ В ТУМАН"
+    page: 258
+    book: "STV501 Книга правил.pdf"
+  dWnIXu8UZ7tzBGXP:
+    ua: "Нескуте серце"
+    ru: "СВОБОДНОЕ СЕРДЦЕ"
+    page: 258
+    book: "STV501 Книга правил.pdf"
+  IREwXzpHFwnk8uQZ:
+    ua: "Зміна форми"
+    ru: "СМЕНА ОБЛИКА"
+    page: 258
+    book: "STV501 Книга правил.pdf"
+  pUDiIlGhaaZbZXsv:
+    ua: "Високий стрибок"
+    ru: "МОЩНЫЙ ПРЫЖОК"
+    page: 259
+    book: "STV501 Книга правил.pdf"
+  ytEH2ugcTNChJrvl:
+    ua: "Смертоносне Тіло"
+    ru: "СМЕРТОНОСНОСТЬ"
+    page: 259
+    book: "STV501 Книга правил.pdf"
+  24sZmHFlpHDUm27J:
+    ua: "Майстерність"
+    ru: "СОКРУШЕНИЕ"
+    page: 259
+    book: "STV501 Книга правил.pdf"
+  towCVvghMLnPPYMP:
+    ua: "Напій Могутності"
+    ru: "ГЛОТОК МОГУЩЕСТВА"
+    page: 260
+    book: "STV501 Книга правил.pdf"
+  pLPZd3T1Dz3zrKJd:
+    ua: "Жорстоке Годування"
+    ru: "ГРУБОЕ НАСЫЩЕНИЕ"
+    page: 260
+    book: "STV501 Книга правил.pdf"
+  79Fv3STrOWoGwYNF:
+    ua: "Іскра люті"
+    ru: "ИСКРА ЯРОСТИ"
+    page: 260
+    book: "STV501 Книга правил.pdf"
+  LSsDwUyiF01G3lkr:
+    ua: "Неймовірна хватка"
+    ru: "МЁРТВАЯ ХВАТКА"
+    page: 260
+    book: "STV501 Книга правил.pdf"
+  aeTgjooyCrzyoQw2:
+    ua: "Землетрус"
+    ru: "ЗЕМЛЕТРЯСЕНИЕ"
+    page: 261
+    book: "STV501 Книга правил.pdf"
+  LGw7CrZGdfzGlsSK:
+    ua: "Кулак Каїна"
+    ru: "КУЛАК КАИНА"
+    page: 261
+    book: "STV501 Книга правил.pdf"
+  zkfXHOs9jNBjeRGT:
+    ua: "Тиша смерті"
+    ru: "БЕЗМОЛВИЕ СМЕРТИ"
+    page: 262
+    book: "STV501 Книга правил.pdf"
+  V2TztYXBIMMZWTPp:
+    ua: "Невидимий прохід"
+    ru: "НЕЗРИМАЯ ПОСТУПЬ"
+    page: 262
+    book: "STV501 Книга правил.pdf"
+  EnhLWsuFFFOw8B1D:
+    ua: "Плащ Тіней"
+    ru: "ПЛАЩ ТЕНЕЙ"
+    page: 262
+    book: "STV501 Книга правил.pdf"
+  KwJQCizRvhSoKshJ:
+    ua: "Зникнення"
+    ru: "БЕССЛЕДНОЕ ИСЧЕЗНОВЕНИЕ"
+    page: 263
+    book: "STV501 Книга правил.pdf"
+  eBgOKFagMvFn1gS3:
+    ua: "Маска тисячі облич"
+    ru: "МАСКА ТЫСЯЧИ ЛИЦ"
+    page: 263
+    book: "STV501 Книга правил.pdf"
+  krXsNDqixwKgjMXy:
+    ua: "Приховати"
+    ru: "МАСКИРОВКА"
+    page: 263
+    book: "STV501 Книга правил.pdf"
+  fa47WL2EMvEVIyLn:
+    ua: "Привид у Машині"
+    ru: "ЭЛЕКТРОННЫЙ ПРИЗРАК"
+    page: 263
+    book: "STV501 Книга правил.pdf"
+  Tc0WCqxr66enu38u:
+    ua: "Маска Самозванця"
+    ru: "ЛИЧИНА САМОЗВАНЦА"
+    page: 264
+    book: "STV501 Книга правил.pdf"
+  gIlltX5hOWguc82N:
+    ua: "Приховати Зібрання"
+    ru: "ТАЙНОЕ СОБРАНИЕ"
+    page: 264
+    book: "STV501 Книга правил.pdf"
+  SRUoS7NaGbca9JI3:
+    ua: "Витривалі Звірі"
+    ru: "ЖИВУЧИЕ ЗВЕРИ"
+    page: 265
+    book: "STV501 Книга правил.pdf"
+  kZilLHOGrPLd15aE:
+    ua: "Міцність"
+    ru: "НЕПРОШИБАЕМОСТЬ"
+    page: 265
+    book: "STV501 Книга правил.pdf"
+  Z3CHNqv25fYrIOWW:
+    ua: "Життєстійкість"
+    ru: "СИЛА ЖИЗНИ"
+    page: 265
+    book: "STV501 Книга правил.pdf"
+  0pXG5WPPUFZZbgfC:
+    ua: "Незламний розум"
+    ru: "ТВЁРДОСТЬ ДУХА"
+    page: 265
+    book: "STV501 Книга правил.pdf"
+  pyYh72yD3Hm9D4V6:
+    ua: "Напій Витривалості"
+    ru: "ГЛОТОК УПОРСТВА"
+    page: 266
+    book: "STV501 Книга правил.pdf"
+  5zbGyuRsnGOCbm29:
+    ua: "Майстерність від болю"
+    ru: "ГОРНИЛО БОЛИ"
+    page: 266
+    book: "STV501 Книга правил.pdf"
+  WmN6ihALeDJVbY6C:
+    ua: "Кинути виклик прокляттю"
+    ru: "ПРЕВОЗМОГАНИЕ ПРОКЛЯТИЯ"
+    page: 266
+    book: "STV501 Книга правил.pdf"
+  w6NJOhp2vjk7yJHO:
+    ua: "Зміцнити Внутрішній Фасад"
+    ru: "УКРЕПЛЕНИЕ СОЗНАНИЯ"
+    page: 266
+    book: "STV501 Книга правил.pdf"
+  bHccJKrsuYuAR5Fh:
+    ua: "Швидкі рефлекси"
+    ru: "БЫСТРАЯ РЕАКЦИЯ"
+    page: 267
+    book: "STV501 Книга правил.pdf"
+  T855yn4iB3gTBXRH:
+    ua: "Плоть з Мармуру"
+    ru: "МРАМОРНАЯ ПЛОТЬ"
+    page: 267
+    book: "STV501 Книга правил.pdf"
+  7VztJcQXRNLngAUB:
+    ua: "Мить"
+    ru: "БЫСТРЕЕ ВЕТРА"
+    page: 268
+    book: "STV501 Книга правил.pdf"
+  wfnjLhQ0w1IaDsKn:
+    ua: "Котяча Грація"
+    ru: "КОШАЧЬЯ ГРАЦИЯ"
+    page: 268
+    book: "STV501 Книга правил.pdf"
+  UXy1WD4lAqXrJbrq:
+    ua: "Швидкість"
+    ru: "ПРОВОРСТВО"
+    page: 268
+    book: "STV501 Книга правил.pdf"
+  VgQePRR5eOpGCHG1:
+    ua: "Безпомилковий приціл"
+    ru: "БЕЗУПРЕЧНАЯ ТОЧНОСТЬ"
+    page: 269
+    book: "STV501 Книга правил.pdf"
+  6vuCIALreASFTSkL:
+    ua: "Напій Елегантності"
+    ru: "ГЛОТОК ИЗЯЩЕСТВА"
+    page: 269
+    book: "STV501 Книга правил.pdf"
+  0CuTAz11OQyTu8QD:
+    ua: "Блискавичний удар"
+    ru: "МОЛНИЕНОСНЫЙ УДАР"
+    page: 269
+    book: "STV501 Книга правил.pdf"
+  DB5yG7MhsDS3R3QH:
+    ua: "Доля секунди"
+    ru: "СКОРОСТЬ МЫСЛИ"
+    page: 269
+    book: "STV501 Книга правил.pdf"
+  1kgwezffskwhiDOR:
+    ua: "Переміщення"
+    ru: "ТРАВЕРС"
+    page: 269
+    book: "STV501 Книга правил.pdf"
+  qIAXLdBcSOKxqa9t:
+    ua: "Загострені Почуття"
+    ru: "ОБОСТРЕНИЕ ЧУВСТВ"
+    page: 270
+    book: "STV501 Книга правил.pdf"
+  bjX7rOY682d4m13I:
+    ua: "Просканувати душу"
+    ru: "ПОЗНАНИЕ ДУШИ"
+    page: 271
+    book: "STV501 Книга правил.pdf"
+  5gUFnvi0GFfyIEl2:
+    ua: "Відчуття Невидимого"
+    ru: "ПОТУСТОРОННЕЕ ЗРЕНИЕ"
+    page: 271
+    book: "STV501 Книга правил.pdf"
+  W6UmkY8jGLF6nA5G:
+    ua: "Передчуття"
+    ru: "ПРЕДВЕСТИЕ"
+    page: 271
+    book: "STV501 Книга правил.pdf"
+  JraucACRfWV8q9jq:
+    ua: "Одержимість"
+    ru: "ВСЕЛЕНИЕ"
+    page: 272
+    book: "STV501 Книга правил.pdf"
+  kJSVGJZvOX5gBCLS:
+    ua: "Дотик духа"
+    ru: "ПСИХОМЕТРИЯ"
+    page: 272
+    book: "STV501 Книга правил.pdf"
+  iW0Age4PHhRqVOKi:
+    ua: "Поділитися почуттями"
+    ru: "СЛИЯНИЕ ЧУВСТВ"
+    page: 272
+    book: "STV501 Книга правил.pdf"
+  JeX6DGl9tWvID0Lm:
+    ua: "Ясновидіння"
+    ru: "ДАЛЬНОВИДЕНИЕ"
+    page: 273
+    book: "STV501 Книга правил.pdf"
+  bNgez7daRr5UKy2U:
+    ua: "Телепатія"
+    ru: "ТЕЛЕПАТИЯ"
+    page: 273
+    book: "STV501 Книга правил.pdf"
+  E0iETWlXHv8winFE:
+    ua: "Смак Крові"
+    ru: "ВКУС КРОВИ"
+    page: 274
+    book: "STV501 Книга правил.pdf"
+  mDJ8uXmOcSZh3jZa:
+    ua: "Корозійне Віта"
+    ru: "ЕДКАЯ КРОВЬ"
+    page: 275
+    book: "STV501 Книга правил.pdf"
+  1XvVZMsR8MiieIt3:
+    ua: "Згасити Віта"
+    ru: "ИСТОНЧЕНИЕ ВИТЭ"
+    page: 275
+    book: "STV501 Книга правил.pdf"
+  R9nWSmQwVMK6Wq41:
+    ua: "Дотик Скорпіона"
+    ru: "КАСАНИЕ СКОРПИОНА"
+    page: 275
+    book: "STV501 Книга правил.pdf"
+  tUIxhRo7tOri9cTs:
+    ua: "Котел Крові"
+    ru: "КОТЁЛ КРОВИ"
+    page: 276
+    book: "STV501 Книга правил.pdf"
+  6xphi8PWFeATVp0K:
+    ua: "Дотик Баала"
+    ru: "ЛАСКА ВААЛА"
+    page: 276
+    book: "STV501 Книга правил.pdf"
+  K1u9NnNbWLnWYGuP:
+    ua: "Кров Могутності"
+    ru: "СГУЩЕНИЕ КРОВИ"
+    page: 276
+    book: "STV501 Книга правил.pdf"
+  Dbs97SaeiVMZwjCp:
+    ua: "Крадіжка Віти"
+    ru: "ХИЩЕНИЕ КРОВИ"
+    page: 276
+    book: "STV501 Книга правил.pdf"
+  APmcewZQ2crjTfNg:
+    ua: "Пробудження з вечірньою свіжістю"
+    ru: "ВЕЧЕРНЯЯ БОДРОСТЬ"
+    page: 278
+    book: "STV501 Книга правил.pdf"
+  RxB4r0EYFzn4lCDh:
+    ua: "Оберіг проти Гулів"
+    ru: "ЗАЩИТНАЯ ПЕЧАТЬ ОТ ГУЛЕЙ"
+    page: 278
+    book: "STV501 Книга правил.pdf"
+  MaVj9RHYNZ2tmCCp:
+    ua: "Чіпляння Комахи"
+    ru: "ПАУЧЬИ ЛАПЫ"
+    page: 278
+    book: "STV501 Книга правил.pdf"
+  NWxSwXb0gSbHMKI7:
+    ua: "Кривава Хода"
+    ru: "ПОСТИЖЕНИЕ КРОВИ"
+    page: 278
+    book: "STV501 Книга правил.pdf"
+  C0iwLjySwTL8LxSQ:
+    ua: "Створення Кривавого Каменя"
+    ru: "ПУТЕВОДНЫЙ КАМЕНЬ"
+    page: 278
+    book: "STV501 Книга правил.pdf"
+  prWaqBaQRmkVIS6M:
+    ua: "Оберіг проти Духів"
+    ru: "ЗАЩИТНАЯ ПЕЧАТЬ ОТ ДУХОВ"
+    page: 279
+    book: "STV501 Книга правил.pdf"
+  qAqROiLe03kERTWy:
+    ua: "Охоронне коло проти Гулів"
+    ru: "ЗАЩИТНЫЙ КРУГ ОТ ГУЛЕЙ"
+    page: 279
+    book: "STV501 Книга правил.pdf"
+  gyF7rY1XjAUZChze:
+    ua: "Правда крові"
+    ru: "ИСТИНА В КРОВИ"
+    page: 279
+    book: "STV501 Книга правил.pdf"
+  QQDtbsfMv7u9XZQI:
+    ua: "Очі Вавилону"
+    ru: "ОЧИ ВАВИЛОНСКИЕ"
+    page: 279
+    book: "STV501 Книга правил.pdf"
+  rNK67AiWZqAdHTTn:
+    ua: "Освітлити Слід Здобичі"
+    ru: "СВЕЧЕНИЕ СЛЕДОПЫТА"
+    page: 279
+    book: "STV501 Книга правил.pdf"
+  AmQD8nTMveykzlyB:
+    ua: "Оберіг проти Люпинів"
+    ru: "ЗАЩИТНАЯ ПЕЧАТЬ ОТ ЛЮПЕНОВ"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  rRo6BRaXTIgxd0A7:
+    ua: "Охоронне коло проти Духів"
+    ru: "ЗАЩИТНЫЙ КРУГ ОТ ДУХОВ"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  e8BFiWAIm4AbZ2PL:
+    ua: "Поклик Дагона"
+    ru: "ЗОВ ДАГОНА"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  r1a89eztdu9w5rcB:
+    ua: "Відхилення Дерев'яних Дверей"
+    ru: "ОТТОРЖЕНИЕ ГУБИТЕЛЬНОГО ДРЕВА"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  NAnFdAhLHdqafHfb:
+    ua: "Вогнеходець"
+    ru: "ПОЖИРАТЕЛЬ ПЛАМЕНИ"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  xlTgyyAOaLDsmSOJ:
+    ua: "Спілкування з Сіром-Кревним"
+    ru: "СВЯЗЬ С СИРОМ"
+    page: 280
+    book: "STV501 Книга правил.pdf"
+  7KT49ezXCamJQSRX:
+    ua: "Безтілесний Прохід"
+    ru: "БЕСПЛОТНЫЙ ПУТЬ"
+    page: 281
+    book: "STV501 Книга правил.pdf"
+  uASUntSIRrTfaDkS:
+    ua: "Захист Священного Притулку"
+    ru: "ЗАЩИТА НЕПРИКОСНОВЕННОГО УБЕЖИЩА"
+    page: 281
+    book: "STV501 Книга правил.pdf"
+  E7206bFG8iUjp6kz:
+    ua: "Есенція Повітря"
+    ru: "ЭССЕНЦИЯ ВОЗДУХА"
+    page: 281
+    book: "STV501 Книга правил.pdf"
+  hOn4UVkzrseLhTY2:
+    ua: "Втеча до Справжнього Святилища"
+    ru: "ВРАТА ИСТИННОГО СВЯТИЛИЩА"
+    page: 282
+    book: "STV501 Книга правил.pdf"
+  hOnTX8eMdYCr7HU6:
+    ua: "Оберіг проти Каїнітів"
+    ru: "ЗАЩИТНАЯ ПЕЧАТЬ ОТ КАИНИТОВ"
+    page: 282
+    book: "STV501 Книга правил.pdf"
+  Yuu3WkK03qPUdWRL:
+    ua: "Охоронне коло проти Люпинів"
+    ru: "ЗАЩИТНЫЙ КРУГ ОТ ЛЮПЕНОВ"
+    page: 282
+    book: "STV501 Книга правил.pdf"
+  d7Dqc34J4lt3ZBvr:
+    ua: "Очі Нічного Яструба"
+    ru: "ОКО НОЧНОГО ЯСТРЕБА"
+    page: 282
+    book: "STV501 Книга правил.pdf"
+  Qz8L3xX7Gg6nmoFb:
+    ua: "Стрижень Відкладеного Розпаду"
+    ru: "ЖАЛО НЕИЗБЕЖНОЙ ПОГИБЕЛИ"
+    page: 283
+    book: "STV501 Книга правил.pdf"
+  OeIweEimZiq8Irgg:
+    ua: "Охоронне коло проти Каїнітів"
+    ru: "ЗАЩИТНЫЙ КРУГ ОТ КАИНИТОВ"
+    page: 283
+    book: "STV501 Книга правил.pdf"
+  iKsnbPJSqiyXGoQo:
+    ua: "Кам'яне Серце"
+    ru: "КАМЕННОЕ СЕРДЦЕ"
+    page: 283
+    book: "STV501 Книга правил.pdf"
+  KIDOlLYXTa6gWAwU:
+    ua: "Далеке Досягнення"
+    ru: "ДЛИННЫЕ РУКИ"
+    page: 286
+    book: "STV501 Книга правил.pdf"
+  5H0ip9mA0bKiZ1Ic:
+    ua: "Серпанок"
+    ru: "МАРЕВО"
+    page: 287
+    book: "STV501 Книга правил.pdf"
+  5HnBgnuPH0GH4RcX:
+    ua: "Огорнути"
+    ru: "СМОГ"
+    page: 287
+    book: "STV501 Книга правил.pdf"
+  7kiC8h5t2VIP1ql7:
+    ua: "Дефракціонування"
+    ru: "ВОССТАНОВЛЕНИЕ КРОВИ"
+    page: 288
+    book: "STV501 Книга правил.pdf"
+  ajVkVf06GqJuqAMp:
+    ua: "Профанний Гієрос Гамос"
+    ru: "НЕЧЕСТИВАЯ ИЕРОГАМИЯ"
+    page: 288
+    book: "STV501 Книга правил.pdf"
+  4Ee6EUjcaVtYnzfG:
+    ua: "Пробудити Сплячого"
+    ru: "БУДИЛЬНИК"
+    page: 289
+    book: "STV501 Книга правил.pdf"
+  gvPH9VCShpRxQgZ3:
+    ua: "Повітряний Імпульс"
+    ru: "ИМПУЛЬС"
+    page: 289
+    book: "STV501 Книга правил.pdf"

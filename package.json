@@ -11,7 +11,10 @@
     "release": "node tools/release.mjs",
     "extract": "python tools/extract_pdf.py",
     "verify": "python tools/verify.py",
-    "progress": "python tools/verify.py --progress-only"
+    "progress": "python tools/verify.py --progress-only",
+    "mapping": "python tools/make_mapping.py",
+    "apply": "python tools/apply.py",
+    "candidates": "python tools/candidates.py"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.3",
