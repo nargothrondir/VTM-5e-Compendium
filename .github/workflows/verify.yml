@@ -1,0 +1,57 @@
+name: Проверка
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      # Целостность исходников: схема, ассеты, HTML, согласованность манифеста.
+      # Книги правил здесь не нужны — проверяется только packs/*/_source.
+      - name: Проверить исходники
+        run: python tools/verify.py
+
+      - name: Собрать компендиумы
+        run: npm run build
+
+      # Доказывает, что компиляция обратима и не теряет записей.
+      # Сравнение по _id и по смыслу: имена файлов CLI выводит из name,
+      # а name меняется при переводе, так что побайтово сходиться и не должно.
+      - name: Круговой прогон сборки
+        run: node tools/roundtrip.mjs
+
+  progress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Незавершённость перевода — не ошибка, поэтому отдельной задачей
+      # и только в сводку запуска: иначе CI был бы красным до самого конца.
+      - name: Прогресс перевода
+        run: |
+          {
+            echo '## Прогресс перевода'
+            echo '```'
+            python tools/verify.py --progress-only
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

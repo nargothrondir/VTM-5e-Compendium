@@ -35,6 +35,10 @@ for (const pack of manifest.packs) {
   const source = join(dir, "_source");
 
   if (unpack) {
+    // Имя файла CLI выводит из name записи, а name меняется при переводе.
+    // Без очистки рядом со старым файлом ляжет новый — и в _source окажутся
+    // две записи с одним _id, из которых сборка возьмёт произвольную.
+    rmSync(source, { recursive: true, force: true });
     await extractPack(dir, source, { log: true });
     continue;
   }

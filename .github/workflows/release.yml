@@ -1,0 +1,63 @@
+name: Релиз
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Версия, например 1.0.5"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      # Релиз собирается только из проверенных исходников: битый компендиум,
+      # однажды опубликованный, разойдётся по установкам через автообновление.
+      - name: Проверить исходники
+        run: python tools/verify.py
+
+      - name: Круговой прогон сборки
+        run: node tools/roundtrip.mjs
+
+      - name: Определить версию
+        id: version
+        run: |
+          if [ -n "${{ inputs.version }}" ]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Собрать компендиумы
+        run: npm run build
+
+      - name: Собрать архив и манифест
+        run: node tools/release.mjs "${{ steps.version.outputs.value }}"
+
+      - name: Опубликовать релиз
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.value }}
+          name: v${{ steps.version.outputs.value }}
+          generate_release_notes: true
+          files: |
+            dist/module.json
+            dist/module.zip

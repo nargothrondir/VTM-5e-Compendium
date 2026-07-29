@@ -7,10 +7,14 @@
   "scripts": {
     "build": "node tools/build.mjs",
     "unpack": "node tools/build.mjs --unpack",
+    "roundtrip": "node tools/roundtrip.mjs",
+    "release": "node tools/release.mjs",
     "extract": "python tools/extract_pdf.py",
-    "verify": "python tools/verify.py"
+    "verify": "python tools/verify.py",
+    "progress": "python tools/verify.py --progress-only"
   },
   "devDependencies": {
-    "@foundryvtt/foundryvtt-cli": "^1.0.3"
+    "@foundryvtt/foundryvtt-cli": "^1.0.3",
+    "archiver": "^8.0.0"
   }
 }
