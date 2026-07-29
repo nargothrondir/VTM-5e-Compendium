@@ -1,11 +1,11 @@
 {
   "folder": "QKuRWbIrsNvscPEl",
-  "name": "Вада: (••) Потворний",
+  "name": "Недостаток: (••) Омерзительный",
   "type": "feature",
   "_id": "NDyN8Ng81NSaEtaM",
   "img": "systems/vtm5e/assets/icons/items/discipline.png",
   "system": {
-    "description": "<p>Ви втрачаєте два кубики з усіх відповідних соціальних пулів кубиків.</p>",
+    "description": "<p>Пулы всех социальных проверок, на которые может повлиять внешность, уменьшаются на 2d10.</p>",
     "bonuses": [],
     "uses": {
       "max": 0,

@@ -283,21 +283,40 @@ def extract_merits(doc, pages, book):
 
     for pno in range(*pages):
         for line in page_lines(doc[pno], lambda l: classify(l) != "skip"):
+            # Диапазон захватывает полосу, где начинается следующая глава:
+            # последняя запись раздела дотягивается до неё. Без обрыва
+            # «Эксклюзивное расположение» вбирало в себя «Создание котерии».
+            if is_chapter_title(line) and line_text(line).strip() != "Преимущества":
+                flush()
+                return sections
+
             heading = merits.category(line)
             if heading:
                 flush()
                 cat = heading
+                # Вводный абзац категории — основной текст для сводных записей
+                # компендиума: «Статус» там одна запись со всеми ступенями,
+                # тогда как книга разносит ступени по отдельным записям.
+                intro = line_text(line).strip()
+                if intro.startswith(heading):
+                    intro = intro[len(heading):].lstrip(". ")
+                current = {"kind": "merit_category", "book": book, "name": cat,
+                           "category": cat, "page": pno + 1,
+                           "lines": [intro] if intro else [],
+                           "block": line["block"]}
                 continue
             if classify(line) != "body":
                 continue
 
-            name = merits.entry_name(line, BULLET_FONT, INVISIBLE_SPACES)
+            start = merits.entry_start(line, BULLET_FONT, INVISIBLE_SPACES)
             text = line_text(line).strip()
-            if name:
+            if start:
                 flush()
-                current = {"kind": "merit_entry", "book": book, "name": name,
-                           "category": cat, "page": pno + 1,
-                           "lines": [text], "block": line["block"]}
+                current = {"kind": "merit_entry", "book": book,
+                           "name": start["name"], "rating": start["rating"],
+                           "flaw": start["flaw"], "category": cat,
+                           "page": pno + 1, "lines": [start["rest"]],
+                           "block": line["block"]}
             elif current:
                 add_body_line(current, line, text)
 

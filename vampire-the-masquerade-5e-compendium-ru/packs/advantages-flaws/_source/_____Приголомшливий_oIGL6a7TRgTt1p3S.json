@@ -1,11 +1,11 @@
 {
   "folder": "QKuRWbIrsNvscPEl",
-  "name": "•••• Приголомшливий",
+  "name": "•••• Восхитительный",
   "type": "feature",
   "_id": "oIGL6a7TRgTt1p3S",
   "img": "systems/vtm5e/assets/icons/items/discipline.png",
   "system": {
-    "description": "<p>Ви додаєте два додаткові кубики до всіх відповідних соціальних пулів кубиків, як зазначено вище.</p>",
+    "description": "<p>Пулы всех социальных проверок, на которые может повлиять внешность, увеличиваются на 2d10.</p>",
     "bonuses": [],
     "uses": {
       "max": 0,

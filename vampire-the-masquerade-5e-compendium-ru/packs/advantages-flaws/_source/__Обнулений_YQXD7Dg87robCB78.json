@@ -1,11 +1,11 @@
 {
   "folder": "QuR4Wj0esibid3Qo",
-  "name": "• Обнулений",
+  "name": "• Стёртая личность",
   "type": "feature",
   "_id": "YQXD7Dg87robCB78",
   "img": "modules/werewolf-the-apocalypse-5e-compendium/packs/assets/gift.png",
   "system": {
-    "description": "<p>Хтось на високих посадах видалив ваші справжні записи. Офіційно ви не існуєте.</p>",
+    "description": "<p>Кто-то имеющий большую власть стёр все данные о твоей настоящей личности. Официально тебя не существует.</p>",
     "bonuses": [],
     "uses": {
       "max": 0,

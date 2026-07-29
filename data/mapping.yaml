@@ -4,7 +4,7 @@
 # Файл собирается tools/make_mapping.py и правится руками — это точка
 # ручного контроля перед тем, как tools/apply.py перенесёт текст.
 #
-# записей: 212
+# записей: 321
 
 disciplines:
   jKi5asy0Vad7t2X7:
@@ -613,220 +613,220 @@ disciplines:
     page: 289
     book: "STV501 Книга правил.pdf"
   LojfogUeNCTi7eCf:
-    ua: "Алхімія Тонкокровних"
+    ua: "Алхимия слабокровных"
     name: "Алхимия слабокровных"
   M6xo585GjuC9ambl:
-    ua: "Анімалізм"
+    ua: "Анимализм"
     name: "Анимализм"
   vgcAKN3jXMuVkQOv:
-    ua: "Присутність"
+    ua: "Величие"
     name: "Величие"
   MMIEmYHdUacjOrZm:
-    ua: "Домінування"
+    ua: "Доминирование"
     name: "Доминирование"
   S5CBBjrqPoDrBOZF:
-    ua: "Кривава Магія"
+    ua: "Кровавое чародейство"
     name: "Кровавое чародейство"
   D6G9DQZBYyvitWIc:
-    ua: "Протеан"
+    ua: "Метаморфозы"
     name: "Метаморфозы"
   xwOBSNfzT8sCA12q:
-    ua: "Могутність"
+    ua: "Мощь"
     name: "Мощь"
   kbzESDkH1DRXIEwH:
-    ua: "Ритуали"
+    ua: "Ритуалы"
     name: "Ритуалы"
   WcdpqnG6qf4sIs5W:
-    ua: "Обфускація"
+    ua: "Сокрытие"
     name: "Сокрытие"
   QDyANoW3Hv9s6SdT:
-    ua: "Стійкість"
+    ua: "Стойкость"
     name: "Стойкость"
   Uva2JojNYuKKLYLv:
-    ua: "Стрімкість"
+    ua: "Стремительность"
     name: "Стремительность"
   3itXhdHZZKj8mZhj:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   aHnfI8vhuBCi6LOD:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   C4M7AzXjgkD9PLDN:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   dY39IRZ2aDPafQcZ:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   DYv3jUMy9nMTEVmo:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   EVYSH77BrZNP1q3W:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   LoArRqUzbXVhfkov:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   LXQ64bZ4gUJx8oZq:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   qiKArCN2bXL4I9w9:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   tx4ep2c0yOALUFLW:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   wpJvq8yRxZCjStDy:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   zQVeuZtYSmq00SJJ:
-    ua: "Рівень 1"
+    ua: "Уровень 1"
     name: "Уровень 1"
   0R6ZhL1eM8SJGFUN:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   aA7QU64rrTQkNnqk:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   Fmqyc3dTORcdXdkk:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   FpUPH10Tvi2VgGFf:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   ktI6ZDtzasFQxSeA:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   NdHFT4PC7pPqwsA0:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   nK00YNPhGdIZyUPI:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   O5h1FKbj9xZh1QLh:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   r6CF90GrMhTKyVCo:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   xIKldK7hFWI9pZXo:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   yOtmzdhtLktqHV2s:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   yRb674tIPv196dxQ:
-    ua: "Рівень 2"
+    ua: "Уровень 2"
     name: "Уровень 2"
   21ET2rjQl0tVIxcC:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   3qCaMjd7HicXuaed:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   arLlXU27usjx4RDu:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   bc4oUHf5LgUIEKeP:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   dZMEdv9suHOLBz4O:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   Eu59sgcxwcMmse8A:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   GzJx6XVkFDl7TzF9:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   mwCJW1gqa3zwTmF5:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   OkkEd2MWDrrnArid:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   QV1lfz9EU6hnQfkT:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   xDhCZkrLPWWHDdEg:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   ykvCtSnbJUEIQQm2:
-    ua: "Рівень 3"
+    ua: "Уровень 3"
     name: "Уровень 3"
   161fLlXNb5ThUHua:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   6W17X6j7IKAr3bFK:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   g65Ijq0bqhBxiY6K:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   hPoLhRyILy7e1qxA:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   iznW7TmLfNnhTw0g:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   JabLBH2n83gkLzuR:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   kNpKEV8wMiCSKJyJ:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   m3PZOdIjLPH0Fhlp:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   moWQIWnCD4092KTF:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   NjCpH5FkFKuYKwDg:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   wExgCpxoJU7bfd8W:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   YAw3AHg94WWbqCnY:
-    ua: "Рівень 4"
+    ua: "Уровень 4"
     name: "Уровень 4"
   018Mfr6auKKYLXyI:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   0ptt2xkhZKekfhoV:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   d0cbkbZyUVUaPfFD:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   FMODQuLpMI3LT9JX:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   j5lafE2pXRKjQYGK:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   pNBWmUGAz5N6bSRl:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   QCsYSQBZ5DjPvfvg:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   sGR4QHB8SZ4yCBv0:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   ud9trAwfCKOMokwZ:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   wLlK2XTB18WvtApx:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   wOjbxqHPqPikcADT:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   YSRupupnXCyqqKc7:
-    ua: "Рівень 5"
+    ua: "Уровень 5"
     name: "Уровень 5"
   sOp4GyaKa5CvZsbE:
-    ua: "Ауспекс"
+    ua: "Ясновидение"
     name: "Ясновидение"
 blood-potency-predator-type:
   BCVKeoYAt59ZkFWV:
@@ -915,8 +915,506 @@ blood-potency-predator-type:
     page: 219
     book: "STV501 Книга правил.pdf"
   wr5SIxwezXzT8NGk:
-    ua: "Сила Крові"
+    ua: "Сила Крови"
     name: "Сила Крови"
   r1wjwrIVzALpkFpo:
-    ua: "Тип Хижака"
+    ua: "Тип охотника"
     name: "Тип охотника"
+advantages-flaws:
+  oIGL6a7TRgTt1p3S:
+    ua: "•••• Восхитительный"
+    ru: "Восхитительный"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  zMjANi1Ob8EmWeeN:
+    ua: "•• Красивый"
+    ru: "Красивый"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  NDyN8Ng81NSaEtaM:
+    ua: "Недостаток: (••) Омерзительный"
+    ru: "омерзительный"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  UMHOIbln1mVbhBXl:
+    ua: "Недостаток: (••) Пожиратель органов"
+    ru: "пожиратель органов"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  67xHoNo3IT95jWrt:
+    ua: "Недостаток: (•) Ретроград"
+    ru: "ретроград"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  FCm4CuQ7ihga8Ms0:
+    ua: "Недостаток: (•) Уродливый"
+    ru: "уродливый"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  IHEMKPlqM0dQz5KA:
+    ua: "Недостаток: (••) Ходячий анахронизм"
+    ru: "ходячий анахронизм"
+    page: 181
+    book: "STV501 Книга правил.pdf"
+  Twxy2SyeVsC7yA73:
+    ua: "• Ищейка"
+    ru: "Ищейка"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  8d2ks51CV05hU8x8:
+    ua: "••• Крепкий желудок"
+    ru: "Крепкий желудок"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  xn5QGRdnv6www4bO:
+    ua: "Полиглот"
+    ru: "ПОЛИГЛОТ"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  JLN9et6XTg1yA92I:
+    ua: "Недостаток: (•) Жажда мафусаила"
+    ru: "жажда мафусаила"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  64VTooRWmvLK0IFF:
+    ua: "Недостаток: (•) Разборчивость"
+    ru: "разборчивость"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  Bl5eU7tj4FpTAnSF:
+    ua: "Недостаток: (••) Фермер"
+    ru: "фермер"
+    page: 182
+    book: "STV501 Книга правил.pdf"
+  Bboh24ArP10xHNWa:
+    ua: "•• Неустойчивые узы"
+    ru: "Неустойчивые узы"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  J10FtmJyYriM0SwI:
+    ua: "• Устойчивость к узам"
+    ru: "Устойчивость к узам"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  nTIGpomlFZ1pasnN:
+    ua: "Недостаток: (••) Неграмотный"
+    ru: "неграмотный"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  2OAVuu4hlxP53grY:
+    ua: "Недостаток: (•) Пристрастие к узам"
+    ru: "пристрастие к узам"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  31fiFzVZDz3F0eXf:
+    ua: "Недостаток: (••) Раб кровавых уз"
+    ru: "раб кровавых уз"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  YSAtnBFupYRcydIS:
+    ua: "Недостаток: (•) Устойчивые узы"
+    ru: "устойчивые узы"
+    page: 183
+    book: "STV501 Книга правил.pdf"
+  4ad4CNZHB81JLZ3p:
+    ua: "• Высокофункциональный наркоман"
+    ru: "Высокофункциональный наркоман"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  iG1zE2NYosIyd8Uo:
+    ua: "•••• Невосприимчивость к узам"
+    ru: "Невосприимчивость к узам"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  2ed8lSChh2zxJnGX:
+    ua: "•• Способность есть пищу"
+    ru: "Способность есть пищу"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  VogzPM3RAu77Y9lq:
+    ua: "Недостаток: (••) Зависимость"
+    ru: "зависимость"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  mvHYsFDlipA1bD3S:
+    ua: "Недостаток: (••) Мишень для кольев"
+    ru: "мишень для кольев"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  94pGHlIElC9PKioN:
+    ua: "Недостаток: (•) Надуманная опасность"
+    ru: "надуманная опасность"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  YqarO6YW6NlsQgDK:
+    ua: "Недостаток: (•) Надуманное препятствие"
+    ru: "надуманное препятствие"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  PPnXYh1rHGKOwBDb:
+    ua: "Недостаток: (•) Пристрастие"
+    ru: "пристрастие"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  Td5uL5sxQKtCS1wK:
+    ua: "Недостаток: (•) Стигматы"
+    ru: "стигматы"
+    page: 184
+    book: "STV501 Книга правил.pdf"
+  wXoKDvKVoa3VOqWf:
+    ua: "Алхимик"
+    ru: "Алхимик"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  4dYpwSrQUDkujW6k:
+    ua: "Беззубый"
+    ru: "Беззубый"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  xQ4097pDDWoIA9p7:
+    ua: "Дневной хищник"
+    ru: "Дневной хищник"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  eo1gHIUxcYoNml3e:
+    ua: "Живучесть вампира"
+    ru: "Живучесть вампира"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  22ZIlNzPVMfS3XBM:
+    ua: "Зависимость от витэ"
+    ru: "Зависимость от витэ"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  vBcvpLswmw6pUmAH:
+    ua: "Клановый изъян"
+    ru: "Клановый изъян"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  raW6huUQ49CqlTVL:
+    ua: "Клеймо Камарильи"
+    ru: "Клеймо Камарильи"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  Q0Qp3M4PZ6ehl5zf:
+    ua: "Мёртвая плоть"
+    ru: "Мёртвая плоть"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  jEjcyUln8Wz3JMwJ:
+    ua: "Неистовый Зверь"
+    ru: "Неистовый Зверь"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  8yvOplh0T02viuI1:
+    ua: "Отверженный среди анархов"
+    ru: "Отверженный среди анархов"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  mNw3Zyxk0Mzh02RQ:
+    ua: "Покровитель в Камарилье"
+    ru: "Покровитель в Камарилье"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  VLI26USKORp5ctqa:
+    ua: "Полный жизни"
+    ru: "Полный жизни"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  mQJFSxMOlpI6BvFh:
+    ua: "Потенциал Крови"
+    ru: "Потенциал Крови"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  5dArPnGZ4vQZZ0hF:
+    ua: "Субтильность смертного"
+    ru: "Субтильность смертного"
+    page: 185
+    book: "STV501 Книга правил.pdf"
+  kGbzHWqAVV16ATRW:
+    ua: "Богатство"
+    ru: "Богатство"
+    page: 186
+    book: "STV501 Книга правил.pdf"
+  Pog1dtEm2ROnlV4V:
+    ua: "Влияние"
+    ru: "Влияние"
+    page: 186
+    book: "STV501 Книга правил.pdf"
+  KBHSJWEDlIFfiNTs:
+    ua: "Склонность к Дисциплине"
+    ru: "Склонность к Дисциплине"
+    page: 186
+    book: "STV501 Книга правил.pdf"
+  07G9ETM1xyjanKjh:
+    ua: "Товарищи среди анархов"
+    ru: "Товарищи среди анархов"
+    page: 186
+    book: "STV501 Книга правил.pdf"
+  dbzdFwTZIoenvSpD:
+    ua: "Недостаток: (•) Нищий"
+    ru: "нищий"
+    page: 186
+    book: "STV501 Книга правил.pdf"
+  gbX1OARgTYJXM2AB:
+    ua: "Информаторы"
+    ru: "Информаторы"
+    page: 187
+    book: "STV501 Книга правил.pdf"
+  0SdeMFOM2s7NULfM:
+    ua: "Мавла"
+    ru: "Мавла"
+    page: 187
+    book: "STV501 Книга правил.pdf"
+  J5IMiku8HHCuWgtI:
+    ua: "Недостаток: (•) Непопулярный"
+    ru: "непопулярный"
+    page: 187
+    book: "STV501 Книга правил.pdf"
+  dXzKl6ZHGPu3FEVu:
+    ua: "Недостаток: (••) Презираемый"
+    ru: "презираемый"
+    page: 187
+    book: "STV501 Книга правил.pdf"
+  uba5bxXp2N51yBEh:
+    ua: "Недостаток: Конкурент"
+    ru: "КОНКУРЕНТ"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  Zg8x0Snq7bU4gZzi:
+    ua: "Маска"
+    ru: "Маска"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  IghA327CUH3LXbWX:
+    ua: "Подручные"
+    ru: "Подручные"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  YQXD7Dg87robCB78:
+    ua: "• Стёртая личность"
+    ru: "Стёртая личность"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  miFPZD1A0aJhQ4UM:
+    ua: "• Фальсификатор"
+    ru: "Фальсификатор"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  1AiiwBZyHa0Sqnoc:
+    ua: "Недостаток: (•) Покойник"
+    ru: "покойник"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  PeBMN5yeHfeN0phC:
+    ua: "Недостаток: (••) Пустотелый"
+    ru: "пустотелый"
+    page: 189
+    book: "STV501 Книга правил.pdf"
+  fq5gsKzPZHDtdkJs:
+    ua: "Недостаток: Дурная слава"
+    ru: "ДУРНАЯ СЛАВА"
+    page: 190
+    book: "STV501 Книга правил.pdf"
+  5W1kDd0792pl33IJ:
+    ua: "Недостаток: Страшная тайна"
+    ru: "СТРАШНАЯ ТАЙНА"
+    page: 190
+    book: "STV501 Книга правил.pdf"
+  9tcW6Pgj8itbC79B:
+    ua: "Слава"
+    ru: "Слава"
+    page: 190
+    book: "STV501 Книга правил.pdf"
+  48FMloDbEgU2W7kP:
+    ua: "Недостаток: (•) Преследователи"
+    ru: "преследователи"
+    page: 190
+    book: "STV501 Книга правил.pdf"
+  BuGwzm1TY4ukolWA:
+    ua: "Союзники и враги"
+    ru: "Союзники и враги"
+    page: 191
+    book: "STV501 Книга правил.pdf"
+  1WIRwkPAGv8WyEI8:
+    ua: "Союзники и враги"
+    ru: "Союзники и враги"
+    page: 191
+    book: "STV501 Книга правил.pdf"
+  L87zaFenylrLxJZ6:
+    ua: "Стадо"
+    ru: "Стадо"
+    page: 192
+    book: "STV501 Книга правил.pdf"
+  VF73NdB7RGgiVf12:
+    ua: "Статус"
+    ru: "Статус"
+    page: 192
+    book: "STV501 Книга правил.pdf"
+  Vml4UpKWHSbTWddt:
+    ua: "Недостаток: (••) Повадки хищника"
+    ru: "повадки хищника"
+    page: 192
+    book: "STV501 Книга правил.pdf"
+  y6OLbstJvloGcR3b:
+    ua: "Убежище"
+    ru: "Убежище"
+    page: 194
+    book: "STV501 Книга правил.pdf"
+  2DSkpd7wqzAPpVEq:
+    ua: "Недостаток: (••) Отверженный"
+    ru: "отверженный"
+    page: 194
+    book: "STV501 Книга правил.pdf"
+  v00PH927qk3O76fW:
+    ua: "Недостаток: (•) Подозрительный"
+    ru: "подозрительный"
+    page: 194
+    book: "STV501 Книга правил.pdf"
+  3gjGp9xMErec7g9x:
+    ua: "Недостаток: (•) Без убежища"
+    ru: "без убежища"
+    page: 195
+    book: "STV501 Книга правил.pdf"
+  B5Nf6YonbaZMfXv0:
+    ua: "Недостаток: (•) Жуткое место"
+    ru: "жуткое место"
+    page: 195
+    book: "STV501 Книга правил.pdf"
+  8TO3w76GR8N7RPfq:
+    ua: "Недостаток: (••) Известное местоположение"
+    ru: "известное местоположение"
+    page: 195
+    book: "STV501 Книга правил.pdf"
+  OHFmtZhwNflthTQ3:
+    ua: "Недостаток: (•) Сверхъестественная проблема"
+    ru: "сверхъестественная проблема"
+    page: 195
+    book: "STV501 Книга правил.pdf"
+  4OAtebHWMywIRaoi:
+    ua: "• Библиотека"
+    ru: "Библиотека"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  zhnVMCno6vOfOjSB:
+    ua: "• Камера для заключённых"
+    ru: "Камера для заключённых"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  4cG5IzD1zYnGYls9:
+    ua: "• Лаборатория"
+    ru: "Лаборатория"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  5E4EKkMPx9nPohhq:
+    ua: "• Магическая защита"
+    ru: "Магическая защита"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  4JF3Wox129PggNhB:
+    ua: "• Операционная"
+    ru: "Операционная"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  WTj69aZfXxu4UrlF:
+    ua: "• Охрана"
+    ru: "Охрана"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  bpmroS4g4ieh79aU:
+    ua: "• Продвинутая система безопасности"
+    ru: "Продвинутая система безопасности"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  tpAVUW7iEXud4doi:
+    ua: "• Пути отступления"
+    ru: "Пути отступления"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  3Q8CBzCIjsLn8tJl:
+    ua: "• Роскошь"
+    ru: "Роскошь"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  9A0oQrnd67hDApcB:
+    ua: "• Тайник с оружием"
+    ru: "Тайник с оружием"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  prh1FitBX1HqQPYa:
+    ua: "• Эксклюзивное расположение"
+    ru: "Эксклюзивное расположение"
+    page: 196
+    book: "STV501 Книга правил.pdf"
+  d6cWr8XLEk5wHrdq:
+    ua: "Активы"
+    name: "Активы"
+  wlgKLLJRhcGtb1ql:
+    ua: "Анахронизм"
+    name: "Анахронизм"
+  C8mZ006mbKxfWkKR:
+    ua: "Богатство"
+    name: "Богатство"
+  wh1ckyk2iogYWy3v:
+    ua: "Влияние"
+    name: "Влияние"
+  QKuRWbIrsNvscPEl:
+    ua: "Внешность"
+    name: "Внешность"
+  MYHjid6HhGRlM2jg:
+    ua: "Достоинства и недостатки убежища"
+    name: "Достоинства и недостатки убежища"
+  jCXLup54jpPLnL7E:
+    ua: "Достоинства слабокровных"
+    name: "Достоинства слабокровных"
+  aRfUizKO5DlQORVk:
+    ua: "Информаторы"
+    name: "Информаторы"
+  nrXCAc3scd6WxI8l:
+    ua: "Мавла (или конкурент)"
+    name: "Мавла (или конкурент)"
+  ssc0xboCLq8X00rA:
+    ua: "Маска"
+    name: "Маска"
+  UFusW5PeI6LdrHT1:
+    ua: "Недостатки слабокровных"
+    name: "Недостатки слабокровных"
+  EjrgIip5FxV2L0vL:
+    ua: "Особенности"
+    name: "Особенности"
+  ZNc3COt4DlBceW7m:
+    ua: "Пищевые привычки"
+    name: "Пищевые привычки"
+  4xmrseXHekiLDZU0:
+    ua: "Подручные"
+    name: "Подручные"
+  gNzlMBQnbSdlEeA8:
+    ua: "Полиглот"
+    name: "Полиглот"
+  7ZTEVFFosXY77OE7:
+    ua: "Слава"
+    name: "Слава"
+  84wmdbMKxE6cGQFj:
+    ua: "Союзники"
+    name: "Союзники"
+  LtiEa0vN6EakVYIQ:
+    ua: "Стадо"
+    name: "Стадо"
+  DCRmwL9yjifodIBD:
+    ua: "Статус"
+    name: "Статус"
+  QuR4Wj0esibid3Qo:
+    ua: "Требует Маски (••)"
+    name: "Требует Маски (••)"
+  vB6siaIDTHBZXglQ:
+    ua: "Убежище"
+    name: "Убежище"
+  8nIbXfSlBnoD3RZ0:
+    ua: "Узы крови"
+    name: "Узы крови"
+  lKPlVRC8wY6jYYMG:
+    ua: "Употребление психоактивных веществ"
+    name: "Употребление психоактивных веществ"
+  eLvkdKDZQoLeUKTM:
+    ua: "Фольклорные достоинства и недостатки"
+    name: "Фольклорные достоинства и недостатки"

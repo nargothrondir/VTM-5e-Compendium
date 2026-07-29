@@ -1,11 +1,11 @@
 {
   "folder": "QKuRWbIrsNvscPEl",
-  "name": "•• Вродливий",
+  "name": "•• Красивый",
   "type": "feature",
   "_id": "zMjANi1Ob8EmWeeN",
   "img": "systems/vtm5e/assets/icons/items/discipline.png",
   "system": {
-    "description": "<p>Ви додаєте один додатковий кубик до всіх відповідних соціальних пулів кубиків.</p>",
+    "description": "<p>Пулы всех социальных проверок, на которые может повлиять внешность, увеличиваются на 1d10.</p>",
     "bonuses": [],
     "uses": {
       "max": 0,

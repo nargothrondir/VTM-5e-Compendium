@@ -62,8 +62,14 @@ def category(line):
     return text.rstrip(".").strip() or None
 
 
-def entry_name(line, bullet_font, invisible_spaces):
-    """Имя записи, если строка её начинает; иначе None."""
+def entry_start(line, bullet_font, invisible_spaces):
+    """Начало записи: имя, рейтинг и признак недостатка. Иначе None.
+
+    Рейтинг обязателен для сопоставления: в компендиуме соседние записи
+    различаются именно им, а не названием. «Вада: (•) Життя в минулому» и
+    «Вада: (••) Архаїчний» — это «ходячий анахронизм» и «ретроград», и по
+    одним названиям не определить, какое из них однодотовое.
+    """
     sp = _spans(line)
     if not sp:
         return None
@@ -71,13 +77,15 @@ def entry_name(line, bullet_font, invisible_spaces):
     # Запись может открываться и просто жирным именем: рейтинг набран отдельным
     # мелким кеглем и в строку попадает не всегда («Важный. Окружающие…»).
     # Ложных срабатываний это не даёт: продолжение абзаца всегда идёт светлым.
-    i = 0
+    i, rating, is_flaw = 0, 0, False
     while i < len(sp):
         text = sp[i]["text"].strip()
         if sp[i]["font"] == bullet_font or (text and set(text) <= RATING_CHARS):
+            rating += text.count("●")
             i += 1
         elif _is_name_span(sp[i]) and FLAW_PREFIX_RE.match(text):
-            i += 1                            # «Недостаток:» — не имя, а метка
+            is_flaw = True                    # «Недостаток:» — не имя, а метка
+            i += 1
         else:
             break
 
@@ -92,4 +100,16 @@ def entry_name(line, bullet_font, invisible_spaces):
     name = "".join(parts)
     for ch in invisible_spaces:
         name = name.replace(ch, " ")
-    return re.sub(r"\s+", " ", name).strip().rstrip(".").strip() or None
+    name = re.sub(r"\s+", " ", name).strip().rstrip(".").strip()
+    if not name:
+        return None
+
+    # Остаток строки после имени. Имя, рейтинг и метку «Недостаток:» несёт
+    # заголовок записи, и в тексте они были бы вторым экземпляром: получалось
+    # «Известный. Известный. Неонат, представленный…».
+    rest = "".join(s["text"] for s in sp[i:])
+    for ch in invisible_spaces:
+        rest = rest.replace(ch, " ")
+    rest = rest.lstrip(". ")
+
+    return {"name": name, "rating": rating, "flaw": is_flaw, "rest": rest}

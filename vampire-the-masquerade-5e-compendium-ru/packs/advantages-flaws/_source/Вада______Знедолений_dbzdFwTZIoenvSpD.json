@@ -1,11 +1,11 @@
 {
   "folder": "C8mZ006mbKxfWkKR",
-  "name": "Вада: (•) Знедолений",
+  "name": "Недостаток: (•) Нищий",
   "type": "feature",
   "_id": "dbzdFwTZIoenvSpD",
   "img": "systems/vtm5e/assets/icons/items/discipline.png",
   "system": {
-    "description": "<p>У вас немає грошей і дому.</p>",
+    "description": "<p>У тебя нет ни денег, ни дома.</p>",
     "bonuses": [],
     "uses": {
       "max": 0,

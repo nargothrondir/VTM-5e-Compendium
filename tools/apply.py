@@ -18,6 +18,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent))
+import mapping_merits  # noqa: E402
 from pdfkit import to_html  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -55,6 +56,64 @@ def display_name(heading: str) -> str:
         else:
             out.append(low)
     return " ".join(out)
+
+
+def dots(rating):
+    return chr(8226) * rating
+
+
+def merit_display_name(section, ua_name=""):
+    """Имя записи достоинства или недостатка.
+
+    Компендиум показывает в списке и вид записи, и рейтинг («Вада: (••)
+    Архаїчний»), поэтому та же разметка сохраняется и в переводе — иначе
+    в дереве не отличить недостаток от достоинства.
+    """
+    base = display_name(section["name"])
+    base = base[:1].upper() + base[1:]
+
+    if section["kind"] == "merit_category":
+        prefix = "Недостаток: " if section["name"] in mapping_merits.FLAW_CATEGORIES else ""
+        return prefix + base
+
+    # Рейтинг книги приоритетен, но у части достоинств он набран на полях
+    # и в строку не попадает. Тогда его берём из украинского названия —
+    # там он записан явно («•••• Приголомшливий», «Вада: (••) Веган»).
+    rating = section.get("rating") or ua_name.count(chr(8226))
+    if section.get("flaw"):
+        return f"Недостаток: ({dots(rating)}) {base}" if rating else f"Недостаток: {base}"
+    return f"{dots(rating)} {base}" if rating else base
+
+
+def category_text(section, sections):
+    """Текст сводной записи: вводный абзац плюс ступени раздела.
+
+    Фон в компендиуме — одна запись со всеми ступенями, а книга разносит их
+    по отдельным записям. Недостатки категории сюда не входят: под них в
+    компендиуме заведены свои записи.
+    """
+    levels = [s for s in sections
+              if s["kind"] == "merit_entry"
+              and s.get("category") == section["name"]
+              and not s.get("flaw")]
+
+    # У низших ступеней фона точки набраны на полях и в строку не попадают.
+    # Восстанавливаем их по позиции, но только там, где ступеней ровно пять
+    # и все распознанные рейтинги совпали с номерами: у достоинств убежища
+    # шкалы нет, и позиция там ничего не значит.
+    ratings = [s.get("rating") or 0 for s in levels]
+    ordered = (len(levels) == 5
+               and all(r == 0 or r == i + 1 for i, r in enumerate(ratings)))
+    if ordered:
+        ratings = [i + 1 for i in range(len(levels))]
+
+    parts = [section["text"]] if section["text"] else []
+    for other, rating in zip(levels, ratings):
+        name = other["name"][:1].upper() + other["name"][1:]
+        rate = dots(rating)
+        head = f"{chr(9632)} {rate} {name}." if rate else f"{chr(9632)} {name}."
+        parts.append(f"{head} {other['text']}")
+    return chr(10).join(parts)
 
 
 def module_dir():
@@ -96,7 +155,7 @@ def main():
         for path in sorted(source.glob("*.json")):
             data = json.loads(path.read_text(encoding="utf-8"))
             by_id[data["_id"]] = (path, data)
-        apply_pack(pack, mapping[pack], by_id, by_name,
+        apply_pack(pack, mapping[pack], by_id, by_name, sections,
                    args.dry_run, total, renames)
 
     verb = "изменилось бы" if args.dry_run else "изменено"
@@ -109,7 +168,7 @@ def main():
     return 0
 
 
-def apply_pack(pack, mapping, by_id, by_name, dry_run, total, renames):
+def apply_pack(pack, mapping, by_id, by_name, all_sections, dry_run, total, renames):
     for _id, entry in mapping.items():
         if _id not in by_id:
             print(f"  ! {pack}: нет записи {_id} ({entry['ua']})")
@@ -134,8 +193,15 @@ def apply_pack(pack, mapping, by_id, by_name, dry_run, total, renames):
             print(f"  ! {pack}: нет раздела {entry['ru']!r} для {_id}")
             continue
 
-        new_name = display_name(section["name"])
-        new_desc = to_html(section["text"])
+        if section["kind"] in ("merit_entry", "merit_category"):
+            new_name = (mapping_merits.NAME_OVERRIDES.get(_id)
+                        or merit_display_name(section, entry.get("ua", "")))
+            new_desc = to_html(category_text(section, all_sections)
+                               if section["kind"] == "merit_category"
+                               else section["text"])
+        else:
+            new_name = display_name(section["name"])
+            new_desc = to_html(section["text"])
 
         if data.get("name") == new_name and data["system"].get("description") == new_desc:
             total["skipped"] += 1
