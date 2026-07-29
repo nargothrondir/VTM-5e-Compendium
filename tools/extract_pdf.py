@@ -18,6 +18,7 @@ from pathlib import Path
 import fitz
 
 sys.path.insert(0, str(Path(__file__).parent))
+import merits  # noqa: E402
 from pdfkit import HYPHENS, INVISIBLE_SPACES, normalize  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -39,7 +40,6 @@ LORE = "STV506 Малая книга знаний.pdf"
 #   GillSansNova-SemiBold/Heavy    -> колонтитул и подзаголовок врезки
 POWER_HEADING_FONT = "GillSansNova-Bold"
 POWER_HEADING_SIZE = (7.5, 8.5)
-INLINE_NAME_FONT = "CormorantGaramond-Bold"
 BODY_FONT_PREFIX = "CormorantGaramond"
 BODY_SIZE = (9.0, 11.0)
 LEVEL_SIZE = (13.0, 15.0)
@@ -269,6 +269,42 @@ def extract_flat(doc, pages, book, kind, is_heading, stop=None):
     return sections
 
 
+def extract_merits(doc, pages, book):
+    """Записи раздела достоинств и недостатков."""
+    sections, current, cat = [], None, None
+
+    def flush():
+        nonlocal current
+        if current:
+            current.pop("block", None)
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            sections.append(current)
+            current = None
+
+    for pno in range(*pages):
+        for line in page_lines(doc[pno], lambda l: classify(l) != "skip"):
+            heading = merits.category(line)
+            if heading:
+                flush()
+                cat = heading
+                continue
+            if classify(line) != "body":
+                continue
+
+            name = merits.entry_name(line, BULLET_FONT, INVISIBLE_SPACES)
+            text = line_text(line).strip()
+            if name:
+                flush()
+                current = {"kind": "merit_entry", "book": book, "name": name,
+                           "category": cat, "page": pno + 1,
+                           "lines": [text], "block": line["block"]}
+            elif current:
+                add_body_line(current, line, text)
+
+    flush()
+    return sections
+
+
 def extract_powers(doc, toc, book):
     """Силы Дисциплин: заголовок капсом, тело — до следующего заголовка.
 
@@ -337,26 +373,6 @@ def extract_powers(doc, toc, book):
     return sections
 
 
-def extract_inline_entries(doc, toc, title, book, kind):
-    """Разделы, где имя записи набрано жирным прямо в потоке текста."""
-    start, end = section_range(toc, title, doc)
-    sections = []
-    for pno in range(start, end):
-        page = doc[pno]
-        names = []
-        for s in spans(page):
-            text = s["text"].strip()
-            if s["font"] == INLINE_NAME_FONT and len(text) > 2:
-                names.append(text)
-        if not names:
-            continue
-        sections.append({
-            "kind": kind, "book": book, "page": pno + 1,
-            "bold_runs": names, "text": normalize(page.get_text("text")),
-        })
-    return sections
-
-
 def extract_toc_section(doc, toc, title, book, kind):
     """Раздел целиком, одним куском (кланы, типы охотника и т. п.)."""
     start, end = section_range(toc, title, doc)
@@ -386,7 +402,8 @@ def main():
     toc = load_toc(core)
     sections = []
     sections += extract_powers(core, toc, CORE)
-    sections += extract_inline_entries(core, toc, "Достоинства", CORE, "merit")
+    merit_pages = title_pages(core, "Преимущества", CHAPTER_TITLE_SIZE, 175, 215)
+    sections += extract_merits(core, merit_pages, CORE)
     for clan in ("Бруха", "Вентру", "Гангрел", "Малкавиане", "Носферату",
                  "Тореадор", "Тремер", "Каитифы", "Слабая кровь"):
         sections += extract_toc_section(core, toc, clan, CORE, "clan")
