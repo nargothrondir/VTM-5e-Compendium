@@ -30,10 +30,42 @@ RUNNING_HEAD_RE = re.compile(
 TRANSLATOR_NOTE_RE = re.compile(r"^\s*\d+\s*\nПрим\. пер\.:.*?$", re.M | re.S)
 
 
+# Кириллица, прочитанная как Latin-1: «Ãàíãðåë» вместо «Гангрел». Так выходит,
+# когда у шрифта нет таблицы ToUnicode и байты CP1251 читаются побайтово.
+MOJIBAKE_RE = re.compile(r"[À-ÿ]+")
+CYRILLIC_RE = re.compile(r"[а-яёА-ЯЁ]")
+
+
+def fix_encoding(text: str) -> str:
+    """Чинит кириллицу, выпавшую из PDF как Latin-1.
+
+    Порча бывает и точечной — «Если â истории нет сцен», — поэтому внутри
+    заведомо кириллического текста чинится прогон любой длины. Там, где
+    кириллицы нет, порог выше: осмысленный латинский текст трогать нельзя.
+    """
+    if not text or not MOJIBAKE_RE.search(text):
+        return text
+
+    least = 1 if CYRILLIC_RE.search(text) else 3
+
+    def repair(match):
+        run = match.group(0)
+        if len(run) < least:
+            return run
+        try:
+            return run.encode("latin-1").decode("cp1251")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            return run
+
+    return MOJIBAKE_RE.sub(repair, text)
+
+
 def normalize(text: str) -> str:
     """Сырой текстовый слой -> связный текст в одну строку на абзац."""
     if not text:
         return ""
+
+    text = fix_encoding(text)
 
     text = TRANSLATOR_NOTE_RE.sub("", text)
 

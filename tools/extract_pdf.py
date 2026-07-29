@@ -19,14 +19,23 @@ import fitz
 
 sys.path.insert(0, str(Path(__file__).parent))
 import merits  # noqa: E402
-from pdfkit import HYPHENS, INVISIBLE_SPACES, normalize  # noqa: E402
+from pdfkit import (HYPHENS, INVISIBLE_SPACES, fix_encoding,  # noqa: E402
+                    normalize)
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCES = Path(os.environ.get("VTM_SOURCES", ROOT / "sources"))
 OUT = ROOT / "data" / "book_sections.json"
 
-CORE = "STV501 Книга правил.pdf"
-LORE = "STV506 Малая книга знаний.pdf"
+CORE = "Книга правил.pdf"
+LORE = "Малая книга знаний.pdf"
+GUIDE = "Руководство для игроков.pdf"
+
+# Руководство свёрстано другой гарнитурой и другим кеглем, чем основная
+# книга: там свои константы.
+VARIANT_FONT = "B52"
+TITLE_SIZE = (13.0, 25.0)
+VARIANT_RE = re.compile(r"[А-ЯЁ][А-Яа-яёЁ  -]{2,20}:\s*[А-ЯЁа-яё][А-Яа-яёЁ ]{2,40}")
+COLOPHON_RE = re.compile(r"VAMPIRE|MASQUERADE|Chapter\s+\w+:|^\d[\d ]*$")
 
 # Роли элементов вёрстки, установленные осмотром текстового слоя STV501.
 # Вся сегментация держится на них, поэтому она воспроизводима и не требует ИИ.
@@ -324,6 +333,129 @@ def extract_merits(doc, pages, book):
     return sections
 
 
+CLAN_SUBTITLE_FONT = "BodoniSevITC-Book"
+CLAN_SUBTITLE_SIZE = (20.0, 24.0)
+CLAN_DISCIPLINE_FONT = "GillSansNova-Bold"
+CLAN_DISCIPLINE_SIZE = (7.0, 8.0)
+
+
+def extract_clans(doc, toc, book, names):
+    """Кланы: вводное описание, список Дисциплин и раздел «Изъян».
+
+    Описание — это текст до первого подзаголовка полосы; дальше идут
+    «Какими бывают …?», «Дисциплины» и «Изъян», каждый со своим титулом
+    в 22 пункта.
+    """
+    sections = []
+    for clan in names:
+        first, last = section_range(toc, clan, doc)
+        subtitle, lead, bane, disciplines = None, [], [], []
+
+        for pno in range(first, last):
+            for line in page_lines(doc[pno], lambda l: classify(l) != "skip"):
+                sp = [s for s in line["spans"] if s["text"].strip()]
+                text = line_text(line).strip()
+
+                if all(s["font"] == CLAN_SUBTITLE_FONT
+                       and CLAN_SUBTITLE_SIZE[0] < s["size"] < CLAN_SUBTITLE_SIZE[1]
+                       for s in sp):
+                    subtitle = text
+                    continue
+
+                # Название Дисциплины набрано капсом и заканчивается точкой:
+                # «ВЕЛИЧИЕ. Бруха применяют эту Дисциплину, когда…»
+                if (sp[0]["font"] == CLAN_DISCIPLINE_FONT
+                        and CLAN_DISCIPLINE_SIZE[0] < sp[0]["size"] < CLAN_DISCIPLINE_SIZE[1]):
+                    head = re.match(r"^([А-ЯЁ][А-ЯЁ ]+)\.", text)
+                    if head:
+                        disciplines.append(head.group(1).strip().capitalize())
+                    continue
+
+                if classify(line) != "body":
+                    continue
+                if subtitle is None:
+                    lead.append(text)
+                elif subtitle == "Изъян":
+                    bane.append(text)
+
+        sections.append({
+            "kind": "clan_entry", "book": book, "name": clan,
+            "page": first + 1,
+            "disciplines": list(dict.fromkeys(disciplines)),
+            "text": normalize(chr(10).join(lead)),
+            "bane": normalize(chr(10).join(bane)),
+        })
+    return sections
+
+
+def extract_bane_variants(doc, book):
+    """Альтернативные проклятья кланов из Руководства для игроков.
+
+    Раздел свёрстан своим шрифтом B52, и кегль заголовка гуляет от 14 до 20
+    пунктов — привязываться к размеру нельзя, опознаём по гарнитуре и по
+    формату строки «Клан: Название варианта».
+    """
+    def titles(page, least, most):
+        for b in page.get_text("dict")["blocks"]:
+            for line in b.get("lines", []):
+                for s in line.get("spans", []):
+                    if (s["font"] == VARIANT_FONT and least < s["size"] < most
+                            and s["text"].strip()):
+                        yield fix_encoding(s["text"]).strip()
+
+    # Начало ищется по титулу главы, а не по словам: то же название стоит
+    # в оглавлении, и поиск по тексту приводил на страницу с содержанием.
+    start = next((pno for pno in range(doc.page_count)
+                  if any("Клановые" in x for x in titles(doc[pno], 40, 80))), None)
+    if start is None:
+        return []
+
+    # Двоеточие в заголовке набрано другой гарнитурой, поэтому границу
+    # раздела задаёт само наличие заголовочных строк, а не их текст.
+    end = start + 1
+    while (end < doc.page_count and end - start < 12
+           and any(titles(doc[end], *TITLE_SIZE))):
+        end += 1
+
+    sections, current, in_title = [], None, False
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            clan, _, title = current["name"].partition(":")
+            current["clan"], current["variant"] = clan.strip(), title.strip()
+            sections.append(current)
+            current = None
+
+    for pno in range(start, end):
+        for b in doc[pno].get_text("dict")["blocks"]:
+            for line in b.get("lines", []):
+                sp = [s for s in line.get("spans", []) if s["text"].strip()]
+                if not sp:
+                    continue
+                text = fix_encoding("".join(s["text"] for s in sp)).strip()
+
+                # Заголовок опознаётся по гарнитуре и кеглю: двоеточие в нём
+                # набрано другим шрифтом, а кегль гуляет от 14 до 20 пунктов.
+                title = (sp[0]["font"] == VARIANT_FONT
+                         and TITLE_SIZE[0] < sp[0]["size"] < TITLE_SIZE[1])
+
+                if title and ":" in text:
+                    flush()
+                    current = {"kind": "bane_variant", "book": book,
+                               "name": text, "page": pno + 1, "lines": []}
+                    in_title = True
+                elif title and in_title and current:
+                    current["name"] += " " + text      # заголовок в две строки
+                elif current and not COLOPHON_RE.search(text):
+                    in_title = False
+                    current["lines"].append(text)
+
+    flush()
+    return sections
+
+
 def extract_powers(doc, toc, book):
     """Силы Дисциплин: заголовок капсом, тело — до следующего заголовка.
 
@@ -440,6 +572,10 @@ def main():
         lambda line, text: text.startswith("Сила Крови ") and all(
             s["font"] == POTENCY_HEADING_FONT and LEVEL_SIZE[0] < s["size"] < LEVEL_SIZE[1]
             for s in line["spans"] if s["text"].strip()))
+
+    guide_path = SOURCES / GUIDE
+    if guide_path.exists():
+        sections += extract_bane_variants(fitz.open(guide_path), GUIDE)
 
     lore_path = SOURCES / LORE
     if lore_path.exists():
