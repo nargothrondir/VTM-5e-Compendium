@@ -1,0 +1,50 @@
+# Исходные книги правил (защищены авторским правом — в репозиторий не попадают)
+sources/
+*.pdf
+
+# Секреты
+.env
+.env.*
+!.env.example
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# Node
+node_modules/
+
+# Промежуточные артефакты пайплайна перевода.
+# book_sections.json — это выгрузка текста книг правил целиком. Публиковать
+# её нельзя, и в репозитории она не нужна: воспроизводится из sources/
+# командой `npm run extract`. Файл сопоставления (только имена и страницы)
+# в историю попадать должен — он и есть точка ручного контроля.
+data/*
+!data/mapping.yaml
+!data/glossary.yaml
+data/cache/
+*.log.tmp
+
+# Сборка модуля.
+# Истина — packs/*/_source/*.json. Скомпилированная база LevelDB и zip
+# генерируются `npm run build` и приложением к релизу, в git не хранятся.
+dist/
+module.zip
+**/packs/*/*.ldb
+**/packs/*/*.log
+**/packs/*/CURRENT
+**/packs/*/LOCK
+**/packs/*/LOG
+**/packs/*/LOG.old
+**/packs/*/MANIFEST-*
+
+# ОС / редакторы
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

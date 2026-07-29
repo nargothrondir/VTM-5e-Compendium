@@ -1,0 +1,16 @@
+{
+  "name": "vtm-5e-compendium-ru",
+  "version": "1.0.4",
+  "private": true,
+  "description": "Русский компендиум Vampire: The Masquerade 5e для Foundry VTT",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "unpack": "node tools/build.mjs --unpack",
+    "extract": "python tools/extract_pdf.py",
+    "verify": "python tools/verify.py"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.3"
+  }
+}
