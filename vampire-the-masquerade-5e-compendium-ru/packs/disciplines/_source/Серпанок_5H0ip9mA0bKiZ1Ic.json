@@ -1,0 +1,37 @@
+{
+  "folder": "LoArRqUzbXVhfkov",
+  "name": "Серпанок",
+  "type": "power",
+  "_id": "5H0ip9mA0bKiZ1Ic",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Alchemy_symbol.png",
+  "system": {
+    "description": "<p>Ця формула створює поле туману, яке слідує за користувачем, ускладнюючи його прицілювання зброєю дальнього бою та приховуючи його особистість.</p><p>■ Інгредієнти: Крім Крові алхіміка та флегматичної людської крові, сухий лід або сигарний дим, або автомобільний вихлоп</p><p>■ Вартість активації: Одна Перевірка Збудження</p><p>■ Система: Після активації хмара туманоподібної пари оточує алхіміка, маскуючи його риси та затуманюючи його силует. Будь-хто, хто намагається ідентифікувати користувача або влучити в нього зброєю дальнього бою, отримує штраф у два кубики до свого пулу. Користувач може розширити хмару, щоб охопити групу до п'яти осіб, зробивши ще одну перевірку збудження.</p><p>■ Тривалість: Одна сцена або до добровільного припинення.</p>",
+    "bonuses": [],
+    "discipline": "alchemy",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735190439,
+    "modifiedTime": 1753741394331,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!5H0ip9mA0bKiZ1Ic"
+}

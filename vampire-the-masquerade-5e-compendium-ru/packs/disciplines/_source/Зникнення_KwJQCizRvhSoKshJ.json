@@ -1,0 +1,37 @@
+{
+  "folder": "iznW7TmLfNnhTw0g",
+  "name": "Зникнення",
+  "type": "power",
+  "_id": "KwJQCizRvhSoKshJ",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Obfuscate_symbol.png",
+  "system": {
+    "description": "<p>■ Передумова: Плащ тіней </p><p>Вампір може активувати Плащ тіней та Невидимий прохід навіть під прямим спостереженням. Вампір ніби зникає в одну мить; навіть пам'ять про нього стає туманною і невиразною. </p><p>■ Вартість: Як у посиленої здатності </p><p>■ Пули кубиків: Кмітливість + Обфускація проти Кмітливість + Уважність </p><p>■ Система: Зникаючи перед смертним, киньте змагання Кмітливість + Обфускація проти Кмітливість + Уважність. У разі перемоги спостерігач сумнівається, чи був вампір взагалі там; його пам'ять на цю тему затуманюється. При критичній перемозі вампір повністю зникає з пам'яті спостерігача. Ця здатність не впливає на пам'ять вампірів, але будь-яка перемога користувача приховує його так, ніби він ініціював свою здатність непоміченим. Цю здатність можна використовувати лише раз на сцену. </p><p>■ Тривалість: Як у посиленої здатності</p>",
+    "bonuses": [],
+    "discipline": "obfuscate",
+    "duration": "",
+    "level": 4,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735184863,
+    "modifiedTime": 1753740729323,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!KwJQCizRvhSoKshJ"
+}

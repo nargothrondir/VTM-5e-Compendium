@@ -1,0 +1,37 @@
+{
+  "folder": "aHnfI8vhuBCi6LOD",
+  "name": "Смертоносне Тіло",
+  "type": "power",
+  "_id": "ytEH2ugcTNChJrvl",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Potence_symbol.png",
+  "system": {
+    "description": "<p>Використовуючи цю силу, користувач здатний завдавати жахливих ушкоджень смертним, розриваючи шкіру та ламаючи кістки голими пальцями. </p><p>■ Вартість: Безкоштовно </p><p>■ Система: Беззбройні атаки користувача тепер можуть завдавати Агравоване ушкодження Здоров'ю смертним, за бажанням. Вони також ігнорують один рівень броні за кожен рівень Могутності користувача. </p><p>■ Тривалість: Пасивна</p>",
+    "bonuses": [],
+    "discipline": "potence",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735185972,
+    "modifiedTime": 1753740759609,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!ytEH2ugcTNChJrvl"
+}

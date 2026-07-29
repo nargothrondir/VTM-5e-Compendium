@@ -1,0 +1,37 @@
+{
+  "folder": "YAw3AHg94WWbqCnY",
+  "name": "Напій Елегантності",
+  "type": "power",
+  "_id": "6vuCIALreASFTSkL",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Aclarity_symbol.png",
+  "system": {
+    "description": "<p>Кров вампіра насичується силою Стрімкості, передаючи частину цієї сили кожному, хто її п'є. Хоча це також є першим кроком до Кровного Зв'язку, вже зв'язані раби або слуги мало переймаються такими турботами, і навіть не зв'язані союзники можуть вирішити ризикнути ковтком заради тимчасової сили. </p><p>■ Вартість: Одна Перевірка Збудження</p><p>■ Система: Випивання Крові вартістю в одну Перевірку Збудження безпосередньо від користувача дарує тому, хто п'є, тимчасову Стрімкість, що дорівнює половині пунктів Стрімкості (округлено вниз) донора. Той, хто п'є, отримує ті ж самі не-Амальгамні сили, що й у донора, до цього рівня. </p><p>■ Тривалість: Одна ніч; для вампірів, до наступного годування або доки вампір не досягне Голоду 5</p>",
+    "bonuses": [],
+    "discipline": "celerity",
+    "duration": "",
+    "level": 4,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182035,
+    "modifiedTime": 1753740551369,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!6vuCIALreASFTSkL"
+}

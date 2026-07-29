@@ -1,0 +1,37 @@
+{
+  "folder": "qiKArCN2bXL4I9w9",
+  "name": "Плащ Тіней",
+  "type": "power",
+  "_id": "EnhLWsuFFFOw8B1D",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Obfuscate_symbol.png",
+  "system": {
+    "description": "<p>Стоячи абсолютно нерухомо, користувач зливається з оточенням. Поки у нього є якесь укриття, він не видає звуків і не рухається, його можуть виявити лише механічні або надприродні засоби. </p><p>■ Вартість: Безкоштовно </p><p>■ Система: Дотримуйтесь загальних правил для Обфускації. Ефект триває, доки користувач не поворухнеться або його не виявлять іншими засобами. </p><p>■ Тривалість: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "obfuscate",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735184863,
+    "modifiedTime": 1753740681262,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!EnhLWsuFFFOw8B1D"
+}

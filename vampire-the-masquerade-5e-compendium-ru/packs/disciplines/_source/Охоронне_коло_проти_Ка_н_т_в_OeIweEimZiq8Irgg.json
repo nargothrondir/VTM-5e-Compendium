@@ -1,0 +1,37 @@
+{
+  "folder": "sGR4QHB8SZ4yCBv0",
+  "name": "Охоронне коло проти Каїнітів",
+  "type": "power",
+  "_id": "OeIweEimZiq8Irgg",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Blood_Sorcery_symbol.png",
+  "system": {
+    "description": "<p>Цей оберіг використовує стандартні правила для Охоронних кіл (с. 275). </p><p>■ Інгредієнти: Заклинатель малює Охоронне коло горобиновою паличкою, змоченою в суміші попелу з ще палаючого вогню та Крові.</p>",
+    "bonuses": [],
+    "discipline": "rituals",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735189773,
+    "modifiedTime": 1753741027546,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!OeIweEimZiq8Irgg"
+}

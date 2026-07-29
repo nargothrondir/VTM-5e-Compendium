@@ -1,0 +1,44 @@
+{
+  "folder": "zQVeuZtYSmq00SJJ",
+  "name": "Затуманити Пам'ять",
+  "type": "power",
+  "_id": "xCCtEroRVLAw314V",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Dominate_symbol.png",
+  "system": {
+    "description": "<p>Промовивши фразу «Забудь!», користувач може змусити жертву Домінування забути поточний момент, а також останні кілька хвилин, достатньо, щоб приховати поверхневе годування або випадкову зустріч. Нові спогади не формуються, і якщо на жертву натиснути, вона зрозуміє, що у неї відсутні кілька хвилин.</p><p>■ Вартість: Безкоштовно</p><p>■ Пули кубиків: Харизма + Домінування проти Кмітливість + Рішучість</p><p>■ Система: Проти непідготовленої смертної жертви кидок не потрібен. Затуманення пам'яті жертви, що чинить опір, або іншого вампіра вимагає кидка Харизма + Домінування проти Кмітливість + Рішучість.</p><p>■ Тривалість: Невизначено</p>",
+    "bonuses": [],
+    "discipline": "dominate",
+    "duration": "",
+    "level": 1,
+    "dicepool": {
+      "qbwsrSKy": {
+        "path": "attributes.charisma"
+      },
+      "wANPh1su": {
+        "path": "disciplines.dominate"
+      }
+    },
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.347",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.7",
+    "createdTime": 1745735182706,
+    "modifiedTime": 1756313928234,
+    "lastModifiedBy": "fFnQnXT35gLXdlH1",
+    "exportSource": null
+  },
+  "_key": "!items!xCCtEroRVLAw314V"
+}

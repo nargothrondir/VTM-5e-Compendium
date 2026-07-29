@@ -1,0 +1,37 @@
+{
+  "folder": "0ptt2xkhZKekfhoV",
+  "name": "Блискавичний удар",
+  "type": "power",
+  "_id": "0CuTAz11OQyTu8QD",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Aclarity_symbol.png",
+  "system": {
+    "description": "<p>Швидше, ніж може встежити око, вампір може вдарити кулаком або холодною зброєю з такою швидкістю, що супротивник не в змозі захиститися або ухилитися. </p><p>■ Вартість: Одна Перевірка Збудження </p><p>■ Система: Використовуйте перед атакою Бійки або Холодної зброї. Противник не робить кидка, щоб ухилитися або захиститися; виконайте атаку зі Складністю 1. Противник, що володіє Стрімкістю 5, може звести нанівець цю здатність, зробивши власну Перевірку Збудження, захищаючись з тією ж швидкістю. </p><p>■ Тривалість: Одна атака</p>",
+    "bonuses": [],
+    "discipline": "celerity",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735182035,
+    "modifiedTime": 1753740558845,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!0CuTAz11OQyTu8QD"
+}

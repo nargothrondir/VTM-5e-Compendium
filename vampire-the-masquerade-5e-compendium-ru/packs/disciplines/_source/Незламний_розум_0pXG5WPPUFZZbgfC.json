@@ -1,0 +1,37 @@
+{
+  "folder": "wpJvq8yRxZCjStDy",
+  "name": "Незламний розум",
+  "type": "power",
+  "_id": "0pXG5WPPUFZZbgfC",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Fortitude_symbol.png",
+  "system": {
+    "description": "<p>Користувач отримує містичну здатність протистояти будь-яким спробам вплинути на нього за допомогою звичайних чарів, примусу та хитрощів. Деякі виявляють Незламний розум як дзен-спокій, інші — як надприродну впертість. </p><p>■ Вартість: Безкоштовно </p><p>■ Система: Користувач додає свої крапки в Стійкості як додаткові кубики до будь-якого кидка, зробленого для опору примусу, залякуванню, спокушанню або будь-якій іншій спробі вплинути на розум користувача проти його волі. Ця здатність також працює проти надприродних здібностей, таких як Домінування та Присутність. </p><p>■ Тривалість: Пасивно</p>",
+    "bonuses": [],
+    "discipline": "fortitude",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": null,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "zzaXLX6rQo9UZdTe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.0.11",
+    "createdTime": 1745735183811,
+    "modifiedTime": 1753740633867,
+    "lastModifiedBy": "zzaXLX6rQo9UZdTe",
+    "exportSource": null
+  },
+  "_key": "!items!0pXG5WPPUFZZbgfC"
+}
