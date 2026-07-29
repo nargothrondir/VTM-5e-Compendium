@@ -156,6 +156,67 @@ POWERS = {
     "4Ee6EUjcaVtYnzfG": "БУДИЛЬНИК",
 }
 
+# Типы охотника. Названия в переводе не буквальны и опознаются по смыслу:
+# «Бестия» питается кровью Сородичей (Blood Leech), «Идол» — знаменитость
+# или глава секты (Osiris), «Налётчик» берёт добычу силой (Alleycat).
+PREDATOR_TYPES = {
+    "BCVKeoYAt59ZkFWV": "Бестия",          # Кровопивця / Blood Leech
+    "WRykPxFBJIHET2ij": "Джентльмен",      # Консенсуаліст / Consensualist
+    "IET1GfclEDpIhIkb": "Идол",            # Осіріс / Osiris
+    "Bagl9LOhtzPV3a2v": "Искуситель",      # Сирена / Siren
+    "Kihkcn3qaxJlE3tT": "Морфей",          # Пісочна людина / Sandman
+    "LMuKaffhHN1iI2AU": "Налётчик",        # Вуличний кіт / Alleycat
+    "4IqaYfUhm75WTOur": "Семьянин",        # Сім'янин / Cleaver
+    "TMdpcf5EJV13bDG4": "Суррогатчик",     # Заготівельник / Bagger
+    "U3aFkYaQ5jIXmLIX": "Тусовщик",        # Королева сцени / Scene Queen
+    "VdOPCYrSqRjxHHNr": "Фермер",          # Фермер / Farmer
+}
+
+BLOOD_POTENCY = {
+    "oSaUNjeKe5Dl2CGk": "Сила Крови 0 (ноль): слабая кровь",
+    "7XWp1JxbGtnuyiHP": "Сила Крови 1",
+    "30rrUPOpyv2OeluD": "Сила Крови 2",
+    "YqhcVuqAPXI5uOgu": "Сила Крови 3",
+    "W4xJEGeafqxwhEUF": "Сила Крови 4",
+    "Dubn4u1xi7ZrC19q": "Сила Крови 5",
+    "Q7ck8s4VF3c6eJw9": "Сила Крови 6 и выше",
+}
+
+# Папки — это структура компендиума, а не текст книги: у них переводится
+# только название. Таблица по украинскому имени, потому что «Рівень N»
+# повторяется в каждой Дисциплине; в mapping.yaml она разворачивается по _id.
+FOLDER_NAMES = {
+    "Алхімія Тонкокровних": "Алхимия слабокровных",
+    "Анімалізм": "Анимализм",
+    "Ауспекс": "Ясновидение",
+    "Домінування": "Доминирование",
+    "Кривава Магія": "Кровавое чародейство",
+    "Могутність": "Мощь",
+    "Обфускація": "Сокрытие",
+    "Присутність": "Величие",
+    "Протеан": "Метаморфозы",
+    "Ритуали": "Ритуалы",
+    "Стрімкість": "Стремительность",
+    "Стійкість": "Стойкость",
+    "Рівень 1": "Уровень 1",
+    "Рівень 2": "Уровень 2",
+    "Рівень 3": "Уровень 3",
+    "Рівень 4": "Уровень 4",
+    "Рівень 5": "Уровень 5",
+    "Сила Крові": "Сила Крови",
+    "Тип Хижака": "Тип охотника",
+}
+
+# Пак -> (таблица соответствий, типы записей, виды разделов книги).
+PACKS = {
+    "disciplines": (POWERS, {"power"}, {"power"}),
+    "blood-potency-predator-type": (
+        {**PREDATOR_TYPES, **BLOOD_POTENCY},
+        {"predatorType", "resonance"},
+        {"predator_type", "blood_potency"},
+    ),
+}
+
 # Разделы книги, которые записями компендиума не являются.
 # Перечислены явно, чтобы проверка полноты не считала их потерянными.
 NOT_ENTRIES = {
@@ -169,43 +230,62 @@ def module_dir():
 
 
 def quote(text):
-    return '"' + text.replace('\\', '\\\\').replace('"', '\\"') + '"'
+    return chr(34) + text.replace(chr(92), chr(92) * 2).replace(chr(34), chr(92) + chr(34)) + chr(34)
 
 
 def main():
     sections = json.loads(SECTIONS.read_text(encoding="utf-8"))
-    by_name = {}
-    for s in sections:
-        if s["kind"] == "power":
-            by_name.setdefault(s["name"], s)
-
-    source = module_dir() / "packs" / "disciplines" / "_source"
-    entries = {}
-    for path in sorted(source.glob("*.json")):
-        d = json.loads(path.read_text(encoding="utf-8"))
-        if d.get("type") == "power":
-            entries[d["_id"]] = d
-
     problems = []
-    for _id, ru in POWERS.items():
-        if _id not in entries:
-            problems.append(f"нет записи с _id {_id} (сопоставлена с {ru!r})")
-        if ru not in by_name:
-            problems.append(f"нет раздела {ru!r} в книге (для _id {_id})")
+    result = {}
 
-    for _id in entries.keys() - POWERS.keys():
-        problems.append(f"запись без соответствия: {entries[_id]['name']!r} ({_id})")
+    for pack, (table, entry_types, section_kinds) in PACKS.items():
+        by_name = {}
+        for s in sections:
+            if s["kind"] in section_kinds:
+                by_name.setdefault(s["name"], s)
 
-    used = set(POWERS.values()) | NOT_ENTRIES
-    for name in by_name.keys() - used:
-        problems.append(f"раздел книги не использован: {name!r} (с.{by_name[name]['page']})")
+        source = module_dir() / "packs" / pack / "_source"
+        entries = {}
+        for path in sorted(source.glob("*.json")):
+            d = json.loads(path.read_text(encoding="utf-8"))
+            if d.get("type") in entry_types:
+                entries[d["_id"]] = d
+
+        for _id, ru in table.items():
+            if _id not in entries:
+                problems.append(f"{pack}: нет записи {_id} (сопоставлена с {ru!r})")
+            if ru not in by_name:
+                problems.append(f"{pack}: нет раздела {ru!r} в книге (для {_id})")
+
+        for _id in entries.keys() - table.keys():
+            problems.append(f"{pack}: запись без соответствия: "
+                            f"{entries[_id]['name']!r} ({_id})")
+
+        used = set(table.values()) | NOT_ENTRIES
+        for name in by_name.keys() - used:
+            problems.append(f"{pack}: раздел книги не использован: "
+                            f"{name!r} (с.{by_name[name]['page']})")
+
+        folders = {}
+        for path in sorted(source.glob("*.json")):
+            d = json.loads(path.read_text(encoding="utf-8"))
+            if not d.get("_key", "").startswith("!folders!"):
+                continue
+            ru = FOLDER_NAMES.get(d["name"])
+            if ru is None:
+                problems.append(f"{pack}: папка без перевода: {d['name']!r}")
+            else:
+                folders[d["_id"]] = (d["name"], ru)
+
+        result[pack] = (table, entries, by_name, folders)
 
     if problems:
         print("ПРОБЛЕМЫ СОПОСТАВЛЕНИЯ:")
-        for p in problems:
-            print(f"  x {p}")
+        for x in problems:
+            print(f"  x {x}")
         return 1
 
+    total = sum(len(t) + len(f) for t, _, _, f in result.values())
     lines = [
         "# Сопоставление записей компендиума с разделами русских книг правил.",
         "#",
@@ -213,24 +293,28 @@ def main():
         "# Файл собирается tools/make_mapping.py и правится руками — это точка",
         "# ручного контроля перед тем, как tools/apply.py перенесёт текст.",
         "#",
-        f"# записей: {len(POWERS)}",
+        f"# записей: {total}",
         "",
-        "disciplines:",
     ]
-    order = sorted(POWERS, key=lambda i: (by_name[POWERS[i]]["page"], POWERS[i]))
-    for _id in order:
-        section = by_name[POWERS[_id]]
-        lines += [
-            f"  {_id}:",
-            f"    ua: {quote(entries[_id]['name'])}",
-            f"    ru: {quote(section['name'])}",
-            f"    page: {section['page']}",
-            f"    book: {quote(section['book'])}",
-        ]
+    for pack, (table, entries, by_name, folders) in result.items():
+        lines.append(f"{pack}:")
+        order = sorted(table, key=lambda i: (by_name[table[i]]["page"], table[i]))
+        for _id in order:
+            section = by_name[table[_id]]
+            lines += [
+                f"  {_id}:",
+                f"    ua: {quote(entries[_id]['name'])}",
+                f"    ru: {quote(section['name'])}",
+                f"    page: {section['page']}",
+                f"    book: {quote(section['book'])}",
+            ]
+        for _id in sorted(folders, key=lambda i: folders[i][1]):
+            ua, ru = folders[_id]
+            lines += [f"  {_id}:", f"    ua: {quote(ua)}", f"    name: {quote(ru)}"]
+        print(f"{pack}: сопоставлено {len(table)}, папок {len(folders)}")
 
-    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"сопоставлено {len(POWERS)} записей -> {OUT.relative_to(ROOT)}")
-    print(f"разделов книги не использовано: {len(by_name) - len(used & by_name.keys())}")
+    OUT.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
+    print(f"записано {total} соответствий -> {OUT.relative_to(ROOT)}")
     return 0
 
 

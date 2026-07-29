@@ -18,7 +18,7 @@ from pathlib import Path
 import fitz
 
 sys.path.insert(0, str(Path(__file__).parent))
-from pdfkit import HYPHENS, normalize  # noqa: E402
+from pdfkit import HYPHENS, INVISIBLE_SPACES, normalize  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCES = Path(os.environ.get("VTM_SOURCES", ROOT / "sources"))
@@ -47,6 +47,9 @@ BULLET_FONT = "ZapfDingbats"
 # Название Дисциплины. Той же гарнитурой набран и титул главы, но 56-м кеглем.
 DISCIPLINE_TITLE_FONT = "BodoniSevITC-Book"
 DISCIPLINE_TITLE_SIZE = (20.0, 24.0)
+CHAPTER_TITLE_SIZE = (34.0, 38.0)
+# Уровни Силы Крови набраны тем же начертанием, что и разделители «Уровень N».
+POTENCY_HEADING_FONT = "CormorantGaramond-Bold"
 
 # Врезки и колонтитулы, которые попадают под фильтр заголовков, но записями не являются.
 NOT_AN_ENTRY = {
@@ -89,7 +92,7 @@ def spans(page):
                 yield span
 
 
-def page_lines(page):
+def page_lines(page, significant=None):
     """Строки страницы в порядке чтения.
 
     Разворот свёрстан в колонки, и наивный обход блоков склеивает их
@@ -112,22 +115,32 @@ def page_lines(page):
     # координаты начала строк группируются, и всякий разрыв шире порога
     # открывает новую колонку. Отступ внутри колонки (~16 pt) порога не берёт,
     # межколоночный интервал (140–200 pt) берёт с запасом.
+    # Границы считаются только по значимым строкам. Колонцифра и колонтитул
+    # стоят на полях и в одноколоночной полосе давали ложную границу, разводя
+    # по разным «колонкам» соседние абзацы.
     width = page.rect.width
-    xs = sorted({round(l["x0"]) for l in lines})
+    basis = [l for l in lines if significant is None or significant(l)] or lines
+    xs = sorted({round(l["x0"]) for l in basis})
     bounds = [b for a, b in zip(xs, xs[1:]) if b - a > width * 0.10]
 
-    def column_of(x0):
-        return sum(1 for b in bounds if x0 >= b)
-
+    # Округление обязано быть тем же, что и при расчёте границ: иначе строки,
+    # отличающиеся на доли пункта, оказываются по разные стороны границы.
     for l in lines:
-        l["col"] = column_of(l["x0"])
+        l["col"] = sum(1 for b in bounds if round(l["x0"]) >= b)
     lines.sort(key=lambda l: (l["col"], round(l["y0"], 1)))
     return lines
 
 
 def line_text(line):
-    """Текст строки с восстановленным маркером списка."""
+    """Текст строки с восстановленным маркером списка.
+
+    Неразрывные пробелы схлопываются сразу: в теле их всё равно уберёт
+    normalize, а в заголовке «Сила Крови 6 и выше» такой пробел ломает
+    сверку с таблицей соответствий.
+    """
     text = "".join(s["text"] for s in line["spans"])
+    for ch in INVISIBLE_SPACES:
+        text = text.replace(ch, " ")
     if line["spans"][0]["font"] == BULLET_FONT:
         # Символ маркера из ZapfDingbats в текстовом слое выглядит как «n».
         text = text[1:] if text[:1] == "n" else text
@@ -175,6 +188,87 @@ def classify(line):
     return "skip"
 
 
+def add_body_line(current, line, text):
+    """Дописывает строку в тело записи, отслеживая границы абзацев.
+
+    Смена блока PDF обычно значит границу абзаца, но не всегда: блок рвётся
+    и посреди фразы. Настоящую границу подтверждает завершённость предыдущей
+    строки — не висящий перенос и не оборванное на полуслове предложение.
+    """
+    prev = current["lines"][-1] if current["lines"] else ""
+    finished = prev.endswith((".", "!", "?", ":", ";")) and not prev.endswith(tuple(HYPHENS))
+    if prev and line["block"] != current["block"] and finished:
+        current["lines"].append("")
+    current["lines"].append(text)
+    current["block"] = line["block"]
+
+
+def title_pages(doc, title, size_range, start, end):
+    """Границы раздела, титул которого набран крупным кеглем.
+
+    Нужно там, где раздела нет в оглавлении: у «Стиля охоты», части главы
+    о персонажах, отдельной записи в оглавлении нет.
+    """
+    found = None
+    for pno in range(start, end):
+        for line in page_lines(doc[pno]):
+            sp = [s for s in line["spans"] if s["text"].strip()]
+            if not sp or not all(s["font"] == DISCIPLINE_TITLE_FONT
+                                 and size_range[0] < s["size"] < size_range[1]
+                                 for s in sp):
+                continue
+            text = "".join(s["text"] for s in sp).strip()
+            if found is None and text == title:
+                found = pno
+            elif found is not None and text != title:
+                return found, pno + 1
+    if found is None:
+        raise KeyError(f"титул не найден: {title!r}")
+    return found, end
+
+
+def is_chapter_title(line):
+    """Титул главы — самый крупный кегль на полосе."""
+    sp = [s for s in line["spans"] if s["text"].strip()]
+    return bool(sp) and all(s["font"] == DISCIPLINE_TITLE_FONT
+                            and CHAPTER_TITLE_SIZE[0] < s["size"] < CHAPTER_TITLE_SIZE[1]
+                            for s in sp)
+
+
+def extract_flat(doc, pages, book, kind, is_heading, stop=None):
+    """Записи раздела: заголовок по предикату, тело — до следующего заголовка.
+
+    Диапазон страниц захватывает и полосу, на которой начинается следующая
+    глава: последняя запись раздела дотягивается до неё. Поэтому нужен `stop` —
+    иначе титул новой главы будет принят за очередную запись.
+    """
+    sections, current = [], None
+
+    def flush():
+        nonlocal current
+        if current:
+            current.pop("block", None)
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            sections.append(current)
+            current = None
+
+    for pno in range(*pages):
+        for line in page_lines(doc[pno], lambda l: classify(l) != "skip"):
+            text = line_text(line).strip()
+            if stop and stop(line, text):
+                flush()
+                return sections
+            if is_heading(line, text):
+                flush()
+                current = {"kind": kind, "book": book, "name": text,
+                           "page": pno + 1, "lines": [], "block": None}
+            elif classify(line) == "body" and current:
+                add_body_line(current, line, text)
+
+    flush()
+    return sections
+
+
 def extract_powers(doc, toc, book):
     """Силы Дисциплин: заголовок капсом, тело — до следующего заголовка.
 
@@ -208,7 +302,7 @@ def extract_powers(doc, toc, book):
         if discipline is None and pno in discipline_at:
             discipline = discipline_at[pno]
 
-        for line in page_lines(page):
+        for line in page_lines(page, lambda l: classify(l) != "skip"):
             role = classify(line)
             if role == "skip":
                 continue
@@ -237,17 +331,7 @@ def extract_powers(doc, toc, book):
             else:
                 prev_heading = False
                 if current:
-                    # Смена блока PDF обычно значит границу абзаца, но не всегда:
-                    # блок рвётся и посреди фразы. Настоящую границу подтверждает
-                    # незавершённость предыдущей строки — висящий перенос или
-                    # продолжение со строчной буквы.
-                    prev = current["lines"][-1] if current["lines"] else ""
-                    finished = prev.endswith((".", "!", "?", ":", ";")) \
-                        and not prev.endswith(tuple(HYPHENS))
-                    if prev and line["block"] != current["block"] and finished:
-                        current["lines"].append("")   # пустая строка = граница абзаца
-                    current["lines"].append(text)
-                    current["block"] = line["block"]
+                    add_body_line(current, line, text)
 
     flush()
     return sections
@@ -306,8 +390,20 @@ def main():
     for clan in ("Бруха", "Вентру", "Гангрел", "Малкавиане", "Носферату",
                  "Тореадор", "Тремер", "Каитифы", "Слабая кровь"):
         sections += extract_toc_section(core, toc, clan, CORE, "clan")
-    sections += extract_toc_section(core, toc, "Сила Крови", CORE, "blood_potency")
-    sections += extract_toc_section(core, toc, "Охота и гуморы", CORE, "predator_type")
+    # Типы охотника. Раздела нет в оглавлении, поэтому границы берутся по титулу.
+    hunt = title_pages(core, "Стиль охоты", CHAPTER_TITLE_SIZE, 150, 200)
+    sections += extract_flat(
+        core, hunt, CORE, "predator_type",
+        lambda line, text: classify(line) == "discipline" and text != "Стиль охоты",
+        stop=lambda line, text: is_chapter_title(line) and text != "Стиль охоты")
+
+    # Уровни Силы Крови: заголовки набраны 14-м кеглем внутри своего подраздела.
+    potency = title_pages(core, "Сила Крови", DISCIPLINE_TITLE_SIZE, 210, 225)
+    sections += extract_flat(
+        core, potency, CORE, "blood_potency",
+        lambda line, text: text.startswith("Сила Крови ") and all(
+            s["font"] == POTENCY_HEADING_FONT and LEVEL_SIZE[0] < s["size"] < LEVEL_SIZE[1]
+            for s in line["spans"] if s["text"].strip()))
 
     lore_path = SOURCES / LORE
     if lore_path.exists():

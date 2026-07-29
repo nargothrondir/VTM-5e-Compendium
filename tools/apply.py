@@ -11,8 +11,8 @@
 
 import argparse
 import json
-import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 import yaml
@@ -35,7 +35,15 @@ PROPER_NOUNS = {
 
 
 def display_name(heading: str) -> str:
-    """«БЕЗУПРЕЧНАЯ ТОЧНОСТЬ» -> «Безупречная точность»."""
+    """«БЕЗУПРЕЧНАЯ ТОЧНОСТЬ» -> «Безупречная точность».
+
+    Приводится только капс. Заголовки типов охотника («Бестия») и уровней
+    Силы Крови («Сила Крови 6 и выше») набраны в книге обычным регистром —
+    их надо брать как есть, иначе выйдет «Сила крови».
+    """
+    if heading != heading.upper():
+        return heading
+
     words = heading.split()
     out = []
     for i, word in enumerate(words):
@@ -63,41 +71,74 @@ def write_json(path: Path, data: dict) -> None:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--pack", default="disciplines")
+    ap.add_argument("--pack", action="append",
+                    help="какой пак переносить; по умолчанию все из маппинга")
     args = ap.parse_args()
 
     if not MAPPING.exists():
         sys.exit(f"нет {MAPPING}; сначала: python tools/make_mapping.py")
 
-    mapping = yaml.safe_load(MAPPING.read_text(encoding="utf-8"))["disciplines"]
+    mapping = yaml.safe_load(MAPPING.read_text(encoding="utf-8"))
     sections = json.loads(SECTIONS.read_text(encoding="utf-8"))
-    by_name = {s["name"]: s for s in sections if s["kind"] == "power"}
+    # Разделы, разобранные постранично (достоинства и недостатки), заголовка
+    # не имеют — у них имена записей идут инлайном. Здесь они не нужны.
+    by_name = {}
+    for s in sections:
+        if "name" in s:
+            by_name.setdefault(s["name"], s)
 
-    source = module_dir() / "packs" / args.pack / "_source"
-    by_id = {}
-    for path in sorted(source.glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        by_id[data["_id"]] = (path, data)
-
-    changed = skipped = 0
+    total = Counter()
     renames = []
 
+    for pack in args.pack or list(mapping):
+        source = module_dir() / "packs" / pack / "_source"
+        by_id = {}
+        for path in sorted(source.glob("*.json")):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            by_id[data["_id"]] = (path, data)
+        apply_pack(pack, mapping[pack], by_id, by_name,
+                   args.dry_run, total, renames)
+
+    verb = "изменилось бы" if args.dry_run else "изменено"
+    print(f"{verb}: {total['changed']}, без изменений: {total['skipped']}")
+
+    if renames:
+        print(f"\nпереименования ({len(renames)}):")
+        for was, now in renames:
+            print(f"  {was:<36} -> {now}")
+    return 0
+
+
+def apply_pack(pack, mapping, by_id, by_name, dry_run, total, renames):
     for _id, entry in mapping.items():
         if _id not in by_id:
-            print(f"  ! нет записи {_id} ({entry['ua']})")
+            print(f"  ! {pack}: нет записи {_id} ({entry['ua']})")
             continue
 
         path, data = by_id[_id]
+
+        # У папки нет раздела в книге — переводится только название.
+        if "ru" not in entry:
+            if data.get("name") == entry["name"]:
+                total["skipped"] += 1
+            else:
+                renames.append((data.get("name", ""), entry["name"]))
+                data["name"] = entry["name"]
+                total["changed"] += 1
+                if not dry_run:
+                    write_json(path, data)
+            continue
+
         section = by_name.get(entry["ru"])
         if not section:
-            print(f"  ! нет раздела {entry['ru']!r} для {_id}")
+            print(f"  ! {pack}: нет раздела {entry['ru']!r} для {_id}")
             continue
 
         new_name = display_name(section["name"])
         new_desc = to_html(section["text"])
 
         if data.get("name") == new_name and data["system"].get("description") == new_desc:
-            skipped += 1
+            total["skipped"] += 1
             continue
 
         if data.get("name") != new_name:
@@ -105,19 +146,9 @@ def main():
 
         data["name"] = new_name
         data["system"]["description"] = new_desc
-        changed += 1
-        if not args.dry_run:
+        total["changed"] += 1
+        if not dry_run:
             write_json(path, data)
-
-    verb = "изменилось бы" if args.dry_run else "изменено"
-    print(f"{verb}: {changed}, без изменений: {skipped}")
-
-    if renames:
-        print(f"\nпереименования ({len(renames)}):")
-        for old, new in renames[:200]:
-            print(f"  {old:<36} -> {new}")
-
-    return 0
 
 
 if __name__ == "__main__":
