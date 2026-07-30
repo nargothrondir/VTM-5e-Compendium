@@ -335,8 +335,14 @@ def extract_merits(doc, pages, book):
 
 CLAN_SUBTITLE_FONT = "BodoniSevITC-Book"
 CLAN_SUBTITLE_SIZE = (20.0, 24.0)
-CLAN_DISCIPLINE_FONT = "GillSansNova-Bold"
+# Основная книга набирает названия Дисциплин полужирным и отделяет точкой,
+# Малая книга знаний — сверхжирным и двоеточием. Признак один: капс в начале.
+CLAN_DISCIPLINE_FONTS = {"GillSansNova-Bold", "GillSansNova-Heavy"}
 CLAN_DISCIPLINE_SIZE = (7.0, 8.0)
+# Буквица: первая литера вводного абзаца набрана в семь раз крупнее строки
+# и обычным фильтром тела отсекается — без неё выходит «лан, почти
+# истреблённый» вместо «Клан, почти истреблённый».
+CLAN_DROPCAP_SIZE = 40.0
 
 
 def extract_clans(doc, toc, book, names):
@@ -350,11 +356,17 @@ def extract_clans(doc, toc, book, names):
     for clan in names:
         first, last = section_range(toc, clan, doc)
         subtitle, lead, bane, disciplines = None, [], [], []
+        dropcap = ""
 
         for pno in range(first, last):
             for line in page_lines(doc[pno], lambda l: classify(l) != "skip"):
                 sp = [s for s in line["spans"] if s["text"].strip()]
                 text = line_text(line).strip()
+
+                if (not dropcap and subtitle is None and len(text) == 1
+                        and sp[0]["size"] > CLAN_DROPCAP_SIZE):
+                    dropcap = text
+                    continue
 
                 if all(s["font"] == CLAN_SUBTITLE_FONT
                        and CLAN_SUBTITLE_SIZE[0] < s["size"] < CLAN_SUBTITLE_SIZE[1]
@@ -364,9 +376,9 @@ def extract_clans(doc, toc, book, names):
 
                 # Название Дисциплины набрано капсом и заканчивается точкой:
                 # «ВЕЛИЧИЕ. Бруха применяют эту Дисциплину, когда…»
-                if (sp[0]["font"] == CLAN_DISCIPLINE_FONT
+                if (sp[0]["font"] in CLAN_DISCIPLINE_FONTS
                         and CLAN_DISCIPLINE_SIZE[0] < sp[0]["size"] < CLAN_DISCIPLINE_SIZE[1]):
-                    head = re.match(r"^([А-ЯЁ][А-ЯЁ ]+)\.", text)
+                    head = re.match(r"^([А-ЯЁ][А-ЯЁ ]+)[.:]", text)
                     if head:
                         disciplines.append(head.group(1).strip().capitalize())
                     continue
@@ -382,7 +394,7 @@ def extract_clans(doc, toc, book, names):
             "kind": "clan_entry", "book": book, "name": clan,
             "page": first + 1,
             "disciplines": list(dict.fromkeys(disciplines)),
-            "text": normalize(chr(10).join(lead)),
+            "text": dropcap + normalize(chr(10).join(lead)),
             "bane": normalize(chr(10).join(bane)),
         })
     return sections

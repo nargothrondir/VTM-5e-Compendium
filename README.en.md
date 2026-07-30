@@ -30,19 +30,21 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**232 entries and 98 folders** — the entire compendium.
+**239 entries and 98 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
-| Clans | 9 |
+| Clans | 16 |
 | Disciplines | 121 |
 | Blood Potency & Predator Type | 17 |
 | Advantages & Flaws | 85 |
 
 In detail:
 
-- **Clans** — description, Discipline list and Bane for each clan. Seven clans
-  also carry an **alternative Bane**; those blocks are marked with their source.
+- **Clans** — all sixteen: description, Discipline list and Bane. Seven clans
+  also carry an **alternative Bane**. Banu Haqim, Hecata, Lasombra and Ministry
+  exist only in the Players Guide, whose translation is fan-made rather than
+  official — those entries state their source in the text.
 - **Disciplines** — 90 powers across ten Disciplines, 24 Blood Sorcery rituals
   and 7 Thin-blood Alchemy formulae, each with Amalgam, Cost, Dice Pool, System
   and Duration.
@@ -113,9 +115,8 @@ prose. No external services are involved.
 
 Translated text comes from the official
 [Vampire: The Masquerade sourcebooks](https://vtm.paradoxwikis.com/Official_TTRPG_sources) —
-the **Corebook** and the **Players Guide** (clan Bane variants). The extractor
-also reads the free **Companion**, whose clans are not part of this compendium
-yet.
+the **Corebook**, the free **Companion** (Ravnos, Salubri, Tzimisce) and the
+**Players Guide** (four clans and the Bane variants).
 
 **The books are not included in this repository and never will be** — they are
 copyrighted. To run extraction yourself, place your own copies in `sources/`.
