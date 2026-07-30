@@ -1,0 +1,37 @@
+{
+  "folder": "ksTNXL11GDo75NMq",
+  "name": "••• Клыкастый дядя",
+  "type": "feature",
+  "_id": "U22PI1c0ZYZIc6e6",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Местные слабокровные знают вас как наставника и проводника. Каковы бы ни были ваши истинные мотивы, вы часто можете найти помощь среди слабокровных, не спрашивая дважды. У вас есть легкий доступ к местной компании, состоящей из трех-пяти слабокровных. Они часто раньше других узнают, что происходит на улице, и иногда могут снабдить вас алхимическими снадобьями. Рассматривайте эту группу как группу союзников обычных союзников, эта группа - нежить, хотя бы просто. Не может быть взята вместе с Ликвидатором (стр. 127).</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 3,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!U22PI1c0ZYZIc6e6"
+}

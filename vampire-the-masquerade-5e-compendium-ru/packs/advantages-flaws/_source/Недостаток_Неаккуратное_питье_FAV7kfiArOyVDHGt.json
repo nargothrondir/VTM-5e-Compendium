@@ -1,0 +1,37 @@
+{
+  "folder": "UFusW5PeI6LdrHT1",
+  "name": "Недостаток: (•) Неаккуратное питье",
+  "type": "feature",
+  "_id": "FAV7kfiArOyVDHGt",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваш укус неосторожен, или ваши клыки плохо подходят проколоть кожу начисто. Во время кормления пройдите проверку <em>Ловкости + Медицины</em> со Сложностью, равной Голоду, утолив его, чтобы скрыть следы от кормления до того, как прольется слишком много крови. В случае провала рана слишком рваная, чтобы закрыться: смертный может истечь кровью из-за ран на шее, угрожающих Маскараду.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!FAV7kfiArOyVDHGt"
+}

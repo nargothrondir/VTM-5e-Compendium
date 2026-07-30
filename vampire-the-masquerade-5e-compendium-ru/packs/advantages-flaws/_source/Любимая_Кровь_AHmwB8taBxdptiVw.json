@@ -1,0 +1,37 @@
+{
+  "folder": "ksTNXL11GDo75NMq",
+  "name": "•••• Любимая Кровь",
+  "type": "feature",
+  "_id": "AHmwB8taBxdptiVw",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Вампирическая сила, не сдерживаемая проклятием Древних, течет через вас. Ваше интуитивное и легендарное владение вампирскими способностями, вероятно, внушает другим вампирам как благоговение, так и страх. Вы можете приобрести точки в любой Дисциплине, даже если никогда не пробовали кровь другого вампира с этой Дисциплиной. Не может быть использован с недостатком \"Мутная кровь\" (см. с. 127).</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 4,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!AHmwB8taBxdptiVw"
+}

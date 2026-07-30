@@ -278,8 +278,12 @@ MERIT_SIDE_SIZE = (19.0, 21.0)
 # десятым и при строгой верхней границе оставался вовсе без текста.
 MERIT_BODY_SIZE = (8.5, 10.5)
 
-# Рейтинг: точки подряд, иногда в скобках — «ЛИКВИДАТОР (•)».
-RATING_RE = re.compile(r"\s*\(?\s*([•·∙]+)\s*\)?\s*$")
+# Рейтинг: точки подряд, иногда в скобках — «ЛИКВИДАТОР (•)», иногда
+# вилкой — «КРОВЬ С ИЗЪЯНОМ(• ДО ••)». Вилку надо разбирать целиком:
+# по одной только хвостовой группе имя обрывалось на «КРОВЬ С ИЗЪЯНОМ(• ДО».
+RATING_RE = re.compile(
+    r"\s*\(?\s*([•·∙]+)\s*\+?"
+    r"(?:\s*(?:до|или|—|–|-)\s*([•·∙]+))?\s*\+?\s*\)?\s*$", re.I)
 
 
 def merits(doc, pages, fix_encoding, normalize, lines_of,
@@ -345,6 +349,143 @@ def merits(doc, pages, fix_encoding, normalize, lines_of,
                            "page": pno + 1, "lines": []}
             elif (current and MERIT_BODY_SIZE[0] < size < MERIT_BODY_SIZE[1]
                   and not JUNK_RE.search(text)):
+                current["lines"].append(text)
+
+    flush()
+    return out
+
+
+# Глава «Кастомы»: достоинства каитиффов, слабокровных и гулей. Имена набраны
+# третьей гарнитурой (DXLubava), а заголовки разделов — то B52 шестнадцатым,
+# то восемнадцатым, то двадцатым, то вовсе DXLubava. Кегль их не отличает от
+# прочих подзаголовков главы («Слабокровные архетипы», «Организация»),
+# поэтому опознаём шесть нужных заголовков по тексту.
+CUSTOM_NAME_FONT = "DXLubava-Regular"
+CUSTOM_NAME_SIZE = (7.0, 12.0)
+# Тело здесь мельче, чем в разделе достоинств: у «Ликвидатора» восьмой
+# кегль, и при общей границе запись оставалась вовсе без текста.
+CUSTOM_BODY_SIZE = (7.5, 10.5)
+CUSTOM_SECTIONS = {
+    "достоинства каитиффа": ("Каитифф", "merit"),
+    "недостатки каитиффа": ("Каитифф", "flaw"),
+    "достоинства слабокровных": ("Слабокровные", "merit"),
+    "недостатки слабокровных": ("Слабокровные", "flaw"),
+    "новые достоинства гуля": ("Гули", "merit"),
+    "новые недостатки гуля": ("Гули", "flaw"),
+}
+
+
+def custom_merits(doc, pages, fix_encoding, normalize, lines_of):
+    """Достоинства и недостатки каитиффов, слабокровных и гулей.
+
+    У слабокровных рейтинг в строке имени не проставлен вовсе, поэтому
+    опорой служит гарнитура с капсом, а рейтинг — необязателен.
+    """
+    out, current = [], None
+    kind, side = None, None
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+            current = None
+
+    for pno in range(*pages):
+        for line in lines_of(doc[pno]):
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            # Любой заголовок закрывает перечень. Без этого «Слова-карриды»
+            # вбирали всю повествовательную часть главы до следующего
+            # перечня — двадцать тысяч знаков в одной записи.
+            if size > 13.0:
+                flush()
+                found = CUSTOM_SECTIONS.get(text.lower().strip())
+                kind, side = found if found else (None, None)
+                continue
+
+            if kind is None:
+                continue
+
+            if (font == CUSTOM_NAME_FONT
+                    and CUSTOM_NAME_SIZE[0] < size < CUSTOM_NAME_SIZE[1]
+                    and text == text.upper() and len(text) > 3):
+                flush()
+                hit = RATING_RE.search(text)
+                current = {"name": RATING_RE.sub("", text).strip(),
+                           "rating": len(hit.group(1)) if hit else 1,
+                           "kind": kind, "side": side,
+                           "page": pno + 1, "lines": []}
+            elif (current and CUSTOM_BODY_SIZE[0] < size < CUSTOM_BODY_SIZE[1]
+                  and not JUNK_RE.search(text)):
+                current["lines"].append(text)
+
+    flush()
+    return out
+
+
+# Раздел «Фоны» (стр. 111–119). Почти весь он пересказывает Книгу правил,
+# и в компендиуме эти записи давно есть; новое приходится выбирать поимённо.
+# Ярусов три: сам Фон — двадцатым, привязанный к нему недостаток —
+# шестнадцатым, отдельная именованная запись — B52 с рейтингом в строке.
+BACKGROUND_SIZE = (19.0, 21.0)
+BACKGROUND_SUB_SIZE = (15.0, 17.0)
+BACKGROUND_BODY_SIZE = (8.5, 10.5)
+
+
+def backgrounds(doc, pages, fix_encoding, normalize, lines_of,
+                opening="ФОНЫ"):
+    """Фоны, привязанные к ним недостатки и именованные записи."""
+    out, current, started = [], None, False
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+            current = None
+
+    def start(name, tier, rating=0):
+        nonlocal current
+        flush()
+        current = {"name": name, "tier": tier, "rating": rating,
+                   "page": pno + 1, "lines": []}
+
+    for pno in range(*pages):
+        for line in lines_of(doc[pno]):
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            if font == TITLE_FONT and size > 24:
+                if not started and opening in text.upper():
+                    started = True
+                    continue
+                if started:
+                    flush()
+                    return out
+                continue
+            if not started:
+                continue
+
+            if BACKGROUND_SIZE[0] < size < BACKGROUND_SIZE[1]:
+                start(text, "background")
+            elif BACKGROUND_SUB_SIZE[0] < size < BACKGROUND_SUB_SIZE[1]:
+                start(text, "sub")
+            elif (font == MERIT_NAME_FONT
+                  and MERIT_NAME_SIZE[0] < size < MERIT_NAME_SIZE[1]
+                  and RATING_RE.search(text)):
+                hit = RATING_RE.search(text)
+                start(RATING_RE.sub("", text).strip(), "named",
+                      len(hit.group(1)))
+            elif (current and BACKGROUND_BODY_SIZE[0] < size
+                  < BACKGROUND_BODY_SIZE[1] and not JUNK_RE.search(text)):
                 current["lines"].append(text)
 
     flush()

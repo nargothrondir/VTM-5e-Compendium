@@ -1,0 +1,37 @@
+{
+  "folder": "jCXLup54jpPLnL7E",
+  "name": "• Отвратительная Кровь",
+  "type": "feature",
+  "_id": "NiKcZM0IfBDCFE1g",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Что-то в вашей Крови делает других вампиров неспособными это переварить. Будь то извращенная смесь жизни и нежити или ваша история сомнительной алхимии слабой крови, других вампиров тошнит и рвет, когда они пытаются пить из вас. Другие вампиры прекращают любые попытки укуса после первоначального повреждения, и любой, кто пытается продолжать пить из вас, должен тратить два пункта <em>Силы</em> Воли каждый ход, который они делают это. Эта аномалия не затрагивает смертных и алхимию слабой крови.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!NiKcZM0IfBDCFE1g"
+}

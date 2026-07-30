@@ -1,0 +1,37 @@
+{
+  "folder": "UFusW5PeI6LdrHT1",
+  "name": "Недостаток: (•) Непрерывный голод",
+  "type": "feature",
+  "_id": "32b5qDfq3ifE1hUC",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваш Зверь всегда жаждет большего, никогда не находя пропитания меньшими глотками. При кормлении в сцене вы насыщаете на один Голод меньше, чем другие слабокровные. Это применяется только один раз за сцену.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!32b5qDfq3ifE1hUC"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Страницы истории",
+  "sorting": "a",
+  "folder": "d6cWr8XLEk5wHrdq",
+  "type": "Item",
+  "_id": "Uj0Jryml6EJ7Y5Ud",
+  "description": "",
+  "sort": 951000,
+  "color": "#9f90a2",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!Uj0Jryml6EJ7Y5Ud"
+}

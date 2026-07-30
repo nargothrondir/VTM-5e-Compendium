@@ -30,14 +30,14 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**334 entries and 112 folders** — the entire compendium.
+**373 entries and 117 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
 | Clans | 16 |
 | Disciplines | 191 |
 | Blood Potency & Predator Type | 23 |
-| Advantages & Flaws | 104 |
+| Advantages & Flaws | 143 |
 
 In detail:
 
@@ -51,9 +51,10 @@ In detail:
   Duration.
 - **Blood Potency & Predator Type** — 7 Blood Potency levels and 16 predator
   types.
-- **Advantages & Flaws** — merits, flaws and backgrounds, including 19 new ones
-  from the Players Guide. Backgrounds are kept whole, with all five dot levels
-  in a single entry.
+- **Advantages & Flaws** — merits, flaws and backgrounds, including 58 entries
+  from the Players Guide: its new merits and flaws, the Caitiff, Thin-blood and
+  Ghoul lists, and eight backgrounds. Backgrounds are kept whole, with all five
+  dot levels in a single entry.
 
 Terminology — how a term is rendered and why — lives in the [glossary](GLOSSARY.md).
 What is done and what is left — in the [roadmap](ROADMAP.md).

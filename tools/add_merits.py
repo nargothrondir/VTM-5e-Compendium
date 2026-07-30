@@ -44,12 +44,49 @@ GROUPS = {
     "Другие недостатки": "Прочие",
 }
 PARENT = "Особенности"
-NEW_FOLDERS = ("Мифические", "Прочие")
+
+# Глава «Кастомы»: свои перечни у каитиффов, слабокровных и гулей.
+# У слабокровных папки уже есть — там лежат шестнадцать записей из Книги
+# правил, и новые ложатся к ним.
+CUSTOM_PAGES = (126, 146)
+CUSTOM_FOLDERS = {
+    ("Каитифф", "merit"): "Достоинства каитиффа",
+    ("Каитифф", "flaw"): "Недостатки каитиффа",
+    ("Слабокровные", "merit"): "Достоинства слабокровных",
+    ("Слабокровные", "flaw"): "Недостатки слабокровных",
+    ("Гули", "merit"): "Достоинства гулей",
+    ("Гули", "flaw"): "Недостатки гулей",
+}
+NEW_FOLDERS = ("Мифические", "Прочие", "Достоинства каитиффа",
+               "Недостатки каитиффа", "Достоинства гулей",
+               "Недостатки гулей")
+
+# Раздел «Фоны» (стр. 111–119) почти весь пересказывает Книгу правил, и эти
+# записи в компендиуме давно есть. Новое выбирается поимённо: механически
+# отличить пересказ от нового нельзя, а завести дубль Убежища легко.
+#
+# Фоны в паке лежат с featuretype «background» — и сам Фон, и привязанный
+# к нему недостаток. Ноль очков означает сводную запись на все ступени.
+BACKGROUND_PAGES = (110, 120)
+BACKGROUND_PICKS = {
+    "Враги": ("Союзники", "Недостаток: Враги", 0),
+    "Страницы истории": ("Страницы истории", "Страницы истории", 0),
+    "Линия крови": ("Страницы истории", "Линия крови", 0),
+    "Торговля долгами": ("Мавла (или конкурент)", "Торговля долгами", 0),
+    "ФУРКУС": ("Достоинства и недостатки убежища", "• Фуркус", 1),
+    "МАШИНОСТРОИТЕЛЬНЫЙ ЦЕХ": ("Достоинства и недостатки убежища",
+                               "• Машиностроительный цех", 1),
+    "ОБЩЕСТВО": ("Достоинства и недостатки убежища",
+                 "Недостаток: (•) Общество", 1),
+    "ГОРОДСКИЕ ТАЙНЫ": ("Статус", "• Городские тайны", 1),
+}
+ASSETS = "Активы"
+NEW_ASSET_FOLDERS = ("Страницы истории",)
 
 # Слова, которые при снятии капса остаются с заглавной: имя собственное
 # и игровой термин. Всё остальное книга набирает строчными.
 KEEP_CAPS = {"ньюит": "Ньюит", "воля": "Воля", "крови": "Крови",
-             "кровь": "Кровь"}
+             "кровь": "Кровь", "каина": "Каина"}
 
 
 def display_name(caps: str) -> str:
@@ -76,7 +113,9 @@ def folder_entry(name, parent, sort):
 
 
 def merit_entry(section, folder):
-    flaw = section["side"].startswith("Недостат")
+    # Раздел достоинств называет сторону заголовком («Недостатки внешности»),
+    # глава «Кастомы» — отдельным полем. Приводим к одному виду.
+    flaw = section["side"] in ("flaw",) or section["side"].startswith("Недостат")
     dots = "•" * max(section["rating"], 1)
     title = display_name(section["name"])
     name = f"Недостаток: ({dots}) {title}" if flaw else f"{dots} {title}"
@@ -94,6 +133,31 @@ def merit_entry(section, folder):
             "uses": {"max": 0, "current": 0, "enabled": False},
             "featuretype": "flaw" if flaw else "merit",
             "points": max(section["rating"], 1), "macroid": "",
+        },
+        "effects": [], "sort": 0, "ownership": {"default": 0}, "flags": {},
+        "_stats": {"compendiumSource": None, "duplicateSource": None,
+                   "exportSource": None, "coreVersion": "13.346",
+                   "systemId": "vtm5e", "systemVersion": "5.1.4",
+                   "createdTime": 0, "modifiedTime": 0,
+                   "lastModifiedBy": None},
+        "_key": f"!items!{_id}",
+    }
+
+
+def background_entry(section, folder, name, points):
+    _id = make_id("background:" + section["name"])
+    body = (f"<p><em>Источник: {SOURCE_NOTE}</em></p>"
+            + to_html(section["text"]))
+    return {
+        "folder": folder,
+        "name": name,
+        "type": "feature",
+        "_id": _id,
+        "img": ICON,
+        "system": {
+            "description": body, "bonuses": [],
+            "uses": {"max": 0, "current": 0, "enabled": False},
+            "featuretype": "background", "points": points, "macroid": "",
         },
         "effects": [], "sort": 0, "ownership": {"default": 0}, "flags": {},
         "_stats": {"compendiumSource": None, "duplicateSource": None,
@@ -136,20 +200,58 @@ def main():
             written.append(("папка", f"{PARENT} / {name}", entry))
 
     doc = fitz.open(SOURCES / GUIDE)
+
     sections = guide_clans.merits(
         doc, PAGES, fix_encoding, normalize, page_lines)
-
     unknown = sorted({s["group"] for s in sections
                       if s["group"] not in GROUPS})
     if unknown:
         sys.exit(f"незнакомые разряды в книге: {unknown}")
+    placed = [(s, GROUPS[s["group"]]) for s in sections]
 
-    for section in sections:
-        folder = by_name.get((PARENT, GROUPS[section["group"]]))
+    custom = guide_clans.custom_merits(
+        doc, CUSTOM_PAGES, fix_encoding, normalize, page_lines)
+    unknown = sorted({(s["kind"], s["side"]) for s in custom
+                      if (s["kind"], s["side"]) not in CUSTOM_FOLDERS})
+    if unknown:
+        sys.exit(f"незнакомые разделы «Кастомов»: {unknown}")
+    placed += [(s, CUSTOM_FOLDERS[(s["kind"], s["side"])]) for s in custom]
+
+    for section, folder_name in placed:
+        folder = by_name.get((PARENT, folder_name))
         if folder is None:
-            print(f"  ! нет папки {GROUPS[section['group']]}")
+            print(f"  ! нет папки {folder_name}")
             continue
         entry = merit_entry(section, folder)
+        written.append(("запись", entry["name"], entry))
+
+    # --- Фоны: только то, чего в компендиуме нет
+    assets_id = by_name.get((None, ASSETS))
+    if assets_id is None:
+        sys.exit(f"не найдена папка {ASSETS!r}")
+    for i, name in enumerate(NEW_ASSET_FOLDERS, 1):
+        if (ASSETS, name) not in by_name:
+            entry = folder_entry(name, assets_id, 950000 + i * 1000)
+            by_name[(ASSETS, name)] = entry["_id"]
+            written.append(("папка", f"{ASSETS} / {name}", entry))
+
+    found = {}
+    for section in guide_clans.backgrounds(
+            doc, BACKGROUND_PAGES, fix_encoding, normalize, page_lines):
+        if section["name"] in BACKGROUND_PICKS:
+            found[section["name"]] = section
+    missing = sorted(set(BACKGROUND_PICKS) - set(found))
+    if missing:
+        sys.exit(f"не нашлись в разделе Фонов: {missing}")
+
+    for book_name, section in found.items():
+        folder_name, entry_name, points = BACKGROUND_PICKS[book_name]
+        folder = next((v for (parent, n), v in by_name.items()
+                       if n == folder_name), None)
+        if folder is None:
+            print(f"  ! нет папки {folder_name}")
+            continue
+        entry = background_entry(section, folder, entry_name, points)
         written.append(("запись", entry["name"], entry))
 
     for kind, label, entry in written:
