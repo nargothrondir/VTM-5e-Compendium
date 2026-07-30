@@ -30,6 +30,10 @@ CORE = "Книга правил.pdf"
 LORE = "Малая книга знаний.pdf"
 GUIDE = "Руководство для игроков.pdf"
 
+# В данные пишется нейтральный ярлык, а не имя файла: официальные названия
+# книг однозначны, а имена локальных копий в репозитории ни к чему.
+LABELS = {CORE: "Corebook", LORE: "Companion", GUIDE: "Players Guide"}
+
 # Руководство свёрстано другой гарнитурой и другим кеглем, чем основная
 # книга: там свои константы.
 VARIANT_FONT = "B52"
@@ -269,7 +273,7 @@ def extract_flat(doc, pages, book, kind, is_heading, stop=None):
                 return sections
             if is_heading(line, text):
                 flush()
-                current = {"kind": kind, "book": book, "name": text,
+                current = {"kind": kind, "book": LABELS.get(book, book), "name": text,
                            "page": pno + 1, "lines": [], "block": None}
             elif classify(line) == "body" and current:
                 add_body_line(current, line, text)
@@ -309,7 +313,7 @@ def extract_merits(doc, pages, book):
                 intro = line_text(line).strip()
                 if intro.startswith(heading):
                     intro = intro[len(heading):].lstrip(". ")
-                current = {"kind": "merit_category", "book": book, "name": cat,
+                current = {"kind": "merit_category", "book": LABELS.get(book, book), "name": cat,
                            "category": cat, "page": pno + 1,
                            "lines": [intro] if intro else [],
                            "block": line["block"]}
@@ -321,7 +325,7 @@ def extract_merits(doc, pages, book):
             text = line_text(line).strip()
             if start:
                 flush()
-                current = {"kind": "merit_entry", "book": book,
+                current = {"kind": "merit_entry", "book": LABELS.get(book, book),
                            "name": start["name"], "rating": start["rating"],
                            "flaw": start["flaw"], "category": cat,
                            "page": pno + 1, "lines": [start["rest"]],
@@ -391,7 +395,7 @@ def extract_clans(doc, toc, book, names):
                     bane.append(text)
 
         sections.append({
-            "kind": "clan_entry", "book": book, "name": clan,
+            "kind": "clan_entry", "book": LABELS.get(book, book), "name": clan,
             "page": first + 1,
             "disciplines": list(dict.fromkeys(disciplines)),
             "text": dropcap + normalize(chr(10).join(lead)),
@@ -455,7 +459,7 @@ def extract_bane_variants(doc, book):
 
                 if title and ":" in text:
                     flush()
-                    current = {"kind": "bane_variant", "book": book,
+                    current = {"kind": "bane_variant", "book": LABELS.get(book, book),
                                "name": text, "page": pno + 1, "lines": []}
                     in_title = True
                 elif title and in_title and current:
@@ -523,7 +527,7 @@ def extract_powers(doc, toc, book):
                     current["name"] += " " + text   # длинный заголовок в две строки
                 else:
                     flush()
-                    current = {"kind": "power", "book": book, "name": text,
+                    current = {"kind": "power", "book": LABELS.get(book, book), "name": text,
                                "page": pno + 1, "discipline": discipline,
                                "level": level, "lines": [], "block": None}
                 prev_heading = True
@@ -540,7 +544,7 @@ def extract_toc_section(doc, toc, title, book, kind):
     """Раздел целиком, одним куском (кланы, типы охотника и т. п.)."""
     start, end = section_range(toc, title, doc)
     text = " ".join(normalize(doc[p].get_text("text")) for p in range(start, end))
-    return [{"kind": kind, "book": book, "name": title,
+    return [{"kind": kind, "book": LABELS.get(book, book), "name": title,
              "page": start + 1, "pages": [start + 1, end], "text": text}]
 
 

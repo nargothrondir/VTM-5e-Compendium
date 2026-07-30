@@ -52,6 +52,16 @@ def fix_encoding(text: str) -> str:
         run = match.group(0)
         if len(run) < least:
             return run
+
+        # Одиночный символ, приросший к кириллическому слову, — это знак
+        # ударения из самой книги, а не порча: «Мавлá» так и набрано.
+        # Порча одиночными буквами стоит отдельным словом: «Если â истории».
+        if len(run) == 1:
+            before = text[match.start() - 1] if match.start() else " "
+            after = text[match.end()] if match.end() < len(text) else " "
+            if CYRILLIC_RE.match(before) or CYRILLIC_RE.match(after):
+                return run
+
         try:
             return run.encode("latin-1").decode("cp1251")
         except (UnicodeEncodeError, UnicodeDecodeError):
