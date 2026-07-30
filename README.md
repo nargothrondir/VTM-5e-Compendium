@@ -1,141 +1,140 @@
-# VTM 5e Компендиум — русский перевод
+# VTM 5e Compendium — Russian
 
-Компендиум для **Vampire: The Masquerade 5th edition** в Foundry VTT: кланы,
-Дисциплины, Сила Крови, типы охотника, достоинства и недостатки — на русском
-языке, по официальному изданию.
+*[Русская версия](README.ru.md)*
 
-Работает с неофициальной системой 5-й редакции
-[wod5e](https://github.com/WoD5E-Developers/wod5e) от Veilza и Rayji96.
+A Foundry VTT compendium for **Vampire: The Masquerade 5th edition** in Russian:
+clans, Disciplines, Blood Potency, predator types, advantages and flaws.
+
+Built for the unofficial 5th edition system
+[wod5e](https://github.com/WoD5E-Developers/wod5e) by Veilza and Rayji96.
 Foundry VTT 11–13.
 
 ---
 
-## Происхождение
+## Origin
 
-Это форк украинского модуля
+This is a fork of the Ukrainian module
 [**vampire-the-masquerade-5e-compendium-ukr**](https://github.com/SexyCrowbar/vampire-the-masquerade-5e-compendium-ukr)
-за авторством **SexyCrowbar** — низкий поклон за проделанную работу.
+by **SexyCrowbar** — deep thanks for the work that made this possible.
 
-Украинская версия, в свою очередь, выросла из
-[англоязычного модуля](https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium)
-за авторством **Nathaneal**.
+The Ukrainian version in turn grew out of the
+[English module](https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium)
+by **Nathaneal**.
 
-Здесь переведён текст и переработана сборка; структура компендиума,
-идентификаторы записей и иконки унаследованы от украинской версии без
-изменений — благодаря этому персонажи, созданные на её основе, не ломаются.
-
----
-
-## Что переведено
-
-Переведено **232 записи и 98 папок** — весь компендиум целиком.
-
-| Компендиум | Записей | Источник |
-|---|---:|---|
-| Кланы | 9 | Книга правил + Руководство для игроков |
-| Дисциплины | 121 | Книга правил |
-| Сила крови и тип охотника | 17 | Книга правил |
-| Преимущества и недостатки | 85 | Книга правил |
-
-Подробнее:
-
-- **Кланы** — описание, список Дисциплин и Проклятие каждого клана. Для семи
-  кланов добавлено **альтернативное проклятие** из Руководства для игроков;
-  такие врезки помечены ссылкой на источник.
-- **Дисциплины** — 90 сил десяти Дисциплин, 24 ритуала Кровавого чародейства и
-  7 формул Алхимии слабокровных. У каждой указаны Амальгама, Расплата, Пул,
-  Правила и Длительность.
-- **Сила крови и тип охотника** — 7 уровней Силы Крови (от слабой крови до
-  шестого и выше) и 10 типов охотника.
-- **Преимущества и недостатки** — 85 записей: достоинства, недостатки и фоны.
-  Фоны собраны целиком, со всеми пятью ступенями в одной записи.
-
-Терминология взята из официального русского перевода, а не переведена заново.
-Поэтому «Безупречная точность», а не «Безошибочный прицел»; «Ласка Ваала»,
-а не «Прикосновение Баала».
+The text here is translated and the build was reworked, but the compendium
+structure, entry identifiers and icons are inherited unchanged. Characters built
+on the Ukrainian version keep working.
 
 ---
 
-## Установка
+## What is translated
 
-В Foundry VTT: **Настройки → Управление модулями → Установить модуль**, вставить
-в поле адреса манифеста:
+**232 entries and 98 folders** — the entire compendium.
+
+| Compendium | Entries |
+|---|---:|
+| Clans | 9 |
+| Disciplines | 121 |
+| Blood Potency & Predator Type | 17 |
+| Advantages & Flaws | 85 |
+
+In detail:
+
+- **Clans** — description, Discipline list and Bane for each clan. Seven clans
+  also carry an **alternative Bane**; those blocks are marked with their source.
+- **Disciplines** — 90 powers across ten Disciplines, 24 Blood Sorcery rituals
+  and 7 Thin-blood Alchemy formulae, each with Amalgam, Cost, Dice Pool, System
+  and Duration.
+- **Blood Potency & Predator Type** — 7 Blood Potency levels and 10 predator
+  types.
+- **Advantages & Flaws** — merits, flaws and backgrounds. Backgrounds are kept
+  whole, with all five dot levels in a single entry.
+
+Terminology follows the official Russian edition rather than being re-translated,
+so an English reader should expect the published Russian names, not literal
+renderings of the English ones.
+
+---
+
+## Installation
+
+In Foundry VTT: **Settings → Add-on Modules → Install Module**, then paste the
+manifest URL:
 
 ```
 https://github.com/nargothrondir/VTM-5e-Compendium/releases/latest/download/module.json
 ```
 
-Либо скачать `module.zip` из
-[релизов](https://github.com/nargothrondir/VTM-5e-Compendium/releases) и
-распаковать в `Data/modules/`.
+Or download `module.zip` from
+[Releases](https://github.com/nargothrondir/VTM-5e-Compendium/releases) and
+unpack it into `Data/modules/`.
 
 ---
 
-## Как это собрано
+## How it is built
 
-Перевод не набивался руками: текст **извлекается из книг и переносится
-скриптами**, а решения о том, что чему соответствует, зафиксированы в
-`data/mapping.yaml` — по одной строке на запись.
+The translation was not typed in by hand. Text is **extracted from the
+sourcebooks and applied by scripts**, and every decision about which book
+section belongs to which compendium entry lives in `data/mapping.yaml` — one
+line per entry.
 
 ```
-книги (PDF)  ──extract──▶  data/book_sections.json
-                                     │
-             data/mapping.yaml ──────┼──apply──▶  packs/*/_source/*.json
-                                                          │
-                                                        build
-                                                          ▼
-                                                    база LevelDB
+sourcebooks (PDF)  ──extract──▶  data/book_sections.json
+                                          │
+                  data/mapping.yaml ──────┼──apply──▶  packs/*/_source/*.json
+                                                              │
+                                                            build
+                                                              ▼
+                                                        LevelDB pack
 ```
 
-| Команда | Что делает |
+| Command | What it does |
 |---|---|
-| `npm run extract` | разбирает книги на разделы |
-| `npm run mapping` | собирает таблицу соответствий |
-| `npm run apply` | переносит текст в записи компендиума |
-| `npm run build` | собирает `_source` в базу, которую читает Foundry |
-| `npm run verify` | проверяет целостность и показывает прогресс |
-| `npm run roundtrip` | доказывает, что сборка обратима |
+| `npm run extract` | splits the sourcebooks into sections |
+| `npm run mapping` | builds the correspondence table |
+| `npm run apply` | writes the text into compendium entries |
+| `npm run build` | compiles `_source` into the pack Foundry reads |
+| `npm run verify` | checks integrity and reports progress |
+| `npm run roundtrip` | proves the build is reversible |
 
-Смысл затеи — в воспроизводимости: нашли огрех, поправили строку в
-`data/mapping.yaml`, прогнали заново. Шаг переноса идемпотентен, JSON руками
-трогать не нужно.
+The point is reproducibility: spot a mistake, fix one line in
+`data/mapping.yaml`, run it again. The apply step is idempotent, so the JSON is
+never edited by hand.
 
-Извлечение из PDF **детерминированное**: разделы опознаются по начертанию,
-которым они свёрстаны в книге, — заголовок силы, разделитель уровня, маркер
-списка. Никаких обращений к внешним сервисам.
+Extraction is **deterministic** — sections are recognised by the typography they
+are set in (power heading, level divider, list marker), not by guessing at the
+prose. No external services are involved.
 
-Истина хранится в `packs/*/_source/*.json`. Скомпилированная база LevelDB и
-`module.zip` — артефакты сборки, в репозитории их нет.
+`packs/*/_source/*.json` is the source of truth. The compiled LevelDB pack and
+`module.zip` are build artifacts and are not stored in the repository.
 
-### Источники
+### Sourcebooks
 
-Книги правил **в репозиторий не входят** и не будут: они защищены авторским
-правом. Чтобы запустить извлечение, положите свои экземпляры в `sources/`:
+Translated text comes from the official
+[Vampire: The Masquerade sourcebooks](https://vtm.paradoxwikis.com/Official_TTRPG_sources) —
+the **Corebook** and the **Players Guide** (clan Bane variants). The extractor
+also reads the free **Companion**, whose clans are not part of this compendium
+yet.
 
-```
-sources/Книга правил.pdf
-sources/Малая книга знаний.pdf
-sources/Руководство для игроков.pdf
-```
-
-Для правки уже переведённых записей книги не нужны — только для повторного
-извлечения.
+**The books are not included in this repository and never will be** — they are
+copyrighted. To run extraction yourself, place your own copies in `sources/`.
+Editing already-translated entries does not require them.
 
 ---
 
-## Участники
+## Contributors
 
-- **[SexyCrowbar](https://github.com/SexyCrowbar)** — украинский модуль, на
-  котором всё основано: структура компендиума, подбор записей, иконки.
-- **Nathaneal** — исходный англоязычный модуль.
-- **[nargothrondir](https://github.com/nargothrondir)** — русский перевод,
-  сверка с официальным изданием, ведение форка.
-- **Claude (Opus 5, Anthropic)** — инструменты извлечения и переноса, сборка и
-  CI, сопоставление записей с разделами книг. Участие отражено в истории
-  коммитов через `Co-Authored-By`.
+- **[SexyCrowbar](https://github.com/SexyCrowbar)** — the Ukrainian module this
+  is built on: compendium structure, entry selection, icons.
+- **Nathaneal** — the original English module.
+- **[nargothrondir](https://github.com/nargothrondir)** — Russian translation,
+  proofing against the official edition, maintaining this fork.
+- **Claude (Opus 5, Anthropic)** — extraction and apply tooling, build and CI,
+  matching entries to book sections. Recorded in the commit history via
+  `Co-Authored-By`.
 
-Отдельная благодарность разработчикам системы
-[wod5e](https://github.com/WoD5E-Developers/wod5e).
+Thanks also to the developers of the
+[wod5e](https://github.com/WoD5E-Developers/wod5e) system.
 
 ---
 
@@ -165,5 +164,5 @@ information please visit [worldofdarkness.com](http://worldofdarkness.com).”
   all applicable laws, and that it does not infringe any third party’s
   intellectual property rights or any other right.
 
-Проект некоммерческий. Текст правил принадлежит правообладателям; модуль
-распространяется как фанатский материал в рамках Dark Pack.
+This is a non-commercial fan project. The rules text belongs to its rights
+holders; the module is distributed as fan material under the Dark Pack.
