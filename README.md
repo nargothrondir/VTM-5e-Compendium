@@ -15,12 +15,12 @@ Foundry VTT 11–13.
 
 ## Происхождение
 
-Це форк українського модуля
+Это форк украинского модуля
 [**vampire-the-masquerade-5e-compendium-ukr**](https://github.com/SexyCrowbar/vampire-the-masquerade-5e-compendium-ukr)
-за авторством **SexyCrowbar** — низький уклін за виконану роботу.
+за авторством **SexyCrowbar** — низький уклін за виконану роботу. Дякую!
 
 Украинская версия, в свою очередь, выросла из
-[англоязычного модуля](https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium)
+[**vampire-the-masquerade-5e-compendium**](https://github.com/Clownf1sh/vampire-the-masquerade-5e-compendium)
 за авторством **Nathaneal**.
 
 Здесь переведён текст и переработана сборка; структура компендиума,
