@@ -26,6 +26,12 @@ RUNNING_HEAD_RE = re.compile(
     r"^\s*(?:\d[\d\s]*)?(?:[А-ЯЁа-яё]\s){2,}[А-ЯЁа-яё]\s*(?:\d[\d\s]*)?\s*$", re.M
 )
 
+# Тот же колонтитул латиницей: «VA M P I R E T H E M A S Q U E R A D E…».
+# В Руководстве он не стоит отдельной строкой, а вклинивается в конец абзаца,
+# поэтому строчная привязка его не ловит — убираем уже после склейки.
+# Шесть групп подряд: в тексте столько заглавных латиницей не встречается.
+LATIN_RUNNING_HEAD_RE = re.compile(r"(?:[A-Z]{1,3}\s+){5,}[A-Z]{1,3}\s*")
+
 # Сноска-ссылка на перевод терминов: «1 Прим. пер.: velocitas (лат.) — …».
 TRANSLATOR_NOTE_RE = re.compile(r"^\s*\d+\s*\nПрим\. пер\.:.*?$", re.M | re.S)
 
@@ -100,6 +106,7 @@ def normalize(text: str) -> str:
     text = re.sub(r"\s*\n\s*", " ", text)
 
     text = re.sub(r"\s*\x00\s*", "\n", text)
+    text = LATIN_RUNNING_HEAD_RE.sub("", text)
     text = re.sub(r"[ \t]{2,}", " ", text)
     return text.strip()
 
@@ -175,6 +182,37 @@ SKILLS = [
 ]
 # Производная, но в пулах стоит наравне с Атрибутами.
 DERIVED = ["воля"]
+
+# Названия кланов. Имя собственное — всегда с заглавной, опора не нужна:
+# «на салюбри охотятся» и «Салюбри получают штраф» стояли в одной записи.
+# Курсивом не отмечаются: в описании клана его имя встречается на каждом шагу,
+# и разметка превратила бы абзац в частокол.
+#
+# Склонения выписаны поимённо: «малкавианин», «тремеров», «гангрелам» из
+# основы правилом не выводятся, а Вентру, Носферату и Салюбри не склоняются
+# вовсе. «Слабокровных» в списке намеренно нет — в тексте это прилагательное
+# («слабокровный вампир», «Алхимия слабокровных»), а не имя клана.
+CLAN_FORMS = [
+    r"бану\s+хаким(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"брух(?:а|и|е|у|ой|ам|ами|ах)",
+    r"вентру",
+    r"гангрел(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"гекат(?:а|ы|е|у|ой|ам|ами|ах)",
+    r"каитиф(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"ласомбр(?:а|ы|е|у|ой|ам|ами|ах)",
+    r"малкавиан(?:ин|ина|ину|ином|ине|е|а|у|ом|ы|ов|ам|ами|ах)?",
+    r"министерств(?:о|а|у|ом|е)",
+    r"носферату",
+    r"равнос(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"салюбри",
+    r"тореадор(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"тремер(?:а|у|ом|е|ы|ов|ам|ами|ах)?",
+    r"цимисх(?:и|а|у|ом|е|ов|ам|ами|ах)?",
+]
+CLAN_RE = re.compile(
+    r"(?<![А-Яа-яЁё-])(?i:"
+    + "|".join(sorted(CLAN_FORMS, key=len, reverse=True))
+    + r")(?![А-Яа-яЁё])")
 
 # Стоят в пулах как Дисциплины, но в опознание по заглавной не идут:
 # «Могущество» — как Руководство зовёт Мощь, и это обычное слово, которое
@@ -256,8 +294,25 @@ MARK_RE = re.compile(
     rf"|(?P<discipline>{_DISC})")
 
 
+# Перечисление продолжает разметку: «Наблюдательность (Смерть) или Воровство»
+# — второй Навык опоры уже не имеет, но держится на первом. Само по себе
+# «или» контекстом не является: «наука или политика» в прозе размечаться
+# не должны, поэтому продолжение цепляется только к размеченному соседу.
+# Разделители — «или» и косая черта; запятая исключена, она слишком часто
+# просто заканчивает оборот.
+ENUM_RE = re.compile(
+    rf"(</em>)((?:\s*\([^)]{{1,40}}\))?\s*(?:или|/)\s*)({_TERM})")
+
+
 def _cap(text: str) -> str:
     return text[:1].upper() + text[1:]
+
+
+def capitalize_clans(text: str) -> str:
+    """Имя клана — всегда с заглавной, в любом контексте."""
+    return CLAN_RE.sub(
+        lambda m: re.sub(r"[А-Яа-яЁё]+", lambda w: _cap(w.group(0)), m.group(0)),
+        text)
 
 
 def _wrap(text: str) -> str:
@@ -303,19 +358,40 @@ OWN_TAGS_RE = re.compile(r"</?(?:strong|em)>")
 # Пометка источника — абзац целиком в курсиве. Разбирать её как подпись
 # («Источник:») не нужно, и восстановить её проход не смог бы.
 WHOLE_EM_RE = re.compile(r"^<em>[^<]*</em>$")
+# Абзац, открытый полужирным: либо наша подпись параметра, либо чужой
+# заголовок. Различает их LABEL_RE — см. _emphasize_paragraph.
+HEADING_RE = re.compile(r"^<strong>([^<]*)</strong>")
+
+
+def _extend_enumerations(html: str) -> str:
+    """«X или Y»: продолжение перечисления наследует разметку соседа."""
+    previous = None
+    while previous != html:            # цепочка длиннее двух звеньев
+        previous = html
+        html = ENUM_RE.sub(
+            lambda m: m.group(1) + m.group(2) + _wrap(m.group(3)), html)
+    return html
 
 
 def _emphasize_paragraph(inner: str) -> str:
     if WHOLE_EM_RE.match(inner.strip()):
         return inner
 
+    # Заголовок раздела внутри записи — абзац, открытый <strong>, но не
+    # подписью параметра («Изъян: Гонимые» у кланов). Его ставит fix_clans,
+    # и проход, снимающий свою разметку, восстановить его не смог бы.
+    head = HEADING_RE.match(inner.strip())
+    if head and not LABEL_RE.match(head.group(1)):
+        return inner
+
     plain = OWN_TAGS_RE.sub("", inner)
     if "<" in plain:            # чужая разметка внутри абзаца — не трогаем
         return inner
 
+    plain = capitalize_clans(plain)
     hit = LABEL_RE.match(plain)
     if not hit:
-        return _mark_terms(plain)
+        return _extend_enumerations(_mark_terms(plain))
 
     label = hit.group(2)
     value = plain[hit.end():]
@@ -325,8 +401,9 @@ def _emphasize_paragraph(inner: str) -> str:
     if label in TERM_VALUE_LABELS:
         head, tail = _split_value(value)
         if head:
-            return out + f"<em>{head}</em>" + _mark_terms(tail)
-    return out + _mark_terms(value)
+            out += f"<em>{head}</em>" + _mark_terms(tail)
+            return _extend_enumerations(out)
+    return _extend_enumerations(out + _mark_terms(value))
 
 
 PARAGRAPH_RE = re.compile(r"<p>(.*?)</p>", re.S)

@@ -39,17 +39,22 @@ def main():
         system = data.get("system")
         if not isinstance(system, dict):
             continue
-        before = system.get("description")
-        if not before:
-            continue
-        after = emphasize(before)
-        if after == before:
+
+        # Текст записи не всегда лежит в `description`: у кланов проклятие
+        # вынесено в отдельную вкладку и в отдельное поле `bane`. Идём по
+        # всякому полю с абзацами, чтобы разметка не обрывалась на вкладке.
+        fields = [k for k, v in system.items()
+                  if isinstance(v, str) and "<p>" in v]
+        touched = [k for k in fields if emphasize(system[k]) != system[k]]
+        if not touched:
             continue
 
         changed += 1
-        print(f"  {data.get('name', path.stem)}")
+        print(f"  {data.get('name', path.stem)}"
+              + (f"  [{', '.join(touched)}]" if touched != ["description"] else ""))
         if not args.dry_run:
-            system["description"] = after
+            for k in touched:
+                system[k] = emphasize(system[k])
             text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
             path.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))
 

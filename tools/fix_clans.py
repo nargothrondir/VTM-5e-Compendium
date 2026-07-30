@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import fitz  # noqa: E402
 from extract_pdf import GUIDE, SOURCES, extract_bane_variants  # noqa: E402
-from pdfkit import to_html  # noqa: E402
+from pdfkit import LATIN_RUNNING_HEAD_RE, to_html  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,17 @@ TEXT_FIXES = [
     ("Ясновиденье", "Ясновидение"),                   # у Тремера уже верно
     ("Кровавое Чародейство", "Кровавое чародейство"),
     ("Алхимия Слабокровны", "Алхимия слабокровных"),  # оборвано на середине
+]
+
+# То же для вкладки изъяна. «Клановые Проклятья Альтернативы» — колонтитул
+# раздела, а не текст; «изза» — потерянный дефис на переносе.
+BANE_HEADING_RE = re.compile(
+    r"<p>(?:<strong>)?\s*(Изъян:|Альтернативный изъян:)\s*([^<(]+?)\s*"
+    r"(?:</strong>)?\s*(\([^<)]*\))?\s*</p>")
+
+BANE_FIXES = [
+    ("Клановые Проклятья Альтернативы", ""),
+    ("изза", "из-за"),
 ]
 
 # Описание Бруха оборвалось при копировании на первом же абзаце.
@@ -60,7 +71,12 @@ VARIANT_CLANS = {
     "Цимисхи": "Цимисхи",
 }
 
-VARIANT_MARK = "Альтернативное проклятие"
+# Заголовки внутри вкладки. Слово одно на оба: вкладка в Foundry называется
+# «Клановый изъян», и книга ставит над этим текстом «Изъян». «Проклятие»
+# осталось от первой редакции скрипта и разводило два соседних абзаца одной
+# вкладки по разной терминологии.
+VARIANT_MARK = "Альтернативный изъян"
+OLD_VARIANT_MARK = "Альтернативное проклятие"
 BANE_MARK = "Изъян:"
 COMPULSION_MARK = "Одержимость:"
 
@@ -202,6 +218,34 @@ def main():
             bane = bane.replace(wrong.group(0), "")
             notes.append("убрана подпись Одержимости, выданная за изъян")
 
+        # Заголовки изъяна приводятся к одному виду здесь, где они и
+        # заводятся: полужирный на «Изъян: Название», источник — прямым.
+        # Проход разметки о них не знает и снимал с них полужирный.
+        fixed_heads = BANE_HEADING_RE.sub(
+            lambda m: f"<p><strong>{m.group(1)} {m.group(2)}</strong>"
+                      + (f" {m.group(3)}" if m.group(3) else "") + "</p>",
+            bane)
+        if fixed_heads != bane:
+            bane = fixed_heads
+            notes.append("восстановлен полужирный на заголовке изъяна")
+
+        # Хвост варианта у Бруха и Салюбри забрал колонтитулы Руководства:
+        # латинскую «шапку» и название раздела. Оба стоят вплотную к тексту,
+        # без пустой строки, поэтому сегментация их не отсекла.
+        cleaned = LATIN_RUNNING_HEAD_RE.sub("", bane)
+        for junk, right in BANE_FIXES:
+            cleaned = cleaned.replace(junk, right)
+        cleaned = re.sub(r"\s+(</p>)", r"\1", cleaned)
+        if cleaned != bane:
+            bane = cleaned
+            notes.append("убран колонтитул из хвоста варианта")
+
+        # Прежний заголовок варианта переименовывается, а не дописывается
+        # заново: иначе проверка ниже не нашла бы его и завела второй блок.
+        if OLD_VARIANT_MARK in bane:
+            bane = bane.replace(OLD_VARIANT_MARK, VARIANT_MARK)
+            notes.append(f"заголовок варианта -> «{VARIANT_MARK}»")
+
         name = BANE_NAMES.get(data["name"])
         if name and bane and BANE_MARK not in bane:
             head = f"<p><strong>{BANE_MARK} {name}</strong></p>"
@@ -220,7 +264,7 @@ def main():
             system["bane"] = (system.get("bane") or "") + \
                 f"<p><strong>{VARIANT_MARK}: {variant['variant']}</strong> " \
                 f"(Руководство для игроков)</p>" + body
-            notes.append(f"добавлено альтернативное проклятие «{variant['variant']}»")
+            notes.append(f"добавлен альтернативный изъян «{variant['variant']}»")
 
         if json.dumps(system, ensure_ascii=False) != before:
             changed.append((data["name"], notes))
