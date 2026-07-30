@@ -95,3 +95,75 @@ def disciplines_from(text):
         if pos >= 0:
             found.append((pos, name))
     return [name for _, name in sorted(found)]
+
+# Типы питания в Руководстве набраны двумя гарнитурами вперемешку —
+# видимо, вёрстку собирали из разных источников. Опознаём по кеглю.
+PREDATOR_TITLE_FONTS = {"LiteraturnayaC", "DXLubava-Regular"}
+PREDATOR_TITLE_SIZE = (18.0, 22.0)
+# Кегль тела гуляет между 9 и 10 пунктами: нижняя граница строгой быть
+# не может, иначе последняя запись раздела осталась бы без текста.
+PREDATOR_BODY_SIZE = (8.5, 11.5)
+BULLET_FONTS = ("Wingdings", "ZapfDingbats")
+
+
+def predator_types(doc, pages, fix_encoding, normalize, lines_of,
+                   opening="ТИПЫ ПИТАНИЯ"):
+    """Типы питания из Руководства: имя и текст до следующего заголовка.
+
+    Перечень обрывается титулом следующего раздела, но первым таким титулом
+    идёт заголовок самого перечня — его надо пропустить, иначе разбор
+    завершится, не начавшись.
+    """
+    out, current, started, bullet = [], None, False, False
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+            current = None
+
+    # Обход строго в порядке чтения: заголовок «Лазутчика» и титул
+    # следующего раздела стоят на одной полосе, и обход блоков подряд
+    # обрывал перечень до того, как забирал последнюю запись.
+    for pno in range(*pages):
+        for line in lines_of(doc[pno]):
+            if True:
+                sp = _spans(line)
+                if not sp:
+                    continue
+                text = fix_encoding("".join(s["text"] for s in sp)).strip()
+                font, size = sp[0]["font"], sp[0]["size"]
+
+                if font == TITLE_FONT and size > 24:
+                    if not started and opening in text.upper():
+                        started = True
+                        continue
+                    if started:          # титул следующего раздела
+                        flush()
+                        return out
+                    continue
+
+                if not started:
+                    continue
+
+                # Маркер списка стоит отдельной строкой своим шрифтом:
+                # запоминаем и приклеиваем к следующей строке.
+                if font.startswith(BULLET_FONTS):
+                    bullet = True
+                    continue
+
+                if (font in PREDATOR_TITLE_FONTS
+                        and PREDATOR_TITLE_SIZE[0] < size < PREDATOR_TITLE_SIZE[1]
+                        and 2 < len(text) < 40):
+                    flush()
+                    current = {"name": text, "page": pno + 1, "lines": []}
+                    bullet = False
+                elif (current and font in PREDATOR_TITLE_FONTS
+                      and PREDATOR_BODY_SIZE[0] < size < PREDATOR_BODY_SIZE[1]
+                      and not JUNK_RE.search(text)):
+                    current["lines"].append(("■ " if bullet else "") + text)
+                    bullet = False
+
+    flush()
+    return out

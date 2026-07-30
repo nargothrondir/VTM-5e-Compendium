@@ -315,11 +315,17 @@
 | Термин | Оригинал |
 |---|---|
 | Бестия | Blood Leech |
+| Вымогатель | Extortionist |
 | Джентльмен | Consensualist |
 | Идол | Osiris |
 | Искуситель | Siren |
+| Лазутчик | Trapdoor |
+| Монтеро | Montero |
 | Морфей | Sandman |
+| Мрачный жнец | Grim Reaper |
 | Налётчик | Alleycat |
+| Преследователь | Pursuer |
+| Расхититель могил | Graverobber |
 | Семьянин | Cleaver |
 | Суррогатчик | Bagger |
 | Тусовщик | Scene Queen |

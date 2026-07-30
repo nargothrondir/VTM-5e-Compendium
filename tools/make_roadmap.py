@@ -76,6 +76,9 @@ def main():
     predators_total = len(originals.CANON_PREDATOR_TYPES)
     clans_done = len(by_type.get("clan", []))
 
+    ready = [(en, book) for en, book in originals.CANON_PREDATOR_TYPES
+             if book in AT_HAND and en not in originals.PREDATOR_TYPES.values()]
+
     parts = [INTRO]
 
     # --- сводка
@@ -84,7 +87,7 @@ def main():
         ["Силы Дисциплин", powers_done, powers_total,
          f"{guide_powers} доступны в Руководстве"],
         ["Типы охотника", predators_done, predators_total,
-         "4 доступны в Руководстве"],
+         "закрыто" if not ready else f"{len(ready)} доступны в Руководстве"],
         ["Сила Крови", len(make_mapping.BLOOD_POTENCY),
          len(make_mapping.BLOOD_POTENCY), "закрыто"],
         ["Достоинства и недостатки", len(by_type.get("feature", [])), "—",
@@ -101,10 +104,8 @@ def main():
         chunks.append(f"### {group} — {len(rows)}" + NL * 2
                       + table(rows, ["", "Название в книге", "Стр."]))
 
-    ready = [(en, book) for en, book in originals.CANON_PREDATOR_TYPES
-             if book in AT_HAND and en not in originals.PREDATOR_TYPES.values()]
     predator_block = table([[TODO, en, book] for en, book in ready],
-                           ["", "Оригинал", "Книга"])
+                           ["", "Оригинал", "Книга"]) if ready else         "Все типы питания из имеющихся книг перенесены."
 
     parts.append(
         f"## Доступно сейчас{NL}{NL}Работа, для которой источник уже есть на "
@@ -114,7 +115,7 @@ def main():
         f"а также по три-пять новых сил почти к каждой Дисциплине основной "
         f"книги. Названия ниже — как они стоят в книге.{NL}{NL}"
         + NL.join(c + NL for c in chunks)
-        + f"{NL}### Типы охотника из Руководства — {len(ready)}{NL}{NL}"
+        + f"{NL}### Типы охотника — {len(ready)}{NL}{NL}"
         + predator_block)
 
     # --- требует других книг
@@ -145,13 +146,11 @@ def main():
 
     parts.append(
         f"## Что дальше{NL}{NL}"
-        f"1. **Типы охотника из Руководства** — четыре записи, механика та же, "
-        f"что у переведённых десяти. Самое дешёвое.{NL}"
-        f"2. **Новые силы Дисциплин основной книги** — по три-пять к каждой, "
+        f"1. **Новые силы Дисциплин основной книги** — по три-пять к каждой, "
         f"ложатся в существующие папки уровней.{NL}"
-        f"3. **Обливион** — отдельная Дисциплина: 19 сил и 17 церемоний, "
+        f"2. **Обливион** — отдельная Дисциплина: 19 сил и 17 церемоний, "
         f"нужны новые папки и иконка (она уже лежит в ассетах).{NL}"
-        f"4. **Достоинства и недостатки** — канон не сверялся, объём "
+        f"3. **Достоинства и недостатки** — канон не сверялся, объём "
         f"неизвестен; сперва нужен список.{NL}{NL}"
         f"Оговорка про качество: Руководство для игроков переведено "
         f"фанатами, а не официально. Всё, что берётся оттуда, помечается "

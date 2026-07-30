@@ -171,6 +171,12 @@ PREDATOR_TYPES = {
     "Суррогатчик": "Bagger",
     "Тусовщик": "Scene Queen",
     "Фермер": "Farmer",
+    "Вымогатель": "Extortionist",
+    "Расхититель могил": "Graverobber",
+    "Мрачный жнец": "Grim Reaper",
+    "Монтеро": "Montero",
+    "Преследователь": "Pursuer",
+    "Лазутчик": "Trapdoor",
 }
 
 BANES = {
@@ -339,8 +345,9 @@ CANON_PREDATOR_TYPES = [
     ("Consensualist", "Corebook"), ("Farmer", "Corebook"),
     ("Osiris", "Corebook"), ("Sandman", "Corebook"),
     ("Scene Queen", "Corebook"), ("Siren", "Corebook"),
-    ("Extortionist", "Cults of the Blood God"),
-    ("Graverobber", "Cults of the Blood God"),
+    # Руководство перепечатывает оба, так что источник у проекта есть.
+    ("Extortionist", "Players Guide"),
+    ("Graverobber", "Players Guide"),
     ("Roadside Killer", "Let the Streets Run Red"),
     ("Grim Reaper", "Players Guide"), ("Montero", "Players Guide"),
     ("Pursuer", "Players Guide"), ("Trapdoor", "Players Guide"),
