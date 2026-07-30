@@ -1,0 +1,37 @@
+{
+  "folder": "KyBpg6ay6mz2CpTB",
+  "name": "••• Темперированная Воля",
+  "type": "feature",
+  "_id": "aru94bGLiIg2UE4G",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваш упрямый дух не умер во время объятий, и вы стали понимать, когда люди пытаются заставить вас сделать что-то против вашей воли. Вы всегда знаете, когда кто-то использует против вас <em>Доминирование</em> и <em>Величие</em>. Один раз за сессию, сопротивляясь <em>Доминированию</em> или <em>Величию</em>, вы можете добавить два дополнительных кубика к своему запасу сопротивления. Этим достоинством может воспользоваться только тот, у кого нет точек ни в <em>Доминировании</em>, ни в <em>Величии</em>. (Если вы приобретете Дисциплины позже или временно, как слабокровные, достоинство больше не дает никаких преимуществ, пока вы ими владеете).</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 3,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!aru94bGLiIg2UE4G"
+}

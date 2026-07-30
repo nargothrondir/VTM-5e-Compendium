@@ -30,14 +30,14 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**239 entries and 98 folders** — the entire compendium.
+**334 entries and 112 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
 | Clans | 16 |
-| Disciplines | 121 |
-| Blood Potency & Predator Type | 17 |
-| Advantages & Flaws | 85 |
+| Disciplines | 191 |
+| Blood Potency & Predator Type | 23 |
+| Advantages & Flaws | 104 |
 
 In detail:
 
@@ -45,13 +45,15 @@ In detail:
   also carry an **alternative Bane**. Banu Haqim, Hecata, Lasombra and Ministry
   exist only in the Players Guide, whose translation is fan-made rather than
   official — those entries state their source in the text.
-- **Disciplines** — 90 powers across ten Disciplines, 24 Blood Sorcery rituals
-  and 7 Thin-blood Alchemy formulae, each with Amalgam, Cost, Dice Pool, System
-  and Duration.
-- **Blood Potency & Predator Type** — 7 Blood Potency levels and 10 predator
+- **Disciplines** — 121 powers across ten Disciplines, 35 Blood Sorcery rituals
+  and 7 Thin-blood Alchemy formulae, plus the whole of **Oblivion**: 18 powers
+  and 10 ceremonies. Each entry carries Amalgam, Cost, Dice Pool, System and
+  Duration.
+- **Blood Potency & Predator Type** — 7 Blood Potency levels and 16 predator
   types.
-- **Advantages & Flaws** — merits, flaws and backgrounds. Backgrounds are kept
-  whole, with all five dot levels in a single entry.
+- **Advantages & Flaws** — merits, flaws and backgrounds, including 19 new ones
+  from the Players Guide. Backgrounds are kept whole, with all five dot levels
+  in a single entry.
 
 Terminology — how a term is rendered and why — lives in the [glossary](GLOSSARY.md).
 What is done and what is left — in the [roadmap](ROADMAP.md).

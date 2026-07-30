@@ -266,6 +266,91 @@ LABEL_RE = re.compile(r"\s*(" + "|".join(POWER_LABELS) + r")\s*:\s*")
 AMALGAM_RE = re.compile("■ Амальгам[аи]: [^\\n\\d]+\\d(?=\\s+[А-ЯЁ])")
 
 
+# Раздел «Новые Достоинства и Недостатки». Имя записи набрано B52 капсом
+# и несёт рейтинг точками прямо в строке: «ГОРОДСКИЕ ТАЙНЫ •». Разряд
+# («Достоинства внешности») — шестнадцатым, сторона («Достоинства»,
+# «Недостатки») — двадцатым, причём «Недостатки» ещё и другой гарнитурой.
+MERIT_NAME_FONT = "B52"
+MERIT_NAME_SIZE = (9.0, 10.0)
+MERIT_GROUP_SIZE = (15.0, 17.0)
+MERIT_SIDE_SIZE = (19.0, 21.0)
+# Кегль тела гуляет между девятым и десятым: «Неприкосновенный» набран
+# десятым и при строгой верхней границе оставался вовсе без текста.
+MERIT_BODY_SIZE = (8.5, 10.5)
+
+# Рейтинг: точки подряд, иногда в скобках — «ЛИКВИДАТОР (•)».
+RATING_RE = re.compile(r"\s*\(?\s*([•·∙]+)\s*\)?\s*$")
+
+
+def merits(doc, pages, fix_encoding, normalize, lines_of,
+           opening="НОВЫЕ"):
+    """Достоинства и недостатки из Руководства.
+
+    Сторона записи (достоинство или недостаток) не выводится из текста —
+    только из того, под каким из двух заголовков она стоит.
+    """
+    out, current, started = [], None, False
+    side, group, prev_title = None, None, False
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+            current = None
+
+    for pno in range(*pages):
+        for line in lines_of(doc[pno]):
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            if font == TITLE_FONT and size > 24:
+                # Заголовок раздела занимает три строки — «Новые»,
+                # «Достоинства и», «Недостатки», — и продолжение нельзя
+                # принять за титул следующей главы.
+                if not started and opening in text.upper():
+                    started, prev_title = True, True
+                    continue
+                if started and not prev_title:
+                    flush()
+                    return out
+                continue
+            prev_title = False
+            if not started:
+                continue
+
+            if MERIT_SIDE_SIZE[0] < size < MERIT_SIDE_SIZE[1]:
+                flush()
+                side, group = text, None
+                continue
+            if MERIT_GROUP_SIZE[0] < size < MERIT_GROUP_SIZE[1]:
+                flush()
+                group = text
+                continue
+
+            # Опорой служит рейтинг, а не капс: «Двойное проклятье ••»
+            # набрано строчными и по капсу терялось целиком.
+            hit = (RATING_RE.search(text)
+                   if font == MERIT_NAME_FONT
+                   and MERIT_NAME_SIZE[0] < size < MERIT_NAME_SIZE[1]
+                   and len(text) > 3 else None)
+            if hit:
+                flush()
+                current = {"name": RATING_RE.sub("", text).strip(),
+                           "rating": len(hit.group(1)),
+                           "side": side, "group": group,
+                           "page": pno + 1, "lines": []}
+            elif (current and MERIT_BODY_SIZE[0] < size < MERIT_BODY_SIZE[1]
+                  and not JUNK_RE.search(text)):
+                current["lines"].append(text)
+
+    flush()
+    return out
+
+
 def split_labels(text):
     """Сплошной текст силы -> абзацы с маркерами, как в остальном компендиуме."""
     marked = LABEL_RE.sub(lambda m: chr(10) + chr(9632) + " " + m.group(1) + ": ",

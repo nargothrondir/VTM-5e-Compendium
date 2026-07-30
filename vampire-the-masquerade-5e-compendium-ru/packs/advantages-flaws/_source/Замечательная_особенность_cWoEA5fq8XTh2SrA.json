@@ -1,0 +1,37 @@
+{
+  "folder": "QKuRWbIrsNvscPEl",
+  "name": "• Замечательная особенность",
+  "type": "feature",
+  "_id": "cWoEA5fq8XTh2SrA",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Вы обладаете редкой, запоминающейся особенностью, такой как яркий цвет глаз, нетипичные зрачки или необычный цвет лица, дающей бонус в два кубика при общении с незнакомцами. (Новизна быстро исчезает.) Чтобы замаскироваться, возьмите штраф в один кубик.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!cWoEA5fq8XTh2SrA"
+}

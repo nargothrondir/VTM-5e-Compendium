@@ -1,0 +1,37 @@
+{
+  "folder": "YJxYbIVM5radarAu",
+  "name": "•••• Дьявольская удача",
+  "type": "feature",
+  "_id": "9ZbJCpONqqI1Mf7S",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>За ваши промахи всегда будет отвечать кто-то другой, пока есть кому взять вину на себя. Благодаря любимому лицу, ангелу-хранителю или чему-то более мрачному, вам удается проскальзывать, кататься и уворачиваться от неприятностей, хотя вы постоянно нуждаетесь в новых друзьях, сжигая их как лесной пожар. Один раз за сессию вы можете устроить несчастье нападение, обвинение, упрек или что-то среднее между ними - направленное на вас, чтобы оно постигло кого-то из ваших близких. Это может быть союзник, помощник, товарищ по дружине или даже Опору. Окончательное решение о том, что считать правильным несчастьем, принимает Рассказчик.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 4,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!9ZbJCpONqqI1Mf7S"
+}

@@ -42,18 +42,7 @@ MOJIBAKE_RE = re.compile(r"[À-ÿ]+")
 CYRILLIC_RE = re.compile(r"[а-яёА-ЯЁ]")
 
 
-def fix_encoding(text: str) -> str:
-    """Чинит кириллицу, выпавшую из PDF как Latin-1.
-
-    Порча бывает и точечной — «Если â истории нет сцен», — поэтому внутри
-    заведомо кириллического текста чинится прогон любой длины. Там, где
-    кириллицы нет, порог выше: осмысленный латинский текст трогать нельзя.
-    """
-    if not text or not MOJIBAKE_RE.search(text):
-        return text
-
-    least = 1 if CYRILLIC_RE.search(text) else 3
-
+def _repair(text: str, least: int) -> str:
     def repair(match):
         run = match.group(0)
         if len(run) < least:
@@ -74,6 +63,28 @@ def fix_encoding(text: str) -> str:
             return run
 
     return MOJIBAKE_RE.sub(repair, text)
+
+
+def fix_encoding(text: str) -> str:
+    """Чинит кириллицу, выпавшую из PDF как Latin-1.
+
+    Порча бывает и точечной — «Если â истории нет сцен», — поэтому внутри
+    заведомо кириллического текста чинится прогон любой длины. Там, где
+    кириллицы нет, порог выше: осмысленный латинский текст трогать нельзя.
+    """
+    if not text or not MOJIBAKE_RE.search(text):
+        return text
+
+    fixed = _repair(text, 1 if CYRILLIC_RE.search(text) else 3)
+
+    # Строка бывает испорчена целиком — «ÄÎËÃÈ ÏÎ ÊÐÅÄÈÒÀÌ». Кириллицы в ней
+    # нет, порог поднимается до трёх, и короткие слова остаются: соседи
+    # чинятся, а предлог «ПО» — нет. Если осторожный проход всё же добыл
+    # кириллицу, строка была порчей целиком, и короткие прогоны в ней —
+    # тоже порча.
+    if fixed != text and CYRILLIC_RE.search(fixed) and MOJIBAKE_RE.search(fixed):
+        fixed = _repair(fixed, 1)
+    return fixed
 
 
 def normalize(text: str) -> str:
