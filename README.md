@@ -1,27 +1,169 @@
-<p>Переклад модуля <a href="https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium" rel="nofollow">https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium</a> by Nathaneal<br />Збірка опцій для гравців українською з основної книги правил Vampire the Masquarade 5th edition &nbsp;для використання з неофіційною системою 5-ї редакції від Veilza та Rayji96.<br /><br /></p>
-<p>Dark Pack</p>
-<p><img src="https://images.ctfassets.net/u73tyf0fa8v1/3oBTHBZk9XmfcBlUPylvFh/673e4a6b14566548c03424ddf627b944/darkpack_logo2.png?w=3840&amp;q=75" alt="darkpack_logo2" width="300" height="308" /></p>
-<p class="body">&ldquo;Portions of the materials are the copyrights and trademarks of Paradox Interactive AB, and are used with permission. All rights reserved. For more information please visit <a href="http://worldofdarkness.com" target="_blank" rel="nofollow noopener">worldofdarkness.com</a>.&rdquo;</p>
-<ul>
-<li>
-<p class="body">You may not remove or alter any copyright or trademark notices of World of Darkness.</p>
-</li>
-<li>
-<p class="body">Your use of World of Darkness IP is strictly for non-commercial purposes only. For example, you may not offer goods or services for sale in connection with your use of the World of Darkness IP.</p>
-</li>
-<li>
-<p class="body">You may not sell or charge any fees in connection with Your Material, with these exceptions:</p>
-</li>
-<li>
-<p class="body">You may accept donations for your time and materials through Patreon or similar services, or through sponsorships.</p>
-</li>
-<li>
-<p class="body">You may accept subscription fees and revenues allowable through streaming platforms such as Twitch, YouTube, Mixer, etc.</p>
-</li>
-<li>
-<p class="body">You may sell your Material through the Storytellers Vault, our official program that allows you to create and sell certain types of content through our authorized web portal.</p>
-</li>
-<li>
-<p class="body">You warrant and represent that Your Material at all times shall comply with all applicable laws, and that it does not infringe any third party&rsquo;s intellectual property rights or any other right.</p>
-</li>
-</ul>
+# VTM 5e Компендиум — русский перевод
+
+Компендиум для **Vampire: The Masquerade 5th edition** в Foundry VTT: кланы,
+Дисциплины, Сила Крови, типы охотника, достоинства и недостатки — на русском
+языке, по официальному изданию.
+
+Работает с неофициальной системой 5-й редакции
+[wod5e](https://github.com/WoD5E-Developers/wod5e) от Veilza и Rayji96.
+Foundry VTT 11–13.
+
+---
+
+## Происхождение
+
+Это форк украинского модуля
+[**vampire-the-masquerade-5e-compendium-ukr**](https://github.com/SexyCrowbar/vampire-the-masquerade-5e-compendium-ukr)
+за авторством **SexyCrowbar** — низкий поклон за проделанную работу.
+
+Украинская версия, в свою очередь, выросла из
+[англоязычного модуля](https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium)
+за авторством **Nathaneal**.
+
+Здесь переведён текст и переработана сборка; структура компендиума,
+идентификаторы записей и иконки унаследованы от украинской версии без
+изменений — благодаря этому персонажи, созданные на её основе, не ломаются.
+
+---
+
+## Что переведено
+
+Переведено **232 записи и 98 папок** — весь компендиум целиком.
+
+| Компендиум | Записей | Источник |
+|---|---:|---|
+| Кланы | 9 | Книга правил + Руководство для игроков |
+| Дисциплины | 121 | Книга правил |
+| Сила крови и тип охотника | 17 | Книга правил |
+| Преимущества и недостатки | 85 | Книга правил |
+
+Подробнее:
+
+- **Кланы** — описание, список Дисциплин и Проклятие каждого клана. Для семи
+  кланов добавлено **альтернативное проклятие** из Руководства для игроков;
+  такие врезки помечены ссылкой на источник.
+- **Дисциплины** — 90 сил десяти Дисциплин, 24 ритуала Кровавого чародейства и
+  7 формул Алхимии слабокровных. У каждой указаны Амальгама, Расплата, Пул,
+  Правила и Длительность.
+- **Сила крови и тип охотника** — 7 уровней Силы Крови (от слабой крови до
+  шестого и выше) и 10 типов охотника.
+- **Преимущества и недостатки** — 85 записей: достоинства, недостатки и фоны.
+  Фоны собраны целиком, со всеми пятью ступенями в одной записи.
+
+Терминология взята из официального русского перевода, а не переведена заново.
+Поэтому «Безупречная точность», а не «Безошибочный прицел»; «Ласка Ваала»,
+а не «Прикосновение Баала».
+
+---
+
+## Установка
+
+В Foundry VTT: **Настройки → Управление модулями → Установить модуль**, вставить
+в поле адреса манифеста:
+
+```
+https://github.com/nargothrondir/VTM-5e-Compendium/releases/latest/download/module.json
+```
+
+Либо скачать `module.zip` из
+[релизов](https://github.com/nargothrondir/VTM-5e-Compendium/releases) и
+распаковать в `Data/modules/`.
+
+---
+
+## Как это собрано
+
+Перевод не набивался руками: текст **извлекается из книг и переносится
+скриптами**, а решения о том, что чему соответствует, зафиксированы в
+`data/mapping.yaml` — по одной строке на запись.
+
+```
+книги (PDF)  ──extract──▶  data/book_sections.json
+                                     │
+             data/mapping.yaml ──────┼──apply──▶  packs/*/_source/*.json
+                                                          │
+                                                        build
+                                                          ▼
+                                                    база LevelDB
+```
+
+| Команда | Что делает |
+|---|---|
+| `npm run extract` | разбирает книги на разделы |
+| `npm run mapping` | собирает таблицу соответствий |
+| `npm run apply` | переносит текст в записи компендиума |
+| `npm run build` | собирает `_source` в базу, которую читает Foundry |
+| `npm run verify` | проверяет целостность и показывает прогресс |
+| `npm run roundtrip` | доказывает, что сборка обратима |
+
+Смысл затеи — в воспроизводимости: нашли огрех, поправили строку в
+`data/mapping.yaml`, прогнали заново. Шаг переноса идемпотентен, JSON руками
+трогать не нужно.
+
+Извлечение из PDF **детерминированное**: разделы опознаются по начертанию,
+которым они свёрстаны в книге, — заголовок силы, разделитель уровня, маркер
+списка. Никаких обращений к внешним сервисам.
+
+Истина хранится в `packs/*/_source/*.json`. Скомпилированная база LevelDB и
+`module.zip` — артефакты сборки, в репозитории их нет.
+
+### Источники
+
+Книги правил **в репозиторий не входят** и не будут: они защищены авторским
+правом. Чтобы запустить извлечение, положите свои экземпляры в `sources/`:
+
+```
+sources/Книга правил.pdf
+sources/Малая книга знаний.pdf
+sources/Руководство для игроков.pdf
+```
+
+Для правки уже переведённых записей книги не нужны — только для повторного
+извлечения.
+
+---
+
+## Участники
+
+- **[SexyCrowbar](https://github.com/SexyCrowbar)** — украинский модуль, на
+  котором всё основано: структура компендиума, подбор записей, иконки.
+- **Nathaneal** — исходный англоязычный модуль.
+- **[nargothrondir](https://github.com/nargothrondir)** — русский перевод,
+  сверка с официальным изданием, ведение форка.
+- **Claude (Opus 5, Anthropic)** — инструменты извлечения и переноса, сборка и
+  CI, сопоставление записей с разделами книг. Участие отражено в истории
+  коммитов через `Co-Authored-By`.
+
+Отдельная благодарность разработчикам системы
+[wod5e](https://github.com/WoD5E-Developers/wod5e).
+
+---
+
+## Dark Pack
+
+<img src="https://images.ctfassets.net/u73tyf0fa8v1/3oBTHBZk9XmfcBlUPylvFh/673e4a6b14566548c03424ddf627b944/darkpack_logo2.png?w=3840&q=75" alt="Dark Pack" width="200" />
+
+“Portions of the materials are the copyrights and trademarks of Paradox
+Interactive AB, and are used with permission. All rights reserved. For more
+information please visit [worldofdarkness.com](http://worldofdarkness.com).”
+
+- You may not remove or alter any copyright or trademark notices of World of
+  Darkness.
+- Your use of World of Darkness IP is strictly for non-commercial purposes only.
+  For example, you may not offer goods or services for sale in connection with
+  your use of the World of Darkness IP.
+- You may not sell or charge any fees in connection with Your Material, with
+  these exceptions:
+  - You may accept donations for your time and materials through Patreon or
+    similar services, or through sponsorships.
+  - You may accept subscription fees and revenues allowable through streaming
+    platforms such as Twitch, YouTube, Mixer, etc.
+  - You may sell your Material through the Storytellers Vault, our official
+    program that allows you to create and sell certain types of content through
+    our authorized web portal.
+- You warrant and represent that Your Material at all times shall comply with
+  all applicable laws, and that it does not infringe any third party’s
+  intellectual property rights or any other right.
+
+Проект некоммерческий. Текст правил принадлежит правообладателям; модуль
+распространяется как фанатский материал в рамках Dark Pack.
