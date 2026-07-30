@@ -16,7 +16,7 @@ Foundry VTT 11–13.
 
 This is a fork of the Ukrainian module
 [**vampire-the-masquerade-5e-compendium-ukr**](https://github.com/SexyCrowbar/vampire-the-masquerade-5e-compendium-ukr)
-by **SexyCrowbar** — deep thanks for the work that made this possible.
+by **SexyCrowbar** — deep thanks for the work that made this possible. Thanks!
 
 The Ukrainian version in turn grew out of the
 [**vampire-the-masquerade-5e-compendium**](https://github.com/Clownf1sh/vampire-the-masquerade-5e-compendium)
