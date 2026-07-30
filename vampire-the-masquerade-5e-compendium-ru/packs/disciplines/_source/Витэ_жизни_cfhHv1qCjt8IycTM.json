@@ -1,0 +1,36 @@
+{
+  "folder": "nK00YNPhGdIZyUPI",
+  "name": "Витэ жизни",
+  "type": "power",
+  "_id": "cfhHv1qCjt8IycTM",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Fortitude_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Амальгама: Ясновидение 1.</p><p>Вампир способен усилить способность своей крови скреплять смертную плоть и исцелять недуги. Живые существа, принявшие его кровь, восстанавливают здоровье с удивительной скоростью.</p><p>■ Стоимость: Не требуется, кроме проверок на ИК при даче крови.</p><p>■ Пулы кубиков: N/A</p><p>■ Система: Использование витэ для лечения живых существ (см. с. 139) позволяет получить три уровня тяделых повреждений за проверку ИК, а не только один. Другие эффекты (превращение в гуля, риск получить Кровь) остаются неизменными.</p><p>■ Длительность: Пассивный</p>",
+    "bonuses": [],
+    "discipline": "fortitude",
+    "duration": "",
+    "level": 2,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!cfhHv1qCjt8IycTM"
+}

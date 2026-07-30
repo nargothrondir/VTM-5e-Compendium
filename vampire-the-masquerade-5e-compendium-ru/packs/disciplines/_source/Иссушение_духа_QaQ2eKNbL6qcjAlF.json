@@ -1,0 +1,36 @@
+{
+  "folder": "7XPpgxaGpnN4qtY4",
+  "name": "Иссушение духа",
+  "type": "power",
+  "_id": "QaQ2eKNbL6qcjAlF",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/1024px-Oblivion_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Жертва, чья Сила Воли была полностью иссушена таким образом, больше не может стать призраком - сама суть ее духа уничтожена.</p><p>■ Стоимость: Две проверки ИК</p><p>■ Пулы кубиков: Упорство + Обливион против Упорства + Оккультизма</p><p>■ Система: После бросков испытания крови вампир кидает Упорство + Обливион, а его жертва Упорство + Оккультизм. С случае победы персонажа его жертва получает по 2 уровня тяжелых повреждений в Силу Воли за каждый уровень превышения вампира.</p><p>■ Продолжительность: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "oblivion",
+    "duration": "",
+    "level": 5,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!QaQ2eKNbL6qcjAlF"
+}

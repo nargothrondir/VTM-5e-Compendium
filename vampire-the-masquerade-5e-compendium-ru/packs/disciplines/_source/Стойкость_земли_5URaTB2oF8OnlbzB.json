@@ -1,0 +1,36 @@
+{
+  "folder": "nK00YNPhGdIZyUPI",
+  "name": "Стойкость земли",
+  "type": "power",
+  "_id": "5URaTB2oF8OnlbzB",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Fortitude_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Вампира, обладающего этой силой, практически невозможно сдвинуть с места, когда он активен. Вампир использует силу земли, заземляясь и опираясь на ее постоянство, чтобы удержаться на месте.</p><p>■ Стоимость: Одна проверка ИК</p><p>■ Система: Когда эта способность активирована, вампир может двигаться только в том случае, если он решит сделать это самостоятельно. Это не делает его устойчивым к повреждениям, и вампир по-прежнему может быть раздавлен, разорван на части или разорван в клочья, как и пол, на котором он стоит.</p><p>■ Длительность: Одна сцена или до тех пор, пока персонаж не прекратит действие.</p>",
+    "bonuses": [],
+    "discipline": "fortitude",
+    "duration": "",
+    "level": 2,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!5URaTB2oF8OnlbzB"
+}

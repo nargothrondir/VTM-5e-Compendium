@@ -1,0 +1,36 @@
+{
+  "folder": "xDhCZkrLPWWHDdEg",
+  "name": "Губительное сокрушение",
+  "type": "power",
+  "_id": "axi7rZcLwypWVdwK",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Potence_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Необходимые условия: Сокрушение Вампир способен приложить неистовую, беспорядочную силу к неподвижному объекту, чтобы разбить, раздробить и уничтожить его. Хотя время, затрачиваемое на вызов этой силы, делает ее бесполезной в драке, она может пригодиться, когда дверь преграждает путь, машину нужно обездвижить, или нужно сделать наглядный пример из скульптуры, вызывающей недовольство.</p><p>■ Стоимость: Бесплатно</p><p>■ Пулы кубиков: N/A</p><p>■ Система: При использовании Сокрушения для силовых действий, связанных с повреждением или уничтожением неодушевленного предмета, пользователь дважды увеличивает свой показатель Могущества.</p><p>■ Продолжительность: одна сцена.</p>",
+    "bonuses": [],
+    "discipline": "potence",
+    "duration": "",
+    "level": 3,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!axi7rZcLwypWVdwK"
+}

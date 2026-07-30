@@ -1,0 +1,36 @@
+{
+  "folder": "0R6ZhL1eM8SJGFUN",
+  "name": "Пропульсия",
+  "type": "power",
+  "_id": "EQepCydBxEVfCrvO",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Aclarity_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Необходимые условия: Быстрая реакция Вампир, обладающий этой способностью, двигается достаточно быстро, чтобы воспринимать такие снаряды, как метательные ножи или пули, как медленные, и может спокойно уклоняться от них.</p><p>■ Стоимость: Одна проверка ИК</p><p>■ Пулы кубиков: N/A</p><p>■ Система: При защите от нескольких дальних атак с использованием ловкости + атлетики игрок не страдает от уменьшения набора кубиков. Он также может добавить свой показатель Стремительности ко всем таким попыткам, пока эта сила активна.</p><p>■ Продолжительность: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "celerity",
+    "duration": "",
+    "level": 2,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!EQepCydBxEVfCrvO"
+}

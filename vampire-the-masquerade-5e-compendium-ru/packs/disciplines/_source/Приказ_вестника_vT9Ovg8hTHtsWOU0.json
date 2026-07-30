@@ -1,0 +1,36 @@
+{
+  "folder": "dZMEdv9suHOLBz4O",
+  "name": "Приказ вестника",
+  "type": "power",
+  "_id": "vT9Ovg8hTHtsWOU0",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Animalism_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Необходимые условия: Вестник зверей, Принуждение или Внушение</p><p>■ Амальгама: Доминирование 1.</p><p>Вампир может использовать принуждение или внушение с помощью команды, передаваемой Фамулусом, навязывая свою волю объекту послания.</p><p>■ Стоимость: Нет</p><p>■ Пулы кубиков: См. раздел \"\"Принуждение\" или \"Внушение\", но уровень \"Доминирования\" не может превышать уровень \"Анимализма\" пользователя.</p><p>■ Система: См. раздел \"Вестник зверей\", выше. Проведите проверку на принуждение или внушение, как только Фамулус установит зрительный контакт с объектом.</p><p>■ Продолжительность: См. пункт \"Вестник зверей\".</p>",
+    "bonuses": [],
+    "discipline": "animalism",
+    "duration": "",
+    "level": 3,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!vT9Ovg8hTHtsWOU0"
+}

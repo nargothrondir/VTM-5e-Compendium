@@ -1,0 +1,36 @@
+{
+  "folder": "NdHFT4PC7pPqwsA0",
+  "name": "Безжалостная хватка",
+  "type": "power",
+  "_id": "tFONxsHFaOM4xktY",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Potence_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Хватка вампира становится неимоверно сильной, и, ухватившись за что-то, его практически невозможно вырвать, если только не расчленить.</p><p>■ Стоимость: Одна проверка ИК</p><p>■ Пулы кубиков: N/A</p><p>■ Система: Вампир добавляет свой показатель могущества в качестве автоматического успеха к любой попытке удержать что-либо. Сюда же относятся попытки удержать захват, хотя при первоначальной проверке захвата этот бонус не используется.</p><p>■ Длительность: Одна сцена</p>",
+    "bonuses": [],
+    "discipline": "potence",
+    "duration": "",
+    "level": 2,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!tFONxsHFaOM4xktY"
+}

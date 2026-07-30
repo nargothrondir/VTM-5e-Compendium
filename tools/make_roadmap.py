@@ -69,12 +69,24 @@ def main():
     for entry in entries:
         by_type.setdefault(entry.get("type"), []).append(entry)
 
-    powers_done = len(originals.POWERS)
+    # Считаем по пакам, а не по таблице оригиналов: та покрывает только
+    # силы из основной книги, для которых сверены английские названия.
+    powers_done = len(by_type.get("power", []))
     powers_total = sum(len(v) for v in originals.CANON_POWERS.values())
     guide_powers = sum(len(v) for v in originals.PLAYERS_GUIDE_POWERS.values())
     predators_done = len(originals.PREDATOR_TYPES)
     predators_total = len(originals.CANON_PREDATOR_TYPES)
     clans_done = len(by_type.get("clan", []))
+
+    in_packs = {e.get("name") for e in entries}
+    guide_left = sum(1 for g in originals.PLAYERS_GUIDE_POWERS
+                     for n, _ in originals.PLAYERS_GUIDE_POWERS[g]
+                     if n not in in_packs)
+
+    # Канон сверен только для десяти Дисциплин основной книги; Обливион,
+    # ритуалы и алхимия в него не входят, и мерить их той же меркой нельзя.
+    canon = {n for names in originals.CANON_POWERS.values() for n in names}
+    canon_done = sum(1 for ru, en in originals.POWERS.items() if en in canon)
 
     ready = [(en, book) for en, book in originals.CANON_PREDATOR_TYPES
              if book in AT_HAND and en not in originals.PREDATOR_TYPES.values()]
@@ -84,8 +96,10 @@ def main():
     # --- сводка
     rows = [
         ["Кланы", clans_done, len(originals.CANON_CLANS), "закрыто"],
-        ["Силы Дисциплин", powers_done, powers_total,
-         f"{guide_powers} доступны в Руководстве"],
+        ["Силы десяти Дисциплин", canon_done, powers_total,
+         "канон сверён по вики"],
+        ["Обливион, ритуалы, алхимия", powers_done - canon_done, "—",
+         "канон не сверялся"],
         ["Типы охотника", predators_done, predators_total,
          "закрыто" if not ready else f"{len(ready)} доступны в Руководстве"],
         ["Сила Крови", len(make_mapping.BLOOD_POTENCY),
@@ -97,24 +111,30 @@ def main():
         rows, ["Раздел", "Сделано", "Всего", "Примечание"]))
 
     # --- доступно сейчас
+    # Перенесённое отсеивается по именам записей: список из книги снят
+    # один раз, и сверять его надо с тем, что в паках уже лежит.
     chunks = []
     for group in sorted(originals.PLAYERS_GUIDE_POWERS):
         rows = [[TODO, name, page]
-                for name, page in originals.PLAYERS_GUIDE_POWERS[group]]
-        chunks.append(f"### {group} — {len(rows)}" + NL * 2
-                      + table(rows, ["", "Название в книге", "Стр."]))
+                for name, page in originals.PLAYERS_GUIDE_POWERS[group]
+                if name not in in_packs]
+        if rows:
+            chunks.append(f"### {group} — {len(rows)}" + NL * 2
+                          + table(rows, ["", "Название в книге", "Стр."]))
+
 
     predator_block = table([[TODO, en, book] for en, book in ready],
                            ["", "Оригинал", "Книга"]) if ready else         "Все типы питания из имеющихся книг перенесены."
 
     parts.append(
         f"## Доступно сейчас{NL}{NL}Работа, для которой источник уже есть на "
-        f"руках. Всего **{guide_powers + len(ready)} записей**.{NL}{NL}"
-        f"### Силы из Руководства для игроков — {guide_powers}{NL}{NL}"
+        f"руках. Всего **{guide_left + len(ready)} записей**.{NL}{NL}"
+        f"### Силы из Руководства для игроков — {guide_left}{NL}{NL}"
         f"Руководство описывает целую Дисциплину Обливион с церемониями, "
         f"а также по три-пять новых сил почти к каждой Дисциплине основной "
         f"книги. Названия ниже — как они стоят в книге.{NL}{NL}"
-        + NL.join(c + NL for c in chunks)
+        + (NL.join(c + NL for c in chunks) if chunks
+           else "Все силы из Руководства перенесены." + NL)
         + f"{NL}### Типы охотника — {len(ready)}{NL}{NL}"
         + predator_block)
 

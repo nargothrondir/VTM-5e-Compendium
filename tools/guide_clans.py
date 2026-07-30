@@ -167,3 +167,110 @@ def predator_types(doc, pages, fix_encoding, normalize, lines_of,
 
     flush()
     return out
+
+# Раздел «Силы дисциплин». Имя силы набрано отдельной гарнитурой капсом,
+# уровень — «Уровень N» шестнадцатым кеглем, тело — девятым.
+POWER_NAME_FONT = "DXLubava-Regular"
+POWER_NAME_SIZE = (9.0, 10.5)
+POWER_LEVEL_SIZE = (15.0, 17.0)
+# Кегль названия Дисциплины гуляет: «Кровавое чародейство» набрано
+# шестнадцатым, остальные двадцатым. Гарнитура отличает его от
+# «Уровень N», который тоже шестнадцатый, но другой гарнитурой.
+POWER_DISC_SIZE = (15.0, 22.0)
+LEVEL_RE = re.compile(r"^Уровень\s*([1-5])")
+
+
+def discipline_powers(doc, pages, fix_encoding, normalize, lines_of,
+                      opening="СИЛЫ ДИСЦИПЛИН"):
+    """Новые силы Дисциплин из Руководства."""
+    out, current, started = [], None, False
+    discipline, level, bullet, prev_title = None, None, False, False
+
+    def flush():
+        nonlocal current
+        if current:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+            current = None
+
+    for pno in range(*pages):
+        for line in lines_of(doc[pno]):
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            if font == TITLE_FONT and size > 24:
+                if not started and opening in text.upper():
+                    started = True
+                    continue
+                if started:
+                    flush()
+                    return out
+                continue
+            if not started:
+                continue
+
+            if font == TITLE_FONT and POWER_DISC_SIZE[0] < size < POWER_DISC_SIZE[1]:
+                flush()
+                # «Ритуалы кровавого чародейства» переносится на две строки.
+                if prev_title:
+                    discipline = f"{discipline} {text}"
+                else:
+                    discipline, level = text, None
+                prev_title = True
+                continue
+            prev_title = False
+
+            hit = LEVEL_RE.match(text)
+            if hit and POWER_LEVEL_SIZE[0] < size < POWER_LEVEL_SIZE[1]:
+                flush()
+                level = int(hit.group(1))
+                continue
+
+            if font.startswith(BULLET_FONTS):
+                bullet = True
+                continue
+
+            if (font == POWER_NAME_FONT
+                    and POWER_NAME_SIZE[0] < size < POWER_NAME_SIZE[1]
+                    and text == text.upper() and len(text) > 3):
+                flush()
+                current = {"name": text.capitalize(), "discipline": discipline,
+                           "level": level, "page": pno + 1, "lines": []}
+                bullet = False
+            elif (current and PREDATOR_BODY_SIZE[0] < size < PREDATOR_BODY_SIZE[1]
+                  and not JUNK_RE.search(text)):
+                current["lines"].append(("■ " if bullet else "") + text)
+                bullet = False
+
+    flush()
+    return out
+
+# Подписи блоков внутри силы. Руководство ставит их сплошным текстом и
+# местами без пробела после двоеточия («Амальгами:Ясновидение 1»), тогда
+# как в компендиуме каждый блок — отдельный абзац с маркером. Порядок
+# важен: длинные подписи проверяются раньше коротких, иначе «Пулы кубиков»
+# разрежется по «Пул».
+POWER_LABELS = [
+    "Амальгами", "Амальгама", "Необходимые условия", "Необходимая сила",
+    "Пулы кубиков", "Пул кубиков", "Стоимость", "Ингредиенты", "Процесс",
+    "Продолжительность", "Длительность", "Система", "Пул",
+]
+LABEL_RE = re.compile(r"\s*(" + "|".join(POWER_LABELS) + r")\s*:\s*")
+
+
+# Значение амальгамы — «Дисциплина N». Отдельного маркера между ним и
+# описанием силы книга не ставит, поэтому режем по цифре уровня.
+AMALGAM_RE = re.compile("■ Амальгам[аи]: [^\\n\\d]+\\d(?=\\s+[А-ЯЁ])")
+
+
+def split_labels(text):
+    """Сплошной текст силы -> абзацы с маркерами, как в остальном компендиуме."""
+    marked = LABEL_RE.sub(lambda m: chr(10) + chr(9632) + " " + m.group(1) + ": ",
+                          text)
+    # Значение амальгамы — «Дисциплина N», дальше сразу идёт описание силы.
+    # Отдельного маркера между ними в книге нет, режем по цифре уровня.
+    marked = AMALGAM_RE.sub(lambda m: m.group(0) + "." + chr(10), marked)
+    return re.sub(r"[ \t]{2,}", " ", marked).strip()

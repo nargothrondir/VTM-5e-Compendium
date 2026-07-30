@@ -1,0 +1,36 @@
+{
+  "folder": "yOtmzdhtLktqHV2s",
+  "name": "Мельпомена",
+  "type": "power",
+  "_id": "xoLt2Jcbtts2MaPr",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Presence_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Голос персонажа становится похожим на голос сирены, способный сам по себе, без присутствия персонажа, вводить в заблуждение или пугать. Голос может воздействовать на любого человека, находящегося в пределах слышимости, но не сохраняет своей способности при записи или передаче в электронном виде.</p><p>■ Стоимость: Бесплатно</p><p>■ Пулы кубиков: N/A</p><p>■ Система: Вампир может использовать \"Благоговение\", \"Угроза\", \"Устрашающий взор\", и \"Преклонение\" только с помощью своего голоса. Им не нужно видеть цель, и цель не должна находиться в их присутствии, за исключением того, что она должна быть достаточно близко, чтобы услышать их голос.</p><p>■ Продолжительность: N/A</p>",
+    "bonuses": [],
+    "discipline": "presence",
+    "duration": "",
+    "level": 2,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!xoLt2Jcbtts2MaPr"
+}

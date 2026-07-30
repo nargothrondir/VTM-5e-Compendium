@@ -1,0 +1,36 @@
+{
+  "folder": "m3PZOdIjLPH0Fhlp",
+  "name": "Разрушительное падение",
+  "type": "power",
+  "_id": "pXjplgFSj38DDI0O",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Potence_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Необходимые условия: Мощный прыжок Отточив свои способности, вампир теперь с размаху приземляется в \"Мощном прыжке\". Вампир может безостановочно приземляться на свое место, нанося урон всем, на кого он приземлится или кто будет рядом.</p><p>■ Стоимость: Одна проверка ИК</p><p>■ Пул кубиков: Сила + Могущество</p><p>■ Система: После использования \"Мощного прыжка\" вампир может активировать \"Обрушение\" и нанести урон в небольшой области действия. Все, кто находится в радиусе трех метров, получают бросок атаки Сила + Могущество против Ловкости + Атлетика, получая легкий урон, равный перевесу. Тот, кто получил три или более уровней урона или полностью провалил проверку защиты, сбивается с</p><p>■ Длительность: N/A</p>",
+    "bonuses": [],
+    "discipline": "potence",
+    "duration": "",
+    "level": 4,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!pXjplgFSj38DDI0O"
+}

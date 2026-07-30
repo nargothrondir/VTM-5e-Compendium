@@ -1,0 +1,36 @@
+{
+  "folder": "zQVeuZtYSmq00SJJ",
+  "name": "Рабская преданность",
+  "type": "power",
+  "_id": "HyjWUtA621gdFmVi",
+  "img": "modules/vampire-the-masquerade-5e-compendium-ru/packs/assets/330px-Dominate_symbol.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Амальгама: Стойкость 1.</p><p>У тех, кто уже находится под ментальной властью вампира, разум укрепляется против вмешательства других сородичей.</p><p>■ Стоимость: Без дополнительных затрат</p><p>■ Система: Любая попытка третьего лица применить Доминирование к персонажу, уже находящемуся под влиянием Доминирования вампира, получает штраф в кубиках, равный Стойкости вампира.</p><p>■ Длительность: Пассивный</p>",
+    "bonuses": [],
+    "discipline": "dominate",
+    "duration": "",
+    "level": 1,
+    "dicepool": {},
+    "cost": 1,
+    "gamesystem": "vampire",
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  },
+  "_key": "!items!HyjWUtA621gdFmVi"
+}
