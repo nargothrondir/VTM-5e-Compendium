@@ -19,7 +19,7 @@ This is a fork of the Ukrainian module
 by **SexyCrowbar** — deep thanks for the work that made this possible.
 
 The Ukrainian version in turn grew out of the
-[English module](https://foundryvtt.com/packages/vampire-the-masquerade-5e-compendium)
+[**vampire-the-masquerade-5e-compendium**](https://github.com/Clownf1sh/vampire-the-masquerade-5e-compendium)
 by **Nathaneal**.
 
 The text here is translated and the build was reworked, but the compendium
