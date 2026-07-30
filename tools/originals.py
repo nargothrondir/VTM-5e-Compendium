@@ -242,3 +242,113 @@ STRUCTURE = {
     "Человечность": "Humanity",
     "Тип охотника": "Predator Type",
 }
+
+
+# ---------------------------------------------------------------------------
+# Канонические списки: всё, что существует в линейке, а не только переведённое.
+# Нужны затем, чтобы глоссарий работал планом: видно, что сделано, что нет
+# и что вообще недостижимо, пока нет соответствующей книги.
+# Сверено по paradoxwikis.
+# ---------------------------------------------------------------------------
+
+CANON_POWERS = {
+    "Анимализм": [
+        "Bond Famulus", "Sense the Beast", "Animal Messenger", "Atavism",
+        "Feral Whispers", "Leash the Beast", "Messenger's Command",
+        "Animal Succulence", "Plague of Beasts", "Quell the Beast",
+        "Scent of Prey", "Unliving Hive", "Augury", "Awaken the Parasite",
+        "Subsume the Spirit", "Sway the Flock", "Animal Dominion",
+        "Coax the Bestial Temper", "Drawing Out the Beast", "Spirit Walk",
+    ],
+    "Величие": [
+        "Awe", "Daunt", "Eyes of the Serpent", "Lingering Kiss", "Melpominee",
+        "Clear the Field", "Dread Gaze", "Entrancement", "Passion Leech",
+        "Thrown Voice", "True Love's Face", "Invigorating Display",
+        "Inflame Desire", "Irresistible Voice", "Magnum Opus",
+        "Suffuse the Edifice", "Summon", "Wingman", "Majesty",
+        "Star Magnetism",
+    ],
+    "Доминирование": [
+        "Cloud Memory", "Compel", "Slavish Devotion", "Mesmerize",
+        "Dementation", "Domitor's Favor", "The Stolen Voice", "Forgetful Mind",
+        "Submerged Directive", "Ancestral Dominion", "Implant Suggestion",
+        "Rationalize", "Tabula Rasa", "Lethe's Call", "Mass Manipulation",
+        "Terminal Decree",
+    ],
+    "Кровавое чародейство": [
+        "Corrosive Vitae", "Shape the Sanguine Sacrament", "A Taste for Blood",
+        "Koldunic Sorcery", "Blood's Curse", "Extinguish Vitae",
+        "Scour Secrets", "Blood of Potency", "Scorpion's Touch",
+        "Transitive Bond", "Ripples of the Heart", "Theft of Vitae",
+        "Blood Aegis", "Fulminating Vitae", "Marionette", "Baal's Caress",
+        "Cauldron of Blood", "Reclamation of Vitae",
+    ],
+    "Метаморфозы": [
+        "Eyes of the Beast", "Squirm", "Weight of the Feather", "Feral Weapons",
+        "Vicissitude", "Serpent's Kiss", "The False Sip", "Earth Meld",
+        "Fleshcrafting", "Shapechange", "Visceral Absorption",
+        "Masque of Death", "Horrid Form", "Metamorphosis", "Blood Form",
+        "The Heart of Darkness", "Master of Forms", "Mist Form",
+        "One with the Land", "Swarm", "The Unfettered Heart",
+        "Face of the Victim",
+    ],
+    "Мощь": [
+        "Fluent Strength", "Lethal Body", "Soaring Leap", "Prowess",
+        "Relentless Grasp", "Brutal Feed", "Exuberance", "Spark of Rage",
+        "Uncanny Grip", "Wrecker", "Draught of Might", "Crash Down",
+        "Earth Shock", "Fist of Caine", "Subtle Hammer",
+    ],
+    "Сокрытие": [
+        "Cloak of Shadows", "Ensconce", "Silence of Death", "Mask of Ages",
+        "Cache", "Chimerstry", "Ghost's Passing", "Unseen Passage",
+        "Ventriloquism", "Doubletalk", "Fata Morgana", "Ghost in the Machine",
+        "Mask of a Thousand Faces", "Mask of Isolation", "Mental Maze",
+        "Mind Masque", "Guise of the Departed", "Conceal", "Vanish",
+        "Seclusion", "Cloak the Gathering", "Impostor's Guise",
+    ],
+    "Стойкость": [
+        "Fluent Endurance", "Resilience", "Unswayable Mind",
+        "Earth's Perseverance", "Enduring Beasts", "Invigorating Vitae",
+        "Obdurate", "Toughness", "Self-Assurance", "Defy Bane",
+        "Fortify the Inner Façade", "Seal the Beast's Maw", "Valeren",
+        "Calloused Soul", "Draught of Endurance", "Gorgon's Scales", "Shatter",
+        "Flesh of Marble", "Prowess from Pain", "Meat Shields",
+    ],
+    "Стремительность": [
+        "Cat's Grace", "Fluent Swiftness", "Rapid Reflexes", "Fleetness",
+        "Rush Job", "Blink", "Traversal", "Weaving", "A Thousand Cuts",
+        "Blurred Momentum", "Draught of Elegance", "Unerring Aim",
+        "Unseen Strike", "Faster than Light", "Lightning Strike",
+        "Split Second",
+    ],
+    "Ясновидение": [
+        "Heightened Senses", "Sense the Unseen", "Panacea", "Premonition",
+        "Reveal Temperament", "Unerring Pursuit", "Vermin Vision",
+        "Fatal Flaw", "Scry the Soul", "Share the Senses", "Haruspex",
+        "Spirit's Touch", "Heart Laid Bare", "Clairvoyance", "Possession",
+        "Telepathy", "Unburdening the Bestial Soul",
+    ],
+}
+
+# Типы питания. Источник указан затем, чтобы было видно, что достижимо:
+# четыре из Руководства для игроков переводимы хоть сейчас, остальные
+# требуют книг, которых у проекта нет.
+CANON_PREDATOR_TYPES = [
+    ("Alleycat", "Corebook"), ("Bagger", "Corebook"),
+    ("Blood Leech", "Corebook"), ("Cleaver", "Corebook"),
+    ("Consensualist", "Corebook"), ("Farmer", "Corebook"),
+    ("Osiris", "Corebook"), ("Sandman", "Corebook"),
+    ("Scene Queen", "Corebook"), ("Siren", "Corebook"),
+    ("Extortionist", "Cults of the Blood God"),
+    ("Graverobber", "Cults of the Blood God"),
+    ("Roadside Killer", "Let the Streets Run Red"),
+    ("Grim Reaper", "Players Guide"), ("Montero", "Players Guide"),
+    ("Pursuer", "Players Guide"), ("Trapdoor", "Players Guide"),
+    ("Tithe Collector", "In Memoriam"),
+]
+
+CANON_CLANS = [
+    "Banu Haqim", "Brujah", "Caitiff", "Gangrel", "Hecata", "Lasombra",
+    "Malkavian", "Ministry", "Nosferatu", "Ravnos", "Salubri", "Thin-blood",
+    "Toreador", "Tremere", "Tzimisce", "Ventrue",
+]

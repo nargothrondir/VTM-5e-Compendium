@@ -1,6 +1,6 @@
-"""Сборка GLOSSARY.md — терминологического словаря проекта.
+"""Сборка GLOSSARY.md — глоссария и плана перевода.
 
-Словарь генерируется из тех же данных, по которым собран компендиум, а не
+Глоссарий генерируется из тех же данных, по которым собран компендиум, а не
 пишется руками: иначе он неизбежно разойдётся с содержимым паков. Пояснения
 и спорные решения — в тексте этого скрипта, чтобы документ можно было
 перегенерировать целиком.
@@ -26,6 +26,9 @@ from candidates import DISCIPLINE_RU  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "GLOSSARY.md"
 
+DONE, TODO = chr(9989), chr(11036)
+NL = chr(10)
+
 # Одержимости из основной книги (стр. 212—213). Остальные семь — из
 # Руководства, они лежат в fix_clans.GUIDE_COMPULSIONS.
 COMPULSIONS_BY_CLAN = {
@@ -34,15 +37,15 @@ COMPULSIONS_BY_CLAN = {
     "Тореадор": "восхищение", "Тремер": "перфекционизм",
 }
 
-INTRO = """# Словарь терминов
+INTRO = """# Глоссарий
 
-Терминология русского компендиума: **термин — оригинал — контекст**. Собрана
+Терминология русского компендиума: **термин — оригинал — статус**. Собрана
 по ходу перевода и **сгенерирована из тех же данных, по которым собран
 модуль**, — расходиться с содержимым паков она не может. Перегенерируется
 командой `npm run glossary`.
 
 Зачем: перевод шёл не пословно, а сопоставлением с официальным русским
-изданием, поэтому названия сплошь и рядом далеки от оригинала. Словарь
+изданием, поэтому названия сплошь и рядом далеки от оригинала. Глоссарий
 фиксирует, какое решение принято и почему.
 
 Английские названия сверены по спискам
@@ -153,29 +156,57 @@ def main():
     parts.append("## Дисциплины\n\n"
                  + table(rows, ["Термин", "Оригинал", "Код в системе"]))
 
-    groups, missing = {}, []
+    # Силы: перечисляется весь канон, а не только переведённое, — иначе
+    # документ не работает планом. Русское имя и страница берутся из данных.
+    ru_by_en, level_by_en, page_by_en = {}, {}, {}
     for _id, item in mapping["disciplines"].items():
         entry = entries.get(_id)
         if not entry or entry.get("type") != "power":
             continue
-        system = entry["system"]
-        group = DISCIPLINE_RU.get(system.get("discipline"), "?")
         english = originals.POWERS.get(entry["name"])
-        if not english:
-            missing.append(entry["name"])
-        groups.setdefault(group, []).append(
-            [entry["name"], english or "—", str(system.get("level") or "—"),
-             str(item.get("page", "—"))])
+        if english:
+            ru_by_en[english] = entry["name"]
+            level_by_en[english] = entry["system"].get("level")
+            page_by_en[english] = item.get("page")
 
-    chunks = []
-    for group in sorted(groups):
-        rows = sorted(groups[group], key=lambda r: (r[2], r[0]))
-        chunks.append(f"### {group}\n\n"
-                      + table(rows, ["Термин", "Оригинал", "Уровень", "Стр."]))
-    parts.append(f"## Силы Дисциплин, ритуалы и формулы\n\nВсего "
-                 f"{sum(len(v) for v in groups.values())} записей. "
-                 f"Страница — по Книге правил.\n\n" + "\n\n".join(chunks))
+    chunks, done, total = [], 0, 0
+    for group in sorted(originals.CANON_POWERS):
+        rows = []
+        for english in originals.CANON_POWERS[group]:
+            ru = ru_by_en.get(english)
+            total += 1
+            done += 1 if ru else 0
+            rows.append([DONE if ru else TODO, ru or "—", english,
+                         str(level_by_en.get(english) or "—"),
+                         str(page_by_en.get(english) or "—")])
+        have = sum(1 for r in rows if r[0] == DONE)
+        chunks.append(f"### {group} — {have} из {len(rows)}" + NL * 2
+                      + table(rows, ["", "Термин", "Оригинал", "Ур.", "Стр."]))
 
+    extra = []
+    for group in ("Ритуалы", "Алхимия слабокровных"):
+        rows = []
+        for _id, item in mapping["disciplines"].items():
+            entry = entries.get(_id)
+            if not entry or entry.get("type") != "power":
+                continue
+            if DISCIPLINE_RU.get(entry["system"].get("discipline")) != group:
+                continue
+            rows.append([DONE, entry["name"],
+                         originals.POWERS.get(entry["name"], "—"),
+                         str(entry["system"].get("level") or "—"),
+                         str(item.get("page", "—"))])
+        extra.append(f"### {group} — переведено {len(rows)}" + NL * 2
+                     + table(sorted(rows, key=lambda r: (r[3], r[1])),
+                             ["", "Термин", "Оригинал", "Ур.", "Стр."]))
+
+    parts.append(f"## Силы Дисциплин" + NL * 2 + f"Переведено **{done} из "
+                 f"{total}**. Непереведённые — из книг, которых у проекта "
+                 f"нет: линейка прирастала силами в дополнениях." + NL * 2
+                 + (NL * 2).join(chunks))
+    parts.append("## Ритуалы и формулы" + NL * 2 + "Полный канон здесь не "
+                 "приводится: в линейке их под две сотни, и почти все — из "
+                 "книг, которых у проекта нет." + NL * 2 + (NL * 2).join(extra))
     rows = []
     for entry in sorted(entries.values(), key=lambda e: e.get("name", "")):
         if entry.get("type") != "clan":
@@ -198,9 +229,15 @@ def main():
                  "из Руководства для игроков.\n\n"
                  + table(rows, ["Клан", "Термин", "Оригинал"]))
 
-    rows = [[ru, originals.PREDATOR_TYPES.get(ru, "—")]
-            for ru in sorted(make_mapping.PREDATOR_TYPES.values())]
-    parts.append("## Типы охотника\n\n" + table(rows, ["Термин", "Оригинал"]))
+    by_english = {en: ru for ru, en in originals.PREDATOR_TYPES.items()}
+    rows = [[DONE if en in by_english else TODO, by_english.get(en, "—"),
+             en, book] for en, book in originals.CANON_PREDATOR_TYPES]
+    have = sum(1 for r in rows if r[0] == DONE)
+    parts.append(f"## Типы охотника — {have} из {len(rows)}\n\n"
+                 "Четыре непереведённых — из Руководства для игроков, которое "
+                 "у проекта есть: их можно взять хоть сейчас. Остальные "
+                 "требуют книг, которых нет.\n\n"
+                 + table(rows, ["", "Термин", "Оригинал", "Книга"]))
 
     rows = [[ru, "Blood Potency " + (ru.split()[2].rstrip(":") if len(ru.split()) > 2 else "")]
             for ru in make_mapping.BLOOD_POTENCY.values()]
@@ -237,9 +274,7 @@ def main():
     parts.append(DECISIONS)
 
     OUT.write_text("\n\n---\n\n".join(parts).rstrip() + "\n", encoding="utf-8")
-    print(f"собран словарь -> {OUT.relative_to(ROOT)}")
-    if missing:
-        print(f"без английского названия: {len(missing)} — {missing[:5]}")
+    print(f"собран глоссарий -> {OUT.relative_to(ROOT)}")
     return 0
 
 
