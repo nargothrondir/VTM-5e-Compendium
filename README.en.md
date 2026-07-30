@@ -99,6 +99,7 @@ sourcebooks (PDF)  ──extract──▶  data/book_sections.json
 | `npm run extract` | splits the sourcebooks into sections |
 | `npm run mapping` | builds the correspondence table |
 | `npm run apply` | writes the text into compendium entries |
+| `npm run emphasize` | marks up parameter labels and terms |
 | `npm run build` | compiles `_source` into the pack Foundry reads |
 | `npm run verify` | checks integrity and reports progress |
 | `npm run roundtrip` | proves the build is reversible |

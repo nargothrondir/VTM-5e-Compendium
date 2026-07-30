@@ -14,6 +14,7 @@
     "progress": "python tools/verify.py --progress-only",
     "mapping": "python tools/make_mapping.py",
     "apply": "python tools/apply.py",
+    "emphasize": "python tools/emphasize.py",
     "candidates": "python tools/candidates.py",
     "glossary": "python tools/make_glossary.py",
     "roadmap": "python tools/make_roadmap.py",
