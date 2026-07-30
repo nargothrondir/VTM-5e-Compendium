@@ -1,6 +1,6 @@
 # Глоссарий
 
-Терминология русского компендиума: **термин — оригинал — статус**. Собрана
+Терминология русского компендиума: **термин — оригинал — контекст**. Собрана
 по ходу перевода и **сгенерирована из тех же данных, по которым собран
 модуль**, — расходиться с содержимым паков она не может. Перегенерируется
 командой `npm run glossary`.
@@ -8,6 +8,9 @@
 Зачем: перевод шёл не пословно, а сопоставлением с официальным русским
 изданием, поэтому названия сплошь и рядом далеки от оригинала. Глоссарий
 фиксирует, какое решение принято и почему.
+
+Здесь только переведённое. Что ещё предстоит и что для этого нужно —
+в [плане перевода](ROADMAP.md).
 
 Английские названия сверены по спискам
 [paradoxwikis](https://vtm.paradoxwikis.com/Clans), а не взяты по памяти:
@@ -74,292 +77,190 @@
 
 ---
 
-## Силы Дисциплин
+## Силы Дисциплин, ритуалы и формулы
 
-Переведено **88 из 186**. Непереведённые — из книг, которых у проекта нет: линейка прирастала силами в дополнениях.
+Переведено 121. Страница — по Книге правил.
 
-### Анимализм — 9 из 20
+### Алхимия слабокровных
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Фамулус | Bond Famulus | 1 | 247 |
-| ✅ | Чутьё на зверя | Sense the Beast | 1 | 247 |
-| ⬜ | — | Animal Messenger | — | — |
-| ⬜ | — | Atavism | — | — |
-| ✅ | Язык животных | Feral Whispers | 2 | 248 |
-| ⬜ | — | Leash the Beast | — | — |
-| ⬜ | — | Messenger's Command | — | — |
-| ✅ | Зверский аппетит | Animal Succulence | 3 | 248 |
-| ⬜ | — | Plague of Beasts | — | — |
-| ✅ | Усмирение зверя | Quell the Beast | 3 | 249 |
-| ⬜ | — | Scent of Prey | — | — |
-| ✅ | Трупный улей | Unliving Hive | 3 | 248 |
-| ⬜ | — | Augury | — | — |
-| ⬜ | — | Awaken the Parasite | — | — |
-| ✅ | Поглощение духа | Subsume the Spirit | 4 | 249 |
-| ⬜ | — | Sway the Flock | — | — |
-| ✅ | Царь зверей | Animal Dominion | 5 | 249 |
-| ⬜ | — | Coax the Bestial Temper | — | — |
-| ✅ | Отчуждение зверя | Drawing Out the Beast | 5 | 249 |
-| ⬜ | — | Spirit Walk | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Длинные руки | Far Reach | 1 | 286 |
+| Марево | Haze | 1 | 287 |
+| Нечестивая иерогамия | Profane Hieros Gamos | 1 | 288 |
+| Смог | Envelop | 2 | 287 |
+| Восстановление крови | Defractionate | 3 | 288 |
+| Импульс | Airborne Momentum | 4 | 289 |
+| Будильник | Awaken the Sleeper | 5 | 289 |
 
-### Величие — 9 из 20
+### Анимализм
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Благоговение | Awe | 1 | 251 |
-| ✅ | Угроза | Daunt | 1 | 251 |
-| ⬜ | — | Eyes of the Serpent | — | — |
-| ✅ | Незабываемый поцелуй | Lingering Kiss | 2 | 251 |
-| ⬜ | — | Melpominee | — | — |
-| ⬜ | — | Clear the Field | — | — |
-| ✅ | Устрашающий взор | Dread Gaze | 3 | 252 |
-| ✅ | Очарование | Entrancement | 3 | 251 |
-| ⬜ | — | Passion Leech | — | — |
-| ⬜ | — | Thrown Voice | — | — |
-| ⬜ | — | True Love's Face | — | — |
-| ⬜ | — | Invigorating Display | — | — |
-| ⬜ | — | Inflame Desire | — | — |
-| ✅ | Притягательный голос | Irresistible Voice | 4 | 252 |
-| ⬜ | — | Magnum Opus | — | — |
-| ⬜ | — | Suffuse the Edifice | — | — |
-| ✅ | Призыв | Summon | 4 | 252 |
-| ⬜ | — | Wingman | — | — |
-| ✅ | Преклонение | Majesty | 5 | 253 |
-| ✅ | Звезда эфира | Star Magnetism | 5 | 252 |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Фамулус | Bond Famulus | 1 | 247 |
+| Чутьё на зверя | Sense the Beast | 1 | 247 |
+| Язык животных | Feral Whispers | 2 | 248 |
+| Зверский аппетит | Animal Succulence | 3 | 248 |
+| Трупный улей | Unliving Hive | 3 | 248 |
+| Усмирение зверя | Quell the Beast | 3 | 249 |
+| Поглощение духа | Subsume the Spirit | 4 | 249 |
+| Отчуждение зверя | Drawing Out the Beast | 5 | 249 |
+| Царь зверей | Animal Dominion | 5 | 249 |
 
-### Доминирование — 9 из 16
+### Величие
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Провал в памяти | Cloud Memory | 1 | 254 |
-| ✅ | Принуждение | Compel | 1 | 254 |
-| ⬜ | — | Slavish Devotion | — | — |
-| ✅ | Внушение | Mesmerize | 2 | 255 |
-| ✅ | Помешательство | Dementation | 2 | 255 |
-| ⬜ | — | Domitor's Favor | — | — |
-| ⬜ | — | The Stolen Voice | — | — |
-| ✅ | Забвение | Forgetful Mind | 3 | 255 |
-| ✅ | Внедрённая директива | Submerged Directive | 3 | 255 |
-| ⬜ | — | Ancestral Dominion | — | — |
-| ⬜ | — | Implant Suggestion | — | — |
-| ✅ | Оправдание | Rationalize | 4 | 255 |
-| ⬜ | — | Tabula Rasa | — | — |
-| ⬜ | — | Lethe's Call | — | — |
-| ✅ | Стадный инстинкт | Mass Manipulation | 5 | 256 |
-| ✅ | Приказ на самоуничтожение | Terminal Decree | 5 | 256 |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Благоговение | Awe | 1 | 251 |
+| Угроза | Daunt | 1 | 251 |
+| Незабываемый поцелуй | Lingering Kiss | 2 | 251 |
+| Очарование | Entrancement | 3 | 251 |
+| Устрашающий взор | Dread Gaze | 3 | 252 |
+| Призыв | Summon | 4 | 252 |
+| Притягательный голос | Irresistible Voice | 4 | 252 |
+| Звезда эфира | Star Magnetism | 5 | 252 |
+| Преклонение | Majesty | 5 | 253 |
 
-### Кровавое чародейство — 8 из 18
+### Доминирование
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Едкая кровь | Corrosive Vitae | 1 | 275 |
-| ⬜ | — | Shape the Sanguine Sacrament | — | — |
-| ✅ | Вкус крови | A Taste for Blood | 1 | 274 |
-| ⬜ | — | Koldunic Sorcery | — | — |
-| ⬜ | — | Blood's Curse | — | — |
-| ✅ | Истончение витэ | Extinguish Vitae | 2 | 275 |
-| ⬜ | — | Scour Secrets | — | — |
-| ✅ | Сгущение крови | Blood of Potency | 3 | 276 |
-| ✅ | Касание скорпиона | Scorpion's Touch | 3 | 275 |
-| ⬜ | — | Transitive Bond | — | — |
-| ⬜ | — | Ripples of the Heart | — | — |
-| ✅ | Хищение крови | Theft of Vitae | 4 | 276 |
-| ⬜ | — | Blood Aegis | — | — |
-| ⬜ | — | Fulminating Vitae | — | — |
-| ⬜ | — | Marionette | — | — |
-| ✅ | Ласка Ваала | Baal's Caress | 5 | 276 |
-| ✅ | Котёл крови | Cauldron of Blood | 5 | 276 |
-| ⬜ | — | Reclamation of Vitae | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Принуждение | Compel | 1 | 254 |
+| Провал в памяти | Cloud Memory | 1 | 254 |
+| Внушение | Mesmerize | 2 | 255 |
+| Помешательство | Dementation | 2 | 255 |
+| Внедрённая директива | Submerged Directive | 3 | 255 |
+| Забвение | Forgetful Mind | 3 | 255 |
+| Оправдание | Rationalize | 4 | 255 |
+| Приказ на самоуничтожение | Terminal Decree | 5 | 256 |
+| Стадный инстинкт | Mass Manipulation | 5 | 256 |
 
-### Метаморфозы — 8 из 22
+### Кровавое чародейство
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Глаза зверя | Eyes of the Beast | 1 | 257 |
-| ⬜ | — | Squirm | — | — |
-| ✅ | Лёгкость пёрышка | Weight of the Feather | 1 | 257 |
-| ✅ | Оружие зверя | Feral Weapons | 2 | 257 |
-| ⬜ | — | Vicissitude | — | — |
-| ⬜ | — | Serpent's Kiss | — | — |
-| ⬜ | — | The False Sip | — | — |
-| ✅ | Слияние с землёй | Earth Meld | 3 | 257 |
-| ⬜ | — | Fleshcrafting | — | — |
-| ✅ | Смена облика | Shapechange | 3 | 258 |
-| ⬜ | — | Visceral Absorption | — | — |
-| ⬜ | — | Masque of Death | — | — |
-| ⬜ | — | Horrid Form | — | — |
-| ✅ | Перевоплощение | Metamorphosis | 4 | 258 |
-| ⬜ | — | Blood Form | — | — |
-| ⬜ | — | The Heart of Darkness | — | — |
-| ⬜ | — | Master of Forms | — | — |
-| ✅ | Превращение в туман | Mist Form | 5 | 258 |
-| ⬜ | — | One with the Land | — | — |
-| ⬜ | — | Swarm | — | — |
-| ✅ | Свободное сердце | The Unfettered Heart | 5 | 258 |
-| ⬜ | — | Face of the Victim | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Вечерняя бодрость | Wake with Evening's Freshness | 1 | 278 |
+| Вкус крови | A Taste for Blood | 1 | 274 |
+| Едкая кровь | Corrosive Vitae | 1 | 275 |
+| Защитный круг от гулей | Warding Circle against Ghouls | 2 | 279 |
+| Истончение витэ | Extinguish Vitae | 2 | 275 |
+| Касание скорпиона | Scorpion's Touch | 3 | 275 |
+| Сгущение крови | Blood of Potency | 3 | 276 |
+| Хищение крови | Theft of Vitae | 4 | 276 |
+| Котёл крови | Cauldron of Blood | 5 | 276 |
+| Ласка Ваала | Baal's Caress | 5 | 276 |
 
-### Мощь — 9 из 15
+### Метаморфозы
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ⬜ | — | Fluent Strength | — | — |
-| ✅ | Смертоносность | Lethal Body | 1 | 259 |
-| ✅ | Мощный прыжок | Soaring Leap | 1 | 259 |
-| ✅ | Сокрушение | Prowess | 2 | 259 |
-| ⬜ | — | Relentless Grasp | — | — |
-| ✅ | Грубое насыщение | Brutal Feed | 3 | 260 |
-| ⬜ | — | Exuberance | — | — |
-| ✅ | Искра ярости | Spark of Rage | 3 | 260 |
-| ✅ | Мёртвая хватка | Uncanny Grip | 3 | 260 |
-| ⬜ | — | Wrecker | — | — |
-| ✅ | Глоток могущества | Draught of Might | 4 | 260 |
-| ⬜ | — | Crash Down | — | — |
-| ✅ | Землетрясение | Earth Shock | 5 | 261 |
-| ✅ | Кулак Каина | Fist of Caine | 5 | 261 |
-| ⬜ | — | Subtle Hammer | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Глаза зверя | Eyes of the Beast | 1 | 257 |
+| Лёгкость пёрышка | Weight of the Feather | 1 | 257 |
+| Оружие зверя | Feral Weapons | 2 | 257 |
+| Слияние с землёй | Earth Meld | 3 | 257 |
+| Смена облика | Shapechange | 3 | 258 |
+| Перевоплощение | Metamorphosis | 4 | 258 |
+| Превращение в туман | Mist Form | 5 | 258 |
+| Свободное сердце | The Unfettered Heart | 5 | 258 |
 
-### Сокрытие — 9 из 22
+### Мощь
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Плащ теней | Cloak of Shadows | 1 | 262 |
-| ⬜ | — | Ensconce | — | — |
-| ✅ | Безмолвие смерти | Silence of Death | 1 | 262 |
-| ⬜ | — | Mask of Ages | — | — |
-| ⬜ | — | Cache | — | — |
-| ⬜ | — | Chimerstry | — | — |
-| ⬜ | — | Ghost's Passing | — | — |
-| ✅ | Незримая поступь | Unseen Passage | 2 | 262 |
-| ⬜ | — | Ventriloquism | — | — |
-| ⬜ | — | Doubletalk | — | — |
-| ⬜ | — | Fata Morgana | — | — |
-| ✅ | Электронный призрак | Ghost in the Machine | 3 | 263 |
-| ✅ | Маска тысячи лиц | Mask of a Thousand Faces | 3 | 263 |
-| ⬜ | — | Mask of Isolation | — | — |
-| ⬜ | — | Mental Maze | — | — |
-| ⬜ | — | Mind Masque | — | — |
-| ⬜ | — | Guise of the Departed | — | — |
-| ✅ | Маскировка | Conceal | 4 | 263 |
-| ✅ | Бесследное исчезновение | Vanish | 4 | 263 |
-| ⬜ | — | Seclusion | — | — |
-| ✅ | Тайное собрание | Cloak the Gathering | 5 | 264 |
-| ✅ | Личина самозванца | Impostor's Guise | 5 | 264 |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Мощный прыжок | Soaring Leap | 1 | 259 |
+| Смертоносность | Lethal Body | 1 | 259 |
+| Сокрушение | Prowess | 2 | 259 |
+| Грубое насыщение | Brutal Feed | 3 | 260 |
+| Искра ярости | Spark of Rage | 3 | 260 |
+| Мёртвая хватка | Uncanny Grip | 3 | 260 |
+| Глоток могущества | Draught of Might | 4 | 260 |
+| Землетрясение | Earth Shock | 5 | 261 |
+| Кулак Каина | Fist of Caine | 5 | 261 |
 
-### Стойкость — 9 из 20
+### Ритуалы
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ⬜ | — | Fluent Endurance | — | — |
-| ✅ | Сила жизни | Resilience | 1 | 265 |
-| ✅ | Твёрдость духа | Unswayable Mind | 1 | 265 |
-| ⬜ | — | Earth's Perseverance | — | — |
-| ✅ | Живучие звери | Enduring Beasts | 2 | 265 |
-| ⬜ | — | Invigorating Vitae | — | — |
-| ⬜ | — | Obdurate | — | — |
-| ✅ | Непрошибаемость | Toughness | 2 | 265 |
-| ⬜ | — | Self-Assurance | — | — |
-| ✅ | Превозмогание проклятия | Defy Bane | 3 | 266 |
-| ✅ | Укрепление сознания | Fortify the Inner Façade | 3 | 266 |
-| ⬜ | — | Seal the Beast's Maw | — | — |
-| ⬜ | — | Valeren | — | — |
-| ⬜ | — | Calloused Soul | — | — |
-| ✅ | Глоток упорства | Draught of Endurance | 4 | 266 |
-| ⬜ | — | Gorgon's Scales | — | — |
-| ⬜ | — | Shatter | — | — |
-| ✅ | Мраморная плоть | Flesh of Marble | 5 | 267 |
-| ✅ | Горнило боли | Prowess from Pain | 5 | 266 |
-| ⬜ | — | Meat Shields | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Защитная печать от гулей | Ward Against Ghouls | 1 | 278 |
+| Паучьи лапы | Clinging of the Insect | 1 | 278 |
+| Постижение крови | Blood Walk | 1 | 278 |
+| Путеводный камень | Craft Bloodstone | 1 | 278 |
+| Защитная печать от духов | Ward against Spirits | 2 | 279 |
+| Истина в крови | Truth of Blood | 2 | 279 |
+| Очи вавилонские | Eyes of Babel | 2 | 279 |
+| Свечение следопыта | Illuminate Trail of Prey | 2 | 279 |
+| Связь с сиром | Communicate with Kindred Sire | 2 | 280 |
+| Защитная печать от люпенов | Ward against Lupines | 3 | 280 |
+| Защитный круг от духов | Warding Circle against Spirits | 3 | 280 |
+| Зов Дагона | Dagon's Call | 3 | 280 |
+| Отторжение губительного древа | Deflection of Wooden Doom | 3 | 280 |
+| Пожиратель пламени | Firewalker | 3 | 280 |
+| Эссенция воздуха | Essence of Air | 3 | 281 |
+| Бесплотный путь | Incorporeal Passage | 4 | 281 |
+| Защита неприкосновенного убежища | Defense of the Sacred Haven | 4 | 281 |
+| Защитная печать от каинитов | Ward against Cainites | 4 | 282 |
+| Защитный круг от люпенов | Warding Circle against Lupines | 4 | 282 |
+| Око ночного ястреба | Eyes of the Nighthawk | 4 | 282 |
+| Врата истинного святилища | Escape to True Sanctuary | 5 | 282 |
+| Жало неизбежной погибели | Shaft of Belated Dissolution | 5 | 283 |
+| Защитный круг от каинитов | Warding Circle against Cainites | 5 | 283 |
+| Каменное сердце | Heart of Stone | 5 | 283 |
 
-### Стремительность — 9 из 16
+### Сокрытие
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Кошачья грация | Cat's Grace | 1 | 268 |
-| ⬜ | — | Fluent Swiftness | — | — |
-| ✅ | Быстрая реакция | Rapid Reflexes | 1 | 267 |
-| ✅ | Проворство | Fleetness | 2 | 268 |
-| ⬜ | — | Rush Job | — | — |
-| ✅ | Быстрее ветра | Blink | 3 | 268 |
-| ✅ | Траверс | Traversal | 3 | 269 |
-| ⬜ | — | Weaving | — | — |
-| ⬜ | — | A Thousand Cuts | — | — |
-| ⬜ | — | Blurred Momentum | — | — |
-| ✅ | Глоток изящества | Draught of Elegance | 4 | 269 |
-| ✅ | Безупречная точность | Unerring Aim | 4 | 269 |
-| ⬜ | — | Unseen Strike | — | — |
-| ⬜ | — | Faster than Light | — | — |
-| ✅ | Молниеносный удар | Lightning Strike | 5 | 269 |
-| ✅ | Скорость мысли | Split Second | 5 | 269 |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Безмолвие смерти | Silence of Death | 1 | 262 |
+| Плащ теней | Cloak of Shadows | 1 | 262 |
+| Незримая поступь | Unseen Passage | 2 | 262 |
+| Маска тысячи лиц | Mask of a Thousand Faces | 3 | 263 |
+| Электронный призрак | Ghost in the Machine | 3 | 263 |
+| Бесследное исчезновение | Vanish | 4 | 263 |
+| Маскировка | Conceal | 4 | 263 |
+| Личина самозванца | Impostor's Guise | 5 | 264 |
+| Тайное собрание | Cloak the Gathering | 5 | 264 |
 
-### Ясновидение — 9 из 17
+### Стойкость
 
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Обострение чувств | Heightened Senses | 1 | 270 |
-| ✅ | Потустороннее зрение | Sense the Unseen | 1 | 271 |
-| ⬜ | — | Panacea | — | — |
-| ✅ | Предвестие | Premonition | 2 | 271 |
-| ⬜ | — | Reveal Temperament | — | — |
-| ⬜ | — | Unerring Pursuit | — | — |
-| ⬜ | — | Vermin Vision | — | — |
-| ⬜ | — | Fatal Flaw | — | — |
-| ✅ | Познание души | Scry the Soul | 3 | 271 |
-| ✅ | Слияние чувств | Share the Senses | 3 | 272 |
-| ⬜ | — | Haruspex | — | — |
-| ✅ | Психометрия | Spirit's Touch | 4 | 272 |
-| ⬜ | — | Heart Laid Bare | — | — |
-| ✅ | Дальновидение | Clairvoyance | 5 | 273 |
-| ✅ | Вселение | Possession | 5 | 272 |
-| ✅ | Телепатия | Telepathy | 5 | 273 |
-| ⬜ | — | Unburdening the Bestial Soul | — | — |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Сила жизни | Resilience | 1 | 265 |
+| Твёрдость духа | Unswayable Mind | 1 | 265 |
+| Живучие звери | Enduring Beasts | 2 | 265 |
+| Непрошибаемость | Toughness | 2 | 265 |
+| Превозмогание проклятия | Defy Bane | 3 | 266 |
+| Укрепление сознания | Fortify the Inner Façade | 3 | 266 |
+| Глоток упорства | Draught of Endurance | 4 | 266 |
+| Горнило боли | Prowess from Pain | 5 | 266 |
+| Мраморная плоть | Flesh of Marble | 5 | 267 |
 
----
+### Стремительность
 
-## Ритуалы и формулы
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Быстрая реакция | Rapid Reflexes | 1 | 267 |
+| Кошачья грация | Cat's Grace | 1 | 268 |
+| Проворство | Fleetness | 2 | 268 |
+| Быстрее ветра | Blink | 3 | 268 |
+| Траверс | Traversal | 3 | 269 |
+| Безупречная точность | Unerring Aim | 4 | 269 |
+| Глоток изящества | Draught of Elegance | 4 | 269 |
+| Молниеносный удар | Lightning Strike | 5 | 269 |
+| Скорость мысли | Split Second | 5 | 269 |
 
-Полный канон здесь не приводится: в линейке их под две сотни, и почти все — из книг, которых у проекта нет.
+### Ясновидение
 
-### Ритуалы — переведено 24
-
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Защитная печать от гулей | Ward Against Ghouls | 1 | 278 |
-| ✅ | Паучьи лапы | Clinging of the Insect | 1 | 278 |
-| ✅ | Постижение крови | Blood Walk | 1 | 278 |
-| ✅ | Путеводный камень | Craft Bloodstone | 1 | 278 |
-| ✅ | Защитная печать от духов | Ward against Spirits | 2 | 279 |
-| ✅ | Истина в крови | Truth of Blood | 2 | 279 |
-| ✅ | Очи вавилонские | Eyes of Babel | 2 | 279 |
-| ✅ | Свечение следопыта | Illuminate Trail of Prey | 2 | 279 |
-| ✅ | Связь с сиром | Communicate with Kindred Sire | 2 | 280 |
-| ✅ | Защитная печать от люпенов | Ward against Lupines | 3 | 280 |
-| ✅ | Защитный круг от духов | Warding Circle against Spirits | 3 | 280 |
-| ✅ | Зов Дагона | Dagon's Call | 3 | 280 |
-| ✅ | Отторжение губительного древа | Deflection of Wooden Doom | 3 | 280 |
-| ✅ | Пожиратель пламени | Firewalker | 3 | 280 |
-| ✅ | Эссенция воздуха | Essence of Air | 3 | 281 |
-| ✅ | Бесплотный путь | Incorporeal Passage | 4 | 281 |
-| ✅ | Защита неприкосновенного убежища | Defense of the Sacred Haven | 4 | 281 |
-| ✅ | Защитная печать от каинитов | Ward against Cainites | 4 | 282 |
-| ✅ | Защитный круг от люпенов | Warding Circle against Lupines | 4 | 282 |
-| ✅ | Око ночного ястреба | Eyes of the Nighthawk | 4 | 282 |
-| ✅ | Врата истинного святилища | Escape to True Sanctuary | 5 | 282 |
-| ✅ | Жало неизбежной погибели | Shaft of Belated Dissolution | 5 | 283 |
-| ✅ | Защитный круг от каинитов | Warding Circle against Cainites | 5 | 283 |
-| ✅ | Каменное сердце | Heart of Stone | 5 | 283 |
-
-### Алхимия слабокровных — переведено 7
-
-|  | Термин | Оригинал | Ур. | Стр. |
-|---|---|---|---|---|
-| ✅ | Длинные руки | Far Reach | 1 | 286 |
-| ✅ | Марево | Haze | 1 | 287 |
-| ✅ | Нечестивая иерогамия | Profane Hieros Gamos | 1 | 288 |
-| ✅ | Смог | Envelop | 2 | 287 |
-| ✅ | Восстановление крови | Defractionate | 3 | 288 |
-| ✅ | Импульс | Airborne Momentum | 4 | 289 |
-| ✅ | Будильник | Awaken the Sleeper | 5 | 289 |
+| Термин | Оригинал | Ур. | Стр. |
+|---|---|---|---|
+| Обострение чувств | Heightened Senses | 1 | 270 |
+| Потустороннее зрение | Sense the Unseen | 1 | 271 |
+| Предвестие | Premonition | 2 | 271 |
+| Познание души | Scry the Soul | 3 | 271 |
+| Слияние чувств | Share the Senses | 3 | 272 |
+| Психометрия | Spirit's Touch | 4 | 272 |
+| Вселение | Possession | 5 | 272 |
+| Дальновидение | Clairvoyance | 5 | 273 |
+| Телепатия | Telepathy | 5 | 273 |
 
 ---
 
@@ -409,30 +310,20 @@
 
 ---
 
-## Типы охотника — 10 из 18
+## Типы охотника
 
-Четыре непереведённых — из Руководства для игроков, которое у проекта есть: их можно взять хоть сейчас. Остальные требуют книг, которых нет.
-
-|  | Термин | Оригинал | Книга |
-|---|---|---|---|
-| ✅ | Налётчик | Alleycat | Corebook |
-| ✅ | Суррогатчик | Bagger | Corebook |
-| ✅ | Бестия | Blood Leech | Corebook |
-| ✅ | Семьянин | Cleaver | Corebook |
-| ✅ | Джентльмен | Consensualist | Corebook |
-| ✅ | Фермер | Farmer | Corebook |
-| ✅ | Идол | Osiris | Corebook |
-| ✅ | Морфей | Sandman | Corebook |
-| ✅ | Тусовщик | Scene Queen | Corebook |
-| ✅ | Искуситель | Siren | Corebook |
-| ⬜ | — | Extortionist | Cults of the Blood God |
-| ⬜ | — | Graverobber | Cults of the Blood God |
-| ⬜ | — | Roadside Killer | Let the Streets Run Red |
-| ⬜ | — | Grim Reaper | Players Guide |
-| ⬜ | — | Montero | Players Guide |
-| ⬜ | — | Pursuer | Players Guide |
-| ⬜ | — | Trapdoor | Players Guide |
-| ⬜ | — | Tithe Collector | In Memoriam |
+| Термин | Оригинал |
+|---|---|
+| Бестия | Blood Leech |
+| Джентльмен | Consensualist |
+| Идол | Osiris |
+| Искуситель | Siren |
+| Морфей | Sandman |
+| Налётчик | Alleycat |
+| Семьянин | Cleaver |
+| Суррогатчик | Bagger |
+| Тусовщик | Scene Queen |
+| Фермер | Farmer |
 
 ---
 

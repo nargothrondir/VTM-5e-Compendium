@@ -53,8 +53,8 @@ In detail:
 - **Advantages & Flaws** — merits, flaws and backgrounds. Backgrounds are kept
   whole, with all five dot levels in a single entry.
 
-Terminology and translation roadmap — what is done and what is not —
-are collected in a separate document: [Glossary](GLOSSARY.md).
+Terminology — how a term is rendered and why — lives in the [glossary](GLOSSARY.md).
+What is done and what is left — in the [roadmap](ROADMAP.md).
 
 Terminology follows the official Russian edition rather than being re-translated,
 so an English reader should expect the published Russian names, not literal
