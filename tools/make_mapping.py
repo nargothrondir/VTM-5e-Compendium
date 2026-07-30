@@ -269,9 +269,25 @@ NOT_ENTRIES = {
 }
 
 
+def is_module_dir(path):
+    """Каталог модуля — тот, чей module.json объявляет id, равный его имени.
+
+    По имени опознавать нельзя: рядом остаётся каталог прежней раскладки.
+    По одному лишь наличию манифеста — тоже: он есть и в dist/ после сборки
+    релиза. Совпадение id с именем каталога — это ровно то, чего требует
+    Foundry, и потому надёжный признак.
+    """
+    manifest = path / "module.json"
+    if not path.is_dir() or not manifest.is_file():
+        return False
+    try:
+        return json.loads(manifest.read_text(encoding="utf-8")).get("id") == path.name
+    except (json.JSONDecodeError, OSError):
+        return False
+
+
 def module_dir():
-    return next(p for p in ROOT.iterdir()
-                if p.is_dir() and p.name.startswith("vampire-the-masquerade"))
+    return next(p for p in ROOT.iterdir() if is_module_dir(p))
 
 
 def quote(text):

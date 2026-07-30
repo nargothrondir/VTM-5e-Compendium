@@ -9,15 +9,28 @@
  * Рабочее дерево не трогается — всё происходит во временном каталоге.
  */
 
-import { mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { compilePack, extractPack } from "@foundryvtt/foundryvtt-cli";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+function declaredId(name) {
+  const manifest = join(ROOT, name, "module.json");
+  if (!existsSync(manifest)) return null;
+  try {
+    return JSON.parse(readFileSync(manifest, "utf8")).id;
+  } catch {
+    return null;
+  }
+}
+
 const MODULE_DIR = readdirSync(ROOT, { withFileTypes: true })
-  .filter((e) => e.isDirectory() && e.name.startsWith("vampire-the-masquerade"))
+  // Каталог модуля — тот, чей module.json объявляет id, равный его имени.
+  // По имени опознавать нельзя: рядом остаётся каталог прежней раскладки.
+  // По наличию манифеста — тоже: он есть и в dist/ после сборки релиза.
+  .filter((e) => e.isDirectory() && declaredId(e.name) === e.name)
   .map((e) => e.name)[0];
 
 const manifest = JSON.parse(
