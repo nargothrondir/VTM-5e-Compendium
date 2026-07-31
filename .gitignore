@@ -27,6 +27,9 @@ node_modules/
 data/*
 !data/mapping.yaml
 !data/glossary.yaml
+# База известных выбросов — рукописный вход проверки, а не артефакт:
+# без неё CI падает на честной короткой записи.
+!data/audit_baseline.json
 data/cache/
 *.log.tmp
 
