@@ -23,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import fitz  # noqa: E402
 import guide_clans  # noqa: E402
+import originals  # noqa: E402
 from add_clans import is_module_dir, make_id, safe_filename  # noqa: E402
 from add_loresheets import register  # noqa: E402
 from extract_pdf import (CORE, GUIDE, SOURCES,  # noqa: E402
@@ -42,6 +43,14 @@ GUIDE_NOTE = "Руководство для игроков"
 FOLDERS = ("Виды котерий", "Достоинства котерии", "Недостатки котерии",
            "Достоинства домена", "Достоинства членства")
 DOMAIN_FOLDERS = ("Шассе", "Льен", "Портильон")
+
+# Правленое название встречается и внутри текста: книга зовёт достоинство
+# «Болтовыми отверстиями» в самом описании. Без этой замены запись говорила
+# бы об одном, а называлась по-другому.
+TEXT_FIXES = [
+    ('"Болтовые отверстия"', "«Норы»"),
+    ("Болтовые отверстия", "Норы"),
+]
 
 # Виды, которые Руководство перепечатывает под своим названием. Ключ —
 # как названо в Руководстве, значение — официальное название из Книги
@@ -75,7 +84,9 @@ def folder_entry(name, parent, sort):
 
 
 def entry(section, folder=None, name=None, points=0, kind="merit"):
-    _id = make_id("coterie:" + (name or section["name"]))
+    # _id выводится из названия в книге, а не из того, что показывается:
+    # правка машинного перевода не должна заводить новую запись.
+    _id = make_id(f"coterie:{section['kind']}:{section['name']}")
     head = ""
     if section.get("source"):
         head = f"<p><em>Источник: {section['source']}</em></p>"
@@ -83,6 +94,9 @@ def entry(section, folder=None, name=None, points=0, kind="merit"):
         head += f"<p>■ Резонанс: {section['resonance']}</p>"
     if section.get("clan"):
         head += f"<p>■ Клан: {section['clan']}</p>"
+    body = section["text"]
+    for wrong, right in TEXT_FIXES:
+        body = body.replace(wrong, right)
     return {
         "folder": folder,
         "name": name or section["name"],
@@ -90,7 +104,7 @@ def entry(section, folder=None, name=None, points=0, kind="merit"):
         "_id": _id,
         "img": ICON,
         "system": {
-            "description": head + to_html(section["text"]), "bonuses": [],
+            "description": head + to_html(body), "bonuses": [],
             "uses": {"max": 0, "current": 0, "enabled": False},
             "featuretype": kind, "points": points, "macroid": "",
         },
@@ -162,6 +176,7 @@ def main():
         s["source"] = GUIDE_NOTE
         flaw = s["side"] == "flaw"
         title = s["name"].capitalize()
+        title = originals.RENAMES.get(title, title)
         name = (f"Недостаток: ({dots(s['rating'])}) {title}" if flaw
                 else f"{dots(s['rating'])} {title}")
         folder = folders["Недостатки котерии" if flaw else "Достоинства котерии"]
@@ -172,20 +187,25 @@ def main():
     for s in guide_clans.domain_merits(
             guide, DOMAIN_PAGES, fix_encoding, normalize, page_lines):
         s["source"] = GUIDE_NOTE
-        name = f"{dots(s['rating'])} {s['name']}"
+        title = originals.RENAMES.get(s["name"], s["name"])
+        name = f"{dots(s['rating'])} {title}"
         written.append(entry(s, folders[s["group"]], name, s["rating"]))
 
     # --- достоинства членства в клане
     for s in guide_clans.clan_coterie_merits(
             guide, MEMBERSHIP_PAGES, fix_encoding, normalize, page_lines):
         s["source"] = GUIDE_NOTE
-        name = f"{dots(s['rating'])} {s['name']} ({s['clan']})"
+        title = originals.RENAMES.get(s["name"], s["name"])
+        name = f"{dots(s['rating'])} {title} ({s['clan']})"
         written.append(entry(s, folders["Достоинства членства"], name,
                              s["rating"]))
 
     for data in written:
-        path = existing.get(data["_id"]) or \
-            source / safe_filename(data["name"], data["_id"])
+        wanted = source / safe_filename(data["name"], data["_id"])
+        path = existing.get(data["_id"], wanted)
+        if path != wanted and not args.dry_run:
+            path.unlink(missing_ok=True)
+            path = wanted
         if not args.dry_run:
             text = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
             path.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))

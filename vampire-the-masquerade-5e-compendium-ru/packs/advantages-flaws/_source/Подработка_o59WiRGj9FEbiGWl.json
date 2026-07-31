@@ -1,0 +1,37 @@
+{
+  "folder": "KyBpg6ay6mz2CpTB",
+  "name": "•• Подработка",
+  "type": "feature",
+  "_id": "o59WiRGj9FEbiGWl",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Люди, оказавшиеся на периферии, вынуждены постоянно работать, чтобы сохранить то немногое, что у них есть. Жонглирование миллионом поручений, одолжений и долгов стало для них второй натурой. Один раз за сессию вы можете получить в свои руки предмет, информацию или доступ к событию, как если бы у вас было две точки в соответствующих Ресурсах, Контактах или Фоне Влияния. (Предметы, полученные с помощью ресурсов, скорее всего, придется вернуть в целости и сохранности.) Часто для этого приходится тратить часть ночи на обзвон источников информации и нажимать на свою неформальную сеть.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!o59WiRGj9FEbiGWl"
+}

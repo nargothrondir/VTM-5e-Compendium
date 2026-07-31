@@ -22,6 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import fitz  # noqa: E402
 import guide_clans  # noqa: E402
+import originals  # noqa: E402
 from add_clans import is_module_dir, make_id, safe_filename  # noqa: E402
 from extract_pdf import GUIDE, SOURCES, page_lines  # noqa: E402
 from pdfkit import fix_encoding, normalize, to_html  # noqa: E402
@@ -91,7 +92,11 @@ KEEP_CAPS = {"ньюит": "Ньюит", "воля": "Воля", "крови": "
 
 def display_name(caps: str) -> str:
     words = [KEEP_CAPS.get(w.lower(), w.lower()) for w in caps.split()]
-    return " ".join(words)[:1].upper() + " ".join(words)[1:]
+    joined = " ".join(words)
+    name = joined[:1].upper() + joined[1:]
+    # Машинный перевод названия правится по таблице; _id при этом выводится
+    # из названия в книге, поэтому правка не заводит новую запись.
+    return originals.RENAMES.get(name, name)
 
 
 def module_dir():
@@ -255,8 +260,13 @@ def main():
         written.append(("запись", entry["name"], entry))
 
     for kind, label, entry in written:
-        path = existing.get(entry["_id"]) or \
-            source / safe_filename(entry["name"], entry["_id"])
+        wanted = source / safe_filename(entry["name"], entry["_id"])
+        path = existing.get(entry["_id"], wanted)
+        # Имя файла выводится из названия записи, а _id переживает правку
+        # названия: без переименования рядом остался бы файл от прежнего.
+        if path != wanted and not args.dry_run:
+            path.unlink(missing_ok=True)
+            path = wanted
         mark = "обновлено" if entry["_id"] in existing else "создано"
         if kind == "запись":
             print(f"  {mark:<9} {label}")

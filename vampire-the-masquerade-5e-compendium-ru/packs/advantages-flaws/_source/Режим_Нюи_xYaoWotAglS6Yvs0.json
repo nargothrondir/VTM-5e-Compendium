@@ -1,0 +1,37 @@
+{
+  "folder": "YJxYbIVM5radarAu",
+  "name": "•• Режим Нюи",
+  "type": "feature",
+  "_id": "xYaoWotAglS6Yvs0",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваше тело не возвращается автоматически в состояние смерти каждую ночь, что позволяет вам сохранять такие вещи, как новые прически, татуировки и другие модификации тела по вашему желанию. Однако вы все равно можете вернуться в исходное состояние смерти и исправить все последующие модификации, как если бы они были нанесены при тяжелых повреждениях. Это достоинство доступно только сородичам с силой крови 1 или ниже. (Если в какой-то момент ваша кровь становится более мощной, заслуга больше не дает никаких преимуществ, но если вы снова опускаетесь до силы крови 1, она возвращается).</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!xYaoWotAglS6Yvs0"
+}

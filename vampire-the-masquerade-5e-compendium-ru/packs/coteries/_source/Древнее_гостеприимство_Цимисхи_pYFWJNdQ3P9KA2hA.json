@@ -1,0 +1,37 @@
+{
+  "folder": "vl9fTkprvFIslx97",
+  "name": "•• Древнее гостеприимство (Цимисхи)",
+  "type": "feature",
+  "_id": "pYFWJNdQ3P9KA2hA",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Клан: Цимисхи</p><p>Входите свободно и по своей воле. В начале сеанса все члены котерии, оставшиеся в убежище Цимисхов после завершения предыдущего сеанса, восстанавливают дополнительный уровень легкого урона Силы Воли. Это включает в себя общие убежища для котерий.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!pYFWJNdQ3P9KA2hA"
+}

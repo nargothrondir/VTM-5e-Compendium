@@ -1,0 +1,37 @@
+{
+  "folder": "vl9fTkprvFIslx97",
+  "name": "••• Сдержанность (Салюбри)",
+  "type": "feature",
+  "_id": "9wRnuyarXMbMaKl1",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Клан: Салюбри</p><p>То ли из-за суровой необходимости держаться в тени, то ли из-за истинных моральных убеждений, Салюбри часто являются образцами самоконтроля, и эта черта может передаться другим. Один раз за сессию циклоп может в своем присутствии сдержать зверя другого члена группы, позволяя ему бесплатно перебросить все (и только все) свои кубики Голода в проверке.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 3,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!9wRnuyarXMbMaKl1"
+}

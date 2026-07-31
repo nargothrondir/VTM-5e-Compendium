@@ -1,0 +1,37 @@
+{
+  "folder": "jCXLup54jpPLnL7E",
+  "name": "• Осознанный сновидец",
+  "type": "feature",
+  "_id": "BcGLCY4gwOgqY6q6",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Большинство вампиров не видят сны, потому что не спят. Ты мечтаешь; вы можете вспоминать и даже иногда контролировать свои сны. Один раз за сеанс, если вы спите днем, вы можете попросить Рассказчика дать подсказку из воспоминаний прошлой ночи или намек на историю, подходящую для откровения во сне.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!BcGLCY4gwOgqY6q6"
+}

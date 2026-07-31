@@ -1,0 +1,37 @@
+{
+  "folder": "JCz2L2LJwqdVXNUO",
+  "name": "••• Мэрия",
+  "type": "feature",
+  "_id": "UsZRsKiqEhAO82Ca",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Резонанс: флегматик</p><p>Местонахождение городского правительства или, возможно, офисное здание, где работает большая часть городской бюрократии. Котерия может использовать эти точки в политических или градостроительных проектах дает котерию эквивалент одной точки в Маске на городские записи (права на землю, водительские права, налоговые документы и т.д.). Враги (смертные или сородичи), имеющие влияние на городские власти, добавляют одну точку к пулам, чтобы проникнуть в ваш домен. Рассказчики могут отказать в этом достоинстве котерии, не находящимся в Сердце города.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 3,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!UsZRsKiqEhAO82Ca"
+}
