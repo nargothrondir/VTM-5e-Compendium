@@ -372,6 +372,9 @@ CUSTOM_SECTIONS = {
     "недостатки слабокровных": ("Слабокровные", "flaw"),
     "новые достоинства гуля": ("Гули", "merit"),
     "новые недостатки гуля": ("Гули", "flaw"),
+    # Достоинства и недостатки самой котерии — та же вёрстка, стр. 173–175.
+    "достоинства котерии": ("Котерия", "merit"),
+    "недостатки котерий": ("Котерия", "flaw"),
 }
 
 
@@ -416,7 +419,11 @@ def custom_merits(doc, pages, fix_encoding, normalize, lines_of):
                     and text == text.upper() and len(text) > 3):
                 flush()
                 hit = RATING_RE.search(text)
-                current = {"name": RATING_RE.sub("", text).strip(),
+                # Рейтинг бывает не точками, а словом: «ПРОКЛЯТЫЙ
+                # (ВАРЬИРУЕТСЯ)». Скобку из названия всё равно убираем.
+                name = RATING_RE.sub("", text).strip()
+                name = re.sub(r"\s*\([^)•●]*\)\s*$", "", name).strip()
+                current = {"name": name,
                            "rating": len(hit.group(1)) if hit else 1,
                            "kind": kind, "side": side,
                            "page": pno + 1, "lines": []}
@@ -630,6 +637,130 @@ def coterie_types(doc, pages, fix_encoding, normalize, lines_of):
                 current["lines"].append(text)
 
     flush()
+    return out
+
+
+# Доменные достоинства (стр. 178–181): три разряда по параметрам домена.
+# Запись начинается с точек рейтинга, дальше название капсом и резонанс
+# в скобках: «•• БОЛЬНИЦА (МЕЛАНХОЛИК/ФЛЕГМАТИК): Обычно…».
+DOMAIN_GROUP_RE = re.compile(r"^ДОСТОИНСТВА\s+(ШАССЕ|ЛЬЕН|ПОРТИЛЬОНА)\s*$")
+DOMAIN_GROUPS = {"ШАССЕ": "Шассе", "ЛЬЕН": "Льен", "ПОРТИЛЬОНА": "Портильон"}
+DOMAIN_DOTS_RE = re.compile(r"^\s*([•●]{1,5})\s*(?=[А-ЯЁ])")
+DOMAIN_SPLIT_RE = re.compile(
+    r"^([А-ЯЁ][^:(]{2,50}?)\s*(?:\(([^)]*)\))?\s*:\s*(.*)$", re.S)
+# Кегль тела и здесь гуляет: у «Жилых башен» он 10,7 против девятого
+# у соседей, и при узкой границе запись оставалась одной строкой.
+DOMAIN_BODY_SIZE = (7.0, 11.0)
+
+
+def domain_merits(doc, pages, fix_encoding, normalize, lines_of):
+    """Достоинства домена: шассе, льен и портильон."""
+    out, current, group = [], None, None
+
+    for pno in range(*pages):
+        lines = sorted(lines_of(doc[pno]),
+                       key=lambda l: (int(l["x0"] // 190), round(l["y0"], 1)))
+        for line in lines:
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            size = sp[0]["size"]
+
+            hit = DOMAIN_GROUP_RE.match(text)
+            if hit:
+                current, group = None, DOMAIN_GROUPS[hit.group(1)]
+                continue
+            if size > 11.0:              # титул раздела закрывает перечень
+                current, group = None, None
+                continue
+            if group is None or not (DOMAIN_BODY_SIZE[0] < size
+                                     < DOMAIN_BODY_SIZE[1]):
+                continue
+
+            dots = DOMAIN_DOTS_RE.match(text)
+            if dots:
+                current = {"kind": "domain_merit", "group": group,
+                           "rating": len(dots.group(1)), "page": pno + 1,
+                           "lines": [text[dots.end():].strip()]}
+                out.append(current)
+            elif current and not JUNK_RE.search(text):
+                current["lines"].append(text)
+
+    for entry in out:
+        raw = normalize(chr(10).join(x for x in entry.pop("lines") if x))
+        split = DOMAIN_SPLIT_RE.match(raw)
+        if split:
+            entry["name"] = split.group(1).strip().capitalize()
+            entry["resonance"] = (split.group(2) or "").strip().lower()
+            entry["text"] = split.group(3).strip()
+        else:
+            entry["name"], entry["resonance"], entry["text"] = raw[:40], "", ""
+    return out
+
+
+# Достоинства членства (стр. 181–191): по одному на клан. Подпись набрана
+# десятым кеглем и переносится — «ДОСТОИНСТВО КЛАНА: ЗАГРУЗКИ И / СБОРЫ •»,
+# — поэтому собирается до точек рейтинга.
+MEMBERSHIP_MARK = "ДОСТОИНСТВО КЛАНА"
+MEMBERSHIP_CLAN_SIZE = (19.0, 21.0)
+MEMBERSHIP_NAME_SIZE = (8.5, 11.0)
+MEMBERSHIP_DOTS_RE = re.compile(r"([•●]{1,5})\s*$")
+
+
+def clan_coterie_merits(doc, pages, fix_encoding, normalize, lines_of):
+    """Клановые достоинства котерии: по одному на клан."""
+    out, current, clan, naming = [], None, None, False
+
+    for pno in range(*pages):
+        lines = sorted(lines_of(doc[pno]),
+                       key=lambda l: (int(l["x0"] // 190), round(l["y0"], 1)))
+        for line in lines:
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            size = sp[0]["size"]
+
+            if MEMBERSHIP_CLAN_SIZE[0] < size < MEMBERSHIP_CLAN_SIZE[1]:
+                current, clan, naming = None, text.strip(), False
+                continue
+            if size > MEMBERSHIP_CLAN_SIZE[1]:
+                current, clan, naming = None, None, False
+                continue
+            if clan is None:
+                continue
+
+            if (MEMBERSHIP_MARK in text
+                    and MEMBERSHIP_NAME_SIZE[0] < size < MEMBERSHIP_NAME_SIZE[1]):
+                current = {"kind": "clan_coterie_merit", "clan": clan,
+                           "rating": 1, "page": pno + 1,
+                           "name": [text.split(":", 1)[-1].strip()],
+                           "lines": []}
+                out.append(current)
+                naming = True
+
+            if current is None:
+                continue
+
+            if naming:
+                if line is not None and text not in current["name"]:
+                    if MEMBERSHIP_MARK not in text:
+                        current["name"].append(text)
+                dots = MEMBERSHIP_DOTS_RE.search(text)
+                if dots:
+                    current["rating"] = len(dots.group(1))
+                    naming = False
+                continue
+
+            if not JUNK_RE.search(text):
+                current["lines"].append(text)
+
+    for entry in out:
+        name = " ".join(entry.pop("name"))
+        name = MEMBERSHIP_DOTS_RE.sub("", name).strip()
+        entry["name"] = re.sub(r"\s+", " ", name).capitalize()
+        entry["text"] = normalize(chr(10).join(entry.pop("lines")))
     return out
 
 

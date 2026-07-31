@@ -30,7 +30,7 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**405 entries and 117 folders** — the entire compendium.
+**470 entries and 125 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
@@ -39,6 +39,7 @@ on the Ukrainian version keep working.
 | Blood Potency & Predator Type | 23 |
 | Advantages & Flaws | 143 |
 | Loresheets | 32 |
+| Coteries | 65 |
 
 In detail:
 
@@ -60,6 +61,9 @@ In detail:
   Heresy, Golconda, the First Inquisition, the High and Low Clans) plus the
   seven Hecata bloodlines from the Players Guide. Each carries its
   introduction and five named dot levels.
+- **Coteries** — 22 coterie types (15 from the Corebook, 7 from the Players
+  Guide), coterie merits and flaws, 18 domain merits (chasse, lien,
+  portillon) and 15 clan membership merits, one per clan.
 
 Terminology — how a term is rendered and why — lives in the [glossary](GLOSSARY.md).
 What is done and what is left — in the [roadmap](ROADMAP.md).

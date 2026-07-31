@@ -1,0 +1,37 @@
+{
+  "folder": "vl9fTkprvFIslx97",
+  "name": "• Проницательность (Министрии)",
+  "type": "feature",
+  "_id": "3gEm2jdhiWrqsyvY",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Клан: Министрии</p><p>Один раз за сеанс род Министрийства может узнать что-то поверхностное, что хочет персонаж Рассказчика, если любой член рода разговаривал с этим персонажем во время сеанса, даже если Сетит не присутствовал при этом. Это может относиться к желаниям или амбициям персонажа или к конкретному действию, которое он предпринимал (но не должно раскрывать никаких глубоких планов или тайн, особенно если члены группы о них не знают). Персонаж, взаимодействовавший с данным персонажем-рассказчиком, описывает эту встречу.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!3gEm2jdhiWrqsyvY"
+}

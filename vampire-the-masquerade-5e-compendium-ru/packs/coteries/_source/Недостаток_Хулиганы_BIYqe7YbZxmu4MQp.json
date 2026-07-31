@@ -1,0 +1,37 @@
+{
+  "folder": "wKAtiSu7GB3Rw8Gu",
+  "name": "Недостаток: (•) Хулиганы",
+  "type": "feature",
+  "_id": "BIYqe7YbZxmu4MQp",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваша группа ассоциируется с темным временем, когда городом правил тиран-князь, коррумпированный барон или капризный эмир. Добровольно или по принуждению, ваша группа навязывала свою волю, и многие этого не забыли. При общении с другими вампирами в городе члены группы имеют штраф в один кубик на все социальные кубики (кроме Запугивания). Этот недостаток не распространяется на отношения с приближенными и приспешниками их старого хозяина.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "flaw",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!BIYqe7YbZxmu4MQp"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Достоинства котерии",
+  "sorting": "a",
+  "folder": null,
+  "type": "Item",
+  "_id": "eCQw7HTSC0Cg4NJp",
+  "description": "",
+  "sort": 2000,
+  "color": "#9f90a2",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!eCQw7HTSC0Cg4NJp"
+}

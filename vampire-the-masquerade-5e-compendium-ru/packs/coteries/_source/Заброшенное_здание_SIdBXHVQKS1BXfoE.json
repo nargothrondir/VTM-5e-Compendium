@@ -1,0 +1,37 @@
+{
+  "folder": "9SeC2jwYQJe1kOn0",
+  "name": "• Заброшенное здание",
+  "type": "feature",
+  "_id": "SIdBXHVQKS1BXfoE",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Резонанс: меланхолия</p><p>Это место представляет собой заброшенный склад или отчужденное предприятие. Любое убежище, которое члены группы создают на территории этого объекта, получает одну точку в достоинствах \"\"Клетка\" и \"Запасной выход\"\", но всегда имеет недостаток - жуткое место. Если члены группы не используют свое Влияние, всегда существует риск, что это место будет снесено или реконструировано.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!SIdBXHVQKS1BXfoE"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Льен",
+  "sorting": "a",
+  "folder": "J2HC8wjA3SzWPeqs",
+  "type": "Item",
+  "_id": "JCz2L2LJwqdVXNUO",
+  "description": "",
+  "sort": 200,
+  "color": "#9f90a2",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!JCz2L2LJwqdVXNUO"
+}

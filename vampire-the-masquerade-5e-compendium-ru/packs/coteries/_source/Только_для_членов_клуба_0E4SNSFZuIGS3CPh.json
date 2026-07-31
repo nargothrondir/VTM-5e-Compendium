@@ -1,0 +1,37 @@
+{
+  "folder": "JCz2L2LJwqdVXNUO",
+  "name": "•• Только для членов клуба",
+  "type": "feature",
+  "_id": "0E4SNSFZuIGS3CPh",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>■ Резонанс: сангвиник</p><p>Эксклюзивное заведение или клуб, обслуживающий преданных клиентов, которые платят за уединение и роскошь. Это может быть что угодно - от университетского клуба выпускников до сексподземелья. Любое убежище, созданное на территории клуба, получает одну точку в одном из этих достоинств убежища: Роскошь или Дозорные. Но, разумеется, любой недоброжелатель, получивший членство или приглашение, может безнаказанно проникнуть в ваше убежище.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 2,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!0E4SNSFZuIGS3CPh"
+}

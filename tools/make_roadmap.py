@@ -69,8 +69,14 @@ def table(rows, headers):
 
 def main():
     mod = module_dir()
-    entries = [json.loads(p.read_text(encoding="utf-8"))
-               for p in mod.glob("packs/*/_source/*.json")]
+    # Пак запоминается: по типу записи котерии от лоршитов не отличить —
+    # и те и другие лежат как feature с featuretype «background».
+    by_pack = {}
+    entries = []
+    for path in mod.glob("packs/*/_source/*.json"):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        by_pack.setdefault(path.parent.parent.name, []).append(data)
+        entries.append(data)
     by_type = {}
     for entry in entries:
         by_type.setdefault(entry.get("type"), []).append(entry)
@@ -108,9 +114,17 @@ def main():
 
     # Лоршиты лежат в своём паке и в by_type попадают как feature — считаем
     # их отдельно, иначе они смешаются с достоинствами.
-    loresheets = sum(1 for e in entries
-                     if e.get("system", {}).get("featuretype") == "background"
-                     and not e.get("folder") and e.get("type") == "feature")
+    loresheets = sum(1 for e in by_pack.get("loresheets", [])
+                     if e.get("_key", "").startswith("!items!"))
+
+    # Внутри пака котерий виды отделяются от достоинств по имени папки.
+    coteries = by_pack.get("coteries", [])
+    names = {e["_id"]: e["name"] for e in coteries
+             if e.get("_key", "").startswith("!folders!")}
+    items = [e for e in coteries if e.get("_key", "").startswith("!items!")]
+    coterie_done = sum(1 for e in items
+                       if names.get(e.get("folder")) == "Виды котерий")
+    traits_done = len(items) - coterie_done
 
     lore_total = sum(len(v) for v in originals.CANON_LORESHEETS.values())
     coterie_total = sum(len(v) for v in originals.CANON_COTERIE_TYPES.values())
@@ -130,17 +144,19 @@ def main():
          "закрыто" if not ready else f"{len(ready)} доступны в Руководстве"],
         ["Сила Крови", len(make_mapping.BLOOD_POTENCY),
          len(make_mapping.BLOOD_POTENCY), "закрыто"],
+        # Лоршиты и котерии тоже feature — вычитаем, иначе они удвоятся.
         ["Достоинства и недостатки", len(by_type.get("feature", []))
-         - guide_features - loresheets, "—", "канон не сверялся"],
+         - guide_features - loresheets - len(items), "—",
+         "канон не сверялся"],
         ["Достоинства из Руководства", guide_features, guide_features,
          f"{unverified} записей без оригинала"
          if unverified else "канон сверён по вики"],
         ["Страницы истории", loresheets, lore_total,
          "имеющиеся книги закрыты"],
-        ["Типы котерии", 0, coterie_total,
-         f"{len(AT_HAND_ONLY(originals.CANON_COTERIE_TYPES))} доступны"],
-        ["Достоинства котерии", 0, coterie_traits,
-         f"{len(AT_HAND_ONLY(originals.CANON_COTERIE_TRAITS))} доступны"],
+        ["Типы котерии", coterie_done, coterie_total,
+         "имеющиеся книги закрыты"],
+        ["Достоинства котерии", traits_done, coterie_traits,
+         "имеющиеся книги закрыты"],
     ]
     parts.append("## Сводка" + NL * 2 + table(
         rows, ["Раздел", "Сделано", "Всего", "Примечание"]))
@@ -161,8 +177,10 @@ def main():
     predator_block = table([[TODO, en, book] for en, book in ready],
                            ["", "Оригинал", "Книга"]) if ready else         "Все типы питания из имеющихся книг перенесены."
 
-    coterie_ready = AT_HAND_ONLY(originals.CANON_COTERIE_TYPES)
-    traits_ready = AT_HAND_ONLY(originals.CANON_COTERIE_TRAITS)
+    coterie_ready = [n for n in AT_HAND_ONLY(originals.CANON_COTERIE_TYPES)
+                     if coterie_done == 0]
+    traits_ready = [n for n in AT_HAND_ONLY(originals.CANON_COTERIE_TRAITS)
+                    if traits_done == 0]
     total_ready = (guide_left + len(ready)
                    + len(coterie_ready) + len(traits_ready))
 
@@ -179,15 +197,13 @@ def main():
         + powers_block
         + f"{NL}### Типы охотника — {len(ready)}{NL}{NL}"
         + predator_block
-        + f"{NL}{NL}### Типы котерии — {len(coterie_ready)}{NL}{NL}"
-        f"Категории в компендиуме нет вовсе. Шестнадцать типов описаны "
-        f"в Книге правил, одиннадцать — в Руководстве.{NL}{NL}"
-        + table([[TODO, n] for n in coterie_ready], ["", "Оригинал"])
-        + f"{NL}{NL}### Достоинства и владения котерии — "
-        f"{len(traits_ready)}{NL}{NL}"
-        f"Тоже нет ни одной. Десять из Книги правил, восемнадцать владений "
-        f"(chasse, lien, portillon) — из Руководства.{NL}{NL}"
-        + table([[TODO, n] for n in traits_ready], ["", "Оригинал"]))
+        + f"{NL}{NL}### Котерии — {len(coterie_ready) + len(traits_ready)}{NL}{NL}"
+        + ("Всё, что описано в имеющихся книгах, перенесено: двадцать два "
+           "вида котерии, десять её достоинств и недостатков, восемнадцать "
+           "владений и пятнадцать клановых достоинств членства."
+           if not coterie_ready and not traits_ready else
+           table([[TODO, n] for n in coterie_ready + traits_ready],
+                 ["", "Оригинал"])))
 
     # --- требует других книг
     blocked = {}

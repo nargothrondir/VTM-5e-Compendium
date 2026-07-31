@@ -575,19 +575,33 @@ CANON_COTERIE_TYPES = {
 # все двадцать восемь: десять из Книги правил и восемнадцать владений
 # из Руководства.
 # Сверено по https://vtm.paradoxwikis.com/Coterie_Backgrounds_and_Merits
+#
+# Достоинства и недостатки самой котерии вики приписывает Книге правил, но
+# русское издание их не печатает — оно отсылает к обычным фонам. Все они
+# нашлись в Руководстве (стр. 173–175), оттуда и взяты.
+#
+# Клановых достоинств членства в перечне вики нет вовсе — по одному на клан,
+# кроме слабокровных. Четыре из них Малая книга знаний печатает в описаниях
+# самих кланов.
 CANON_COTERIE_TRAITS = {
-    "Corebook": [
+    "Players Guide": [
+        # достоинства и недостатки котерии
         "Bolt Holes", "On Tap", "Privileged", "Transportation",
         "Bullies", "Cursed", "Custodians", "Targeted", "Territorial",
         "Under Siege",
-    ],
-    "Players Guide": [
+        # владения: шассе, льен, портильон
         "Apartment Towers", "Back Alleys", "Funerary", "Gated Community",
         "Hospital", "Nightlife", "Shelter",
         "Campus", "City Hall", "Cultural Landmark", "Marketplace",
         "Members Only", "Transitions",
         "Abandoned Building", "Firehouse", "Police Station", "Prison",
         "Transit",
+        # достоинства членства, по одному на клан
+        "Banu Haqim membership", "Brujah membership", "Gangrel membership",
+        "Hecata membership", "Lasombra membership", "Malkavian membership",
+        "Ministry membership", "Nosferatu membership", "Ravnos membership",
+        "Salubri membership", "Toreador membership", "Tremere membership",
+        "Tzimisce membership", "Ventrue membership", "Caitiff membership",
     ],
 }
 

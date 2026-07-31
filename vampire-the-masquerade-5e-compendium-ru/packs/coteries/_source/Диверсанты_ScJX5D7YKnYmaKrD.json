@@ -1,5 +1,5 @@
 {
-  "folder": null,
+  "folder": "eME9YJaGoKWPrf2Z",
   "name": "Диверсанты",
   "type": "feature",
   "_id": "ScJX5D7YKnYmaKrD",
@@ -12,7 +12,7 @@
       "current": 0,
       "enabled": false
     },
-    "featuretype": "background",
+    "featuretype": "merit",
     "points": 0,
     "macroid": ""
   },

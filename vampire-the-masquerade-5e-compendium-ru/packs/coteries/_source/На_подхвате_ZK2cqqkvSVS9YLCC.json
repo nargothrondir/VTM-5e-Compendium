@@ -1,0 +1,37 @@
+{
+  "folder": "eCQw7HTSC0Cg4NJp",
+  "name": "• На подхвате",
+  "type": "feature",
+  "_id": "ZK2cqqkvSVS9YLCC",
+  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "system": {
+    "description": "<p><em>Источник: Руководство для игроков</em></p><p>Ваше окружение прилагает все усилия, чтобы создать в своих владениях атмосферу, которая вызывает у вашей жертвы предпочтительный Резонанс. При получении этой заслуги выберите резонанс. Во время охоты в своих владениях вы можете добавить кубики, равные показателю этого достоинства, чтобы найти жертву с указанным резонансом.</p>",
+    "bonuses": [],
+    "uses": {
+      "max": 0,
+      "current": 0,
+      "enabled": false
+    },
+    "featuretype": "merit",
+    "points": 1,
+    "macroid": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "vtm5e",
+    "systemVersion": "5.1.4",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "_key": "!items!ZK2cqqkvSVS9YLCC"
+}
