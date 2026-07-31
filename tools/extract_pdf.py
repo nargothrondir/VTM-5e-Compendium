@@ -395,6 +395,8 @@ LORESHEET_DOTS_SIZE = (6.0, 7.6)
 # переносится — «●●●● БЛИЖАЙШИЕ СОРАТНИКИ ТЕО / БЕЛЛА. Тео тебе доверяет».
 # Поэтому ступень собирается целиком и режется по первой точке.
 LORESHEET_NAME_FONT = "GillSansNova-Bold"
+# Оговорка над вступлением: «(только для вентру)», «(только для носферату)».
+LORESHEET_QUALIFIER_RE = re.compile(r"\([^)]{5,60}\)")
 LORESHEET_MARK_RE = re.compile(r"^([●•฀]+)\s*(.*)$", re.S)
 LORESHEET_SPLIT_RE = re.compile(r"^(.{2,90}?)\s*[.…]\s*(.*)$", re.S)
 # Подпись над блоком ступеней; в текст записи не идёт.
@@ -455,7 +457,7 @@ def _loresheet_page(doc, pno, book):
     """
     lines = list(page_lines(doc[pno], lambda l: classify(l) != "skip"))
 
-    title, dropcap, marks = [], "", []
+    title, dropcap, dropcap_y, marks = [], "", 0.0, []
     for line in lines:
         sp = [s for s in line["spans"] if s["text"].strip()]
         if not sp:
@@ -466,7 +468,7 @@ def _loresheet_page(doc, pno, book):
                 and LORESHEET_TITLE_SIZE[0] < size < LORESHEET_TITLE_SIZE[1]):
             title.append(re.sub(r"\s+", "", text))
         elif len(text) == 1 and size > CLAN_DROPCAP_SIZE:
-            dropcap = text
+            dropcap, dropcap_y = text, line["y0"]
         elif (LORESHEET_DOTS_SIZE[0] <= size <= LORESHEET_DOTS_SIZE[1]
                 and LORESHEET_MARK_RE.match(text)):
             marks.append(line)
@@ -531,7 +533,7 @@ def _loresheet_page(doc, pno, book):
         # в порядке чтения идёт после них — оно в правой колонке, а первые
         # ступени в левой.
         if line["y0"] < top:
-            lead.append(text)
+            lead.append((line["y0"], text))
         elif current is not None:
             _split_level_spans(current, sp)
 
@@ -547,14 +549,24 @@ def _loresheet_page(doc, pno, book):
         lvl["text"] = normalize("\n".join(x for x in lvl.pop("lines") if x))
     levels.sort(key=lambda l: l["rating"])
 
-    # Буквица приращивается к первой строке вступления: «Н» + «а заре».
-    if lead and dropcap:
-        lead[0] = dropcap + lead[0]
+    # Буквица приращивается к строке под ней, а не к первой по счёту:
+    # у «Потомка Хардештадта» выше буквицы стоит оговорка «(только для
+    # вентру)», и склейка давала «П(только для вентру) о мнению».
+    below = next((i for i, (y, _) in enumerate(lead) if y > dropcap_y), None)
+    if dropcap and below is not None:
+        y, text = lead[below]
+        lead[below] = (y, dropcap + text)
+
+    # Оговорка в скобках — это подзаголовок, а не первая фраза вступления.
+    subtitle = ""
+    if lead and LORESHEET_QUALIFIER_RE.fullmatch(lead[0][1].strip()):
+        subtitle = lead.pop(0)[1].strip().strip("()")
 
     return {
         "kind": "loresheet", "book": LABELS.get(book, book),
         "name": LORESHEET_NAMES.get(key, key), "key": key, "page": pno + 1,
-        "text": normalize("\n".join(lead)),
+        "subtitle": subtitle,
+        "text": normalize("\n".join(t for _, t in lead)),
         "levels": levels,
     }
 

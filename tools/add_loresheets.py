@@ -28,7 +28,8 @@ import guide_clans  # noqa: E402
 from add_clans import is_module_dir, make_id, safe_filename  # noqa: E402
 from extract_pdf import (CORE, GUIDE, SOURCES, extract_loresheets,  # noqa: E402
                          page_lines)
-from pdfkit import fix_encoding, normalize, to_html  # noqa: E402
+from pdfkit import (capitalize_clans, fix_encoding,  # noqa: E402
+                    normalize, to_html)
 
 ROOT = Path(__file__).resolve().parent.parent
 PACK = "loresheets"
@@ -51,9 +52,14 @@ def entry(section):
     if section.get("source"):
         head = f"<p><em>Источник: {section['source']}</em></p>"
     if section.get("subtitle"):
-        head += f"<p><em>{section['subtitle'].capitalize()}</em></p>"
+        # Абзац целиком в курсиве проход разметки не трогает — восстановить
+        # его он бы не смог, — поэтому имя клана поднимаем здесь.
+        note = capitalize_clans(section["subtitle"].capitalize())
+        head += f"<p><em>{note}</em></p>"
+    # Маркера врезки здесь нет намеренно: точки рейтинга сами делят текст
+    # на ступени, и квадратик перед ними — лишний шум.
     body = head + to_html(section["text"]) + "".join(
-        to_html(f"■ {'●' * lvl['rating']} {lvl['name']}: {lvl['text']}")
+        to_html(f"{'●' * lvl['rating']} {lvl['name']}: {lvl['text']}")
         for lvl in section["levels"])
     return {
         "folder": None,
