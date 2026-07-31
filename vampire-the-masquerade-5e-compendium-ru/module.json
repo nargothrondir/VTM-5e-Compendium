@@ -66,6 +66,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "loresheets",
+      "label": "Страницы истории",
+      "path": "packs/loresheets",
+      "type": "Item",
+      "system": "wod5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "url": "https://github.com/nargothrondir/VTM-5e-Compendium",

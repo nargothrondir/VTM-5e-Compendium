@@ -349,6 +349,223 @@ CLAN_DISCIPLINE_SIZE = (7.0, 8.0)
 CLAN_DROPCAP_SIZE = 40.0
 
 
+# Страницы истории (лоршиты), стр. 385–408 Книги правил, по одному на полосу.
+#
+# Титул набран вразрядку — «ТЕ О Б Е Л Л», — и границу слов из него не
+# восстановить: зазоры между буквами внутри слова и между словами одинаковы
+# с точностью до десятой пункта. Поэтому имена выписаны поимённо, ключом
+# служит титул со снятыми пробелами.
+LORESHEET_TITLE_SIZE = (36.0, 42.0)
+LORESHEET_NAMES = {
+    "ТЕОБЕЛЛ": "Тео Белл",
+    "КАИНИТСКАЯЕРЕСЬ": "Каинитская ересь",
+    "КАРНА": "Карна",
+    "КРОВОТОК": "Кровоток",
+    "ТЕРНОВЫЙСОБОР": "Терновый собор",
+    "ПЕРВАЯИНКВИЗИЦИЯ": "Первая инквизиция",
+    "ГОЛКОНДА": "Голконда",
+    "ПОТОМОКХАРДЕШТАДТА": "Потомок Хардештадта",
+    "ПОТОМОКЕЛЕНЫ": "Потомок Елены",
+    "ВЕТЕРАНВОЙНЫФРАКЦИЙ": "Ветеран войны фракций",
+    "ТРОИЦА": "Троица",
+    "ЖАНЕТТ/ТЕРЕЗАВОРМАН": "Жанетт/Тереза Ворман",
+    "НЕДЕЛЯКОШМАРОВ": "Неделя кошмаров",
+    "РУДИ": "Руди",
+    "ПОТОМОКТАЙЛЕР": "Потомок Тайлер",
+    "ПОТОМОКЗЕЛИОСА": "Потомок Зелиоса",
+    "ПОТОМОКВАСАНТАСЕНЫ": "Потомок Васантасены",
+    "ВЫСШИЕКЛАНЫ": "Высшие кланы",
+    "НИЗШИЕКЛАНЫ": "Низшие кланы",
+    "АМБРУСМАРОПИС": "Амбрус Маропис",
+    "КАРМЕЛИТАНЕЙЛСОН": "Кармелита Нейлсон",
+    "ФЬОРЕНЦАСАВОНА": "Фьоренца Савона",
+    "ПОТОМОККАРЛАШРЕКТА": "Потомок Карла Шректа",
+    "ПОТОМОККСАВЬЕ": "Потомок Ксавье",
+}
+
+# Ступень: точки, название полужирным капсом, дальше сразу тело. У третьей
+# ступени точки выпадают из PDF как «฀» — у этого начертания нет таблицы
+# соответствий, — поэтому маркер опознаётся по любому из трёх символов.
+LORESHEET_DOTS_SIZE = (6.0, 7.6)
+# Точку в конце названия на этой же строке требовать нельзя: название
+# переносится — «●●●● БЛИЖАЙШИЕ СОРАТНИКИ ТЕО / БЕЛЛА. Тео тебе доверяет».
+# Поэтому ступень собирается целиком и режется по первой точке.
+LORESHEET_NAME_FONT = "GillSansNova-Bold"
+LORESHEET_MARK_RE = re.compile(r"^([●•฀]+)\s*(.*)$", re.S)
+LORESHEET_SPLIT_RE = re.compile(r"^(.{2,90}?)\s*[.…]\s*(.*)$", re.S)
+# Подпись над блоком ступеней; в текст записи не идёт.
+LORESHEET_SKIP = {"Детали истории"}
+
+
+# Имена собственные в подписях ступеней: капс снимается, а они остаются
+# с заглавной. Иначе «БЛИЖАЙШИЕ СОРАТНИКИ ТЕО БЕЛЛА» превращается
+# в «Ближайшие соратники тео белла».
+LORESHEET_PROPER = {
+    "тео", "белл", "белла", "беллу", "беллом", "антония", "антоний",
+    "хардештадта", "елены", "зелиоса", "васантасены", "тайлер", "ксавье",
+    "шректа", "карла", "амбрус", "амбруса", "кармелита", "кармелиты",
+    "нейлсон", "фьоренца", "фьоренцы", "савона", "савоны", "руди",
+    "жанетт", "тереза", "терезы", "ворман", "карна", "карны", "голконда",
+    "голконды", "каина", "каин", "константинополь", "константинополя",
+    "троица", "троицы", "камарильи", "камарилья", "камарилью",
+    "саулот", "саулота", "иакова", "запатасуры", "фьоренцей",
+    "шабаш", "шабаша", "маскарад", "маскарада", "тремер", "вентру",
+    "равнос", "голконду",
+}
+
+
+def _level_name(name):
+    words = [w if w.lower() not in LORESHEET_PROPER else w.capitalize()
+             for w in name.lower().split()]
+    out = " ".join(words)
+    return out[:1].upper() + out[1:]
+
+
+def _split_level_spans(level, spans):
+    """Название и тело ступени различаются гарнитурой, а не точкой.
+
+    Название набрано полужирным капсом, тело — светлым десятым. Точка
+    в конце названия есть не всегда там, где кончается строка: у «Низших
+    кланов» подпись «ТОВАРИЩИ ПО НЕСЧАСТЬЮ» растянута через всю полосу
+    отдельными строками, и разбор по точке съедал начало тела.
+    """
+    for span in spans:
+        text = re.sub(r"^[●•฀]+\s*", "", span["text"].strip())
+        if not text:
+            continue
+        # Подпись открыта, пока не закрыта точкой. Флага «тело началось»
+        # мало: хвост подписи бывает в соседней колонке, уже после тела.
+        open_name = not level["name"] or not level["name"][-1].endswith((".", "…"))
+        if span["font"] == LORESHEET_NAME_FONT and open_name:
+            level["name"].append(text)
+        else:
+            level["lines"].append(text)
+
+
+def _loresheet_page(doc, pno, book):
+    """Одна полоса: титул, вступление и ступени.
+
+    Вступление отделяется **по вертикали**, а не по порядку чтения: титул
+    стоит в левой колонке, вступление в правой, а ступени текут по всем трём,
+    и обход по колонкам выдаёт вступление уже после половины ступеней.
+    """
+    lines = list(page_lines(doc[pno], lambda l: classify(l) != "skip"))
+
+    title, dropcap, marks = [], "", []
+    for line in lines:
+        sp = [s for s in line["spans"] if s["text"].strip()]
+        if not sp:
+            continue
+        text = line_text(line).strip()
+        size = sp[0]["size"]
+        if (sp[0]["font"] == DISCIPLINE_TITLE_FONT
+                and LORESHEET_TITLE_SIZE[0] < size < LORESHEET_TITLE_SIZE[1]):
+            title.append(re.sub(r"\s+", "", text))
+        elif len(text) == 1 and size > CLAN_DROPCAP_SIZE:
+            dropcap = text
+        elif (LORESHEET_DOTS_SIZE[0] <= size <= LORESHEET_DOTS_SIZE[1]
+                and LORESHEET_MARK_RE.match(text)):
+            marks.append(line)
+
+    if not title or not marks:
+        return None
+
+    key = "".join(title)
+
+    # Ступени заводятся заранее: подпись бывает набрана строкой выше самих
+    # точек — у «Троицы» на полтора пункта, — и в порядке чтения она идёт
+    # раньше маркера, которому принадлежит.
+    levels = [{"rating": len(LORESHEET_MARK_RE.match(line_text(line).strip())
+                             .group(1)),
+               "lines": [], "name": [], "started": False, "mark": line}
+              for line in marks]
+    owner = {id(line): lvl for lvl, line in zip(levels, marks)}
+    for lvl, mark in zip(levels, marks):
+        for line in lines:
+            sp = [s for s in line["spans"] if s["text"].strip()]
+            if not sp or line is mark or id(line) in owner:
+                continue
+            # Строго выше: на одной высоте с маркером может стоять хвост
+            # подписи соседней ступени, разорванной между колонками.
+            if (sp[0]["font"] == LORESHEET_NAME_FONT
+                    and line.get("col") == mark.get("col")
+                    and 0 < mark["y0"] - line["y0"] < 5):
+                owner[id(line)] = lvl
+
+    top = min([l["y0"] for l in marks]
+              + [l["y0"] for l in lines if id(l) in owner])
+
+    lead, current = [], None
+    for line in lines:
+        sp = [s for s in line["spans"] if s["text"].strip()]
+        if not sp:
+            continue
+        text = line_text(line).strip()
+        if text in LORESHEET_SKIP:
+            continue
+        target = owner.get(id(line))
+        if target is not None:
+            current = target
+            _split_level_spans(target, sp)
+            continue
+        # Продолжение названия набрано полужирным шестым с половиной —
+        # для classify это не тело, но в ступень оно входит.
+        tail = (LORESHEET_DOTS_SIZE[0] <= sp[0]["size"] <= LORESHEET_DOTS_SIZE[1]
+                and sp[0]["font"] == LORESHEET_NAME_FONT)
+        if classify(line) != "body" and not tail:
+            continue
+        # Хвост подписи, разорванной между колонками: «ТОВАРИЩИ ПО» в одной,
+        # «НЕСЧАСТЬЮ.» в другой. Достаётся той ступени, чья подпись ещё
+        # не закончена точкой, — а не той, рядом с чьим маркером он лёг.
+        if tail and line["y0"] >= top:
+            pending = [l for l in levels if l["name"]
+                       and not l["name"][-1].endswith((".", "…"))]
+            if pending:
+                _split_level_spans(pending[-1], sp)
+                continue
+        # Только по вертикали: вступление стоит выше блока ступеней, но
+        # в порядке чтения идёт после них — оно в правой колонке, а первые
+        # ступени в левой.
+        if line["y0"] < top:
+            lead.append(text)
+        elif current is not None:
+            _split_level_spans(current, sp)
+
+    # Строки склеиваются переводом строки, а не пробелом: иначе normalize
+    # не увидит дефиса на конце строки и оставит «Со- родичи».
+    for lvl in levels:
+        lvl.pop("started", None)
+        lvl.pop("mark", None)
+        # Через перевод строки: подпись тоже переносится с дефисом —
+        # «БЛАГОСЛОВЕНИЕ, А НЕ ПРО- / КЛЯТИЕ».
+        name = normalize("\n".join(lvl.pop("name"))).strip().rstrip(".").strip()
+        lvl["name"] = _level_name(name)
+        lvl["text"] = normalize("\n".join(x for x in lvl.pop("lines") if x))
+    levels.sort(key=lambda l: l["rating"])
+
+    # Буквица приращивается к первой строке вступления: «Н» + «а заре».
+    if lead and dropcap:
+        lead[0] = dropcap + lead[0]
+
+    return {
+        "kind": "loresheet", "book": LABELS.get(book, book),
+        "name": LORESHEET_NAMES.get(key, key), "key": key, "page": pno + 1,
+        "text": normalize("\n".join(lead)),
+        "levels": levels,
+    }
+
+
+def extract_loresheets(doc, toc, book, title="Страницы истории"):
+    """Лоршиты: вступление и пять ступеней, каждая со своим названием."""
+    first, last = section_range(toc, title, doc)
+    out = []
+    for pno in range(first, last):
+        section = _loresheet_page(doc, pno, book)
+        if section:
+            out.append(section)
+    return out
+
+
 def extract_clans(doc, toc, book, names):
     """Кланы: вводное описание, список Дисциплин и раздел «Изъян».
 

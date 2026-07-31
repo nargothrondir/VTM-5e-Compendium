@@ -171,6 +171,15 @@ LABEL_RE = re.compile(
     + "|".join(sorted(PARAM_LABELS, key=len, reverse=True))
     + r")\s*:[ \t]*")
 
+# Ступень Страницы истории: «■ ●● Анарх старой закалки: …». Подпись здесь
+# своя у каждой из ста двадцати ступеней, в словарь их не занести — опорой
+# служит рейтинг точками сразу после маркера.
+#
+# Точка в подписи исключена: у «Богатства» ступень набрана как «■ • Рабочий
+# класс. Ты живёшь от зарплаты до зарплаты: квартира…», и без этого запрета
+# полужирным становилось полпредложения.
+STEP_LABEL_RE = re.compile(r"^(■\s*[●•]+\s*)([^:<.]{3,45}):[ \t]*")
+
 # Дисциплины. Пишутся с заглавной уже в книге, склоняются как обычные слова.
 DISCIPLINES = [
     "Анимализм", "Величие", "Доминирование", "Метаморфозы", "Мощь",
@@ -400,6 +409,11 @@ def _emphasize_paragraph(inner: str) -> str:
         return inner
 
     plain = capitalize_clans(plain)
+    step = STEP_LABEL_RE.match(plain)
+    if step:
+        out = f"{step.group(1)}<strong>{step.group(2)}:</strong> "
+        return _extend_enumerations(out + _mark_terms(plain[step.end():]))
+
     hit = LABEL_RE.match(plain)
     if not hit:
         return _extend_enumerations(_mark_terms(plain))

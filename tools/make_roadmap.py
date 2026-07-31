@@ -100,6 +100,12 @@ def main():
     guide_features = sum(len(t) for t in guide_tables)
     unverified = sum(1 for t in guide_tables for v in t.values() if not v)
 
+    # Лоршиты лежат в своём паке и в by_type попадают как feature — считаем
+    # их отдельно, иначе они смешаются с достоинствами.
+    loresheets = sum(1 for e in entries
+                     if e.get("system", {}).get("featuretype") == "background"
+                     and not e.get("folder") and e.get("type") == "feature")
+
     parts = [INTRO]
 
     # --- сводка
@@ -114,10 +120,11 @@ def main():
         ["Сила Крови", len(make_mapping.BLOOD_POTENCY),
          len(make_mapping.BLOOD_POTENCY), "закрыто"],
         ["Достоинства и недостатки", len(by_type.get("feature", []))
-         - guide_features, "—", "канон не сверялся"],
+         - guide_features - loresheets, "—", "канон не сверялся"],
         ["Достоинства из Руководства", guide_features, guide_features,
          f"{unverified} записей без оригинала"
          if unverified else "канон сверён по вики"],
+        ["Страницы истории", loresheets, 24, "закрыто"],
     ]
     parts.append("## Сводка" + NL * 2 + table(
         rows, ["Раздел", "Сделано", "Всего", "Примечание"]))
