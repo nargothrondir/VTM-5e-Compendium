@@ -11,6 +11,8 @@
     "release": "node tools/release.mjs",
     "extract": "python tools/extract_pdf.py",
     "verify": "python tools/verify.py",
+    "audit": "python tools/audit.py",
+    "test": "python tools/test_audit.py",
     "progress": "python tools/verify.py --progress-only",
     "mapping": "python tools/make_mapping.py",
     "apply": "python tools/apply.py",

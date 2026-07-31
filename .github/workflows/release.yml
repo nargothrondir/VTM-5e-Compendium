@@ -46,6 +46,23 @@ jobs:
             echo "value=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
           fi
 
+      # Версия в манифесте — то, что увидит Foundry при обновлении. Если она
+      # разошлась с тегом, модуль будет объявлять себя не тем, чем является,
+      # и «обновление» на месте окажется откатом.
+      - name: Сверить тег с манифестом
+        run: |
+          want='${{ steps.version.outputs.value }}'
+          have=$(python -c "import sys,json; sys.path.insert(0,'tools'); import audit; print(json.loads((audit.module_dir()/'module.json').read_text(encoding='utf-8'))['version'])")
+          if [ "$want" != "$have" ]; then
+            echo "::error::тег v$want, а в манифесте $have"
+            exit 1
+          fi
+
+      # Смысловая проверка обязательна и здесь: выпустить тихо испорченное
+      # хуже, чем не выпустить вовсе.
+      - name: Смысловая проверка
+        run: python tools/audit.py
+
       - name: Собрать компендиумы
         run: npm run build
 

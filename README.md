@@ -114,6 +114,8 @@ https://github.com/nargothrondir/VTM-5e-Compendium/releases/latest/download/modu
 | `npm run emphasize` | поднимает регистр терминов и размечает начертанием |
 | `npm run build` | собирает `_source` в базу, которую читает Foundry |
 | `npm run verify` | проверяет целостность и показывает прогресс |
+| `npm run audit` | ищет тихие огрехи: счёт по канону, выбросы, разметку |
+| `npm run test` | проверяет саму проверку на известных огрехах |
 | `npm run roundtrip` | доказывает, что сборка обратима |
 
 Смысл затеи — в воспроизводимости: нашли огрех, поправили строку в

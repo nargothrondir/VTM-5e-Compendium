@@ -648,6 +648,14 @@ PLAYERS_GUIDE_MERITS = {RENAMES.get(k, k): v
 PLAYERS_GUIDE_CUSTOM = {RENAMES.get(k, k): v
                         for k, v in PLAYERS_GUIDE_CUSTOM.items()}
 
+# Канон снят по вики, то есть по английскому изданию. Русское местами
+# короче: этих записей в нём нет вовсе, и в недостачу их писать нельзя —
+# иначе проверка будет красной всегда.
+NOT_IN_RU = {
+    "Co-op",            # вид котерии, Книга правил
+    "Carnival", "Excommunicates", "Flagellant", "Nemeses",  # Руководство
+}
+
 CANON_CLANS = [
     "Banu Haqim", "Brujah", "Caitiff", "Gangrel", "Hecata", "Lasombra",
     "Malkavian", "Ministry", "Nosferatu", "Ravnos", "Salubri", "Thin-blood",

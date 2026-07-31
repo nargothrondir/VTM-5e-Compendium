@@ -114,6 +114,8 @@ sourcebooks (PDF)  ──extract──▶  data/book_sections.json
 | `npm run emphasize` | capitalises game terms and marks up labels |
 | `npm run build` | compiles `_source` into the pack Foundry reads |
 | `npm run verify` | checks integrity and reports progress |
+| `npm run audit` | hunts silent defects: canon counts, outliers, markup |
+| `npm run test` | proves the audit catches known past defects |
 | `npm run roundtrip` | proves the build is reversible |
 
 The point is reproducibility: spot a mistake, fix one line in

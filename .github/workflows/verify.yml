@@ -28,6 +28,34 @@ jobs:
       - name: Проверить исходники
         run: python tools/verify.py
 
+      # Проверка самой проверки. Без неё audit молчал бы на исправном дереве,
+      # и молчание ничего не доказывало бы.
+      - name: Проверить проверку
+        run: python tools/test_audit.py
+
+      # Смысловая проверка: счёт по канону, выбросы по длине, санитария
+      # разметки. Ловит то, о чём verify молчит, — запись создалась, схема
+      # цела, а внутри не то.
+      - name: Смысловая проверка
+        run: python tools/audit.py
+
+      # Проход разметки сходится: своя разметка снимается перед прогоном,
+      # результат выводится из голого текста. Повторный прогон на чистом
+      # дереве обязан не менять ни байта.
+      - name: Сходимость разметки
+        run: |
+          npm run emphasize
+          git diff --exit-code -- '*/packs/*/_source' \
+            || { echo '::error::emphasize не сходится — прогон меняет дерево'; exit 1; }
+
+      # Глоссарий и план собираются из тех же данных, что и модуль, поэтому
+      # обязаны быть свежими в каждом коммите. README отставал на два релиза.
+      - name: Свежесть документов
+        run: |
+          npm run docs
+          git diff --exit-code -- GLOSSARY.md ROADMAP.md \
+            || { echo '::error::документы устарели — прогоните npm run docs'; exit 1; }
+
       - name: Собрать компендиумы
         run: npm run build
 
@@ -36,6 +64,20 @@ jobs:
       # а name меняется при переводе, так что побайтово сходиться и не должно.
       - name: Круговой прогон сборки
         run: node tools/roundtrip.mjs
+
+      # Собранный модуль артефактом: единственный способ увидеть, как
+      # выглядят в живом Foundry записи с чужим для системы featuretype,
+      # не дожидаясь релиза.
+      - name: Собрать модуль для примерки
+        if: github.event_name == 'pull_request'
+        run: node tools/release.mjs 0.0.0
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request'
+        with:
+          name: module-pr${{ github.event.number }}
+          path: dist/module.zip
+          retention-days: 14
 
   progress:
     runs-on: ubuntu-latest
