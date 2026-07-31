@@ -25,7 +25,6 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import fitz  # noqa: E402
 import guide_clans  # noqa: E402
 from extract_pdf import (CORE, GUIDE, LORE, SOURCES,  # noqa: E402
                          extract_clans, load_toc)
@@ -140,6 +139,7 @@ def is_module_dir(path):
 
 
 def main():
+    import fitz
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()

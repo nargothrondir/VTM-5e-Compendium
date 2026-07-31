@@ -15,7 +15,10 @@ import re
 import sys
 from pathlib import Path
 
-import fitz
+# PyMuPDF нужен только для чтения книг. Книг в CI нет и быть не может —
+# они под .gitignore, — а константы и разбор строк из этого модуля нужны
+# и там: на них опираются emphasize, audit и сборка документов. Поэтому
+# импорт отложен до main(), а функции разбора получают уже открытый документ.
 
 sys.path.insert(0, str(Path(__file__).parent))
 import merits  # noqa: E402
@@ -833,6 +836,7 @@ def extract_toc_section(doc, toc, title, book, kind):
 
 
 def main():
+    import fitz
     ap = argparse.ArgumentParser()
     ap.add_argument("--pages", nargs=2, type=int, metavar=("FROM", "TO"),
                     help="выгрузить сырой и нормализованный текст диапазона и выйти")

@@ -18,7 +18,6 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import fitz  # noqa: E402
 from extract_pdf import GUIDE, SOURCES, extract_bane_variants  # noqa: E402
 from pdfkit import LATIN_RUNNING_HEAD_RE, to_html  # noqa: E402
 
@@ -140,7 +139,7 @@ def module_dir():
 
 def brujah_full_text():
     """Полный абзац про бруха из основной книги."""
-    sys.path.insert(0, str(Path(__file__).parent))
+    import fitz
     from extract_pdf import CORE
     from pdfkit import normalize
 
@@ -171,6 +170,7 @@ def unwrap_headings(html):
 
 
 def main():
+    import fitz
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
