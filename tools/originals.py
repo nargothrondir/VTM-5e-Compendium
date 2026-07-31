@@ -437,6 +437,153 @@ CANON_PREDATOR_TYPES = [
     ("Tithe Collector", "In Memoriam"),
 ]
 
+# Страницы истории. Книга правил закрыта целиком; остальное перечислено,
+# чтобы охват не выглядел полным по недосмотру — линейка прирастала
+# лоршитами десять лет, и в каноне их больше полутора сотен.
+# Сверено по https://vtm.paradoxwikis.com/Loresheets
+CANON_LORESHEETS = {
+    "Corebook": [
+        "The Bahari", "Theo Bell", "Cainite Heresy", "Carna",
+        "The Circulatory System", "Convention of Thorns",
+        "The First Inquisition", "Golconda", "Descendant of Hardestadt",
+        "Descendant of Helena", "Sect War Veteran", "The Trinity",
+        "Jeanette/Therese Voerman", "The Week of Nightmares", "Rudi",
+        "Descendant of Tyler", "Descendant of Zelios",
+        "Descendant of Vasantasena", "High Clan", "Low Clan",
+        "Ambrus Maropis", "Carmelita Neillson", "Fiorenza Savona",
+        "Descendant of Karl Schrekt", "Descendant of Xaviar",
+    ],
+    "Anarch": [
+        "Salvador Garcia", "Agata Starek", "Hesha Ruhadze",
+        "The Church of Set", "Ruins of Carthage", "Blood Plagued",
+        "Anarch Revolt",
+    ],
+    "Camarilla": [
+        "Fatima Al-Faqadi", "Pure Ventrue Lineage", "The Cult of Mithras",
+        "The Pyramid", "Victoria Ash",
+    ],
+    "Chicago by Night": [
+        "Annabelle", "Ballard Industries", "Blacksite 24", "The Blue Velvet",
+        "The Book of Nod", "Capone Gang", "The Cobweb", "Cultivar",
+        "Cult of Shalim", "Descendant of Lodin", "Descendant of Montano",
+        "Fires and Floods and the Devil's Night", "Firstlight",
+        "Kevin Jackson", "Kindred Iconography", "The Labyrinth",
+        "Lupine Expert", "Nathaniel Bordruff", "The Painted Lady",
+        "Revenant Family: Ducheski", "The Society of St. Leopold", "Talley",
+        "Wauneka",
+    ],
+    "Chicago Folios": [
+        "Archons", "The Convention of Chicago", "Descendant of Menele",
+        "Goblin Roads", "Justicar Lucinde", "Khalid Al-Rashid",
+        "Kindred Dueling", "Malkavian Family", "Occult Artifacts",
+        "The Pony Express", "Sheriff Damien", "The Wolf Pack",
+    ],
+    "Let the Streets Run Red": [
+        "The Anubi", "Eletria", "Kindred Social Media Influencer", "Juggler",
+        "Lost Secrets of the Milwaukee Chantry", "Mark Decker", "Maxwell",
+        "The Milwaukee \"Null Zone\"", "Modius",
+    ],
+    "Cults of the Blood Gods": [
+        "Bankers of Dunsirn", "Children of Tenochtitlan",
+        "The Nation of Blood", "Flesh-Eaters", "Harbingers of Ashur",
+        "La Famiglia Giovanni", "The Criminal Puttanesca", "The Gorgons",
+        "Calling the Family Reunion", "Child of the Angel Michael",
+        "Servitor of Irad", "The Promise of 1528",
+    ],
+    "Children of the Blood": [
+        "Little Siblings", "Grudge Masters", "The Ashfinders", "Amaranthan",
+        "Cleopatras", "Meneleans", "The One True Way", "Starfall Ranch",
+    ],
+    "Forbidden Religions": [
+        "1444 Chamber", "Blood Asceticism", "Gehenna Cults",
+        "Plagues of Gehenna", "Praepositor", "Spear of Orthia",
+    ],
+    "Fall of London": [
+        "Agent of Justicar Parr", "Court of Shadows", "Hunt Club",
+        "London under London", "Operation Antigen", "Oskar Anasov",
+    ],
+    "In Memoriam": [
+        "Birth of the Anarch Free States", "Childe of the Revolution",
+        "Descendant of Dracula", "The Order of Repentants", "The Red Lady",
+        "The Vanderbilt Ventrue",
+    ],
+    "Live from the Succubus Club": [
+        "Descendant of Idder", "Descendant of Kerwiya",
+        "Descendant of Phaedyme", "Descendant of The Fallen Lord",
+        "Succubus Club Copycat", "Road Courier", "Stories of the Daughters",
+        "Temple of Boom Contract",
+    ],
+    "Winter's Teeth": [
+        "Wolves in Sheep's Clothing", "The Nictuku", "Minneapolis",
+        "St. Paul", "The Mortician's Army",
+    ],
+    "Blood Sigils": [
+        "Descendant of Al-Ashrad", "Student of Kirin Taunk",
+        "Veins of the Earth", "Vienna Zero",
+    ],
+    "Courts of the Damned": [
+        "Descendant of Count Jocalo", "Descendant of Marconius",
+        "Descendant of Meerlinda", "Descendant of Rasalon",
+    ],
+    "Trails of Ash and Bone": [
+        "The Ruby Throat", "Descendant of Roger de Camden",
+        "Relics of the Veil",
+    ],
+    "Gehenna War": ["Beckett", "The Eternal Arena", "Tegyrius the Vizier"],
+    "Boston by Night": ["The Hartford Chantry", "The Boston Camarilla"],
+    "Tattered Façade": [
+        "Descendant of the Ankou", "Descendant of Baron Vollgirre",
+    ],
+    "Book of Nod Apocrypha": ["Machinations of Saulot"],
+}
+
+# Типы котерий. В компендиуме их нет вовсе, а взять можно двадцать семь:
+# шестнадцать из Книги правил и одиннадцать из Руководства.
+# Сверено по https://vtm.paradoxwikis.com/Coterie_types
+CANON_COTERIE_TYPES = {
+    "Corebook": [
+        "Blood Cult", "Cerberus", "Champions", "Commando", "Co-op",
+        "Day Watch", "Fang Gang", "Hunting Party", "Nomad", "Plumaire",
+        "Questari", "Regency", "Sbirri", "Vanguard", "Vehme", "Watchmen",
+    ],
+    "Players Guide": [
+        "Carnival", "Corporate", "Envoys", "Excommunicates", "Family",
+        "Flagellant", "Fugitive", "Gatekeeper", "Maréchal", "Nemeses",
+        "Saboteur",
+    ],
+    "Cults of the Blood Gods": ["Diocese", "Think Tank"],
+    "Children of the Blood": [
+        "Missionaries", "Schism", "Theologian Society",
+    ],
+    "Chicago by Night": ["Rectorate", "Somnophile"],
+    "In Memoriam": [
+        "Archonium", "Primogen's Council", "Prince's Court",
+        "The Decade Club",
+    ],
+    "Winter's Teeth": ["Support Group"],
+    "Forbidden Religions": ["The Household"],
+}
+
+# Достоинства, недостатки и владения котерии. Тоже нет ни одного, а доступны
+# все двадцать восемь: десять из Книги правил и восемнадцать владений
+# из Руководства.
+# Сверено по https://vtm.paradoxwikis.com/Coterie_Backgrounds_and_Merits
+CANON_COTERIE_TRAITS = {
+    "Corebook": [
+        "Bolt Holes", "On Tap", "Privileged", "Transportation",
+        "Bullies", "Cursed", "Custodians", "Targeted", "Territorial",
+        "Under Siege",
+    ],
+    "Players Guide": [
+        "Apartment Towers", "Back Alleys", "Funerary", "Gated Community",
+        "Hospital", "Nightlife", "Shelter",
+        "Campus", "City Hall", "Cultural Landmark", "Marketplace",
+        "Members Only", "Transitions",
+        "Abandoned Building", "Firehouse", "Police Station", "Prison",
+        "Transit",
+    ],
+}
+
 CANON_CLANS = [
     "Banu Haqim", "Brujah", "Caitiff", "Gangrel", "Hecata", "Lasombra",
     "Malkavian", "Ministry", "Nosferatu", "Ravnos", "Salubri", "Thin-blood",

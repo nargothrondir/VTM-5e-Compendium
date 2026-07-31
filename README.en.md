@@ -30,7 +30,7 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**397 entries and 117 folders** — the entire compendium.
+**398 entries and 117 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
@@ -38,7 +38,7 @@ on the Ukrainian version keep working.
 | Disciplines | 191 |
 | Blood Potency & Predator Type | 23 |
 | Advantages & Flaws | 143 |
-| Loresheets | 24 |
+| Loresheets | 25 |
 
 In detail:
 
@@ -56,7 +56,7 @@ In detail:
   from the Players Guide: its new merits and flaws, the Caitiff, Thin-blood and
   Ghoul lists, and eight backgrounds. Backgrounds are kept whole, with all five
   dot levels in a single entry.
-- **Loresheets** — all twenty-four from the Corebook: Theo Bell, the Cainite
+- **Loresheets** — all twenty-five from the Corebook: Theo Bell, the Cainite
   Heresy, Golconda, the First Inquisition, the High and Low Clans and the rest.
   Each carries its introduction and five named dot levels.
 

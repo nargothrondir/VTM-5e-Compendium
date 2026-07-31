@@ -26,23 +26,92 @@
 | Сила Крови | 7 | 7 | закрыто |
 | Достоинства и недостатки | 85 | — | канон не сверялся |
 | Достоинства из Руководства | 58 | 58 | 6 записей без оригинала |
-| Страницы истории | 24 | 24 | закрыто |
+| Страницы истории | 25 | 151 | Книга правил закрыта |
+| Типы котерии | 0 | 40 | 27 доступны |
+| Достоинства котерии | 0 | 28 | 28 доступны |
 
 ---
 
 ## Доступно сейчас
 
-Работа, для которой источник уже есть на руках. Всего **0 записей**.
+Работа, для которой источник уже есть на руках. Всего **55 записей**.
 
 ### Силы из Руководства для игроков — 0
-
-Руководство описывает целую Дисциплину Обливион с церемониями, а также по три-пять новых сил почти к каждой Дисциплине основной книги. Названия ниже — как они стоят в книге.
 
 Все силы из Руководства перенесены.
 
 ### Типы охотника — 0
 
 Все типы питания из имеющихся книг перенесены.
+
+### Типы котерии — 27
+
+Категории в компендиуме нет вовсе. Шестнадцать типов описаны в Книге правил, одиннадцать — в Руководстве.
+
+|  | Оригинал |
+|---|---|
+| ⬜ | Blood Cult |
+| ⬜ | Cerberus |
+| ⬜ | Champions |
+| ⬜ | Commando |
+| ⬜ | Co-op |
+| ⬜ | Day Watch |
+| ⬜ | Fang Gang |
+| ⬜ | Hunting Party |
+| ⬜ | Nomad |
+| ⬜ | Plumaire |
+| ⬜ | Questari |
+| ⬜ | Regency |
+| ⬜ | Sbirri |
+| ⬜ | Vanguard |
+| ⬜ | Vehme |
+| ⬜ | Watchmen |
+| ⬜ | Carnival |
+| ⬜ | Corporate |
+| ⬜ | Envoys |
+| ⬜ | Excommunicates |
+| ⬜ | Family |
+| ⬜ | Flagellant |
+| ⬜ | Fugitive |
+| ⬜ | Gatekeeper |
+| ⬜ | Maréchal |
+| ⬜ | Nemeses |
+| ⬜ | Saboteur |
+
+### Достоинства и владения котерии — 28
+
+Тоже нет ни одной. Десять из Книги правил, восемнадцать владений (chasse, lien, portillon) — из Руководства.
+
+|  | Оригинал |
+|---|---|
+| ⬜ | Bolt Holes |
+| ⬜ | On Tap |
+| ⬜ | Privileged |
+| ⬜ | Transportation |
+| ⬜ | Bullies |
+| ⬜ | Cursed |
+| ⬜ | Custodians |
+| ⬜ | Targeted |
+| ⬜ | Territorial |
+| ⬜ | Under Siege |
+| ⬜ | Apartment Towers |
+| ⬜ | Back Alleys |
+| ⬜ | Funerary |
+| ⬜ | Gated Community |
+| ⬜ | Hospital |
+| ⬜ | Nightlife |
+| ⬜ | Shelter |
+| ⬜ | Campus |
+| ⬜ | City Hall |
+| ⬜ | Cultural Landmark |
+| ⬜ | Marketplace |
+| ⬜ | Members Only |
+| ⬜ | Transitions |
+| ⬜ | Abandoned Building |
+| ⬜ | Firehouse |
+| ⬜ | Police Station |
+| ⬜ | Prison |
+| ⬜ | Transit |
 
 ---
 
@@ -70,15 +139,49 @@
 | Roadside Killer | Let the Streets Run Red |
 | Tithe Collector | In Memoriam |
 
+### Страницы истории
+
+Книга правил закрыта целиком — все двадцать пять. Линейка прирастала лоршитами десять лет, и остальное разбросано по книгам, которых у проекта нет.
+
+| Книга | Лоршитов | Например |
+|---|---|---|
+| Anarch | 7 | Salvador Garcia, Agata Starek, Hesha Ruhadze… |
+| Camarilla | 5 | Fatima Al-Faqadi, Pure Ventrue Lineage, The Cult of Mithras… |
+| Chicago by Night | 23 | Annabelle, Ballard Industries, Blacksite 24… |
+| Chicago Folios | 12 | Archons, The Convention of Chicago, Descendant of Menele… |
+| Let the Streets Run Red | 9 | The Anubi, Eletria, Kindred Social Media Influencer… |
+| Cults of the Blood Gods | 12 | Bankers of Dunsirn, Children of Tenochtitlan, The Nation of Blood… |
+| Children of the Blood | 8 | Little Siblings, Grudge Masters, The Ashfinders… |
+| Forbidden Religions | 6 | 1444 Chamber, Blood Asceticism, Gehenna Cults… |
+| Fall of London | 6 | Agent of Justicar Parr, Court of Shadows, Hunt Club… |
+| In Memoriam | 6 | Birth of the Anarch Free States, Childe of the Revolution, Descendant of Dracula… |
+| Live from the Succubus Club | 8 | Descendant of Idder, Descendant of Kerwiya, Descendant of Phaedyme… |
+| Winter's Teeth | 5 | Wolves in Sheep's Clothing, The Nictuku, Minneapolis… |
+| Blood Sigils | 4 | Descendant of Al-Ashrad, Student of Kirin Taunk, Veins of the Earth… |
+| Courts of the Damned | 4 | Descendant of Count Jocalo, Descendant of Marconius, Descendant of Meerlinda… |
+| Trails of Ash and Bone | 3 | The Ruby Throat, Descendant of Roger de Camden, Relics of the Veil |
+| Gehenna War | 3 | Beckett, The Eternal Arena, Tegyrius the Vizier |
+| Boston by Night | 2 | The Hartford Chantry, The Boston Camarilla |
+| Tattered Façade | 2 | Descendant of the Ankou, Descendant of Baron Vollgirre |
+| Book of Nod Apocrypha | 1 | Machinations of Saulot |
+
+### Котерии
+
+| Книга | Записей |
+|---|---|
+| Cults of the Blood Gods | 2 |
+| Children of the Blood | 3 |
+| Chicago by Night | 2 |
+| In Memoriam | 4 |
+| Winter's Teeth | 1 |
+| Forbidden Religions | 1 |
+
 ---
 
 ## Что дальше
 
-Имеющиеся книги разобраны целиком. Дальше — только по новым источникам; что именно они закрывают, перечислено выше.
-
-Ближайшее, что можно сделать без новых книг:
-
-1. **Досверить оригиналы** — 6 записей Руководства остались без английского названия: вики держит перечень Фонов сводным, без разбивки по книгам.
-2. **Выправить машинный перевод названий** — «Проверить ствол» это Check the Trunk, багажник с инструментом; «Перемешник» — Mockingbird, пересмешник; «Слова-карриды» — Word-Scarred. Тексты записей при этом читаемы, вопрос только в заголовках.
+1. **Котерии** — 55 записей и целая категория, которой в компендиуме нет: типы котерии, их достоинства и владения. Всё описано в книгах, что уже на руках.
+2. **Досверить оригиналы** — 6 записей Руководства остались без английского названия: вики держит перечень Фонов сводным, без разбивки по книгам.
+3. **Выправить машинный перевод названий** — «Проверить ствол» это Check the Trunk, багажник с инструментом; «Перемешник» — Mockingbird, пересмешник; «Слова-карриды» — Word-Scarred. Тексты записей при этом читаемы, вопрос только в заголовках.
 
 Оговорка про качество: Руководство для игроков переведено фанатами, а не официально. Всё, что берётся оттуда, помечается источником прямо в тексте записи — как уже сделано с альтернативными изъянами и четырьмя кланами.

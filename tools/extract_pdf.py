@@ -357,6 +357,7 @@ CLAN_DROPCAP_SIZE = 40.0
 # служит титул со снятыми пробелами.
 LORESHEET_TITLE_SIZE = (36.0, 42.0)
 LORESHEET_NAMES = {
+    "БАХАРИ": "Бахари",
     "ТЕОБЕЛЛ": "Тео Белл",
     "КАИНИТСКАЯЕРЕСЬ": "Каинитская ересь",
     "КАРНА": "Карна",
@@ -559,7 +560,10 @@ def extract_loresheets(doc, toc, book, title="Страницы истории"):
     """Лоршиты: вступление и пять ступеней, каждая со своим названием."""
     first, last = section_range(toc, title, doc)
     out = []
-    for pno in range(first, last):
+    # На полосу раньше, чем указывает оглавление: «Бахари» стоит перед той
+    # страницей, с которой оглавление начинает раздел. Лишнего это не берёт —
+    # полосу без титула и маркеров разбор возвращает пустой.
+    for pno in range(max(first - 1, 0), last):
         section = _loresheet_page(doc, pno, book)
         if section:
             out.append(section)

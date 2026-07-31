@@ -34,6 +34,12 @@ NL = chr(10)
 # можно взять хоть сейчас; остальное ждёт появления источника.
 AT_HAND = {"Corebook", "Companion", "Players Guide"}
 
+
+def AT_HAND_ONLY(table):
+    """Записи из книг, которые у проекта есть."""
+    return [name for book, names in table.items() if book in AT_HAND
+            for name in names]
+
 INTRO = """# План перевода
 
 Что уже перенесено в компендиум, что можно взять прямо сейчас и что ждёт
@@ -106,6 +112,11 @@ def main():
                      if e.get("system", {}).get("featuretype") == "background"
                      and not e.get("folder") and e.get("type") == "feature")
 
+    lore_total = sum(len(v) for v in originals.CANON_LORESHEETS.values())
+    coterie_total = sum(len(v) for v in originals.CANON_COTERIE_TYPES.values())
+    coterie_traits = sum(len(v)
+                         for v in originals.CANON_COTERIE_TRAITS.values())
+
     parts = [INTRO]
 
     # --- сводка
@@ -124,7 +135,12 @@ def main():
         ["Достоинства из Руководства", guide_features, guide_features,
          f"{unverified} записей без оригинала"
          if unverified else "канон сверён по вики"],
-        ["Страницы истории", loresheets, 24, "закрыто"],
+        ["Страницы истории", loresheets, lore_total,
+         "Книга правил закрыта"],
+        ["Типы котерии", 0, coterie_total,
+         f"{len(AT_HAND_ONLY(originals.CANON_COTERIE_TYPES))} доступны"],
+        ["Достоинства котерии", 0, coterie_traits,
+         f"{len(AT_HAND_ONLY(originals.CANON_COTERIE_TRAITS))} доступны"],
     ]
     parts.append("## Сводка" + NL * 2 + table(
         rows, ["Раздел", "Сделано", "Всего", "Примечание"]))
@@ -145,17 +161,33 @@ def main():
     predator_block = table([[TODO, en, book] for en, book in ready],
                            ["", "Оригинал", "Книга"]) if ready else         "Все типы питания из имеющихся книг перенесены."
 
+    coterie_ready = AT_HAND_ONLY(originals.CANON_COTERIE_TYPES)
+    traits_ready = AT_HAND_ONLY(originals.CANON_COTERIE_TRAITS)
+    total_ready = (guide_left + len(ready)
+                   + len(coterie_ready) + len(traits_ready))
+
+    powers_block = (
+        f"### Силы из Руководства для игроков — {guide_left}{NL}{NL}"
+        + (f"Руководство описывает целую Дисциплину Обливион с церемониями, "
+           f"а также по три-пять новых сил почти к каждой Дисциплине "
+           f"основной книги.{NL}{NL}" + NL.join(c + NL for c in chunks)
+           if chunks else "Все силы из Руководства перенесены." + NL))
+
     parts.append(
         f"## Доступно сейчас{NL}{NL}Работа, для которой источник уже есть на "
-        f"руках. Всего **{guide_left + len(ready)} записей**.{NL}{NL}"
-        f"### Силы из Руководства для игроков — {guide_left}{NL}{NL}"
-        f"Руководство описывает целую Дисциплину Обливион с церемониями, "
-        f"а также по три-пять новых сил почти к каждой Дисциплине основной "
-        f"книги. Названия ниже — как они стоят в книге.{NL}{NL}"
-        + (NL.join(c + NL for c in chunks) if chunks
-           else "Все силы из Руководства перенесены." + NL)
+        f"руках. Всего **{total_ready} записей**.{NL}{NL}"
+        + powers_block
         + f"{NL}### Типы охотника — {len(ready)}{NL}{NL}"
-        + predator_block)
+        + predator_block
+        + f"{NL}{NL}### Типы котерии — {len(coterie_ready)}{NL}{NL}"
+        f"Категории в компендиуме нет вовсе. Шестнадцать типов описаны "
+        f"в Книге правил, одиннадцать — в Руководстве.{NL}{NL}"
+        + table([[TODO, n] for n in coterie_ready], ["", "Оригинал"])
+        + f"{NL}{NL}### Достоинства и владения котерии — "
+        f"{len(traits_ready)}{NL}{NL}"
+        f"Тоже нет ни одной. Десять из Книги правил, восемнадцать владений "
+        f"(chasse, lien, portillon) — из Руководства.{NL}{NL}"
+        + table([[TODO, n] for n in traits_ready], ["", "Оригинал"]))
 
     # --- требует других книг
     blocked = {}
@@ -181,17 +213,32 @@ def main():
         + table(rows, ["Дисциплина", "Осталось", "Например"])
         + NL * 2 + "### Типы охотника" + NL * 2
         + table([[en, book] for en, book in other_predators],
-                ["Оригинал", "Книга"]))
+                ["Оригинал", "Книга"])
+        + NL * 2 + "### Страницы истории" + NL * 2
+        + f"Книга правил закрыта целиком — все двадцать пять. Линейка "
+        f"прирастала лоршитами десять лет, и остальное разбросано "
+        f"по книгам, которых у проекта нет.{NL}{NL}"
+        + table([[book, len(names), ", ".join(names[:3])
+                  + ("…" if len(names) > 3 else "")]
+                 for book, names in originals.CANON_LORESHEETS.items()
+                 if book not in AT_HAND],
+                ["Книга", "Лоршитов", "Например"])
+        + NL * 2 + "### Котерии" + NL * 2
+        + table([[book, len(names)]
+                 for table_ in (originals.CANON_COTERIE_TYPES,
+                                originals.CANON_COTERIE_TRAITS)
+                 for book, names in table_.items() if book not in AT_HAND],
+                ["Книга", "Записей"]))
 
     parts.append(
         f"## Что дальше{NL}{NL}"
-        f"Имеющиеся книги разобраны целиком. Дальше — только по новым "
-        f"источникам; что именно они закрывают, перечислено выше.{NL}{NL}"
-        f"Ближайшее, что можно сделать без новых книг:{NL}{NL}"
-        f"1. **Досверить оригиналы** — {unverified} записей Руководства "
+        f"1. **Котерии** — {len(coterie_ready) + len(traits_ready)} записей "
+        f"и целая категория, которой в компендиуме нет: типы котерии, их "
+        f"достоинства и владения. Всё описано в книгах, что уже на руках.{NL}"
+        f"2. **Досверить оригиналы** — {unverified} записей Руководства "
         f"остались без английского названия: вики держит перечень Фонов "
         f"сводным, без разбивки по книгам.{NL}"
-        f"2. **Выправить машинный перевод названий** — «Проверить ствол» "
+        f"3. **Выправить машинный перевод названий** — «Проверить ствол» "
         f"это Check the Trunk, багажник с инструментом; «Перемешник» — "
         f"Mockingbird, пересмешник; «Слова-карриды» — Word-Scarred. "
         f"Тексты записей при этом читаемы, вопрос только в заголовках.{NL}{NL}"
