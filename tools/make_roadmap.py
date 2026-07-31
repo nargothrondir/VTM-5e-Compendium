@@ -109,8 +109,14 @@ def main():
     guide_tables = (originals.PLAYERS_GUIDE_MERITS,
                     originals.PLAYERS_GUIDE_CUSTOM,
                     originals.PLAYERS_GUIDE_BACKGROUNDS)
+    # Клановые достоинства котерии лежат в паке котерий, а не среди
+    # достоинств, поэтому в guide_features они не входят — но в счёт
+    # несверенных попасть должны.
+    unverified_extra = sum(1 for v in originals.CLAN_COTERIE_MERITS.values()
+                           if not v)
     guide_features = sum(len(t) for t in guide_tables)
     unverified = sum(1 for t in guide_tables for v in t.values() if not v)
+    unverified += unverified_extra
 
     # Лоршиты лежат в своём паке и в by_type попадают как feature — считаем
     # их отдельно, иначе они смешаются с достоинствами.

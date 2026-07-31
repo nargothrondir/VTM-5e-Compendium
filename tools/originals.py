@@ -282,13 +282,15 @@ PLAYERS_GUIDE_MERITS = {
 # как имя. «Надежность» — Faith-Proof, стойкость к Истинной Вере, а вовсе
 # не надёжность.
 #
-# «Солнцезащитный» (•••••) в перечне вики отсутствует; оригинал не сверен
-# и оставлен пустым намеренно — выдумывать его хуже, чем признать пробел.
+# «Солнцезащитный» — Sun-Scarred, пятиточечное достоинство каитиффа: первый
+# ход на солнце проходит без урона, дальше урон становится поверхностным.
+# Прежний запрос до него не добирался, потому что спрашивал про дневных
+# ходоков, а вики зовёт это иначе.
 PLAYERS_GUIDE_CUSTOM = {
     "Любимая Кровь": "Favored Blood",
     "Метка Каина": "Mark of Caine",
     "Перемешник": "Mockingbird",
-    "Солнцезащитный": "",
+    "Солнцезащитный": "Sun-Scarred",
     "Клыкастый дядя": "Uncle Fangs",
     "Животное витэ": "Befouling Vitae",
     "Проклятие клана": "Clan Curse",
@@ -325,11 +327,41 @@ PLAYERS_GUIDE_BACKGROUNDS = {
     "Враги": "Enemy",
     "• Фуркус": "Furcus",
     "• Машиностроительный цех": "Machine Shop",
-    "• Общество": "",
-    "Страницы истории": "",
-    "Линия крови": "",
+    "• Общество": "Shared",               # недостаток Убежища
+    "• Городские тайны": "City Secrets",  # достоинство Статуса
+    # Это названия самих механик, а не записей: вики держит их отдельными
+    # страницами, а Руководство завело под них по записи в разделе Фонов.
+    "Страницы истории": "Loresheet",
+    "Линия крови": "Bloodline",
+    # Раздел Руководства об учёте благ и долгов. Prestation Debts занято
+    # другой записью — это недостаток «Долги по благам», — а своего имени
+    # у раздела в каноне не нашлось.
     "Торговля долгами": "",
-    "• Городские тайны": "",
+}
+
+# Клановые достоинства котерии — по одному на клан. В сводных перечнях вики
+# их нет: они лежат отдельным разделом «Coterie Clan Merits», до которого
+# запрос по достоинствам котерии не доходит. Четыре из них печатает и Малая
+# книга знаний, в описаниях самих кланов.
+#
+# Шестнадцатое, Mortal Heart (••) для слабокровных, в русском Руководстве
+# отсутствует — потому в компендиуме пятнадцать записей, а не шестнадцать.
+CLAN_COTERIE_MERITS = {
+    "Загрузки и сборы": "Boot and Rally",            # Бруха
+    "Призыв к цели": "Call to Purpose",              # Бану Хаким
+    "Тактика стаи": "Pack Tactics",                  # Гангрел
+    "Искусство умирать": "Ars Moriendi",             # Геката
+    "Любой ценой": "At Any Cost",                    # Ласомбра
+    "Все взаимосвязано": "Everything is Connected",  # Малкавиан
+    "Проницательность": "Discerning",                # Министерство
+    "Контекстный информатор": "Contextual Contact",  # Носферату
+    "Криптоколлектив": "Cryptolect",                 # Равнос
+    "Сдержанность": "Restraint",                     # Салюбри
+    "Полный доступ": "All Access",                   # Тореадор
+    "Многоуровневое краеведение": "Multi-Level Lorekeeping",  # Тремер
+    "Древнее гостеприимство": "Old-World Hospitality",        # Цимисхи
+    "Наследие сородичей": "Kindred Legacies",        # Вентру
+    "Универсальное витэ": "Versatile Vitae",         # Каитифф
 }
 
 
@@ -592,12 +624,14 @@ CANON_COTERIE_TRAITS = {
         "Members Only", "Transitions",
         "Abandoned Building", "Firehouse", "Police Station", "Prison",
         "Transit",
-        # достоинства членства, по одному на клан
-        "Banu Haqim membership", "Brujah membership", "Gangrel membership",
-        "Hecata membership", "Lasombra membership", "Malkavian membership",
-        "Ministry membership", "Nosferatu membership", "Ravnos membership",
-        "Salubri membership", "Toreador membership", "Tremere membership",
-        "Tzimisce membership", "Ventrue membership", "Caitiff membership",
+        # клановые достоинства котерии, по одному на клан
+        "Boot and Rally", "Call to Purpose", "Pack Tactics", "Ars Moriendi",
+        "At Any Cost", "Everything is Connected", "Discerning",
+        "Contextual Contact", "Cryptolect", "Restraint", "All Access",
+        "Multi-Level Lorekeeping", "Old-World Hospitality",
+        "Kindred Legacies", "Versatile Vitae",
+        # Шестнадцатое, для слабокровных, в русском Руководстве отсутствует.
+        "Mortal Heart",
     ],
 }
 
@@ -658,6 +692,7 @@ ALSO_IN_GUIDE = {
 
 NOT_IN_RU = {
     "Co-op",            # вид котерии, Книга правил
+    "Mortal Heart",     # клановое достоинство слабокровных
     "Carnival", "Excommunicates", "Flagellant", "Nemeses",  # Руководство
 }
 
