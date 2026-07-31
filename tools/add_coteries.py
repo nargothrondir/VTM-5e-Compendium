@@ -180,8 +180,7 @@ def main():
         flaw = s["side"] == "flaw"
         title = s["name"].capitalize()
         title = originals.RENAMES.get(title, title)
-        name = (f"({dots(s['rating'])}) {title}" if flaw
-                else f"{dots(s['rating'])} {title}")
+        name = f"{dots(s['rating'])} {title}"
         folder = folders["Недостатки котерии" if flaw else "Достоинства котерии"]
         written.append(entry(s, folder, name, s["rating"],
                              "flaw" if flaw else "merit"))

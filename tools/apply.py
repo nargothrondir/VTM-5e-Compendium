@@ -71,7 +71,9 @@ def merit_display_name(section, ua_name=""):
     был только вред — все недостатки сбивались в одну кучу по алфавиту.
 
     Недостатки отделяются папкой, а не подписью: см. `tools/regroup.py`.
-    Рейтинг у них остаётся в скобках, как в книге, — «(••) Фермер».
+    Скобок вокруг рейтинга тоже нет — книга ими метила недостаток, но папка
+    делает это яснее, и запись пишется одинаково: «••• Крепкий желудок»,
+    «•• Фермер».
     """
     base = display_name(section["name"])
     base = base[:1].upper() + base[1:]
@@ -83,8 +85,6 @@ def merit_display_name(section, ua_name=""):
     # и в строку не попадает. Тогда его берём из украинского названия —
     # там он записан явно («•••• Приголомшливий», «Вада: (••) Веган»).
     rating = section.get("rating") or ua_name.count(chr(8226))
-    if section.get("flaw"):
-        return f"({dots(rating)}) {base}" if rating else base
     return f"{dots(rating)} {base}" if rating else base
 
 

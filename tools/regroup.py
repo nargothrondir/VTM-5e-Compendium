@@ -34,9 +34,14 @@ ROOT = Path(__file__).resolve().parent.parent
 PACKS = ("advantages-flaws", "coteries")
 SIDES = {"merit": "Достоинства", "flaw": "Недостатки"}
 
-# Приписка, доставшаяся от украинской версии. Снимается вместе с пробелом,
-# но рейтинг в скобках сохраняется: «(••) Фермер» — так он и в книге.
+# Приписка, доставшаяся от украинской версии.
 PREFIX_RE = re.compile(r"^Недостаток:\s*")
+
+# Скобки вокруг рейтинга. Книга метила ими недостаток, но это делает папка,
+# и в списке они только разводили одинаковые по сути записи: «• Ищейка»
+# рядом с «(•) Разборчивость». Ловится лишь ведущая группа — «Союзники
+# (надёжность)» и «Мавла (или конкурент)» скобки сохраняют.
+PARENS_RE = re.compile(r"^\(([•●]+)\)\s*")
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
@@ -90,6 +95,7 @@ def main():
         # --- приписка
         for path, data in items.items():
             fresh = PREFIX_RE.sub("", data.get("name", "")).strip()
+            fresh = PARENS_RE.sub(lambda m: m.group(1) + " ", fresh).strip()
             if fresh and fresh != data["name"]:
                 data["name"] = fresh
                 renamed += 1
@@ -131,7 +137,7 @@ def main():
                   f"{tally.get('merit', 0)} достоинств, {tally.get('flaw', 0)} недостатков")
 
     verb = "было бы" if args.dry_run else "сделано"
-    print(f"\n{verb}: снято приписок {renamed}, заведено папок {added}, "
+    print(f"\n{verb}: поправлено названий {renamed}, заведено папок {added}, "
           f"перенесено записей {moved}")
     return 0
 
