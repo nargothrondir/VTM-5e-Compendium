@@ -73,13 +73,13 @@ def entry(section):
     }
 
 
-def register(manifest_path):
+def register(manifest_path, pack=PACK, label=PACK_LABEL):
     """Пак объявляется в манифесте — иначе Foundry его не увидит."""
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if any(p["name"] == PACK for p in manifest["packs"]):
+    if any(p["name"] == pack for p in manifest["packs"]):
         return False
     manifest["packs"].append({
-        "name": PACK, "label": PACK_LABEL, "path": f"packs/{PACK}",
+        "name": pack, "label": label, "path": f"packs/{pack}",
         "type": "Item", "system": "wod5e",
         "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
     })

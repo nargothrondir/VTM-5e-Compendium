@@ -589,6 +589,50 @@ def loresheets(doc, pages, fix_encoding, normalize, lines_of):
     return out
 
 
+# Виды котерий Руководства (стр. 160–170). Книжные оно перепечатывает под
+# своими названиями — «Чемпионы» вместо «Рыцарей», — и брать надо только те
+# семь, которых в Книге правил нет: официальный перевод главнее фанатского.
+COTERIE_TITLE_SIZE = (25.0, 29.0)
+COTERIE_BODY_SIZE = (8.5, 9.6)
+
+
+def coterie_types(doc, pages, fix_encoding, normalize, lines_of):
+    """Виды котерий из Руководства: по одному-двум на полосу."""
+    out, current = [], None
+
+    def flush():
+        nonlocal current
+        if current and current["lines"]:
+            current["text"] = normalize(chr(10).join(current.pop("lines")))
+            out.append(current)
+        current = None
+
+    for pno in range(*pages):
+        # На полосе бывает два вида, и обход по колонкам их слепляет:
+        # «Семья» терялась целиком, а её текст доставался «Посланникам».
+        lines = sorted(lines_of(doc[pno]),
+                       key=lambda l: (int(l["x0"] // 190), round(l["y0"], 1)))
+        for line in lines:
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            if font == TITLE_FONT and COTERIE_TITLE_SIZE[0] < size < COTERIE_TITLE_SIZE[1]:
+                flush()
+                current = {"kind": "coterie_type", "name": text.strip(),
+                           "page": pno + 1, "lines": []}
+            elif font == TITLE_FONT and size > COTERIE_TITLE_SIZE[1]:
+                flush()                      # титул главы закрывает перечень
+            elif (current and COTERIE_BODY_SIZE[0] < size < COTERIE_BODY_SIZE[1]
+                  and not JUNK_RE.search(text)):
+                current["lines"].append(text)
+
+    flush()
+    return out
+
+
 def split_labels(text):
     """Сплошной текст силы -> абзацы с маркерами, как в остальном компендиуме."""
     marked = LABEL_RE.sub(lambda m: chr(10) + chr(9632) + " " + m.group(1) + ": ",

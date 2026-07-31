@@ -19,8 +19,8 @@ import fitz
 
 sys.path.insert(0, str(Path(__file__).parent))
 import merits  # noqa: E402
-from pdfkit import (HYPHENS, INVISIBLE_SPACES, fix_encoding,  # noqa: E402
-                    normalize)
+from pdfkit import (HYPHENS, INVISIBLE_SPACES, RUNNING_HEAD_RE,  # noqa: E402
+                    fix_encoding, normalize)
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCES = Path(os.environ.get("VTM_SOURCES", ROOT / "sources"))
@@ -567,6 +567,69 @@ def extract_loresheets(doc, toc, book, title="Страницы истории"):
         section = _loresheet_page(doc, pno, book)
         if section:
             out.append(section)
+    return out
+
+
+# Виды котерий, стр. 199–201 Книги правил. Название — той же гарнитурой
+# и кеглем, что подзаголовок Фона; отличает их только то, под каким
+# разделом они стоят, поэтому перечень открывается титулом «Виды котерий».
+COTERIE_HEADING_FONT = "CormorantGaramond-Bold"
+COTERIE_HEADING_SIZE = (13.0, 15.0)
+COTERIE_SECTION_SIZE = (21.0, 23.0)
+
+
+def extract_coterie_types(doc, toc, book, title="Создание котерии",
+                          opening="Виды котерий"):
+    """Виды котерий из Книги правил: название и описание."""
+    first, last = section_range(toc, title, doc)
+    out, current, started = [], None, False
+
+    for pno in range(first, last):
+        # Колонки на этих полосах не разделяются: перечень идёт вперемежку
+        # с длинным вступлением во всю ширину, и page_lines сваливает всё
+        # в одну колонку. Порядок восстанавливаем сами — по абсциссе,
+        # затем по вертикали.
+        # Ширина корзины — с колонку, а не с отступ: маркер врезки стоит
+        # у левого края колонки, а подпись за ним отступлена настолько,
+        # что при мелком шаге уезжала в соседнюю корзину, и все врезки
+        # доставались последнему виду на полосе.
+        lines = sorted(page_lines(doc[pno], lambda l: classify(l) != "skip"),
+                       key=lambda l: (int(l["x0"] // 190), round(l["y0"], 1)))
+        for line in lines:
+            sp = [s for s in line["spans"] if s["text"].strip()]
+            if not sp:
+                continue
+            text = line_text(line).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            # Любой титул крупнее подзаголовка закрывает перечень — иначе
+            # в последний вид втекает начало следующей главы.
+            if size >= COTERIE_SECTION_SIZE[0]:
+                started = opening in text
+                continue
+            if not started:
+                continue
+
+            if (font == COTERIE_HEADING_FONT
+                    and COTERIE_HEADING_SIZE[0] < size < COTERIE_HEADING_SIZE[1]):
+                current = {"kind": "coterie_type",
+                           "book": LABELS.get(book, book),
+                           "name": text.strip(), "page": pno + 1, "lines": []}
+                out.append(current)
+                continue
+
+            if current is None:
+                continue
+            # Параметры вида («■ Домен: льен (●)…») набраны восьмым кеглем,
+            # и classify не считает их телом. Без них запись теряет всю
+            # механику и остаётся одной прозой.
+            if classify(line) == "body" or size < BODY_SIZE[0]:
+                if not RUNNING_HEAD_RE.match(text) and not text.replace(" ", "").isdigit():
+                    current["lines"].append(text)
+
+    for entry in out:
+        entry["text"] = normalize("\n".join(entry.pop("lines")))
+    out.sort(key=lambda e: e["name"])
     return out
 
 
