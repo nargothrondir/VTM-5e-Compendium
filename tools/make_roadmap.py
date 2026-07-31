@@ -37,8 +37,8 @@ AT_HAND = {"Corebook", "Companion", "Players Guide"}
 
 def AT_HAND_ONLY(table):
     """Записи из книг, которые у проекта есть."""
-    return [name for book, names in table.items() if book in AT_HAND
-            for name in names]
+    return [name for book, names in table.items() for name in names
+            if book in AT_HAND or name in originals.ALSO_IN_GUIDE]
 
 INTRO = """# План перевода
 

@@ -483,19 +483,15 @@ CANON_LORESHEETS = {
         "Lost Secrets of the Milwaukee Chantry", "Mark Decker", "Maxwell",
         "The Milwaukee \"Null Zone\"", "Modius",
     ],
-    # Вики держит их одной группой «Cults of the Blood Gods / Players Guide»,
-    # но семь линий крови Гекаты Руководство перепечатывает у себя (стр.
-    # 225–231), а остальные пять есть только в Cults of the Blood Gods.
-    # Проверено по самой книге: группировка вики тут вводит в заблуждение.
-    "Players Guide": [
+    # Все двенадцать — из Cults of the Blood Gods, стр. 223–234; сверено по
+    # самой книге. Семь из них Руководство перепечатывает у себя (стр.
+    # 225–231), и потому они нам доступны — см. ALSO_IN_GUIDE ниже.
+    "Cults of the Blood Gods": [
         "Bankers of Dunsirn", "Children of Tenochtitlan",
         "The Nation of Blood", "Flesh-Eaters", "Harbingers of Ashur",
-        "La Famiglia Giovanni", "The Gorgons",
-    ],
-    "Cults of the Blood Gods": [
-        "The Criminal Puttanesca", "Calling the Family Reunion",
-        "Child of the Angel Michael", "Servitor of Irad",
-        "The Promise of 1528",
+        "La Famiglia Giovanni", "The Criminal Puttanesca", "The Gorgons",
+        "Calling the Family Reunion", "Child of the Angel Michael",
+        "Servitor of Irad", "The Promise of 1528",
     ],
     "Children of the Blood": [
         "Little Siblings", "Grudge Masters", "The Ashfinders", "Amaranthan",
@@ -651,6 +647,15 @@ PLAYERS_GUIDE_CUSTOM = {RENAMES.get(k, k): v
 # Канон снят по вики, то есть по английскому изданию. Русское местами
 # короче: этих записей в нём нет вовсе, и в недостачу их писать нельзя —
 # иначе проверка будет красной всегда.
+# Лоршиты, которые Руководство перепечатывает из Cults of the Blood Gods.
+# Первоисточник у них Cults, но взять их можно и без него — Руководство
+# у проекта есть, и семь линий крови Гекаты из него уже перенесены.
+ALSO_IN_GUIDE = {
+    "Bankers of Dunsirn", "Children of Tenochtitlan", "The Nation of Blood",
+    "Flesh-Eaters", "Harbingers of Ashur", "La Famiglia Giovanni",
+    "The Gorgons",
+}
+
 NOT_IN_RU = {
     "Co-op",            # вид котерии, Книга правил
     "Carnival", "Excommunicates", "Flagellant", "Nemeses",  # Руководство
