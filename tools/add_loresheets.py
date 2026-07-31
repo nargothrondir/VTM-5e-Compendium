@@ -24,13 +24,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import fitz  # noqa: E402
+import guide_clans  # noqa: E402
 from add_clans import is_module_dir, make_id, safe_filename  # noqa: E402
-from extract_pdf import CORE, SOURCES, extract_loresheets  # noqa: E402
-from pdfkit import to_html  # noqa: E402
+from extract_pdf import (CORE, GUIDE, SOURCES, extract_loresheets,  # noqa: E402
+                         page_lines)
+from pdfkit import fix_encoding, normalize, to_html  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PACK = "loresheets"
 PACK_LABEL = "Страницы истории"
+GUIDE_PAGES = (224, 232)
+GUIDE_NOTE = "Руководство для игроков"
 ICON = "systems/vtm5e/assets/icons/items/discipline.png"
 
 
@@ -40,7 +44,12 @@ def module_dir():
 
 def entry(section):
     _id = make_id("loresheet:" + section["name"])
-    body = to_html(section["text"]) + "".join(
+    head = ""
+    if section.get("source"):
+        head = f"<p><em>Источник: {section['source']}</em></p>"
+    if section.get("subtitle"):
+        head += f"<p><em>{section['subtitle'].capitalize()}</em></p>"
+    body = head + to_html(section["text"]) + "".join(
         to_html(f"■ {'●' * lvl['rating']} {lvl['name']}: {lvl['text']}")
         for lvl in section["levels"])
     return {
@@ -89,6 +98,14 @@ def main():
 
     doc = fitz.open(SOURCES / CORE)
     sections = extract_loresheets(doc, doc.get_toc(), CORE)
+
+    # Руководство отдаёт ещё семь — линии крови Гекаты, стр. 225–231.
+    # Своя глава «Страницы истории», свёрстанная совершенно иначе.
+    guide = fitz.open(SOURCES / GUIDE)
+    for section in guide_clans.loresheets(
+            guide, GUIDE_PAGES, fix_encoding, normalize, page_lines):
+        section["source"] = GUIDE_NOTE
+        sections.append(section)
 
     broken = [s["name"] for s in sections
               if len(s["levels"]) != 5 or not s["text"]]

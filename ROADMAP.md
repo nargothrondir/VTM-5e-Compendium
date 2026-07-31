@@ -26,7 +26,7 @@
 | Сила Крови | 7 | 7 | закрыто |
 | Достоинства и недостатки | 85 | — | канон не сверялся |
 | Достоинства из Руководства | 58 | 58 | 6 записей без оригинала |
-| Страницы истории | 25 | 151 | Книга правил закрыта |
+| Страницы истории | 32 | 151 | имеющиеся книги закрыты |
 | Типы котерии | 0 | 40 | 27 доступны |
 | Достоинства котерии | 0 | 28 | 28 доступны |
 
@@ -141,7 +141,7 @@
 
 ### Страницы истории
 
-Книга правил закрыта целиком — все двадцать пять. Линейка прирастала лоршитами десять лет, и остальное разбросано по книгам, которых у проекта нет.
+Имеющиеся книги закрыты целиком: двадцать пять из Книги правил и семь линий крови Гекаты из Руководства. Линейка прирастала лоршитами десять лет, и остальное разбросано по книгам, которых у проекта нет.
 
 | Книга | Лоршитов | Например |
 |---|---|---|
@@ -150,7 +150,7 @@
 | Chicago by Night | 23 | Annabelle, Ballard Industries, Blacksite 24… |
 | Chicago Folios | 12 | Archons, The Convention of Chicago, Descendant of Menele… |
 | Let the Streets Run Red | 9 | The Anubi, Eletria, Kindred Social Media Influencer… |
-| Cults of the Blood Gods | 12 | Bankers of Dunsirn, Children of Tenochtitlan, The Nation of Blood… |
+| Cults of the Blood Gods | 5 | The Criminal Puttanesca, Calling the Family Reunion, Child of the Angel Michael… |
 | Children of the Blood | 8 | Little Siblings, Grudge Masters, The Ashfinders… |
 | Forbidden Religions | 6 | 1444 Chamber, Blood Asceticism, Gehenna Cults… |
 | Fall of London | 6 | Agent of Justicar Parr, Court of Shadows, Hunt Club… |

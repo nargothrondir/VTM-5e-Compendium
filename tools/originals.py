@@ -483,12 +483,19 @@ CANON_LORESHEETS = {
         "Lost Secrets of the Milwaukee Chantry", "Mark Decker", "Maxwell",
         "The Milwaukee \"Null Zone\"", "Modius",
     ],
-    "Cults of the Blood Gods": [
+    # Вики держит их одной группой «Cults of the Blood Gods / Players Guide»,
+    # но семь линий крови Гекаты Руководство перепечатывает у себя (стр.
+    # 225–231), а остальные пять есть только в Cults of the Blood Gods.
+    # Проверено по самой книге: группировка вики тут вводит в заблуждение.
+    "Players Guide": [
         "Bankers of Dunsirn", "Children of Tenochtitlan",
         "The Nation of Blood", "Flesh-Eaters", "Harbingers of Ashur",
-        "La Famiglia Giovanni", "The Criminal Puttanesca", "The Gorgons",
-        "Calling the Family Reunion", "Child of the Angel Michael",
-        "Servitor of Irad", "The Promise of 1528",
+        "La Famiglia Giovanni", "The Gorgons",
+    ],
+    "Cults of the Blood Gods": [
+        "The Criminal Puttanesca", "Calling the Family Reunion",
+        "Child of the Angel Michael", "Servitor of Irad",
+        "The Promise of 1528",
     ],
     "Children of the Blood": [
         "Little Siblings", "Grudge Masters", "The Ashfinders", "Amaranthan",

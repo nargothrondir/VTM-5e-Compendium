@@ -492,6 +492,103 @@ def backgrounds(doc, pages, fix_encoding, normalize, lines_of,
     return out
 
 
+# Страницы истории Руководства (стр. 225–231) — семь линий крови Гекаты.
+# Устроены проще книжных: вступление десятым кеглем сверху, пять ступеней
+# девятым снизу, титул своей гарнитурой. Подписи ступеней здесь в обычном
+# регистре и через двоеточие, а не капсом с точкой, как в Книге правил.
+GUIDE_LORE_TITLE_FONT = "DXLubava-Regular"
+GUIDE_LORE_TITLE_SIZE = (24.0, 30.0)
+GUIDE_LORE_SUB_SIZE = (13.0, 15.0)
+# Граница между вступлением и ступенями гуляет: у «Банкиров» это 10.7 против
+# 9.0, у «Пожирателей плоти» — 10.0 против 8.0. Нижняя граница вступления
+# обязана впускать ровно десятый кегль, иначе три полосы остаются без него.
+GUIDE_LORE_LEAD_SIZE = (9.6, 11.5)
+GUIDE_LORE_STEP_SIZE = (7.5, 9.6)
+GUIDE_LORE_DOTS_RE = re.compile(r"^\s*([•●]{1,5})\s+(?=[А-ЯЁA-Z])")
+GUIDE_LORE_SPLIT_RE = re.compile(r"^(.{2,60}?):\s*(.*)$", re.S)
+
+# Имена собственные в подписях: капс снимается, они остаются с заглавной.
+GUIDE_LORE_PROPER = {
+    "дансирна", "дансирны", "теночтитлана", "джованни", "лазарена",
+    "медузы", "сетит", "анциано", "csi", "гекаты", "маски", "нод",
+}
+
+
+# Названия лоршитов — имена собственные, из капса правилом не выводятся.
+GUIDE_LORE_TITLES = {
+    "БАНКИРЫ ДАНСИРНА": "Банкиры Дансирна",
+    "ДЕТИ ТЕНОЧТИТЛАНА": "Дети Теночтитлана",
+    "ПОЖИРАТЕЛИ ПЛОТИ": "Пожиратели плоти",
+    "ПРЕДВЕСТНИКИ ЧЕРЕПА": "Предвестники Черепа",
+    "СЕМЬЯ ДЖОВАННИ": "Семья Джованни",
+    "ГОРГОНЫ": "Горгоны",
+    "НАСЬОН САН АН": "Насьон Сан Ан",
+}
+
+
+def _guide_lore_name(text):
+    words = [w.capitalize() if w.lower() in GUIDE_LORE_PROPER else w.lower()
+             for w in text.split()]
+    out = " ".join(words)
+    return out[:1].upper() + out[1:]
+
+
+def loresheets(doc, pages, fix_encoding, normalize, lines_of):
+    """Лоршиты Руководства: по одному на полосу."""
+    out = []
+    for pno in range(*pages):
+        title, subtitle, lead, levels = [], "", [], []
+        # Ступени привязываются к абсциссе, а не к колонке: на полосе
+        # «Пожирателей плоти» вступление идёт во всю ширину и слепляет
+        # колонки в одну, после чего тексты ступеней перемешиваются.
+        by_column = {}
+        for line in lines_of(doc[pno]):
+            sp = _spans(line)
+            if not sp:
+                continue
+            text = fix_encoding("".join(s["text"] for s in sp)).strip()
+            font, size = sp[0]["font"], sp[0]["size"]
+
+            if (font == GUIDE_LORE_TITLE_FONT
+                    and GUIDE_LORE_TITLE_SIZE[0] < size < GUIDE_LORE_TITLE_SIZE[1]):
+                title.append(text)
+            elif GUIDE_LORE_SUB_SIZE[0] < size < GUIDE_LORE_SUB_SIZE[1]:
+                subtitle = text.strip("()")
+            elif GUIDE_LORE_LEAD_SIZE[0] < size < GUIDE_LORE_LEAD_SIZE[1]:
+                if not JUNK_RE.search(text):
+                    lead.append(text)
+            elif GUIDE_LORE_STEP_SIZE[0] < size < GUIDE_LORE_STEP_SIZE[1]:
+                column = round(line["x0"] / 40)
+                hit = GUIDE_LORE_DOTS_RE.match(text)
+                if hit:
+                    # Подпись переносится без двоеточия — «•••• Некромантическое
+                    # / мастерство:», — поэтому ступень собирается целиком
+                    # и режется по первому двоеточию.
+                    level = {"rating": len(hit.group(1)),
+                             "lines": [text[hit.end():].strip()]}
+                    levels.append(level)
+                    by_column[column] = level
+                elif column in by_column and not JUNK_RE.search(text):
+                    by_column[column]["lines"].append(text)
+
+        if not title or not levels:
+            continue
+        for lvl in levels:
+            raw = normalize("\n".join(x for x in lvl.pop("lines") if x))
+            split = GUIDE_LORE_SPLIT_RE.match(raw)
+            lvl["name"] = _guide_lore_name(split.group(1)) if split else raw[:50]
+            lvl["text"] = split.group(2).strip() if split else ""
+        levels.sort(key=lambda l: l["rating"])
+        key = re.sub(r"\s+", " ", " ".join(title)).strip().upper()
+        out.append({
+            "kind": "loresheet",
+            "name": GUIDE_LORE_TITLES.get(key, _guide_lore_name(key)),
+            "subtitle": subtitle, "page": pno + 1,
+            "text": normalize("\n".join(lead)), "levels": levels,
+        })
+    return out
+
+
 def split_labels(text):
     """Сплошной текст силы -> абзацы с маркерами, как в остальном компендиуме."""
     marked = LABEL_RE.sub(lambda m: chr(10) + chr(9632) + " " + m.group(1) + ": ",
