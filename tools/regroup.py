@@ -59,7 +59,7 @@ def folder_doc(name, parent, sort):
         "_id": _id, "description": "", "sort": sort, "color": "#9f90a2",
         "flags": {},
         "_stats": {"compendiumSource": None, "duplicateSource": None,
-                   "coreVersion": "13.346", "systemId": "vtm5e",
+                   "coreVersion": "13.346", "systemId": "wod5e",
                    "systemVersion": "5.1.4", "createdTime": 0,
                    "modifiedTime": 0, "lastModifiedBy": None},
         "_key": f"!folders!{_id}",

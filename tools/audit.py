@@ -268,6 +268,19 @@ def check_manifest(mod, packs, errors):
         errors.append(f"иконки из чужой системы {system!r}: {count} записей — "
                       f"Foundry будет переносить пути при каждой загрузке")
 
+    # То же и в метаданных: `_stats.systemId` говорит, под какую систему
+    # запись сделана. Пока там стоял унаследованный vtm5e, метаданные
+    # спорили с манифестом.
+    stale = collections.Counter()
+    for rows in packs.values():
+        for _, data in rows:
+            said = (data.get("_stats") or {}).get("systemId")
+            if said and said not in ours:
+                stale[said] += 1
+    for system, count in stale.items():
+        errors.append(f"_stats.systemId {system!r} у {count} записей — "
+                      f"манифест объявляет {sorted(ours)}")
+
 
 def main():
     ap = argparse.ArgumentParser()

@@ -115,7 +115,7 @@ def build_entry(name, icon, disciplines, description, bane, source_note=None):
             "compendiumSource": None,
             "duplicateSource": None,
             "coreVersion": "13.346",
-            "systemId": "vtm5e",
+            "systemId": "wod5e",
             "systemVersion": "5.0.11",
             "createdTime": 0,
             "modifiedTime": 0,

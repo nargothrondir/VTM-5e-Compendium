@@ -75,7 +75,7 @@ def entry(section):
         "effects": [], "sort": 0, "ownership": {"default": 0}, "flags": {},
         "_stats": {"compendiumSource": None, "duplicateSource": None,
                    "exportSource": None, "coreVersion": "13.346",
-                   "systemId": "vtm5e", "systemVersion": "5.1.4",
+                   "systemId": "wod5e", "systemVersion": "5.1.4",
                    "createdTime": 0, "modifiedTime": 0,
                    "lastModifiedBy": None},
         "_key": f"!items!{_id}",
