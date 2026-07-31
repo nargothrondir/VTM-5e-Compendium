@@ -3,7 +3,7 @@
   "name": "• Тайник с оружием",
   "type": "feature",
   "_id": "9A0oQrnd67hDApcB",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Каждый пункт этого достоинства добавляет по одному тайнику с оружием в твоё убежище, и в каждом из этих тайников хранится пистолет и какое-то длинноствольное оружие, а также патроны к ним. Они так же надёжно спрятаны, как и место твоего дневного сна.</p>",
     "bonuses": [],

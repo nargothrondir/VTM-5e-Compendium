@@ -30,7 +30,10 @@ from pdfkit import fix_encoding, normalize, to_html  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = (119, 124)
 SOURCE_NOTE = "Руководство для игроков"
-ICON = "systems/vtm5e/assets/icons/items/discipline.png"
+# Модуль объявляет систему wod5e — и путь к иконке обязан быть её.
+# Пока стоял vtm5e, wod5e переносила пути при каждой загрузке мира
+# и показывала плашку миграции на 246 записей.
+ICON = "systems/wod5e/assets/icons/items/discipline.png"
 
 # Разряд в книге -> папка компендиума. Три разряда ложатся в существующие
 # папки, два своих в компендиуме нет: «Мифические» и «Прочие».

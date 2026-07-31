@@ -3,7 +3,7 @@
   "name": "•• Неустойчивые узы",
   "type": "feature",
   "_id": "Bboh24ArP10xHNWa",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Узы крови спадают с тебя быстрее, чем с других вампиров, ослабевая на одну ступень и в полнолуние, и в новолуние (т. е. два раза в месяц).</p>",
     "bonuses": [],

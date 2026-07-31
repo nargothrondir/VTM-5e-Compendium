@@ -3,7 +3,7 @@
   "name": "Недостаток: (••) Отверженный",
   "type": "feature",
   "_id": "2DSkpd7wqzAPpVEq",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Одна из фракций тебя ненавидит и презирает. Ты предал её, перешёл дорогу местному лидеру или в прошлом выступал против её членов. Представители этой фракции будут активно тебе противодействовать при каждой возможности.</p>",
     "bonuses": [],

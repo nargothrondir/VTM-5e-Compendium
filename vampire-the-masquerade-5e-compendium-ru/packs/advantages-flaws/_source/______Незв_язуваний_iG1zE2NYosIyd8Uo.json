@@ -3,7 +3,7 @@
   "name": "•••• Невосприимчивость к узам",
   "type": "feature",
   "_id": "iG1zE2NYosIyd8Uo",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Тебя нельзя связать узами крови. Если тебе не хватает денег, можешь продавать свою витэ алхимикам, ничего не опасаясь.</p>",
     "bonuses": [],

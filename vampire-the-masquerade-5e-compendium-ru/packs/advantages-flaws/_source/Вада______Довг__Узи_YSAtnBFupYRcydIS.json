@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Устойчивые узы",
   "type": "feature",
   "_id": "YSAtnBFupYRcydIS",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Ты дольше других остаёшься под влиянием уз крови — требуется три месяца, чтобы они ослабли на одну ступень.</p>",
     "bonuses": [],

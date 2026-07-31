@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Стигматы",
   "type": "feature",
   "_id": "Td5uL5sxQKtCS1wK",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Когда твой Голод достигает четырёх пунктов, у тебя открываются кровоточащие раны на запястьях, ступнях и лбу. Это привлекает внимание, оставляет следы и по решению рассказчика может уменьшить пулы некоторых проверок.</p>",
     "bonuses": [],

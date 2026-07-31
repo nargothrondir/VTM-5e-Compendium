@@ -3,7 +3,7 @@
   "name": "Недостаток: (••) Мишень для кольев",
   "type": "feature",
   "_id": "mvHYsFDlipA1bD3S",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Если проткнуть твоё сердце колом, ты встретишь Окончательную смерть, а не просто впадёшь в торпор, как другие Сородичи.</p>",
     "bonuses": [],

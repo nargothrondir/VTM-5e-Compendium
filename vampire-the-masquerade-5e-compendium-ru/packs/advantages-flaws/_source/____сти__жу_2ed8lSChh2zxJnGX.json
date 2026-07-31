@@ -3,7 +3,7 @@
   "name": "•• Способность есть пищу",
   "type": "feature",
   "_id": "2ed8lSChh2zxJnGX",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Ты можешь есть, как все смертные, и даже, возможно, наслаждаться вкусом, однако Голод человеческая пища не утоляет, и её необходимо исторгнуть из организма, прежде чем ты ляжешь спать на день.</p>",
     "bonuses": [],

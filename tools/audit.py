@@ -30,6 +30,7 @@
 """
 
 import argparse
+import collections
 import json
 import re
 import statistics
@@ -238,6 +239,9 @@ def check_readme(packs, errors):
                 f" а в паках {items} и {folders}")
 
 
+ICON_SYSTEM_RE = re.compile(r"^systems/([^/]+)/")
+
+
 def check_manifest(mod, packs, errors):
     manifest = json.loads((mod / "module.json").read_text(encoding="utf-8"))
     declared = {p["name"] for p in manifest.get("packs", [])}
@@ -245,6 +249,22 @@ def check_manifest(mod, packs, errors):
         if name not in declared:
             errors.append(f"пак {name!r} не объявлен в манифесте — "
                           f"Foundry его не увидит")
+
+    # Иконка из чужой системы заставляет wod5e переносить пути при каждой
+    # загрузке мира: 246 записей смотрели в systems/vtm5e, и Foundry
+    # показывал плашку миграции всякий раз после обновления модуля.
+    ours = {s["id"] for s in manifest.get("relationships", {}).get("systems", [])}
+    if not ours:
+        return
+    foreign = collections.Counter()
+    for rows in packs.values():
+        for _, data in rows:
+            hit = ICON_SYSTEM_RE.match(data.get("img") or "")
+            if hit and hit.group(1) not in ours:
+                foreign[hit.group(1)] += 1
+    for system, count in foreign.items():
+        errors.append(f"иконки из чужой системы {system!r}: {count} записей — "
+                      f"Foundry будет переносить пути при каждой загрузке")
 
 
 def main():

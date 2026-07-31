@@ -3,7 +3,7 @@
   "name": "• Низкий аппетит",
   "type": "feature",
   "_id": "RAnJpacyAWhF0e5F",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p><em>Источник: Руководство для игроков</em></p><p>Когда уровень голода равен 0 или 1, а также когда вы встаете на закате, бросьте два кубика на проверку ИК и выберите наибольшее из двух.</p>",
     "bonuses": [],

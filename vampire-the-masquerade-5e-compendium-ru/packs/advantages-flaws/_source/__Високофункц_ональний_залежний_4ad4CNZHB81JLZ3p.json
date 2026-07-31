@@ -3,7 +3,7 @@
   "name": "• Высокофункциональный наркоман",
   "type": "feature",
   "_id": "4ad4CNZHB81JLZ3p",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Если кровь последней жертвы персонажа содержала нужное вещество, пул проверок характеристик одной из категорий (определи её заранее вместе с наименованием вещества) увеличивается на 1d10.</p>",
     "bonuses": [],

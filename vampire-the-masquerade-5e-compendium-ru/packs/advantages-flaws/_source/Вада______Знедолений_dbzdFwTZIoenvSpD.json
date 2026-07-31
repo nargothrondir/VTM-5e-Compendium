@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Нищий",
   "type": "feature",
   "_id": "dbzdFwTZIoenvSpD",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>У тебя нет ни денег, ни дома.</p>",
     "bonuses": [],

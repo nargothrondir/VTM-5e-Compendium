@@ -3,7 +3,7 @@
   "name": "•••• Восхитительный",
   "type": "feature",
   "_id": "oIGL6a7TRgTt1p3S",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Пулы всех социальных проверок, на которые может повлиять внешность, увеличиваются на 2d10.</p>",
     "bonuses": [],

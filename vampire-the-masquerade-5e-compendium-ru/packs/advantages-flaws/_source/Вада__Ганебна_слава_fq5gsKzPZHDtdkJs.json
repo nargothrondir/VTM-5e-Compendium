@@ -3,7 +3,7 @@
   "name": "Недостаток: Дурная слава",
   "type": "feature",
   "_id": "fq5gsKzPZHDtdkJs",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Ты знаменит благодаря каким-то ужасным поступкам. В лучшем случае сложность большинства проверок, где важна реакция оппонента, вырастет на величину, равную значению дурной славы; в худшем — власти будут пытаться арестовать или убить тебя, где бы ты ни появился.</p>",
     "bonuses": [],

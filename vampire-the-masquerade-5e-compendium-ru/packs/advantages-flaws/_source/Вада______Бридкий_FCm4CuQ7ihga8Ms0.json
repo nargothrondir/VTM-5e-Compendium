@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Уродливый",
   "type": "feature",
   "_id": "FCm4CuQ7ihga8Ms0",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Пулы всех социальных проверок, на которые может повлиять внешность, уменьшаются на 1d10.</p>",
     "bonuses": [],

@@ -3,7 +3,7 @@
   "name": "Страницы истории",
   "type": "feature",
   "_id": "EAnrmK7AOKAEO2nO",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p><em>Источник: Руководство для игроков</em></p><p>Линия крови - это особый вид страниц историй, который выступает в качестве собственного типа фона.</p>",
     "bonuses": [],

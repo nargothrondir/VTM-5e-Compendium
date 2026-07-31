@@ -3,7 +3,7 @@
   "name": "• Устойчивость к узам",
   "type": "feature",
   "_id": "J10FtmJyYriM0SwI",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Твоя Кровь восстаёт против чужого влияния. Можно приобрести от одного до трёх пунктов этого достоинства. Каждый из них позволяет увеличить пул проверок устойчивости к узам на 1d10.</p>",
     "bonuses": [],

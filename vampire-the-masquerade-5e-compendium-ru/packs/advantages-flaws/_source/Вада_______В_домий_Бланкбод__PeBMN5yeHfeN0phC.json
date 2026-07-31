@@ -3,7 +3,7 @@
   "name": "Недостаток: (••) Пустотелый",
   "type": "feature",
   "_id": "PeBMN5yeHfeN0phC",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Твои биометрические данные, имя, биография, имена подельников и известные прозвища фигурируют в базах данных нескольких разведывательных учреждений с отметкой «потенциальный террорист». Любой инквизитор, читая между строк, поймёт, что ты вампир.</p>",
     "bonuses": [],

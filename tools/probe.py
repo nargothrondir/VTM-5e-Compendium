@@ -78,6 +78,40 @@ def show_headings(doc, first, last, floor):
                   f"{text[:60]}")
 
 
+def show_titles(doc, first, last, floor):
+    """Перечень записей — механически, без чтения полос.
+
+    Полноту перечня нельзя доверять глазу: пропустить одно название из
+    двенадцати легко и незаметно. Здесь он снимается по кеглю и печатается
+    с номерами, чтобы счёт был виден сразу.
+
+    Разрядка снимается: титул набран «T H E G O R G O N S», и без склейки
+    название не опознать.
+    """
+    sizes = collections.Counter(round(sp[0]["size"], 1)
+                                for _, _, sp, _ in line_rows(doc, first, last))
+    body = sizes.most_common(1)[0][0] if sizes else 10.0
+    cut = floor if floor else body * 2
+
+    # NOISE здесь не годится: он отбрасывает разрядку как колонтитул, а титул
+    # набран ровно так же — «B A N K E R S O F D U N S I R N». Колонтитул
+    # отсекается кеглем, он мелкий; остаётся отбросить колонцифру.
+    digits = re.compile(r"^[\d\s]+$")
+    seen, n = set(), 0
+    for pno, _, spans, text in line_rows(doc, first, last):
+        if round(spans[0]["size"], 1) < cut or digits.match(text):
+            continue
+        # Одинокая литера — буквица, а не заголовок.
+        name = re.sub(r"(?<=[^\s]) (?=[^\s])", "", text) if text.count(" ") \
+            and len(text.replace(" ", "")) > 2 else text
+        if len(name) < 3 or name in seen:
+            continue
+        seen.add(name)
+        n += 1
+        print(f"  {n:>3}. стр.{pno + 1:<5} {name}")
+    print(f"\nвсего названий: {n} (кегль от {cut}, тело {body})")
+
+
 def show_columns(doc, first, last):
     """Врёт ли порядок чтения.
 
@@ -121,6 +155,7 @@ def main():
     ap.add_argument("--fonts", action="store_true", help="перепись начертаний")
     ap.add_argument("--headings", action="store_true", help="кандидаты в заголовки")
     ap.add_argument("--columns", action="store_true", help="проверка порядка чтения")
+    ap.add_argument("--titles", action="store_true", help="перечень записей со счётом")
     ap.add_argument("--lines", action="store_true", help="полоса целиком")
     ap.add_argument("--floor", type=float, help="свой порог кегля для заголовков")
     ap.add_argument("--list", action="store_true", help="какие книги есть")
@@ -147,6 +182,10 @@ def main():
     pages = args.pages or [1, doc.page_count + 1]
     first = pages[0] - 1
     last = (pages[1] if len(pages) > 1 else pages[0]) if args.pages else pages[1]
+
+    if args.titles:
+        show_titles(doc, first, last, args.floor)
+        return 0
 
     if not any((args.fonts, args.headings, args.columns, args.lines)):
         args.fonts = args.headings = args.columns = True

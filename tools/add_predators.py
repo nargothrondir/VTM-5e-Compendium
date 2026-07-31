@@ -45,7 +45,10 @@ ENGLISH = {
 
 # Папка «Тип Хижака» из украинской версии; в ней лежат остальные типы.
 FOLDER_NAME = "Тип охотника"
-ICON = "systems/vtm5e/assets/icons/items/discipline.png"
+# Модуль объявляет систему wod5e — и путь к иконке обязан быть её.
+# Пока стоял vtm5e, wod5e переносила пути при каждой загрузке мира
+# и показывала плашку миграции на 246 записей.
+ICON = "systems/wod5e/assets/icons/items/discipline.png"
 
 
 def module_dir():

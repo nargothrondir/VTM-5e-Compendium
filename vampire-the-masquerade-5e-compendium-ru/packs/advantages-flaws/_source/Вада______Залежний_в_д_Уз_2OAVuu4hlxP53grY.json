@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Пристрастие к узам",
   "type": "feature",
   "_id": "2OAVuu4hlxP53grY",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Узы тебе кажутся слаще, чем другим. Пул всех проверок, идущих вразрез с волей сюзерена, уменьшается на 1d10.</p>",
     "bonuses": [],

@@ -3,7 +3,7 @@
   "name": "Недостаток: (••) Фермер",
   "type": "feature",
   "_id": "Bl5eU7tj4FpTAnSF",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Ты питаешься исключительно кровью животных. Если ты хочешь насытиться кровью человека, то сперва должен потратить два пункта <em>Воли</em>. Вентру не могут приобретать этот недостаток.</p>",
     "bonuses": [],

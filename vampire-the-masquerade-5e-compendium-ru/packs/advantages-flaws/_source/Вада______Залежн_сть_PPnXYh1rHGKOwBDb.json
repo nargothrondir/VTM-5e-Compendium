@@ -3,7 +3,7 @@
   "name": "Недостаток: (•) Пристрастие",
   "type": "feature",
   "_id": "PPnXYh1rHGKOwBDb",
-  "img": "systems/vtm5e/assets/icons/items/discipline.png",
+  "img": "systems/wod5e/assets/icons/items/discipline.png",
   "system": {
     "description": "<p>Если кровь последней жертвы персонажа не содержала нужного вещества, пул всех проверок, не связанных с моментальным удовлетворением потребности в веществе, уменьшается на 1d10.</p>",
     "bonuses": [],
