@@ -65,23 +65,26 @@ def dots(rating):
 def merit_display_name(section, ua_name=""):
     """Имя записи достоинства или недостатка.
 
-    Компендиум показывает в списке и вид записи, и рейтинг («Вада: (••)
-    Архаїчний»), поэтому та же разметка сохраняется и в переводе — иначе
-    в дереве не отличить недостаток от достоинства.
+    Подписи «Недостаток:» здесь нет намеренно. Она досталась от украинской
+    версии и дублировала то, что у записи и так есть: `featuretype`, который
+    Foundry показывает отдельным полем «Тип преимущества». В списке от неё
+    был только вред — все недостатки сбивались в одну кучу по алфавиту.
+
+    Недостатки отделяются папкой, а не подписью: см. `tools/regroup.py`.
+    Рейтинг у них остаётся в скобках, как в книге, — «(••) Фермер».
     """
     base = display_name(section["name"])
     base = base[:1].upper() + base[1:]
 
     if section["kind"] == "merit_category":
-        prefix = "Недостаток: " if section["name"] in mapping_merits.FLAW_CATEGORIES else ""
-        return prefix + base
+        return base
 
     # Рейтинг книги приоритетен, но у части достоинств он набран на полях
     # и в строку не попадает. Тогда его берём из украинского названия —
     # там он записан явно («•••• Приголомшливий», «Вада: (••) Веган»).
     rating = section.get("rating") or ua_name.count(chr(8226))
     if section.get("flaw"):
-        return f"Недостаток: ({dots(rating)}) {base}" if rating else f"Недостаток: {base}"
+        return f"({dots(rating)}) {base}" if rating else base
     return f"{dots(rating)} {base}" if rating else base
 
 

@@ -30,7 +30,7 @@ on the Ukrainian version keep working.
 
 ## What is translated
 
-**470 entries and 125 folders** — the entire compendium.
+**470 entries and 141 folders** — the entire compendium.
 
 | Compendium | Entries |
 |---|---:|
@@ -112,6 +112,7 @@ sourcebooks (PDF)  ──extract──▶  data/book_sections.json
 | `npm run mapping` | builds the correspondence table |
 | `npm run apply` | writes the text into compendium entries |
 | `npm run emphasize` | capitalises game terms and marks up labels |
+| `npm run regroup` | splits merits and flaws into folders |
 | `npm run build` | compiles `_source` into the pack Foundry reads |
 | `npm run verify` | checks integrity and reports progress |
 | `npm run audit` | hunts silent defects: canon counts, outliers, markup |
